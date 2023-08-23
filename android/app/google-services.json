@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "137409650490",
+    "project_id": "mustachehub",
+    "storage_bucket": "mustachehub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137409650490:android:3a6288997b0bc9c2f1ba03",
+        "android_client_info": {
+          "package_name": "com.mustachehub.mustachehub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137409650490-rqeia18aj2j972tlf97kg48hqb5fe6ir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgkCo0rKuKUv2Bvr6-Q68VBRXNkdNG450"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137409650490-rqeia18aj2j972tlf97kg48hqb5fe6ir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
