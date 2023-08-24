@@ -13,6 +13,7 @@ import 'package:mustachehub/modules/create_template/views/create_template/widget
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/formfields/boolean_pipe_formfield.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/formfields/model_pipe_formfield.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/formfields/text_pipe_formfield.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/widgets/sections/pipe_creator_section.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/sections/text_content_section.dart';
 import 'package:mustachehub/shared/custom_header.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -41,14 +42,14 @@ class _ScreenExpandedSize extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          child: PipeCreationSection(),
+          child: VariablesCreationSection(),
         ),
-        VerticalDivider(width: 0),
-        Expanded(
+        const VerticalDivider(width: 0),
+        const Expanded(
           child: TextContentSection(),
         ),
       ],
@@ -184,7 +185,7 @@ class PipeCreationSection extends HookWidget {
             ),
           ),
           ...BasePipeCreationSection<BoleanPipeBloc, BoleanPipeState,
-              BoleanPipe>(
+              BooleanPipe>(
             headerTitle: 'Boolean variables (True or false)',
             subtitleSubtitle:
                 'Boolean variables are characterized by being able '

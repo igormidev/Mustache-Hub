@@ -35,7 +35,7 @@ class BoleanPipeBloc extends Bloc<BoleanPipeEvent, BoleanPipeState> {
     _CreateNewPipe event,
     Emitter<BoleanPipeState> emit,
   ) {
-    const newPipe = BoleanPipe(name: '', description: '');
+    const newPipe = BooleanPipe(name: '', description: '');
     emit(BoleanPipeState.editing(
       pipes: [...state.pipes, newPipe],
       editingPipe: newPipe,

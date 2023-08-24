@@ -22,4 +22,11 @@
         "**/.flutter-plugins": true, 
         "**/.flutter-plugins-dependencies": true 
     },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "[dart]": {
+        "editor.defaultFormatter": "Dart-Code.dart-code",
+        "editor.formatOnSave": true
+    },
 }

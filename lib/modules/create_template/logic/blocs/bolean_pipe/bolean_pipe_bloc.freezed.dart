@@ -16,28 +16,28 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BoleanPipeState {
-  List<BoleanPipe> get pipes => throw _privateConstructorUsedError;
+  List<BooleanPipe> get pipes => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<BoleanPipe> pipes) normal,
-    required TResult Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)
+    required TResult Function(List<BooleanPipe> pipes) normal,
+    required TResult Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)
         editing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<BoleanPipe> pipes)? normal,
-    TResult? Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)?
+    TResult? Function(List<BooleanPipe> pipes)? normal,
+    TResult? Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)?
         editing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<BoleanPipe> pipes)? normal,
-    TResult Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)?
+    TResult Function(List<BooleanPipe> pipes)? normal,
+    TResult Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)?
         editing,
     required TResult orElse(),
   }) =>
@@ -73,7 +73,7 @@ abstract class $BoleanPipeStateCopyWith<$Res> {
           BoleanPipeState value, $Res Function(BoleanPipeState) then) =
       _$BoleanPipeStateCopyWithImpl<$Res, BoleanPipeState>;
   @useResult
-  $Res call({List<BoleanPipe> pipes});
+  $Res call({List<BooleanPipe> pipes});
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class _$BoleanPipeStateCopyWithImpl<$Res, $Val extends BoleanPipeState>
       pipes: null == pipes
           ? _value.pipes
           : pipes // ignore: cast_nullable_to_non_nullable
-              as List<BoleanPipe>,
+              as List<BooleanPipe>,
     ) as $Val);
   }
 }
@@ -108,7 +108,7 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<BoleanPipe> pipes});
+  $Res call({List<BooleanPipe> pipes});
 }
 
 /// @nodoc
@@ -127,7 +127,7 @@ class __$$_InitialCopyWithImpl<$Res>
       pipes: null == pipes
           ? _value._pipes
           : pipes // ignore: cast_nullable_to_non_nullable
-              as List<BoleanPipe>,
+              as List<BooleanPipe>,
     ));
   }
 }
@@ -135,11 +135,11 @@ class __$$_InitialCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial({required final List<BoleanPipe> pipes}) : _pipes = pipes;
+  const _$_Initial({required final List<BooleanPipe> pipes}) : _pipes = pipes;
 
-  final List<BoleanPipe> _pipes;
+  final List<BooleanPipe> _pipes;
   @override
-  List<BoleanPipe> get pipes {
+  List<BooleanPipe> get pipes {
     if (_pipes is EqualUnmodifiableListView) return _pipes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_pipes);
@@ -171,9 +171,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<BoleanPipe> pipes) normal,
-    required TResult Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)
+    required TResult Function(List<BooleanPipe> pipes) normal,
+    required TResult Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)
         editing,
   }) {
     return normal(pipes);
@@ -182,9 +182,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<BoleanPipe> pipes)? normal,
-    TResult? Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)?
+    TResult? Function(List<BooleanPipe> pipes)? normal,
+    TResult? Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)?
         editing,
   }) {
     return normal?.call(pipes);
@@ -193,9 +193,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<BoleanPipe> pipes)? normal,
-    TResult Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)?
+    TResult Function(List<BooleanPipe> pipes)? normal,
+    TResult Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)?
         editing,
     required TResult orElse(),
   }) {
@@ -238,10 +238,10 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements BoleanPipeState {
-  const factory _Initial({required final List<BoleanPipe> pipes}) = _$_Initial;
+  const factory _Initial({required final List<BooleanPipe> pipes}) = _$_Initial;
 
   @override
-  List<BoleanPipe> get pipes;
+  List<BooleanPipe> get pipes;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
@@ -257,7 +257,7 @@ abstract class _$$_EditingCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<BoleanPipe> pipes, int editingPipeIndex, BoleanPipe editingPipe});
+      {List<BooleanPipe> pipes, int editingPipeIndex, BooleanPipe editingPipe});
 }
 
 /// @nodoc
@@ -278,7 +278,7 @@ class __$$_EditingCopyWithImpl<$Res>
       pipes: null == pipes
           ? _value._pipes
           : pipes // ignore: cast_nullable_to_non_nullable
-              as List<BoleanPipe>,
+              as List<BooleanPipe>,
       editingPipeIndex: null == editingPipeIndex
           ? _value.editingPipeIndex
           : editingPipeIndex // ignore: cast_nullable_to_non_nullable
@@ -286,7 +286,7 @@ class __$$_EditingCopyWithImpl<$Res>
       editingPipe: null == editingPipe
           ? _value.editingPipe
           : editingPipe // ignore: cast_nullable_to_non_nullable
-              as BoleanPipe,
+              as BooleanPipe,
     ));
   }
 }
@@ -295,14 +295,14 @@ class __$$_EditingCopyWithImpl<$Res>
 
 class _$_Editing implements _Editing {
   const _$_Editing(
-      {required final List<BoleanPipe> pipes,
+      {required final List<BooleanPipe> pipes,
       required this.editingPipeIndex,
       required this.editingPipe})
       : _pipes = pipes;
 
-  final List<BoleanPipe> _pipes;
+  final List<BooleanPipe> _pipes;
   @override
-  List<BoleanPipe> get pipes {
+  List<BooleanPipe> get pipes {
     if (_pipes is EqualUnmodifiableListView) return _pipes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_pipes);
@@ -311,7 +311,7 @@ class _$_Editing implements _Editing {
   @override
   final int editingPipeIndex;
   @override
-  final BoleanPipe editingPipe;
+  final BooleanPipe editingPipe;
 
   @override
   String toString() {
@@ -346,9 +346,9 @@ class _$_Editing implements _Editing {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<BoleanPipe> pipes) normal,
-    required TResult Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)
+    required TResult Function(List<BooleanPipe> pipes) normal,
+    required TResult Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)
         editing,
   }) {
     return editing(pipes, editingPipeIndex, editingPipe);
@@ -357,9 +357,9 @@ class _$_Editing implements _Editing {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<BoleanPipe> pipes)? normal,
-    TResult? Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)?
+    TResult? Function(List<BooleanPipe> pipes)? normal,
+    TResult? Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)?
         editing,
   }) {
     return editing?.call(pipes, editingPipeIndex, editingPipe);
@@ -368,9 +368,9 @@ class _$_Editing implements _Editing {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<BoleanPipe> pipes)? normal,
-    TResult Function(List<BoleanPipe> pipes, int editingPipeIndex,
-            BoleanPipe editingPipe)?
+    TResult Function(List<BooleanPipe> pipes)? normal,
+    TResult Function(List<BooleanPipe> pipes, int editingPipeIndex,
+            BooleanPipe editingPipe)?
         editing,
     required TResult orElse(),
   }) {
@@ -414,14 +414,14 @@ class _$_Editing implements _Editing {
 
 abstract class _Editing implements BoleanPipeState {
   const factory _Editing(
-      {required final List<BoleanPipe> pipes,
+      {required final List<BooleanPipe> pipes,
       required final int editingPipeIndex,
-      required final BoleanPipe editingPipe}) = _$_Editing;
+      required final BooleanPipe editingPipe}) = _$_Editing;
 
   @override
-  List<BoleanPipe> get pipes;
+  List<BooleanPipe> get pipes;
   int get editingPipeIndex;
-  BoleanPipe get editingPipe;
+  BooleanPipe get editingPipe;
   @override
   @JsonKey(ignore: true)
   _$$_EditingCopyWith<_$_Editing> get copyWith =>
@@ -434,8 +434,8 @@ mixin _$BoleanPipeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int pipeIndex) startEditingPipe,
     required TResult Function() createNewPipe,
-    required TResult Function(BoleanPipe pipe) finishPipeEdit,
-    required TResult Function(BoleanPipe pipe) updateEditPipe,
+    required TResult Function(BooleanPipe pipe) finishPipeEdit,
+    required TResult Function(BooleanPipe pipe) updateEditPipe,
     required TResult Function() deletePipe,
   }) =>
       throw _privateConstructorUsedError;
@@ -443,8 +443,8 @@ mixin _$BoleanPipeEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int pipeIndex)? startEditingPipe,
     TResult? Function()? createNewPipe,
-    TResult? Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult? Function(BoleanPipe pipe)? updateEditPipe,
+    TResult? Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult? Function(BooleanPipe pipe)? updateEditPipe,
     TResult? Function()? deletePipe,
   }) =>
       throw _privateConstructorUsedError;
@@ -452,8 +452,8 @@ mixin _$BoleanPipeEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int pipeIndex)? startEditingPipe,
     TResult Function()? createNewPipe,
-    TResult Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult Function(BoleanPipe pipe)? updateEditPipe,
+    TResult Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult Function(BooleanPipe pipe)? updateEditPipe,
     TResult Function()? deletePipe,
     required TResult orElse(),
   }) =>
@@ -573,8 +573,8 @@ class _$_StartEditingPipe implements _StartEditingPipe {
   TResult when<TResult extends Object?>({
     required TResult Function(int pipeIndex) startEditingPipe,
     required TResult Function() createNewPipe,
-    required TResult Function(BoleanPipe pipe) finishPipeEdit,
-    required TResult Function(BoleanPipe pipe) updateEditPipe,
+    required TResult Function(BooleanPipe pipe) finishPipeEdit,
+    required TResult Function(BooleanPipe pipe) updateEditPipe,
     required TResult Function() deletePipe,
   }) {
     return startEditingPipe(pipeIndex);
@@ -585,8 +585,8 @@ class _$_StartEditingPipe implements _StartEditingPipe {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int pipeIndex)? startEditingPipe,
     TResult? Function()? createNewPipe,
-    TResult? Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult? Function(BoleanPipe pipe)? updateEditPipe,
+    TResult? Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult? Function(BooleanPipe pipe)? updateEditPipe,
     TResult? Function()? deletePipe,
   }) {
     return startEditingPipe?.call(pipeIndex);
@@ -597,8 +597,8 @@ class _$_StartEditingPipe implements _StartEditingPipe {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int pipeIndex)? startEditingPipe,
     TResult Function()? createNewPipe,
-    TResult Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult Function(BoleanPipe pipe)? updateEditPipe,
+    TResult Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult Function(BooleanPipe pipe)? updateEditPipe,
     TResult Function()? deletePipe,
     required TResult orElse(),
   }) {
@@ -699,8 +699,8 @@ class _$_CreateNewPipe implements _CreateNewPipe {
   TResult when<TResult extends Object?>({
     required TResult Function(int pipeIndex) startEditingPipe,
     required TResult Function() createNewPipe,
-    required TResult Function(BoleanPipe pipe) finishPipeEdit,
-    required TResult Function(BoleanPipe pipe) updateEditPipe,
+    required TResult Function(BooleanPipe pipe) finishPipeEdit,
+    required TResult Function(BooleanPipe pipe) updateEditPipe,
     required TResult Function() deletePipe,
   }) {
     return createNewPipe();
@@ -711,8 +711,8 @@ class _$_CreateNewPipe implements _CreateNewPipe {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int pipeIndex)? startEditingPipe,
     TResult? Function()? createNewPipe,
-    TResult? Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult? Function(BoleanPipe pipe)? updateEditPipe,
+    TResult? Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult? Function(BooleanPipe pipe)? updateEditPipe,
     TResult? Function()? deletePipe,
   }) {
     return createNewPipe?.call();
@@ -723,8 +723,8 @@ class _$_CreateNewPipe implements _CreateNewPipe {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int pipeIndex)? startEditingPipe,
     TResult Function()? createNewPipe,
-    TResult Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult Function(BoleanPipe pipe)? updateEditPipe,
+    TResult Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult Function(BooleanPipe pipe)? updateEditPipe,
     TResult Function()? deletePipe,
     required TResult orElse(),
   }) {
@@ -785,7 +785,7 @@ abstract class _$$_FinishPipeEditCopyWith<$Res> {
           _$_FinishPipeEdit value, $Res Function(_$_FinishPipeEdit) then) =
       __$$_FinishPipeEditCopyWithImpl<$Res>;
   @useResult
-  $Res call({BoleanPipe pipe});
+  $Res call({BooleanPipe pipe});
 }
 
 /// @nodoc
@@ -805,7 +805,7 @@ class __$$_FinishPipeEditCopyWithImpl<$Res>
       pipe: null == pipe
           ? _value.pipe
           : pipe // ignore: cast_nullable_to_non_nullable
-              as BoleanPipe,
+              as BooleanPipe,
     ));
   }
 }
@@ -816,7 +816,7 @@ class _$_FinishPipeEdit implements _FinishPipeEdit {
   const _$_FinishPipeEdit({required this.pipe});
 
   @override
-  final BoleanPipe pipe;
+  final BooleanPipe pipe;
 
   @override
   String toString() {
@@ -845,8 +845,8 @@ class _$_FinishPipeEdit implements _FinishPipeEdit {
   TResult when<TResult extends Object?>({
     required TResult Function(int pipeIndex) startEditingPipe,
     required TResult Function() createNewPipe,
-    required TResult Function(BoleanPipe pipe) finishPipeEdit,
-    required TResult Function(BoleanPipe pipe) updateEditPipe,
+    required TResult Function(BooleanPipe pipe) finishPipeEdit,
+    required TResult Function(BooleanPipe pipe) updateEditPipe,
     required TResult Function() deletePipe,
   }) {
     return finishPipeEdit(pipe);
@@ -857,8 +857,8 @@ class _$_FinishPipeEdit implements _FinishPipeEdit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int pipeIndex)? startEditingPipe,
     TResult? Function()? createNewPipe,
-    TResult? Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult? Function(BoleanPipe pipe)? updateEditPipe,
+    TResult? Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult? Function(BooleanPipe pipe)? updateEditPipe,
     TResult? Function()? deletePipe,
   }) {
     return finishPipeEdit?.call(pipe);
@@ -869,8 +869,8 @@ class _$_FinishPipeEdit implements _FinishPipeEdit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int pipeIndex)? startEditingPipe,
     TResult Function()? createNewPipe,
-    TResult Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult Function(BoleanPipe pipe)? updateEditPipe,
+    TResult Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult Function(BooleanPipe pipe)? updateEditPipe,
     TResult Function()? deletePipe,
     required TResult orElse(),
   }) {
@@ -922,10 +922,10 @@ class _$_FinishPipeEdit implements _FinishPipeEdit {
 }
 
 abstract class _FinishPipeEdit implements BoleanPipeEvent {
-  const factory _FinishPipeEdit({required final BoleanPipe pipe}) =
+  const factory _FinishPipeEdit({required final BooleanPipe pipe}) =
       _$_FinishPipeEdit;
 
-  BoleanPipe get pipe;
+  BooleanPipe get pipe;
   @JsonKey(ignore: true)
   _$$_FinishPipeEditCopyWith<_$_FinishPipeEdit> get copyWith =>
       throw _privateConstructorUsedError;
@@ -937,7 +937,7 @@ abstract class _$$_UpdateEditPipeCopyWith<$Res> {
           _$_UpdateEditPipe value, $Res Function(_$_UpdateEditPipe) then) =
       __$$_UpdateEditPipeCopyWithImpl<$Res>;
   @useResult
-  $Res call({BoleanPipe pipe});
+  $Res call({BooleanPipe pipe});
 }
 
 /// @nodoc
@@ -957,7 +957,7 @@ class __$$_UpdateEditPipeCopyWithImpl<$Res>
       pipe: null == pipe
           ? _value.pipe
           : pipe // ignore: cast_nullable_to_non_nullable
-              as BoleanPipe,
+              as BooleanPipe,
     ));
   }
 }
@@ -968,7 +968,7 @@ class _$_UpdateEditPipe implements _UpdateEditPipe {
   const _$_UpdateEditPipe({required this.pipe});
 
   @override
-  final BoleanPipe pipe;
+  final BooleanPipe pipe;
 
   @override
   String toString() {
@@ -997,8 +997,8 @@ class _$_UpdateEditPipe implements _UpdateEditPipe {
   TResult when<TResult extends Object?>({
     required TResult Function(int pipeIndex) startEditingPipe,
     required TResult Function() createNewPipe,
-    required TResult Function(BoleanPipe pipe) finishPipeEdit,
-    required TResult Function(BoleanPipe pipe) updateEditPipe,
+    required TResult Function(BooleanPipe pipe) finishPipeEdit,
+    required TResult Function(BooleanPipe pipe) updateEditPipe,
     required TResult Function() deletePipe,
   }) {
     return updateEditPipe(pipe);
@@ -1009,8 +1009,8 @@ class _$_UpdateEditPipe implements _UpdateEditPipe {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int pipeIndex)? startEditingPipe,
     TResult? Function()? createNewPipe,
-    TResult? Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult? Function(BoleanPipe pipe)? updateEditPipe,
+    TResult? Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult? Function(BooleanPipe pipe)? updateEditPipe,
     TResult? Function()? deletePipe,
   }) {
     return updateEditPipe?.call(pipe);
@@ -1021,8 +1021,8 @@ class _$_UpdateEditPipe implements _UpdateEditPipe {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int pipeIndex)? startEditingPipe,
     TResult Function()? createNewPipe,
-    TResult Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult Function(BoleanPipe pipe)? updateEditPipe,
+    TResult Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult Function(BooleanPipe pipe)? updateEditPipe,
     TResult Function()? deletePipe,
     required TResult orElse(),
   }) {
@@ -1074,10 +1074,10 @@ class _$_UpdateEditPipe implements _UpdateEditPipe {
 }
 
 abstract class _UpdateEditPipe implements BoleanPipeEvent {
-  const factory _UpdateEditPipe({required final BoleanPipe pipe}) =
+  const factory _UpdateEditPipe({required final BooleanPipe pipe}) =
       _$_UpdateEditPipe;
 
-  BoleanPipe get pipe;
+  BooleanPipe get pipe;
   @JsonKey(ignore: true)
   _$$_UpdateEditPipeCopyWith<_$_UpdateEditPipe> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1123,8 +1123,8 @@ class _$_DeletePipe implements _DeletePipe {
   TResult when<TResult extends Object?>({
     required TResult Function(int pipeIndex) startEditingPipe,
     required TResult Function() createNewPipe,
-    required TResult Function(BoleanPipe pipe) finishPipeEdit,
-    required TResult Function(BoleanPipe pipe) updateEditPipe,
+    required TResult Function(BooleanPipe pipe) finishPipeEdit,
+    required TResult Function(BooleanPipe pipe) updateEditPipe,
     required TResult Function() deletePipe,
   }) {
     return deletePipe();
@@ -1135,8 +1135,8 @@ class _$_DeletePipe implements _DeletePipe {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int pipeIndex)? startEditingPipe,
     TResult? Function()? createNewPipe,
-    TResult? Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult? Function(BoleanPipe pipe)? updateEditPipe,
+    TResult? Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult? Function(BooleanPipe pipe)? updateEditPipe,
     TResult? Function()? deletePipe,
   }) {
     return deletePipe?.call();
@@ -1147,8 +1147,8 @@ class _$_DeletePipe implements _DeletePipe {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int pipeIndex)? startEditingPipe,
     TResult Function()? createNewPipe,
-    TResult Function(BoleanPipe pipe)? finishPipeEdit,
-    TResult Function(BoleanPipe pipe)? updateEditPipe,
+    TResult Function(BooleanPipe pipe)? finishPipeEdit,
+    TResult Function(BooleanPipe pipe)? updateEditPipe,
     TResult Function()? deletePipe,
     required TResult orElse(),
   }) {

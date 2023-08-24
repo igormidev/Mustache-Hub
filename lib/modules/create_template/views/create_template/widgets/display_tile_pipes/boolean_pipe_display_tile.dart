@@ -6,7 +6,7 @@ import 'package:mustachehub/modules/create_template/views/create_template/widget
 
 class BooleanPipeDisplayTile extends StatelessWidget {
   final int index;
-  final BoleanPipe? pipe;
+  final BooleanPipe? pipe;
   const BooleanPipeDisplayTile({
     super.key,
     required this.pipe,

@@ -32,12 +32,12 @@ class TextPipe extends Equatable implements Pipe {
   }
 }
 
-class BoleanPipe extends Equatable implements Pipe {
+class BooleanPipe extends Equatable implements Pipe {
   @override
   final String name;
   @override
   final String description;
-  const BoleanPipe({
+  const BooleanPipe({
     required this.name,
     required this.description,
   });
@@ -45,11 +45,11 @@ class BoleanPipe extends Equatable implements Pipe {
   @override
   List<Object> get props => [name, description];
 
-  BoleanPipe copyWith({
+  BooleanPipe copyWith({
     String? name,
     String? description,
   }) {
-    return BoleanPipe(
+    return BooleanPipe(
       name: name ?? this.name,
       description: description ?? this.description,
     );

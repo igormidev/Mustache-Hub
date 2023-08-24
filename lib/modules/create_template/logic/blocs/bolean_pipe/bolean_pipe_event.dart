@@ -9,11 +9,11 @@ class BoleanPipeEvent with _$BoleanPipeEvent {
   const factory BoleanPipeEvent.createNewPipe() = _CreateNewPipe;
 
   const factory BoleanPipeEvent.finishPipeEdit({
-    required BoleanPipe pipe,
+    required BooleanPipe pipe,
   }) = _FinishPipeEdit;
 
   const factory BoleanPipeEvent.updateEditPipe({
-    required BoleanPipe pipe,
+    required BooleanPipe pipe,
   }) = _UpdateEditPipe;
 
   const factory BoleanPipeEvent.deletePipe() = _DeletePipe;

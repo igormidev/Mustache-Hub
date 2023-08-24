@@ -5,14 +5,14 @@ import 'package:mustachehub/modules/create_template/logic/blocs/bolean_pipe/bole
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/formfields/pipe_formfield.dart';
 
 class BooleanPipeFormfield extends StatelessWidget {
-  final BoleanPipe pipe;
+  final BooleanPipe pipe;
   const BooleanPipeFormfield({super.key, required this.pipe});
 
   @override
   Widget build(BuildContext context) {
     final booleanBloc = context.get<BoleanPipeBloc>();
 
-    return PipeFormfield<BoleanPipeBloc, BoleanPipeState, BoleanPipe>(
+    return PipeFormfield<BoleanPipeBloc, BoleanPipeState, BooleanPipe>(
       pipe: pipe,
       pipeSelector: (state) => state.mapOrNull(
         editing: (v) => v.editingPipe,
@@ -36,7 +36,7 @@ class BooleanPipeFormfield extends StatelessWidget {
       },
       onSave: (name, description) {
         booleanBloc.add(BoleanPipeEvent.finishPipeEdit(
-          pipe: BoleanPipe(
+          pipe: BooleanPipe(
             name: name,
             description: description,
           ),

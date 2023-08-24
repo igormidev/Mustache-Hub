@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
   final String headerTitle;
+  final Color? color;
   final String? headerSubtitle;
   final Widget? subtitleWidget;
   final void Function()? subtractOnPressed;
@@ -13,6 +14,7 @@ class CustomHeader extends StatelessWidget {
   const CustomHeader({
     super.key,
     required this.headerTitle,
+    this.color,
     this.headerSubtitle,
     this.subtitleWidget,
     this.subtractOnPressed,
@@ -35,7 +37,9 @@ class CustomHeader extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   headerTitle,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        color: color,
+                      ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
