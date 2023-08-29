@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/display_pipe_card/boolean_pipe_display_card.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -13,52 +11,58 @@ import 'package:mustachehub/modules/create_template/views/create_template/widget
 import 'base_variable_creator_card.dart';
 
 class VariablesCreationSection extends StatelessWidget {
-  const VariablesCreationSection({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  VariablesCreationSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: CustomScrollView(
-        slivers: [
-          const PipeCreationHeader(
-            headerTitle: 'Text variables',
-            subtitleSubtitle:
-                'A text variable that the user will need to fill in.',
-          ),
-          TextVariablesCreationWidget(formKey: GlobalKey<FormState>()),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(top: 8),
-              child: Divider(),
+      child: Form(
+        key: formKey,
+        child: CustomScrollView(
+          slivers: [
+            const PipeCreationHeader(
+              headerTitle: 'Text variables',
+              subtitleSubtitle:
+                  'A text variable that the user will need to fill in.',
             ),
-          ),
-          const PipeCreationHeader(
-            headerTitle: 'Boolean variables (True or false)',
-            subtitleSubtitle:
-                'Boolean variables are characterized by being able '
-                'to assume a value of true or false. You can use this '
-                'conditional to make logic in the construction of your text.',
-          ),
-          BooleanVariablesCreationWidget(formKey: GlobalKey<FormState>()),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(top: 8),
-              child: Divider(),
+            TextVariablesCreationWidget(formKey: formKey),
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.only(top: 8),
+                child: Divider(),
+              ),
             ),
-          ),
-          const PipeCreationHeader(
-            headerTitle: 'List of models',
-            subtitleSubtitle:
-                'A list of templates that the user will need to fill '
-                'in each template field. A model can be like, for '
-                'example, a person with a name, age, height, etc...',
-          ),
-          ModelVariablesCreationWidget(
-            formKey: GlobalKey<FormState>(),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 20)),
-        ],
+            const PipeCreationHeader(
+              headerTitle: 'Boolean variables (True or false)',
+              subtitleSubtitle:
+                  'Boolean variables are characterized by being able '
+                  'to assume a value of true or false. You can use this '
+                  'conditional to make logic in the construction of your text.',
+            ),
+            BooleanVariablesCreationWidget(
+              formKey: formKey,
+            ),
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.only(top: 8),
+                child: Divider(),
+              ),
+            ),
+            const PipeCreationHeader(
+              headerTitle: 'List of models',
+              subtitleSubtitle:
+                  'A list of templates that the user will need to fill '
+                  'in each template field. A model can be like. For '
+                  'example: a person with a name, age, height, etc...',
+            ),
+            ModelVariablesCreationWidget(
+              formKey: formKey,
+            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 20)),
+          ],
+        ),
       ),
     );
   }
@@ -67,6 +71,7 @@ class VariablesCreationSection extends StatelessWidget {
 class TextVariablesCreationWidget extends HookWidget {
   final ListType type;
   final GlobalKey<FormState> formKey;
+
   const TextVariablesCreationWidget({
     this.type = ListType.sliverBuildDelegate,
     required this.formKey,
@@ -107,8 +112,8 @@ class TextVariablesCreationWidget extends HookWidget {
 }
 
 class BooleanVariablesCreationWidget extends HookWidget {
-  final GlobalKey<FormState> formKey;
   final ListType type;
+  final GlobalKey<FormState> formKey;
   const BooleanVariablesCreationWidget({
     this.type = ListType.sliverBuildDelegate,
     required this.formKey,
@@ -149,8 +154,8 @@ class BooleanVariablesCreationWidget extends HookWidget {
 }
 
 class ModelVariablesCreationWidget extends HookWidget {
-  final GlobalKey<FormState> formKey;
   final ListType type;
+  final GlobalKey<FormState> formKey;
   const ModelVariablesCreationWidget({
     this.type = ListType.sliverBuildDelegate,
     required this.formKey,

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/pipe_formfields/base_pipe_formfield.dart';
@@ -12,6 +10,7 @@ class ModelPipeFormfield extends StatelessWidget {
   final void Function() onDelete;
   final void Function() onSave;
   final GlobalKey<FormState> formKey;
+
   const ModelPipeFormfield({
     super.key,
     required this.nameEC,
@@ -24,7 +23,7 @@ class ModelPipeFormfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PipeFormfield(
-      formKey: GlobalKey<FormState>(debugLabel: 'Mano ${Random().nextInt(40)}'),
+      formKey: formKey,
       nameEC: nameEC,
       descriptionEC: descriptionEC,
       onDelete: onDelete,
@@ -36,8 +35,7 @@ class ModelPipeFormfield extends StatelessWidget {
         ),
         TextVariablesCreationWidget(
           type: ListType.listviewBuilder,
-          formKey:
-              GlobalKey<FormState>(debugLabel: 'Mano ${Random().nextInt(400)}'),
+          formKey: formKey,
         ),
         const SizedBox(height: 6),
         const Divider(),
@@ -47,8 +45,7 @@ class ModelPipeFormfield extends StatelessWidget {
         ),
         BooleanVariablesCreationWidget(
           type: ListType.listviewBuilder,
-          formKey:
-              GlobalKey<FormState>(debugLabel: 'Mano ${Random().nextInt(400)}'),
+          formKey: formKey,
         ),
         const SizedBox(height: 6),
         const Divider(),
@@ -58,8 +55,7 @@ class ModelPipeFormfield extends StatelessWidget {
         ),
         ModelVariablesCreationWidget(
           type: ListType.listviewBuilder,
-          formKey:
-              GlobalKey<FormState>(debugLabel: 'Mano ${Random().nextInt(400)}'),
+          formKey: formKey,
         ),
       ],
     );

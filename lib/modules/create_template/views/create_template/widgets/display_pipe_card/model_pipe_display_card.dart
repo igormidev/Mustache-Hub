@@ -19,6 +19,7 @@ class ModelPipeDisplayCard extends StatelessWidget {
     return BasePipeDisplayCard(
       pipe: pipe,
       onEdit: onEdit,
+      children: const [],
     );
   }
 }

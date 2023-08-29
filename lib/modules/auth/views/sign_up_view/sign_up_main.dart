@@ -24,6 +24,9 @@ class SignUpMain extends HookWidget with ValidatorsMixins {
       errorState: (s) => s.mapOrNull(error: (v) => v.error),
       loadingState: (s) => s.mapOrNull(loading: (v) => v),
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Create a account'),
+        ),
         body: Form(
           key: _formKey,
           child: Center(

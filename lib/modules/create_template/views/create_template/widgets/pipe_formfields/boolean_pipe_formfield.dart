@@ -7,6 +7,7 @@ class BooleanPipeFormfield extends StatelessWidget {
   final void Function() onDelete;
   final void Function() onSave;
   final GlobalKey<FormState> formKey;
+
   const BooleanPipeFormfield({
     super.key,
     required this.nameEC,

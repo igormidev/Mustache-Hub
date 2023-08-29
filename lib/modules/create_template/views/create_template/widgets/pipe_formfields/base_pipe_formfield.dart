@@ -28,12 +28,12 @@ class PipeFormFieldCardWrapper extends StatelessWidget {
 }
 
 class PipeFormfield extends StatelessWidget with ValidatorsMixins {
-  final GlobalKey<FormState> formKey;
   final TextEditingController nameEC;
   final TextEditingController descriptionEC;
   final void Function() onDelete;
   final void Function() onSave;
   final List<Widget> children;
+  final GlobalKey<FormState> formKey;
 
   PipeFormfield({
     super.key,
@@ -47,65 +47,62 @@ class PipeFormfield extends StatelessWidget with ValidatorsMixins {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 8),
-          TextFormField(
-            controller: descriptionEC,
-            decoration: InputDecoration(
-              label: const Text('Description'),
-              isDense: true,
-              filled: true,
-              fillColor: context.scheme.onPrimary,
-            ),
-            minLines: 1,
-            maxLines: 3,
-            validator: isNotEmpty,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 8),
+        TextFormField(
+          controller: descriptionEC,
+          decoration: InputDecoration(
+            label: const Text('Description'),
+            isDense: true,
+            filled: true,
+            fillColor: context.scheme.onPrimary,
           ),
-          const SizedBox(height: 8),
-          TextFormField(
-            controller: nameEC,
-            decoration: InputDecoration(
-              label: const Text('Name'),
-              isDense: true,
-              filled: true,
-              fillColor: context.scheme.onPrimary,
-            ),
-            validator: isNotEmpty,
-            maxLength: 30,
+          minLines: 1,
+          maxLines: 3,
+          validator: isNotEmpty,
+        ),
+        const SizedBox(height: 8),
+        TextFormField(
+          controller: nameEC,
+          decoration: InputDecoration(
+            label: const Text('Name'),
+            isDense: true,
+            filled: true,
+            fillColor: context.scheme.onPrimary,
           ),
-          ...children,
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              const Spacer(),
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: context.scheme.errorContainer,
-                  foregroundColor: context.scheme.onErrorContainer,
-                ),
-                onPressed: onDelete,
-                icon: const Icon(Icons.delete),
-                label: const Text('Delete'),
+          validator: isNotEmpty,
+          maxLength: 30,
+        ),
+        ...children,
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            const Spacer(),
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: context.scheme.errorContainer,
+                foregroundColor: context.scheme.onErrorContainer,
               ),
-              const SizedBox(width: 8),
-              ElevatedButton.icon(
-                onPressed: () {
-                  if (formKey.currentState?.validate() == true) {
-                    onSave();
-                  }
-                },
-                icon: const Icon(Icons.save),
-                label: const Text('Save'),
-              ),
-            ],
-          ),
-        ],
-      ),
+              onPressed: onDelete,
+              icon: const Icon(Icons.delete),
+              label: const Text('Delete'),
+            ),
+            const SizedBox(width: 8),
+            ElevatedButton.icon(
+              onPressed: () {
+                if (formKey.currentState?.validate() == true) {
+                  onSave();
+                }
+              },
+              icon: const Icon(Icons.save),
+              label: const Text('Save'),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

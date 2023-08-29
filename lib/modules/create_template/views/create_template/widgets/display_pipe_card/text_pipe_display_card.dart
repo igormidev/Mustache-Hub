@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/widgets/display_pipe_card/base_pipe_display_card.dart';
-import 'package:mustachehub/modules/create_template/views/create_template/widgets/display_tile_pipes/display_tile_pipe.dart';
 
 class TextPipeDisplayCard extends StatelessWidget {
   final TextPipe? pipe;

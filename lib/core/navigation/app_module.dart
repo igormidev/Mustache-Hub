@@ -18,7 +18,6 @@ import 'package:mustachehub/modules/create_template/logic/blocs/models/models_bl
 import 'package:mustachehub/modules/create_template/logic/blocs/text_pipe/text_pipe_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/create_template_main.dart';
 import 'package:mustachehub/modules/find/test_hydrated_bloc.dart';
-import 'package:mustachehub/modules/find/testing/testing_bloc.dart';
 import 'package:mustachehub/modules/generate_text/views/generate_text_view/generate_text_main.dart';
 import 'package:mustachehub/modules/home/views/home/home_main.dart';
 
@@ -49,7 +48,7 @@ class AppModule extends Module {
         ),
         ChildRoute(
           '/find',
-          child: (context) => const TestHydratedBloc(),
+          child: (context) => TestHydratedBloc(),
         ),
         ChildRoute(
           '/generate',
