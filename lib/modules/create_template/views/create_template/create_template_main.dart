@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
-import 'package:mustachehub/modules/create_template/views/create_template/widgets/sections/pipe_creator_section.dart';
-import 'package:mustachehub/modules/create_template/views/create_template/widgets/sections/text_content_section.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/sections/pipe_creator_section.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/sections/text_content_section.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:mustachehub/shared/responsive/responsive_splitter.dart';
 

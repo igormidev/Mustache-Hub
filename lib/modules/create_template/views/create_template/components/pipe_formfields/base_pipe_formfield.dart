@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/mixins/validators_mixins.dart';
-import 'package:mustachehub/modules/create_template/views/create_template/widgets/sections/base_variable_creator_card.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/sections/base_variable_creator_card.dart';
 
 class PipeFormFieldCardWrapper extends StatelessWidget {
   final Widget child;

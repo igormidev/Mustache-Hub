@@ -35,7 +35,7 @@ class ModelsBloc extends Bloc<ModelsEvent, ModelsState> {
     _CreateNewPipe event,
     Emitter<ModelsState> emit,
   ) {
-    const newPipe = ModelPipe(name: '', description: '', values: []);
+    const newPipe = ModelPipe.emptyPlaceholder();
     emit(ModelsState.editing(
       pipes: [...state.pipes, newPipe],
       editingPipe: newPipe,

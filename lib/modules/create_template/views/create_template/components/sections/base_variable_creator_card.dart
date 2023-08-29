@@ -36,7 +36,7 @@ class BaseVariableCreatorCard<T extends Pipe> extends HookWidget {
   final String addNewText;
   final Widget Function(
     T pipe,
-    List<T>? Function(T pipe) updateListCallback,
+    void Function(T pipe) saveEditFunc,
     void Function() onDeleteItem,
   ) editPipeBuilder;
   final Widget Function(
@@ -47,6 +47,10 @@ class BaseVariableCreatorCard<T extends Pipe> extends HookWidget {
 
   final ListType type;
 
+  final List<T> initialList;
+
+  final void Function(List<T> pipes) retriveCreatedPipes;
+
   const BaseVariableCreatorCard({
     super.key,
     required this.addNewText,
@@ -54,11 +58,13 @@ class BaseVariableCreatorCard<T extends Pipe> extends HookWidget {
     required this.pipeBuilder,
     required this.generateNewPipe,
     required this.type,
+    required this.initialList,
+    required this.retriveCreatedPipes,
   });
 
   @override
   Widget build(BuildContext context) {
-    final pipesState = useState(<T>[]);
+    final pipesState = useState(initialList);
     final pipes = pipesState.value;
 
     return HookBuilder(
@@ -89,15 +95,15 @@ class BaseVariableCreatorCard<T extends Pipe> extends HookWidget {
               final pipe = pipes[index];
 
               if (isSelected) {
-                List<T>? listUpdate(T pipe) {
+                void listUpdate(T pipe) {
                   final innerIndex = indexSelecionado.value;
-                  if (innerIndex == null) return null;
+                  if (innerIndex == null) return;
 
                   final newList = [...pipesState.value];
                   newList[innerIndex] = pipe;
                   pipesState.value = newList;
                   indexSelecionado.value = null;
-                  return newList;
+                  return retriveCreatedPipes(newList);
                 }
 
                 void onDeleteItem() {
@@ -108,6 +114,7 @@ class BaseVariableCreatorCard<T extends Pipe> extends HookWidget {
                   newList.removeAt(innerIndex);
                   pipesState.value = newList;
                   indexSelecionado.value = null;
+                  return retriveCreatedPipes(newList);
                 }
 
                 return editPipeBuilder(pipe, listUpdate, onDeleteItem);

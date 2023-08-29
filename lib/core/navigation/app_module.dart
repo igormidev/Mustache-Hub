@@ -16,6 +16,7 @@ import 'package:mustachehub/modules/config/views/config_view/config_main.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/bolean_pipe/bolean_pipe_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/models/models_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/text_pipe/text_pipe_bloc.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/create_template_main.dart';
 import 'package:mustachehub/modules/find/test_hydrated_bloc.dart';
 import 'package:mustachehub/modules/generate_text/views/generate_text_view/generate_text_main.dart';
@@ -34,6 +35,7 @@ class AppModule extends Module {
     i.addSingleton<TextPipeBloc>(TextPipeBloc.new);
     i.addSingleton<BoleanPipeBloc>(BoleanPipeBloc.new);
     i.addSingleton<ModelsBloc>(ModelsBloc.new);
+    i.addSingleton<VariablesBloc>(VariablesBloc.new);
   }
 
   @override

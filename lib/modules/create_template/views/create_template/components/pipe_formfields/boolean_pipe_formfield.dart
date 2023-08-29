@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mustachehub/modules/create_template/views/create_template/widgets/pipe_formfields/base_pipe_formfield.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/pipe_formfields/base_pipe_formfield.dart';
 
 class BooleanPipeFormfield extends StatelessWidget {
   final TextEditingController nameEC;

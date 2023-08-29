@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/logic/entities/pipe.dart';
-import 'package:mustachehub/modules/create_template/views/create_template/widgets/display_pipe_card/base_pipe_display_card.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/display_pipe_card/base_pipe_display_card.dart';
 
-class BooleanPipeDisplayCard extends StatelessWidget {
-  final BooleanPipe? pipe;
+class ModelPipeDisplayCard extends StatelessWidget {
+  final ModelPipe? pipe;
   final void Function() onEdit;
 
-  const BooleanPipeDisplayCard({
+  const ModelPipeDisplayCard({
     super.key,
     required this.pipe,
     required this.onEdit,
@@ -19,6 +19,7 @@ class BooleanPipeDisplayCard extends StatelessWidget {
     return BasePipeDisplayCard(
       pipe: pipe,
       onEdit: onEdit,
+      children: const [],
     );
   }
 }
