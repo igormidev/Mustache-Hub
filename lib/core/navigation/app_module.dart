@@ -13,6 +13,7 @@ import 'package:mustachehub/modules/auth/views/login_view/login_main.dart';
 import 'package:mustachehub/modules/auth/views/sign_up_view/sign_up_main.dart';
 import 'package:mustachehub/modules/auth/views/user_info_view/user_info_main.dart';
 import 'package:mustachehub/modules/config/views/config_view/config_main.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/content_string/content_string_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/fields_text_size/fields_text_size_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/create_template_main.dart';
@@ -32,6 +33,7 @@ class AppModule extends Module {
     // Edit screen
     i.addSingleton<FieldsTextSizeBloc>(FieldsTextSizeBloc.new);
     i.addSingleton<VariablesBloc>(VariablesBloc.new);
+    i.addSingleton<ContentStringBloc>(ContentStringBloc.new);
   }
 
   @override

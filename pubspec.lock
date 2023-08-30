@@ -595,10 +595,9 @@ packages:
   mustache_template:
     dependency: "direct main"
     description:
-      name: mustache_template
-      sha256: a46e26f91445bfb0b60519be280555b06792460b27b19e2b19ad5b9740df5d1c
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/mustache"
+      relative: true
+    source: path
     version: "2.0.0"
   nested:
     dependency: transitive
@@ -752,6 +751,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  sandbox_logger:
+    dependency: "direct main"
+    description:
+      name: sandbox_logger
+      sha256: e3792e0d4cfb1da8bcce6e02aa3aa60e4b0b4194b623c9a94b554d02f09a8905
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   shelf:
     dependency: transitive
     description:
