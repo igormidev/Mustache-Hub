@@ -13,9 +13,7 @@ import 'package:mustachehub/modules/auth/views/login_view/login_main.dart';
 import 'package:mustachehub/modules/auth/views/sign_up_view/sign_up_main.dart';
 import 'package:mustachehub/modules/auth/views/user_info_view/user_info_main.dart';
 import 'package:mustachehub/modules/config/views/config_view/config_main.dart';
-import 'package:mustachehub/modules/create_template/logic/blocs/bolean_pipe/bolean_pipe_bloc.dart';
-import 'package:mustachehub/modules/create_template/logic/blocs/models/models_bloc.dart';
-import 'package:mustachehub/modules/create_template/logic/blocs/text_pipe/text_pipe_bloc.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/fields_text_size/fields_text_size_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/create_template_main.dart';
 import 'package:mustachehub/modules/find/test_hydrated_bloc.dart';
@@ -32,9 +30,7 @@ class AppModule extends Module {
     i.addSingleton<IUserSource>(UserSourceImpl.new);
 
     // Edit screen
-    i.addSingleton<TextPipeBloc>(TextPipeBloc.new);
-    i.addSingleton<BoleanPipeBloc>(BoleanPipeBloc.new);
-    i.addSingleton<ModelsBloc>(ModelsBloc.new);
+    i.addSingleton<FieldsTextSizeBloc>(FieldsTextSizeBloc.new);
     i.addSingleton<VariablesBloc>(VariablesBloc.new);
   }
 

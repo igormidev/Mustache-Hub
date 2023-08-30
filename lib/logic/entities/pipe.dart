@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 
 sealed class Pipe {
   abstract final String name;
-  abstract final String? description;
+  abstract final String description;
   const Pipe();
 
   factory Pipe.fromMap(Map<String, dynamic> map) {

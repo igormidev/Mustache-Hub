@@ -1,8 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/mixins/validators_mixins.dart';
+import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/fields_text_size/fields_text_size_bloc.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/widgets/text_content_section/variables_display_widget.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/create_template_main.dart';
 import 'package:mustachehub/shared/custom_header.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,6 +16,7 @@ class TextContentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sizeBloc = context.get<FieldsTextSizeBloc>();
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: Column(
@@ -19,21 +24,35 @@ class TextContentSection extends StatelessWidget {
           CustomHeader(
             headerTitle: 'Content String',
             subtitleWidget: const _TextContentSubtitile(),
-            addOnPressed: () {},
-            subtractOnPressed: () {},
+            subtractOnPressed: () => sizeBloc.add(
+              const FieldsTextSizeEvent.decreaseSizeTestString(),
+            ),
+            addOnPressed: () => sizeBloc.add(
+              const FieldsTextSizeEvent.increaseSizeTestString(),
+            ),
           ),
+          const VariablesDisplayWidget(),
+          const SizedBox(height: 12),
           Expanded(
-            child: TextFormField(
-              expands: true,
-              maxLines: null,
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                ),
-                fillColor: context.scheme.onInverseSurface,
-                filled: true,
-              ),
-              textAlignVertical: TextAlignVertical.top,
+            child: BlocBuilder<FieldsTextSizeBloc, FieldsTextSizeState>(
+              bloc: sizeBloc,
+              builder: (context, varState) {
+                return TextFormField(
+                  expands: true,
+                  maxLines: null,
+                  style: context.texts.bodyLarge?.copyWith(
+                    fontSize: varState.testStringTextSize,
+                  ),
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                    ),
+                    fillColor: context.scheme.onInverseSurface,
+                    filled: true,
+                  ),
+                  textAlignVertical: TextAlignVertical.top,
+                );
+              },
             ),
           ),
         ],

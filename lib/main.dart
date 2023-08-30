@@ -55,6 +55,11 @@ class MyApp extends StatelessWidget {
                   elevation: 0,
                   color: scheme.secondaryContainer,
                 ),
+                chipTheme: ChipThemeData(
+                  elevation: 0,
+                  side: BorderSide.none,
+                  color: MaterialStateProperty.all(scheme.secondaryContainer),
+                ),
                 appBarTheme: AppBarTheme(
                   backgroundColor: scheme.primaryContainer,
                   shape: const RoundedRectangleBorder(
