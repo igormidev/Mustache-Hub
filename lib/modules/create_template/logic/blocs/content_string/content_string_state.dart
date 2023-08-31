@@ -10,4 +10,7 @@ class ContentStringState with _$ContentStringState {
     required String currentText,
     required List<Token> tokensInIt,
   }) = WithToken;
+
+  factory ContentStringState.fromJson(Map<String, Object?> json) =>
+      _$ContentStringStateFromJson(json);
 }

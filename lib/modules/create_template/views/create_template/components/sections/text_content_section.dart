@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/gestures.dart';
+import 'package:sandbox_logger/sandbox_logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,13 +33,19 @@ class TextContentSection extends HookWidget {
     );
     final varBloc = context.get<VariablesBloc>();
     final vars = _getExpectedVariablesFromState(varBloc.state);
+
     controller.updateExpectedVariables(vars);
+    final tokens = contentBloc.state.mapOrNull(
+      withToken: (v) => v.tokensInIt,
+    );
+
+    controller.updateTokens(tokens);
     useEffect(() {
       return () => controller.dispose();
     }, const []);
 
     return BlocListener<VariablesBloc, VariablesState>(
-      bloc: context.get(),
+      bloc: context.get<VariablesBloc>(),
       listener: (context, state) {
         final vars = _getExpectedVariablesFromState(state);
         controller.updateExpectedVariables(vars);
@@ -66,16 +73,8 @@ class TextContentSection extends HookWidget {
             const VariablesDisplayWidget(),
             const SizedBox(height: 12),
             Expanded(
-              child: BlocConsumer<FieldsTextSizeBloc, FieldsTextSizeState>(
+              child: BlocBuilder<FieldsTextSizeBloc, FieldsTextSizeState>(
                 bloc: sizeBloc,
-                listener: (_, __) {
-                  // Future.delayed(
-                  //   const Duration(seconds: 1),
-                  //   () {
-                  //     controller.rebuildTextSpans();
-                  //   },
-                  // );
-                },
                 builder: (context, varState) {
                   return TextFormField(
                     controller: controller,
@@ -92,6 +91,9 @@ class TextContentSection extends HookWidget {
                       filled: true,
                     ),
                     textAlignVertical: TextAlignVertical.top,
+                    inputFormatters: [
+                      AddMustacheDelimmiterInputFormatter(),
+                    ],
                     onChanged: (final text) {
                       final parser = Parser(text, null, '{{ }}');
                       try {
@@ -132,40 +134,128 @@ class TextContentSection extends HookWidget {
   }
 }
 
-class TestTextEditingController extends TextEditingController {
-  init() {
-    addListener(() {
-      print('Mudou');
-    });
-  }
-
-  int entrou = 0;
-  @override
-  TextSpan buildTextSpan({
-    required BuildContext context,
-    TextStyle? style,
-    required bool withComposing,
-  }) {
-    entrou++;
-    log('### entrou controller: $entrou');
-    return super.buildTextSpan(
-      context: context,
-      style: style,
-      withComposing: withComposing,
-    );
-  }
+String? textWritted(
+  TextEditingValue oldValue,
+  TextEditingValue newValue,
+) {
+  return null;
 }
 
-class TestInputFormater extends TextInputFormatter {
-  int entrou = 0;
+class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    entrou++;
-    log('--- entrou inputformater: $entrou');
+    // The text the user just entered
+    // logInWhite(oldValue.selection.affinity.toString());
+    // logInCyan(oldValue.selection.base.affinity.toString());
+    // logInGreen(oldValue.selection.extent.affinity.toString());
+    logInWhite('-------------------');
+    logInWhite('--------------------');
+    logInWhite('---------------------');
+    logInWhite('--------------------');
+    logInWhite('-------------------');
+
+    a(String text) {
+      return '${text.padRight(30, ' ')} <=>          ';
+    }
+
+    () {
+      final o = oldValue.selection;
+      logInGreen('${a('base.affinity')}${o.base.affinity}');
+      logInGreen('${a('base.offset')}${o.base.offset}');
+      logInGreen('${a('baseOffset')}${o.baseOffset}');
+      logInGreen('${a('extent.affinity')}${o.extent.affinity}');
+      logInGreen('${a('extent.offset')}${o.extent.offset}');
+      logInGreen('${a('extentOffset')}${o.extentOffset}');
+      logInGreen('${a('affinity')}${o.affinity}');
+      logInGreen('${a('base.affinity')}${o.base.affinity}');
+      logInGreen('${a('base.offset')}${o.base.offset}');
+      logInGreen('${a('start')}${o.start}');
+      logInGreen('${a('end')}${o.end}');
+    }();
+    () {
+      final o = newValue.selection;
+      logInCyan('${a('base.affinity')}${o.base.affinity}');
+      logInCyan('${a('base.offset')}${o.base.offset}');
+      logInCyan('${a('baseOffset')}${o.baseOffset}');
+      logInCyan('${a('extent.affinity')}${o.extent.affinity}');
+      logInCyan('${a('extent.offset')}${o.extent.offset}');
+      logInCyan('${a('extentOffset')}${o.extentOffset}');
+      logInCyan('${a('affinity')}${o.affinity}');
+      logInCyan('${a('base.affinity')}${o.base.affinity}');
+      logInCyan('${a('base.offset')}${o.base.offset}');
+      logInCyan('${a('start')}${o.start}');
+      logInCyan('${a('end')}${o.end}');
+    }();
+    // try {
+    //   logInGreen(
+    //       'textInside<=>${oldValue.selection.textInside(oldValue.text)}');
+    // } catch (_) {}
+    // try {
+    //   logInGreen('textAfter<=>${oldValue.selection.textAfter(oldValue.text)}');
+    // } catch (_) {}
+    // try {
+    //   logInGreen(
+    //       'textInside<=>${oldValue.selection.textInside(oldValue.text)}');
+    // } catch (_) {}
+
+    final amoutErased = oldValue.text.length - newValue.text.length;
+    final tappedText = newValue.text.isEmpty
+        ? ''
+        : newValue.text[newValue.selection.start - 1];
+
+    // final taSubindo =
+    //     oldValue.selection.extent.affinity == TextAffinity.upstream;
+    // logInMagenta(
+    //   oldValue.text.substring(
+    //     taSubindo
+    //         ? oldValue.selection.baseOffset
+    //         : oldValue.selection.extentOffset,
+    //     taSubindo
+    //         ? oldValue.selection.extentOffset
+    //         : oldValue.selection.baseOffset,
+    //     // oldValue.selection.extentOffset,
+    //   ),
+    // );
+    // logInRed(newValue.selection.affinity.toString());
+    // logInWhite(newValue.selection.base.affinity.toString());
+    // logInWhite('$amoutErased => $tappedText');
+    final didTappedDellimiter =
+        tappedText == '{' && (amoutErased == -1 || amoutErased == 0);
+    final newText = newValue.text
+        .replaceRange(newValue.selection.start, newValue.selection.end, '{}}');
+
+    if (didTappedDellimiter) {
+      return newValue.copyWith(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: newValue.selection.start + 1,
+        ),
+      );
+    }
     return newValue;
+
+    // final endsWithDelimmiter = newValue.text.endsWith('{');
+    logInMagenta('${newValue.composing.start}');
+    logInMagenta('${newValue.composing.end}');
+    logInWhite('${newValue.selection.start}');
+    logInWhite('${newValue.selection.end}');
+    if (didTappedDellimiter) {
+      return newValue.copyWith(
+        text: '${newValue.text}{}}',
+        selection: TextSelection.collapsed(
+          offset: newValue.selection.start + 1,
+        ),
+      );
+    } else {
+      return newValue;
+    }
+    logInGreen('-------');
+    print(oldValue.text);
+    log('---');
+    print(newValue.text);
   }
 }
 

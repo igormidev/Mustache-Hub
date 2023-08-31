@@ -7,11 +7,18 @@ enum EDrawerNavigationPossibilities {
     'Home',
     'Home',
   ),
+
   find(
     Icons.store_outlined,
     Icons.store,
     'Find mustaches',
     'Find',
+  ),
+  collection(
+    Icons.collections_bookmark_outlined,
+    Icons.collections_bookmark_rounded,
+    'My collection',
+    'Collection',
   ),
   generateText(
     Icons.generating_tokens_outlined,

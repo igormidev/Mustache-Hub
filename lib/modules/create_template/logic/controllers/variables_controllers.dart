@@ -52,7 +52,7 @@ class VariablesController extends TextEditingController {
       );
     }
 
-    if (needsToCalculateSpan) {
+    if (needsToCalculateSpan && _tokens != null) {
       needsToCalculateSpan = false;
       final spans = getSpans(style, context);
       _cacheSpan = spans;
@@ -77,9 +77,8 @@ class VariablesController extends TextEditingController {
     final List<InlineSpan> spans = []; // Will be returned in the end
 
     final primaryColor = context?.scheme.primary;
-    // final background = context?.scheme.primaryContainer;
     final error = context?.scheme.error;
-    final errorBackground = context?.scheme.errorContainer;
+    final errorBackground = context?.scheme.errorContainer.withAlpha(100);
 
     final List<String> cluster = [];
     bool isLastDelimitter = false;
@@ -87,9 +86,11 @@ class VariablesController extends TextEditingController {
     /// If the identifier is not cataloged we will show
     /// a indicator that variable has not been created yet.
     bool isCurrentIdenfitierIsCataloged = true;
+    bool containsIdentifier = false;
     void updateCurrIdentifierState(final Token t) {
       final isIdentifier = t.type == TokenType.identifier;
       if (isIdentifier == false) return;
+      containsIdentifier = true;
       final isCataloged = _catalogedVariables?.any((c) => c == t.value);
       if (isCataloged == true) {
         isCurrentIdenfitierIsCataloged = true;
@@ -113,11 +114,12 @@ class VariablesController extends TextEditingController {
         cluster.add(token.value);
       } else {
         if (cluster.isNotEmpty) {
-          if (cluster.length <= 2) {
+          if (containsIdentifier == false) {
             final cText = cluster.join();
             spans.add(TextSpan(text: cText, style: style));
             cluster.clear();
           } else {
+            containsIdentifier = false;
             final cText = cluster.join();
             spans.add(TextSpan(text: cText, style: getIdentifierStyle()));
             cluster.clear();
@@ -130,7 +132,7 @@ class VariablesController extends TextEditingController {
     // Add the last values if needed (Not added in the above forEach)
     final cText = cluster.join();
     if (cluster.isNotEmpty && isLastDelimitter) {
-      if (cluster.length <= 2) {
+      if (containsIdentifier == false) {
         spans.add(TextSpan(text: cText, style: style));
         cluster.clear();
       } else {

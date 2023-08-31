@@ -16,6 +16,8 @@ mixin PageModuleNavigator {
     switch (selectedOption) {
       case EDrawerNavigationPossibilities.home:
         break;
+      case EDrawerNavigationPossibilities.collection:
+        break;
 
       case EDrawerNavigationPossibilities.find:
         return context.replaceAll('/find');

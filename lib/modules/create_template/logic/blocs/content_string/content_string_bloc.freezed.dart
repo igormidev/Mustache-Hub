@@ -14,6 +14,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+ContentStringState _$ContentStringStateFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'normal':
+      return Normal.fromJson(json);
+    case 'withToken':
+      return WithToken.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'ContentStringState',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$ContentStringState {
   String get currentText => throw _privateConstructorUsedError;
@@ -56,7 +69,7 @@ mixin _$ContentStringState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ContentStringStateCopyWith<ContentStringState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -127,12 +140,19 @@ class __$$NormalCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$Normal implements Normal {
-  const _$Normal({required this.currentText});
+  const _$Normal({required this.currentText, final String? $type})
+      : $type = $type ?? 'normal';
+
+  factory _$Normal.fromJson(Map<String, dynamic> json) =>
+      _$$NormalFromJson(json);
 
   @override
   final String currentText;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -148,6 +168,7 @@ class _$Normal implements Normal {
                 other.currentText == currentText));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, currentText);
 
@@ -219,10 +240,19 @@ class _$Normal implements Normal {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$NormalToJson(
+      this,
+    );
+  }
 }
 
 abstract class Normal implements ContentStringState {
   const factory Normal({required final String currentText}) = _$Normal;
+
+  factory Normal.fromJson(Map<String, dynamic> json) = _$Normal.fromJson;
 
   @override
   String get currentText;
@@ -271,11 +301,17 @@ class __$$WithTokenCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$WithToken implements WithToken {
   const _$WithToken(
-      {required this.currentText, required final List<Token> tokensInIt})
-      : _tokensInIt = tokensInIt;
+      {required this.currentText,
+      required final List<Token> tokensInIt,
+      final String? $type})
+      : _tokensInIt = tokensInIt,
+        $type = $type ?? 'withToken';
+
+  factory _$WithToken.fromJson(Map<String, dynamic> json) =>
+      _$$WithTokenFromJson(json);
 
   @override
   final String currentText;
@@ -286,6 +322,9 @@ class _$WithToken implements WithToken {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_tokensInIt);
   }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -303,6 +342,7 @@ class _$WithToken implements WithToken {
                 .equals(other._tokensInIt, _tokensInIt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, currentText,
       const DeepCollectionEquality().hash(_tokensInIt));
@@ -375,12 +415,21 @@ class _$WithToken implements WithToken {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WithTokenToJson(
+      this,
+    );
+  }
 }
 
 abstract class WithToken implements ContentStringState {
   const factory WithToken(
       {required final String currentText,
       required final List<Token> tokensInIt}) = _$WithToken;
+
+  factory WithToken.fromJson(Map<String, dynamic> json) = _$WithToken.fromJson;
 
   @override
   String get currentText;
