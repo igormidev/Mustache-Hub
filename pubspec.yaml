@@ -5,6 +5,9 @@ version: 1.0.0+1
 
 environment:
   sdk: '>=3.1.0 <4.0.0' 
+dependency_overrides: 
+  mustache_template: 
+    path: packages/mustache
 
 dependencies:
   flutter:
@@ -16,7 +19,8 @@ dependencies:
   hydrated_bloc: ^9.1.0
   freezed_annotation: ^2.2.0
   mustache_template: 
-    path: packages/mustache
+  mason: 
+    path: packages/mason/packages/mason
   equatable:
   flutter_modular: ^6.1.1
   dotted_border: 2.0.0+3

@@ -81,6 +81,12 @@ class _DashboardDrawer extends StatelessWidget with PageModuleNavigator {
                           return SizedBox.fromSize();
                         }
                       }
+                      if (navOption ==
+                          EDrawerNavigationPossibilities.becamePremium) {
+                        if (userState.isLoggedIn == false) {
+                          return SizedBox.fromSize();
+                        }
+                      }
                       return NavigationDrawerDestination(
                         icon: Icon(navOption.unselectedIcon),
                         selectedIcon: Icon(navOption.selectedIcon),

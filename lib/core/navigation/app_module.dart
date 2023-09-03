@@ -78,6 +78,7 @@ class AuthModule extends Module {
   void binds(Injector i) {
     i.addSingleton<LoginBloc>(LoginBloc.new);
     i.addSingleton<AuthBloc>(AuthBloc.new);
+    i.addSingleton<IUserSource>(UserSourceImpl.new);
   }
 
   @override

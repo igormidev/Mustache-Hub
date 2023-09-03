@@ -13,6 +13,22 @@ class CreateTemplateMain extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create Template'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            tooltip: 'Test template',
+            icon: const Icon(
+              Icons.science,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            tooltip: 'Save template',
+            icon: const Icon(
+              Icons.save_rounded,
+            ),
+          ),
+        ],
       ),
       body: ResponsiveSplitter(
         compactSize: Container(),

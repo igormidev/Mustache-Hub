@@ -38,17 +38,18 @@ enum EDrawerNavigationPossibilities {
     'User account',
     'Account',
   ),
-  becamePremium(
-    Icons.star_outline_rounded,
-    Icons.star_rounded,
-    'Became premium',
-    'Premium',
-  ),
+
   settings(
     Icons.settings_outlined,
     Icons.settings,
     'Configuration',
     'Configs',
+  ),
+  becamePremium(
+    Icons.star_outline_rounded,
+    Icons.star_rounded,
+    'Became premium',
+    'Premium',
   ),
   logOut(
     Icons.logout_outlined,
