@@ -45,10 +45,10 @@ packages:
     dependency: transitive
     description:
       name: auto_injector
-      sha256: "2b0a076df2dd300ba3acfc270653f351fadf4d7889f042cd853f80ac83661af7"
+      sha256: a715862b587c518c81d7275044d4c1e6237ab1ccb921171a544dce04c6f771ca
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "2.0.0+2"
   bloc:
     dependency: "direct main"
     description:
@@ -257,6 +257,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  fake_reflection:
+    dependency: transitive
+    description:
+      name: fake_reflection
+      sha256: "3e0fff7d8d60f0935a620904a1e6978e024df5fee8b710f37355166df00be506"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   ffi:
     dependency: transitive
     description:
@@ -362,10 +370,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_modular
-      sha256: "0d50176ce394b792b447ee1c73e51e60c42b028a07b1974f3930f962c5f5e933"
+      sha256: "3e9eff30acb2fd741a6e65151289020b6655d2dec0e42ed7f1c9745bf87dd5f4"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.4+1"
+    version: "6.3.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -588,10 +596,10 @@ packages:
     dependency: transitive
     description:
       name: modular_core
-      sha256: fbcc3683dedbe0ccd1d75636c94c057b56c5ec4e068cc0ac40cefd5ba27c109c
+      sha256: def3d484b46644c2974597202639675e9c13518b2e88f93b3db54a16e20bcba2
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.3+1"
+    version: "3.3.0"
   mustache_template:
     dependency: "direct main"
     description:
@@ -940,6 +948,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.7"
+  uuid:
+    dependency: transitive
+    description:
+      name: uuid
+      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.7"
   vector_math:
     dependency: transitive
     description:
@@ -998,4 +1014,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  flutter: ">=3.10.0"

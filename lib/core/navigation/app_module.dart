@@ -7,7 +7,6 @@ import 'package:mustachehub/logic/sources/user_source.dart';
 import 'package:mustachehub/modules/auth/blocs/auth/auth_bloc.dart';
 import 'package:mustachehub/modules/auth/blocs/dashboard_page/dashboard_page_bloc.dart';
 import 'package:mustachehub/modules/auth/blocs/login/login_bloc.dart';
-import 'package:mustachehub/modules/auth/views/became_premium_view/became_premium_main.dart';
 import 'package:mustachehub/modules/auth/views/dashboard/dashboard_main.dart';
 import 'package:mustachehub/modules/auth/views/login_view/login_main.dart';
 import 'package:mustachehub/modules/auth/views/sign_up_view/sign_up_main.dart';
@@ -21,14 +20,16 @@ import 'package:mustachehub/modules/find/test_hydrated_bloc.dart';
 import 'package:mustachehub/modules/generate_text/views/generate_text_view/generate_text_main.dart';
 import 'package:mustachehub/modules/home/views/home/home_main.dart';
 
+import '../../modules/became_premium/views/became_premium_main.dart';
+
 class AppModule extends Module {
   @override
   void binds(Injector i) {
-    i.addSingleton<UserBloc>(UserBloc.new);
+    i.addSingleton<IUserSource>(UserSourceImpl.new);
     i.addSingleton<ThemeBloc>(ThemeBloc.new);
     i.addSingleton<DashboardPageBloc>(DashboardPageBloc.new);
     i.addSingleton<MyNavigator>(MyNavigator.new);
-    i.addSingleton<IUserSource>(UserSourceImpl.new);
+    i.addSingleton<UserBloc>(UserBloc.new);
 
     // Edit screen
     i.addSingleton<FieldsTextSizeBloc>(FieldsTextSizeBloc.new);

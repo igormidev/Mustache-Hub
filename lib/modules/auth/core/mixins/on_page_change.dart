@@ -29,7 +29,8 @@ mixin PageModuleNavigator {
         return context.replaceAll('/create');
 
       case EDrawerNavigationPossibilities.account:
-        context.get<UserBloc>().state.mapOrNull(
+        final state = context.get<UserBloc>().state;
+        state.mapOrNull(
           noneUser: (value) {
             context.replaceAll('/auth/login');
           },
@@ -40,7 +41,7 @@ mixin PageModuleNavigator {
         break;
 
       case EDrawerNavigationPossibilities.becamePremium:
-        break;
+        return context.replaceAll('/becamepremium');
 
       case EDrawerNavigationPossibilities.settings:
         return context.replaceAll('/config');
