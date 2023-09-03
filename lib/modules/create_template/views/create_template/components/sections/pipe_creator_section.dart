@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mason/mason.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/display_pipe_card/boolean_pipe_display_card.dart';
@@ -127,7 +128,11 @@ class TextVariablesCreationWidget extends HookWidget {
             descriptionEC: descriptionEC,
             onDelete: onDeleteItem,
             onSave: () => saveEditFunc(
-              TextPipe(name: nameEC.text, description: descriptionEC.text),
+              TextPipe(
+                name: nameEC.text,
+                description: descriptionEC.text,
+                mustacheName: nameEC.text.camelCase,
+              ),
             ),
           ),
         );
@@ -136,7 +141,7 @@ class TextVariablesCreationWidget extends HookWidget {
         return TextPipeDisplayCard(pipe: pipe, onEdit: onEditSelec);
       },
       generateNewPipe: () {
-        return const TextPipe(name: '', description: '');
+        return const TextPipe(name: '', description: '', mustacheName: '');
       },
     );
   }
@@ -176,7 +181,11 @@ class BooleanVariablesCreationWidget extends HookWidget {
             descriptionEC: descriptionEC,
             onDelete: onDeleteItem,
             onSave: () => saveEditFunc(
-              BooleanPipe(name: nameEC.text, description: descriptionEC.text),
+              BooleanPipe(
+                name: nameEC.text,
+                description: descriptionEC.text,
+                mustacheName: nameEC.text.camelCase,
+              ),
             ),
           ),
         );
@@ -185,7 +194,7 @@ class BooleanVariablesCreationWidget extends HookWidget {
         return BooleanPipeDisplayCard(pipe: pipe, onEdit: onEditSelec);
       },
       generateNewPipe: () {
-        return const BooleanPipe(name: '', description: '');
+        return const BooleanPipe(name: '', description: '', mustacheName: '');
       },
     );
   }
@@ -234,6 +243,7 @@ class ModelVariablesCreationWidget extends HookWidget {
                 ModelPipe(
                   name: nameEC.text,
                   description: descriptionEC.text,
+                  mustacheName: nameEC.text.camelCase,
                   textPipes: textPipes,
                   booleanPipes: booleanPipes,
                   modelPipes: modelPipes,

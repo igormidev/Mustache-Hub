@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/mixins/validators_mixins.dart';
+import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/logic/entities/pipe.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/base_variable_creator_card.dart';
 
 class PipeFormFieldCardWrapper extends StatelessWidget {
@@ -47,6 +50,8 @@ class PipeFormfield extends StatelessWidget with ValidatorsMixins {
 
   @override
   Widget build(BuildContext context) {
+    final variablesBloc = context.get<VariablesBloc>();
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +78,18 @@ class PipeFormfield extends StatelessWidget with ValidatorsMixins {
             filled: true,
             fillColor: context.scheme.onPrimary,
           ),
-          validator: isNotEmpty,
+          validator: (val) => combineValidators([
+            () => isNotEmpty(val),
+            () {
+              if (val == null) return 'Invalid text';
+
+              if (_containsValuesAlready(variablesBloc.state, val)) {
+                return 'Already exists a variable with this name';
+              }
+
+              return null;
+            },
+          ]),
           maxLength: 30,
         ),
         ...children,
@@ -104,5 +120,42 @@ class PipeFormfield extends StatelessWidget with ValidatorsMixins {
         ),
       ],
     );
+  }
+
+  bool _containsValuesAlready(VariablesState state, String value) {
+    for (final pipe in <Pipe>[
+      ...state.textPipes,
+      ...state.booleanPipes,
+      ...state.modelPipes,
+    ]) {
+      if (pipe.name == value) return true;
+
+      if (pipe is ModelPipe) {
+        final didNameExist = _doesNameExist(<Pipe>[
+          ...pipe.textPipes,
+          ...pipe.booleanPipes,
+          ...pipe.modelPipes,
+        ], value);
+        if (didNameExist == true) return true;
+      }
+    }
+    return false;
+  }
+
+  bool _doesNameExist(List<Pipe> pipes, String value) {
+    for (final pipe in pipes) {
+      if (pipe.name == value) return true;
+      if (pipe is ModelPipe) {
+        final didNameExist = _doesNameExist(<Pipe>[
+          ...pipe.textPipes,
+          ...pipe.booleanPipes,
+          ...pipe.modelPipes,
+        ], value);
+
+        if (didNameExist == true) return true;
+      }
+    }
+
+    return false;
   }
 }

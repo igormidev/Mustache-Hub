@@ -4,7 +4,6 @@ import 'dart:developer';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/foundation/change_notifier.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustache_template/mustache_template.dart';
@@ -138,306 +137,48 @@ class TextContentSection extends HookWidget {
       ...state.booleanPipes,
       ...state.modelPipes,
     ]) {
-      expectedVariables.add(pipe.name);
+      expectedVariables.add(pipe.mustacheName);
     }
     return expectedVariables;
   }
 }
 
+// print(
+//   oldValue.text.substring(oldValue.selection.start, oldValue.selection.end),
+// );
+// print(newValue.text
+//     .substring(oldValue.selection.start, newValue.selection.end));
+// logInBlue('${newValue.selection.start} <=> ${newValue.selection.end}');
+// print('----------');
 class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    // final isOld = oldValue.selection.start > oldValue.selection.end;
-    // print(oldValue.text.substring(s
-    //   isOld ? oldValue.selection.start : oldValue.selection.end,
-    //   isOld ? oldValue.selection.end : oldValue.selection.start,
-    // ));
-    print(
-      oldValue.text.substring(oldValue.selection.start, oldValue.selection.end),
-    );
-    logInGreen('${oldValue.selection.start} <=> ${oldValue.selection.end}');
-    print(newValue.text
-        .substring(oldValue.selection.start, newValue.selection.end));
-    logInBlue('${newValue.selection.start} <=> ${newValue.selection.end}');
-    print('----------');
-    return newValue;
-    // The text the user just entered
-    // logInWhite(oldValue.selection.affinity.toString());
-    // logInCyan(oldValue.selection.base.affinity.toString());
-    // logInGreen(oldValue.selection.extent.affinity.toString());
-    // logInWhite('-------------------');PIMBA
+    final isControlZ = oldValue.selection.start == oldValue.selection.end;
+    // If needed to get the removed area, uncomment this.
+    // final selectedAreaRemovedText = isControlZ
+    //     ? null
+    //     : oldValue.text
+    //         .substring(oldValue.selection.start, oldValue.selection.end);
 
-    a(String text) {
-      return '${text.padRight(30, ' ')} <=>          ';
-    }
-
-    () {
-      final o = oldValue.selection;
-
-      try {
-        logInGreen(
-            '${a('oldValue.textInside')}${oldValue.selection.textInside(newValue.text)}');
-      } catch (_) {
-        logInRed('oldValue.textInside');
-      }
-      try {
-        logInGreen(
-            '${a('oldValue.textAfter')}${oldValue.selection.textAfter(newValue.text)}');
-      } catch (_) {
-        logInRed('oldValue.textAfter');
-      }
-
-      try {
-        logInGreen(
-            '${a('oldValue.textInside.own')}${oldValue.selection.textInside(oldValue.text)}');
-      } catch (_) {
-        logInRed('oldValue.textInside.own');
-      }
-      try {
-        logInGreen(
-            '${a('oldValue.textAfter.own')}${oldValue.selection.textAfter(oldValue.text)}');
-      } catch (_) {
-        logInRed('oldValue.textAfter.own');
-      }
-      try {
-        logInGreen(
-            '${a('oldValue.textBefore.own')}${oldValue.selection.textBefore(oldValue.text)}');
-      } catch (_) {
-        logInRed('oldValue.textBefore.own');
-      }
-
-      logInGreen('${a('affinity')}${o.affinity}');
-      logInGreen('${a('base.affinity')}${o.base.affinity}');
-      logInGreen('${a('extent.affinity')}${o.extent.affinity}');
-      logInGreen('${a('base.offset')}${o.base.offset}');
-      logInGreen('${a('baseOffset')}${o.baseOffset}');
-      logInGreen('${a('extent.offset')}${o.extent.offset}');
-      logInGreen('${a('extentOffset')}${o.extentOffset}');
-      logInGreen('${a('start')}${o.start}');
-      logInGreen('${a('end')}${o.end}');
-      logInGreen('${a('isValid')}${o.isValid}');
-      logInGreen('${a('isDirectional')}${o.isDirectional}');
-      logInGreen('${a('isCollapsed')}${o.isCollapsed}');
-      logInGreen('${a('isNormalized')}${o.isNormalized}');
-    }();
-    () {
-      final o = newValue.selection;
-      try {
-        logInCyan(
-            '${a('newValue.textInside')}${newValue.selection.textInside(oldValue.text)}');
-      } catch (_) {
-        logInRed('newValue.textInside');
-      }
-      try {
-        logInCyan(
-            '${a('newValue.textAfter')}${newValue.selection.textAfter(oldValue.text)}');
-      } catch (_) {
-        logInRed('newValue.textAfter');
-      }
-      try {
-        logInCyan(
-            '${a('newValue.textBefore')}${newValue.selection.textBefore(oldValue.text)}');
-      } catch (_) {
-        logInRed('newValue.textBefore');
-      }
-
-      try {
-        logInCyan(
-            '${a('newValue.textInside.own')}${newValue.selection.textInside(newValue.text)}');
-      } catch (_) {
-        logInRed('oldValue.textInside.own');
-      }
-      try {
-        logInCyan(
-            '${a('newValue.textAfter.own')}${newValue.selection.textAfter(newValue.text)}');
-      } catch (_) {
-        logInRed('newValue.textAfter.own');
-      }
-      try {
-        logInCyan(
-            '${a('newValue.textBefore.own')}${newValue.selection.textBefore(newValue.text)}');
-      } catch (_) {
-        logInRed('newValue.textBefore.own');
-      }
-
-      logInCyan('${a('affinity')}${o.affinity}');
-      logInCyan('${a('base.affinity')}${o.base.affinity}');
-      logInCyan('${a('extent.affinity')}${o.extent.affinity}');
-      logInCyan('${a('base.offset')}${o.base.offset}');
-      logInCyan('${a('baseOffset')}${o.baseOffset}');
-      logInCyan('${a('extent.offset')}${o.extent.offset}');
-      logInCyan('${a('extentOffset')}${o.extentOffset}');
-      logInCyan('${a('start')}${o.start}');
-      logInCyan('${a('end')}${o.end}');
-      logInCyan('${a('isValid')}${o.isValid}');
-      logInCyan('${a('isDirectional')}${o.isDirectional}');
-      logInCyan('${a('isCollapsed')}${o.isCollapsed}');
-      logInCyan('${a('isNormalized')}${o.isNormalized}');
-
-      // logInCyan('${a('base.affinity')}${o.base.affinity}');
-      // logInCyan('${a('base.offset')}${o.base.offset}');
-      // logInCyan('${a('affinity')}${o.affinity}');
-      // logInCyan('${a('baseOffset')}${o.baseOffset}');
-      // logInCyan('${a('extent.affinity')}${o.extent.affinity}');
-      // logInCyan('${a('extent.offset')}${o.extent.offset}');
-      // logInCyan('${a('extentOffset')}${o.extentOffset}');
-      // logInCyan('${a('start')}${o.start}');
-      // logInCyan('${a('end')}${o.end}');
-      // logInCyan('${a('isValid')}${o.isValid}');
-      // logInCyan('${a('isDirectional')}${o.isDirectional}');
-      // logInCyan('${a('isCollapsed')}${o.isCollapsed}');
-      // logInCyan('${a('isNormalized')}${o.isNormalized}');
-    }();
-    // try {
-    //   logInGreen(
-    //       'textInside<=>${oldValue.selection.textInside(oldValue.text)}');
-    // } catch (_) {}
-    // try {
-    //   logInGreen('textAfter<=>${oldValue.selection.textAfter(oldValue.text)}');
-    // } catch (_) {}
-    // try {
-    //   logInGreen(
-    //       'textInside<=>${oldValue.selection.textInside(oldValue.text)}');
-    // } catch (_) {}
-
-    // return newValue;
+    final addedTextToSelectedArea = isControlZ
+        ? null
+        : newValue.text
+            .substring(oldValue.selection.start, newValue.selection.end);
 
     final amoutErased = oldValue.text.length - newValue.text.length;
+    final didAddedValidTextToSelectedArea = addedTextToSelectedArea == '{';
     final tappedText = newValue.text.isEmpty
         ? ''
-        : newValue.text[newValue.selection.start - 1];
+        : didAddedValidTextToSelectedArea
+            ? addedTextToSelectedArea
+            : newValue.text[newValue.selection.start - 1];
 
-    final taSubindo =
-        oldValue.selection.extent.affinity == TextAffinity.upstream;
-    logInMagenta(
-      oldValue.text.substring(
-        taSubindo
-            ? oldValue.selection.baseOffset
-            : oldValue.selection.extentOffset,
-        taSubindo
-            ? oldValue.selection.extentOffset
-            : oldValue.selection.baseOffset,
-        // oldValue.selection.extentOffset,
-      ),
-    );
-
-    // try {
-    //   logInGreen(
-    //     'Mano ${newValue.text.substring(
-    //       !taSubindo
-    //           ? newValue.selection.baseOffset
-    //           : newValue.selection.extentOffset,
-    //       !taSubindo
-    //           ? newValue.selection.extentOffset
-    //           : newValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    // try {
-    //   logInWhite(
-    //     'Mano ${newValue.text.substring(
-    //       taSubindo
-    //           ? newValue.selection.baseOffset
-    //           : newValue.selection.extentOffset,
-    //       taSubindo
-    //           ? newValue.selection.extentOffset
-    //           : newValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    // try {
-    //   logInRed(
-    //     'Mano ${oldValue.text.substring(
-    //       !taSubindo
-    //           ? newValue.selection.baseOffset
-    //           : newValue.selection.extentOffset,
-    //       !taSubindo
-    //           ? newValue.selection.extentOffset
-    //           : newValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    // try {
-    //   logInBlack(
-    //     'Mano ${newValue.text.substring(
-    //       taSubindo
-    //           ? newValue.selection.baseOffset
-    //           : newValue.selection.extentOffset,
-    //       taSubindo
-    //           ? newValue.selection.extentOffset
-    //           : newValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    // try {
-    //   logInCyan(
-    //     'Mano ${oldValue.text.substring(
-    //       !taSubindo
-    //           ? oldValue.selection.baseOffset
-    //           : oldValue.selection.extentOffset,
-    //       !taSubindo
-    //           ? oldValue.selection.extentOffset
-    //           : oldValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch (_) {}
-
-    // try {
-    //   logInBlue(
-    //     'Mano ${newValue.text.substring(
-    //       taSubindo
-    //           ? oldValue.selection.baseOffset
-    //           : oldValue.selection.extentOffset,
-    //       taSubindo
-    //           ? oldValue.selection.extentOffset
-    //           : oldValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    // try {
-    //   logInCyan(
-    //     'Maaano ${oldValue.text.substring(
-    //       !taSubindo
-    //           ? oldValue.selection.baseOffset
-    //           : newValue.selection.extentOffset,
-    //       !taSubindo
-    //           ? oldValue.selection.extentOffset
-    //           : newValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    // try {
-    //   logInBlue(
-    //     'Maaano ${oldValue.text.substring(
-    //       taSubindo
-    //           ? newValue.selection.baseOffset
-    //           : oldValue.selection.extentOffset,
-    //       taSubindo
-    //           ? newValue.selection.extentOffset
-    //           : oldValue.selection.baseOffset,
-    //       // oldValue.selection.extentOffset,
-    //     )}',
-    //   );
-    // } catch(e) {}
-
-    final didTappedDellimiter =
-        tappedText == '{' && (amoutErased == -1 || amoutErased == 0);
+    final didTappedDellimiter = tappedText == '{' &&
+        ((amoutErased == -1 || amoutErased == 0) ||
+            didAddedValidTextToSelectedArea);
     final newText = newValue.text
         .replaceRange(newValue.selection.start, newValue.selection.end, '{}}');
 
@@ -450,26 +191,6 @@ class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
       );
     }
     return newValue;
-
-    // final endsWithDelimmiter = newValue.text.endsWith('{');
-    logInMagenta('${newValue.composing.start}');
-    logInMagenta('${newValue.composing.end}');
-    logInWhite('${newValue.selection.start}');
-    logInWhite('${newValue.selection.end}');
-    if (didTappedDellimiter) {
-      return newValue.copyWith(
-        text: '${newValue.text}{}}',
-        selection: TextSelection.collapsed(
-          offset: newValue.selection.start + 1,
-        ),
-      );
-    } else {
-      return newValue;
-    }
-    logInGreen('-------');
-    print(oldValue.text);
-    log('---');
-    print(newValue.text);
   }
 }
 

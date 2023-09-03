@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 sealed class Pipe {
   abstract final String name;
   abstract final String description;
+  abstract final String mustacheName;
   const Pipe();
 
   factory Pipe.fromMap(Map<String, dynamic> map) {
@@ -27,22 +28,27 @@ class TextPipe extends Equatable implements Pipe {
   final String name;
   @override
   final String description;
+  @override
+  final String mustacheName;
 
   const TextPipe({
     required this.name,
     required this.description,
+    required this.mustacheName,
   });
 
   @override
-  List<Object> get props => [name, description];
+  List<Object> get props => [name, description, mustacheName];
 
   TextPipe copyWith({
     String? name,
     String? description,
+    String? mustacheName,
   }) {
     return TextPipe(
       name: name ?? this.name,
       description: description ?? this.description,
+      mustacheName: mustacheName ?? this.mustacheName,
     );
   }
 
@@ -50,6 +56,7 @@ class TextPipe extends Equatable implements Pipe {
     return <String, dynamic>{
       'name': name,
       'description': description,
+      'mustacheName': mustacheName,
       'runtimeType': runtimeType.toString(),
     };
   }
@@ -59,6 +66,7 @@ class TextPipe extends Equatable implements Pipe {
     return TextPipe(
       name: map['name'] as String,
       description: map['description'] as String,
+      mustacheName: map['mustacheName'] as String,
     );
   }
 
@@ -73,21 +81,27 @@ class BooleanPipe extends Equatable implements Pipe {
   final String name;
   @override
   final String description;
+  @override
+  final String mustacheName;
+
   const BooleanPipe({
     required this.name,
     required this.description,
+    required this.mustacheName,
   });
 
   @override
-  List<Object> get props => [name, description];
+  List<Object> get props => [name, description, mustacheName];
 
   BooleanPipe copyWith({
     String? name,
     String? description,
+    String? mustacheName,
   }) {
     return BooleanPipe(
       name: name ?? this.name,
       description: description ?? this.description,
+      mustacheName: mustacheName ?? this.mustacheName,
     );
   }
 
@@ -95,6 +109,7 @@ class BooleanPipe extends Equatable implements Pipe {
     return <String, dynamic>{
       'name': name,
       'description': description,
+      'mustacheName': mustacheName,
       'runtimeType': runtimeType.toString(),
     };
   }
@@ -104,6 +119,7 @@ class BooleanPipe extends Equatable implements Pipe {
     return BooleanPipe(
       name: map['name'] as String,
       description: map['description'] as String,
+      mustacheName: map['mustacheName'] as String,
     );
   }
 
@@ -121,6 +137,8 @@ class ModelPipe extends Equatable implements Pipe {
   final String name;
   @override
   final String description;
+  @override
+  final String mustacheName;
 
   final List<TextPipe> textPipes;
   final List<BooleanPipe> booleanPipes;
@@ -128,6 +146,7 @@ class ModelPipe extends Equatable implements Pipe {
   const ModelPipe({
     required this.name,
     required this.description,
+    required this.mustacheName,
     required this.textPipes,
     required this.booleanPipes,
     required this.modelPipes,
@@ -136,6 +155,7 @@ class ModelPipe extends Equatable implements Pipe {
   const ModelPipe.emptyPlaceholder()
       : name = '',
         description = '',
+        mustacheName = '',
         textPipes = const [],
         booleanPipes = const [],
         modelPipes = const [];
@@ -143,6 +163,7 @@ class ModelPipe extends Equatable implements Pipe {
   ModelPipe copyWith({
     String? name,
     String? description,
+    String? mustacheName,
     List<TextPipe>? textPipes,
     List<BooleanPipe>? booleanPipes,
     List<ModelPipe>? modelPipes,
@@ -150,6 +171,7 @@ class ModelPipe extends Equatable implements Pipe {
     return ModelPipe(
       name: name ?? this.name,
       description: description ?? this.description,
+      mustacheName: mustacheName ?? this.mustacheName,
       textPipes: textPipes ?? this.textPipes,
       booleanPipes: booleanPipes ?? this.booleanPipes,
       modelPipes: modelPipes ?? this.modelPipes,
@@ -164,6 +186,7 @@ class ModelPipe extends Equatable implements Pipe {
     return [
       name,
       description,
+      mustacheName,
       textPipes,
       booleanPipes,
       modelPipes,
@@ -174,6 +197,7 @@ class ModelPipe extends Equatable implements Pipe {
     return <String, dynamic>{
       'name': name,
       'description': description,
+      'mustacheName': mustacheName,
       'textPipes': textPipes.map((x) => x.toMap()).toList(),
       'booleanPipes': booleanPipes.map((x) => x.toMap()).toList(),
       'modelPipes': modelPipes.map((x) => x.toMap()).toList(),
@@ -186,6 +210,7 @@ class ModelPipe extends Equatable implements Pipe {
     return ModelPipe(
       name: map['name'] as String,
       description: map['description'] as String,
+      mustacheName: map['mustacheName'] as String,
       textPipes: List<TextPipe>.from(
         (map['textPipes'] as List<dynamic>).map<TextPipe>(
           (x) => TextPipe.fromMap(x as Map<String, dynamic>),

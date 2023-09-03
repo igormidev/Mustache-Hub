@@ -36,7 +36,7 @@ class VariablesDisplayWidget extends StatelessWidget {
               }).toList(),
               ...state.modelPipes
                   .map<List<Widget>>((modelPipe) {
-                    final name = modelPipe.name;
+                    final name = modelPipe.mustacheName;
                     return [
                       ...modelPipe.textPipes.map((pipe) {
                         return _VariableChip(
@@ -89,7 +89,7 @@ class _VariableChip extends StatelessWidget {
   _VariableChip.fromPipe(
     Pipe pipe, {
     required this.color,
-  })  : label = pipe.name,
+  })  : label = pipe.mustacheName,
         message = pipe.description,
         border = null;
 

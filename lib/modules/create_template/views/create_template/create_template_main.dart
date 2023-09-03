@@ -13,6 +13,7 @@ class CreateTemplateMain extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create Template'),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {},
@@ -28,6 +29,7 @@ class CreateTemplateMain extends StatelessWidget {
               Icons.save_rounded,
             ),
           ),
+          const SizedBox(width: 16),
         ],
       ),
       body: ResponsiveSplitter(
