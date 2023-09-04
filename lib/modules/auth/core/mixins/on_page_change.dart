@@ -23,7 +23,7 @@ mixin PageModuleNavigator {
         return context.replaceAll('/find');
 
       case EDrawerNavigationPossibilities.generateText:
-        break;
+        return context.replaceAll('/generate');
 
       case EDrawerNavigationPossibilities.createMustache:
         return context.replaceAll('/create');

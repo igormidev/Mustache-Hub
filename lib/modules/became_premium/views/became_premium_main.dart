@@ -27,6 +27,7 @@ class BecamePremiumMain extends HookWidget {
             alignment: WrapAlignment.center,
             children: PremiumTier.values.map((tier) {
               return TierProductTile(
+                isYear: isYear.value,
                 tier: tier,
               );
             }).toList(),

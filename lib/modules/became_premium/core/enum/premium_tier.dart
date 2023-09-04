@@ -66,7 +66,7 @@ extension PremiumTierExtension on PremiumTier {
               style: underline,
             ),
             const TextSpan(
-              text: ' templates save in user colection',
+              text: ' saved templates in colection',
             ),
           ],
           [
@@ -82,7 +82,23 @@ extension PremiumTierExtension on PremiumTier {
               style: underline,
             ),
             const TextSpan(
-              text: ' variables per template',
+              text: ' variables per mustache template',
+            ),
+          ],
+          [
+            TextSpan(
+              text: 'Limit',
+              style: highlighted,
+            ),
+            const TextSpan(
+              text: ' of ',
+            ),
+            TextSpan(
+              text: '3',
+              style: underline,
+            ),
+            const TextSpan(
+              text: ' tabs of text generation at same time',
             ),
           ],
           [
@@ -120,7 +136,7 @@ extension PremiumTierExtension on PremiumTier {
               style: underline,
             ),
             const TextSpan(
-              text: ' templates save in user colection',
+              text: ' saved templates in colection',
             ),
           ],
           [
@@ -136,7 +152,23 @@ extension PremiumTierExtension on PremiumTier {
               style: underline,
             ),
             const TextSpan(
-              text: ' variables per template',
+              text: ' variables per mustache template',
+            ),
+          ],
+          [
+            TextSpan(
+              text: 'Limit',
+              style: highlighted,
+            ),
+            const TextSpan(
+              text: ' of ',
+            ),
+            TextSpan(
+              text: '5',
+              style: underline,
+            ),
+            const TextSpan(
+              text: ' tabs of text generation at same time',
             ),
           ],
         ],
@@ -147,7 +179,7 @@ extension PremiumTierExtension on PremiumTier {
               style: underline,
             ),
             const TextSpan(
-              text: ' collections per template',
+              text: ' templates in user collection',
             ),
           ],
           [
@@ -156,7 +188,16 @@ extension PremiumTierExtension on PremiumTier {
               style: underline,
             ),
             const TextSpan(
-              text: ' variables per template',
+              text: ' variables per mustache template',
+            ),
+          ],
+          [
+            TextSpan(
+              text: 'Unlimited',
+              style: underline,
+            ),
+            const TextSpan(
+              text: ' tabs of text generation at same time',
             ),
           ],
           [

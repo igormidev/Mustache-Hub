@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/modules/became_premium/core/enum/premium_tier.dart';
+import 'package:mustachehub/modules/became_premium/views/components/widgets/price_display.dart';
 
 class TierProductTile extends StatelessWidget {
+  final bool isYear;
   final PremiumTier tier;
-  const TierProductTile({super.key, required this.tier});
+  const TierProductTile({super.key, required this.tier, required this.isYear});
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +36,14 @@ class TierProductTile extends StatelessWidget {
             },
           ).toList(),
           const Spacer(),
-          Text(
-            'R\$ ${tier.yearPrice.toStringAsFixed(2)}',
-            style: context.texts.titleLarge,
-          ),
+          PriceDisplay(isYear: isYear, tier: tier),
           const SizedBox(height: 8),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             width: double.maxFinite,
             child: ElevatedButton(
               onPressed: () {},
-              child: const Text('Buy'),
+              child: const Text('Start free trial'),
             ),
           ),
           const SizedBox(height: 16),

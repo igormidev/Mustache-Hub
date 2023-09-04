@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.0"
+  archive:
+    dependency: transitive
+    description:
+      name: archive
+      sha256: "49b1fad315e57ab0bbc15bcbb874e83116a1d78f77ebd500a4af6c9407d6b28e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.8"
   args:
     dependency: transitive
     description:
@@ -342,6 +350,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_animate:
+    dependency: "direct main"
+    description:
+      name: flutter_animate
+      sha256: "62f346340a96192070e31e3f2a1bd30a28530f1fe8be978821e06cd56b74d6d2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.0+1"
   flutter_bloc:
     dependency: "direct main"
     description:
@@ -560,6 +576,21 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  mason:
+    dependency: "direct main"
+    description:
+      path: "packages/mason/packages/mason"
+      relative: true
+    source: path
+    version: "0.1.0-dev.50"
+  mason_logger:
+    dependency: transitive
+    description:
+      name: mason_logger
+      sha256: c12860ae81f0bdc5d05d7914fe473bfb294047e9dc64e8995b5753c7207e81b9
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.8"
   matcher:
     dependency: transitive
     description:
@@ -711,6 +742,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.5"
+  pointycastle:
+    dependency: transitive
+    description:
+      name: pointycastle
+      sha256: "7c1e5f0d23c9016c5bbd8b1473d0d3fb3fc851b876046039509e18e0c7485f2c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.7.3"
   pool:
     dependency: transitive
     description:

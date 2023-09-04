@@ -7,9 +7,9 @@ class GenerateTextMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mano'),
+        title: const Text('Generate text'),
       ),
-      body: Container(),
+      body: ListView(),
     );
   }
 }
