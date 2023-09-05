@@ -73,7 +73,6 @@ class CustomHeader extends StatelessWidget {
             headerSubtitle ?? '',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-        const SizedBox(height: 8),
       ],
     );
   }

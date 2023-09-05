@@ -17,7 +17,9 @@ import 'package:mustachehub/modules/create_template/logic/blocs/fields_text_size
 import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/create_template_main.dart';
 import 'package:mustachehub/modules/find/test_hydrated_bloc.dart';
-import 'package:mustachehub/modules/generate_text/views/generate_text_view/generate_text_main.dart';
+import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
+import 'package:mustachehub/modules/generate_text/views/generate_text_dashboard_view/generate_text_dashboard_main.dart';
+import 'package:mustachehub/modules/generate_text/views/generate_text_tab/generate_text_main.dart';
 import 'package:mustachehub/modules/home/views/home/home_main.dart';
 
 import '../../modules/became_premium/views/became_premium_main.dart';
@@ -35,6 +37,9 @@ class AppModule extends Module {
     i.addSingleton<FieldsTextSizeBloc>(FieldsTextSizeBloc.new);
     i.addSingleton<VariablesBloc>(VariablesBloc.new);
     i.addSingleton<ContentStringBloc>(ContentStringBloc.new);
+
+    // Generate text blocs
+    i.addSingleton<GenerateTextBloc>(GenerateTextBloc.new);
   }
 
   @override
@@ -53,7 +58,7 @@ class AppModule extends Module {
         ),
         ChildRoute(
           '/generate',
-          child: (context) => const GenerateTextMain(),
+          child: (context) => const GenerateTextDashboardMain(),
         ),
         ChildRoute(
           '/create',

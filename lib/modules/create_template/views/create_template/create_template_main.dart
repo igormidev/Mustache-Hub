@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
+import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/logic/entities/template.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/pipe_creator_section.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/text_content_section.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
+import 'package:mustachehub/modules/generate_text/views/generate_text_tab/generate_text_main.dart';
 import 'package:mustachehub/shared/responsive/responsive_splitter.dart';
 
 class CreateTemplateMain extends StatelessWidget {
@@ -10,13 +15,41 @@ class CreateTemplateMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final variablesBloc = context.get<VariablesBloc>();
+    final textBloc = context.get<GenerateTextBloc>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create Template'),
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              final state = variablesBloc.state;
+
+              final partialTemplate = Template(
+                texts: state.textPipes,
+                booleans: state.booleanPipes,
+                models: state.modelPipes,
+              );
+              textBloc.add(GenerateTextEvent.selectTemplate(
+                template: partialTemplate,
+              ));
+
+              showModalBottomSheet(
+                context: context,
+                useSafeArea: false,
+                constraints: const BoxConstraints.expand(),
+                builder: (context) {
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 16,
+                    ),
+                    child: GenerateTextTab(),
+                  );
+                },
+              );
+            },
             tooltip: 'Test template',
             icon: const Icon(
               Icons.science,

@@ -141,7 +141,7 @@ class TextVariablesCreationWidget extends HookWidget {
         return TextPipeDisplayCard(pipe: pipe, onEdit: onEditSelec);
       },
       generateNewPipe: () {
-        return const TextPipe(name: '', description: '', mustacheName: '');
+        return TextPipe.emptyPlaceholder();
       },
     );
   }
@@ -194,7 +194,7 @@ class BooleanVariablesCreationWidget extends HookWidget {
         return BooleanPipeDisplayCard(pipe: pipe, onEdit: onEditSelec);
       },
       generateNewPipe: () {
-        return const BooleanPipe(name: '', description: '', mustacheName: '');
+        return BooleanPipe.emptyPlaceholder();
       },
     );
   }
@@ -256,7 +256,7 @@ class ModelVariablesCreationWidget extends HookWidget {
       pipeBuilder: (pipe, onEditSelec) {
         return ModelPipeDisplayCard(pipe: pipe, onEdit: onEditSelec);
       },
-      generateNewPipe: () => const ModelPipe.emptyPlaceholder(),
+      generateNewPipe: () => ModelPipe.emptyPlaceholder(),
     );
   }
 }

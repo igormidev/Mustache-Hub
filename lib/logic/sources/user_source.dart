@@ -54,11 +54,7 @@ class UserSourceImpl implements IUserSource {
       await credentials.user?.updateDisplayName(userName);
 
       final user = credentials.user!;
-      return UserModel.fromFirebase(user)
-          .copyWith(
-            name: userName,
-          )
-          .toRight();
+      return UserModel.fromFirebase(user).copyWith(name: userName).toRight();
     });
   }
 
