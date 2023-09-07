@@ -19,7 +19,6 @@ import 'package:mustachehub/modules/create_template/views/create_template/create
 import 'package:mustachehub/modules/find/test_hydrated_bloc.dart';
 import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
 import 'package:mustachehub/modules/generate_text/views/generate_text_dashboard_view/generate_text_dashboard_main.dart';
-import 'package:mustachehub/modules/generate_text/views/generate_text_tab/generate_text_main.dart';
 import 'package:mustachehub/modules/home/views/home/home_main.dart';
 
 import '../../modules/became_premium/views/became_premium_main.dart';

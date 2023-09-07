@@ -4,8 +4,7 @@ part of 'generate_text_bloc.dart';
 class GenerateTextState with _$GenerateTextState {
   const factory GenerateTextState.initial() = _Initial;
 
-  const factory GenerateTextState.withValues({
-    required Template template,
-    required Map<String, dynamic> payload,
-  }) = _LoadInProgress;
+  const factory GenerateTextState.withData({
+    required GenerateTextStateModel pipes,
+  }) = _WithData;
 }

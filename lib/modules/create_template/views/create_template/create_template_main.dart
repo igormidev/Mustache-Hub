@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/logic/entities/template.dart';
+import 'package:mustachehub/modules/create_template/logic/blocs/content_string/content_string_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/pipe_creator_section.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/text_content_section.dart';
@@ -16,6 +17,7 @@ class CreateTemplateMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final variablesBloc = context.get<VariablesBloc>();
+    final contentBloc = context.get<ContentStringBloc>();
     final textBloc = context.get<GenerateTextBloc>();
     return Scaffold(
       appBar: AppBar(
@@ -30,6 +32,7 @@ class CreateTemplateMain extends StatelessWidget {
                 texts: state.textPipes,
                 booleans: state.booleanPipes,
                 models: state.modelPipes,
+                content: contentBloc.state.currentText,
               );
               textBloc.add(GenerateTextEvent.selectTemplate(
                 template: partialTemplate,
@@ -40,8 +43,8 @@ class CreateTemplateMain extends StatelessWidget {
                 useSafeArea: false,
                 constraints: const BoxConstraints.expand(),
                 builder: (context) {
-                  return const Padding(
-                    padding: EdgeInsets.symmetric(
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 20.0,
                       vertical: 16,
                     ),

@@ -24,6 +24,8 @@ dependencies:
   equatable:
   flutter_modular: ^6.1.1
   flutter_animate: ^4.2.0+1
+  two_dimensional_scrollables: ^0.0.2
+  flutter_fancy_tree_view: ^1.2.0
   dotted_border: 2.0.0+3
   path_provider: ^2.0.15
   firebase_auth: ^4.7.3

@@ -33,6 +33,27 @@ extension ListUtils<T> on List<T> {
     add(newValue);
     return this;
   }
+
+  List<List<T>> splitIntoGroups(int quantityPerGroup) {
+    final List<List<T>> val = [];
+    List<T> acummulator = [];
+    int count = 0;
+    for (final element in this) {
+      if (count >= quantityPerGroup) {
+        count = 0;
+        val.add(acummulator);
+        acummulator = [element];
+      } else {
+        acummulator.add(element);
+      }
+      count++;
+    }
+    if (acummulator.isNotEmpty) {
+      val.add(acummulator);
+    }
+
+    return val;
+  }
 }
 
 extension NullableListLessBoilerPlateExtension<T> on List<T?> {

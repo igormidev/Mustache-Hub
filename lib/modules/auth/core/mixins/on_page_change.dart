@@ -15,13 +15,12 @@ mixin PageModuleNavigator {
     String? page;
     switch (selectedOption) {
       case EDrawerNavigationPossibilities.home:
-        break;
+        return context.replaceAll('/home');
       case EDrawerNavigationPossibilities.collection:
         break;
 
       case EDrawerNavigationPossibilities.find:
         return context.replaceAll('/find');
-
       case EDrawerNavigationPossibilities.generateText:
         return context.replaceAll('/generate');
 

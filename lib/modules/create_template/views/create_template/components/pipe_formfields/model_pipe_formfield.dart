@@ -15,19 +15,21 @@ class ModelPipeFormfield extends StatelessWidget {
     List<ModelPipe> modelPipes,
   ) onSave;
   final GlobalKey<FormState> formKey;
-  final ModelPipe variable;
+  final ModelPipe pipe;
+  final double maxWidth;
 
   ModelPipeFormfield({
     super.key,
     required this.nameEC,
+    required this.maxWidth,
     required this.descriptionEC,
     required this.onDelete,
     required this.onSave,
     required this.formKey,
-    required this.variable,
-  })  : textPipes = [...variable.textPipes],
-        booleanPipes = [...variable.booleanPipes],
-        modelPipes = [...variable.modelPipes];
+    required this.pipe,
+  })  : textPipes = [...pipe.textPipes],
+        booleanPipes = [...pipe.booleanPipes],
+        modelPipes = [...pipe.modelPipes];
 
   final List<TextPipe> textPipes;
   final List<BooleanPipe> booleanPipes;
@@ -41,6 +43,7 @@ class ModelPipeFormfield extends StatelessWidget {
       descriptionEC: descriptionEC,
       onDelete: onDelete,
       onSave: () => onSave(textPipes, booleanPipes, modelPipes),
+      pipe: pipe,
       children: [
         Text(
           'Add texts variables in model:',
@@ -77,6 +80,7 @@ class ModelPipeFormfield extends StatelessWidget {
           style: context.texts.titleMedium,
         ),
         ModelVariablesCreationWidget(
+          maxWidth: maxWidth,
           type: ListType.listviewBuilder,
           formKey: formKey,
           initialList: modelPipes,

@@ -35,10 +35,13 @@ class TextPipe extends Equatable implements Pipe {
   @override
   final String id;
 
+  final bool isRequired;
+
   TextPipe({
     required this.name,
     required this.description,
     required this.mustacheName,
+    required this.isRequired,
     String? id,
   }) : id = id ?? const Uuid().v1();
 
@@ -46,13 +49,15 @@ class TextPipe extends Equatable implements Pipe {
       : name = '',
         description = '',
         mustacheName = '',
-        id = const Uuid().v1();
+        id = const Uuid().v1(),
+        isRequired = false;
 
   @override
   List<Object> get props => [
         name,
         description,
         mustacheName,
+        isRequired,
         id,
       ];
 
@@ -60,11 +65,13 @@ class TextPipe extends Equatable implements Pipe {
     String? name,
     String? description,
     String? mustacheName,
+    bool? isRequired,
   }) {
     return TextPipe(
       name: name ?? this.name,
       description: description ?? this.description,
       mustacheName: mustacheName ?? this.mustacheName,
+      isRequired: isRequired ?? this.isRequired,
     );
   }
 
@@ -74,6 +81,7 @@ class TextPipe extends Equatable implements Pipe {
       'description': description,
       'mustacheName': mustacheName,
       'id': id,
+      'isRequired': isRequired,
       'runtimeType': runtimeType.toString(),
     };
   }
@@ -84,6 +92,7 @@ class TextPipe extends Equatable implements Pipe {
       name: map['name'] as String,
       description: map['description'] as String,
       mustacheName: map['mustacheName'] as String,
+      isRequired: map['isRequired'] as bool,
       id: map['id'] as String,
     );
   }

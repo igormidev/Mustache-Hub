@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/logic/entities/template.dart';
+import 'package:mustachehub/modules/generate_text/logic/dtos/generate_text_state.dart';
 
 part 'generate_text_state.dart';
 part 'generate_text_event.dart';
@@ -20,12 +21,16 @@ class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState> {
     _SelectTemplate event,
     Emitter<GenerateTextState> emit,
   ) {
-    emit(GenerateTextState.withValues(
-      template: event.template,
-      payload: _getPipeInitialPayloads(
-        event.template.texts,
-        event.template.booleans,
-        event.template.models,
+    final data = _getPipeInitialPayloads(
+      event.template.texts,
+      event.template.booleans,
+      event.template.models,
+    );
+    emit(GenerateTextState.withData(
+      pipes: GenerateTextStateModel(
+        template: event.template,
+        payload: data.$1,
+        requiredPipes: data.$2,
       ),
     ));
   }
@@ -34,17 +39,22 @@ class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState> {
     _AddPayloadValue event,
     Emitter<GenerateTextState> emit,
   ) {
-    final dataState = state.mapOrNull(
-      withValues: (value) => value,
-    );
+    final dataState = state
+        .mapOrNull(
+          withData: (value) => value,
+        )
+        ?.pipes;
 
     if (dataState == null) return null;
     final newMap = {...dataState.payload};
     newMap[event.pipe.mustacheName] = event.value;
 
-    emit(GenerateTextState.withValues(
-      template: dataState.template,
-      payload: newMap,
+    emit(GenerateTextState.withData(
+      pipes: GenerateTextStateModel(
+        template: dataState.template,
+        payload: newMap,
+        requiredPipes: dataState.requiredPipes,
+      ),
     ));
   }
 
@@ -55,28 +65,36 @@ class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState> {
     emit(const GenerateTextState.initial());
   }
 
-  Map<String, dynamic> _getPipeInitialPayloads(
+  (Map<String, dynamic> payload, List<String> requiredPipesIds)
+      _getPipeInitialPayloads(
     List<TextPipe> texts,
     List<BooleanPipe> booleans,
     List<ModelPipe> models,
   ) {
     final Map<String, dynamic> initialPayload = {};
-    initialPayload.addAll(_getTextInitialPayloads(texts));
+    final List<String> requiredPipesIds = [];
+
+    final data = _getTextInitialPayloads(texts);
+    initialPayload.addAll(data.$1);
+    requiredPipesIds.addAll(data.$2);
     initialPayload.addAll(_getBoolInitialPayloads(booleans));
     initialPayload.addAll(_getMapInitialPayloads(models));
 
-    return initialPayload;
+    return (initialPayload, requiredPipesIds);
   }
 
   Map<String, dynamic> _getMapInitialPayloads(
     List<ModelPipe> pipes,
   ) {
     final Map<String, dynamic> payload = {};
+    final List<String> requiredPipesIds = [];
 
     for (final ModelPipe modelPipe in pipes) {
       switch (modelPipe) {
         case TextPipe():
-          payload.addAll(_getTextInitialPayloads(modelPipe.textPipes));
+          final data = _getTextInitialPayloads(modelPipe.textPipes);
+          payload.addAll(data.$1);
+          requiredPipesIds.addAll(data.$2);
         case BooleanPipe():
           payload.addAll(_getBoolInitialPayloads(modelPipe.booleanPipes));
         case ModelPipe():
@@ -87,15 +105,20 @@ class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState> {
     return payload;
   }
 
-  Map<String, dynamic> _getTextInitialPayloads(
+  (Map<String, dynamic> payload, List<String> requiredPipesIds)
+      _getTextInitialPayloads(
     List<TextPipe> pipes,
   ) {
     final Map<String, dynamic> payload = {};
+    final List<String> requiredPipesIds = [];
     for (final textPipe in pipes) {
       payload.addAll({textPipe.mustacheName: null});
+      if (textPipe.isRequired) {
+        requiredPipesIds.add(textPipe.mustacheName);
+      }
     }
 
-    return payload;
+    return (payload, requiredPipesIds);
   }
 
   Map<String, dynamic> _getBoolInitialPayloads(

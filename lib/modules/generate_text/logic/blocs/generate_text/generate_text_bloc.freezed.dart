@@ -19,41 +19,38 @@ mixin _$GenerateTextState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Template template, Map<String, dynamic> payload)
-        withValues,
+    required TResult Function(GenerateTextStateModel pipes) withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Template template, Map<String, dynamic> payload)?
-        withValues,
+    TResult? Function(GenerateTextStateModel pipes)? withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Template template, Map<String, dynamic> payload)?
-        withValues,
+    TResult Function(GenerateTextStateModel pipes)? withData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) withValues,
+    required TResult Function(_WithData value) withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? withValues,
+    TResult? Function(_WithData value)? withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? withValues,
+    TResult Function(_WithData value)? withData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,8 +112,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Template template, Map<String, dynamic> payload)
-        withValues,
+    required TResult Function(GenerateTextStateModel pipes) withData,
   }) {
     return initial();
   }
@@ -125,8 +121,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Template template, Map<String, dynamic> payload)?
-        withValues,
+    TResult? Function(GenerateTextStateModel pipes)? withData,
   }) {
     return initial?.call();
   }
@@ -135,8 +130,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Template template, Map<String, dynamic> payload)?
-        withValues,
+    TResult Function(GenerateTextStateModel pipes)? withData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -149,7 +143,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) withValues,
+    required TResult Function(_WithData value) withData,
   }) {
     return initial(this);
   }
@@ -158,7 +152,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? withValues,
+    TResult? Function(_WithData value)? withData,
   }) {
     return initial?.call(this);
   }
@@ -167,7 +161,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? withValues,
+    TResult Function(_WithData value)? withData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -182,113 +176,93 @@ abstract class _Initial implements GenerateTextState {
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$_WithDataCopyWith<$Res> {
+  factory _$$_WithDataCopyWith(
+          _$_WithData value, $Res Function(_$_WithData) then) =
+      __$$_WithDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({Template template, Map<String, dynamic> payload});
+  $Res call({GenerateTextStateModel pipes});
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$GenerateTextStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$_WithDataCopyWithImpl<$Res>
+    extends _$GenerateTextStateCopyWithImpl<$Res, _$_WithData>
+    implements _$$_WithDataCopyWith<$Res> {
+  __$$_WithDataCopyWithImpl(
+      _$_WithData _value, $Res Function(_$_WithData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? template = null,
-    Object? payload = null,
+    Object? pipes = null,
   }) {
-    return _then(_$_LoadInProgress(
-      template: null == template
-          ? _value.template
-          : template // ignore: cast_nullable_to_non_nullable
-              as Template,
-      payload: null == payload
-          ? _value._payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+    return _then(_$_WithData(
+      pipes: null == pipes
+          ? _value.pipes
+          : pipes // ignore: cast_nullable_to_non_nullable
+              as GenerateTextStateModel,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress(
-      {required this.template, required final Map<String, dynamic> payload})
-      : _payload = payload;
+class _$_WithData implements _WithData {
+  const _$_WithData({required this.pipes});
 
   @override
-  final Template template;
-  final Map<String, dynamic> _payload;
-  @override
-  Map<String, dynamic> get payload {
-    if (_payload is EqualUnmodifiableMapView) return _payload;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_payload);
-  }
+  final GenerateTextStateModel pipes;
 
   @override
   String toString() {
-    return 'GenerateTextState.withValues(template: $template, payload: $payload)';
+    return 'GenerateTextState.withData(pipes: $pipes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadInProgress &&
-            (identical(other.template, template) ||
-                other.template == template) &&
-            const DeepCollectionEquality().equals(other._payload, _payload));
+            other is _$_WithData &&
+            (identical(other.pipes, pipes) || other.pipes == pipes));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, template, const DeepCollectionEquality().hash(_payload));
+  int get hashCode => Object.hash(runtimeType, pipes);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadInProgressCopyWith<_$_LoadInProgress> get copyWith =>
-      __$$_LoadInProgressCopyWithImpl<_$_LoadInProgress>(this, _$identity);
+  _$$_WithDataCopyWith<_$_WithData> get copyWith =>
+      __$$_WithDataCopyWithImpl<_$_WithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Template template, Map<String, dynamic> payload)
-        withValues,
+    required TResult Function(GenerateTextStateModel pipes) withData,
   }) {
-    return withValues(template, payload);
+    return withData(pipes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Template template, Map<String, dynamic> payload)?
-        withValues,
+    TResult? Function(GenerateTextStateModel pipes)? withData,
   }) {
-    return withValues?.call(template, payload);
+    return withData?.call(pipes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Template template, Map<String, dynamic> payload)?
-        withValues,
+    TResult Function(GenerateTextStateModel pipes)? withData,
     required TResult orElse(),
   }) {
-    if (withValues != null) {
-      return withValues(template, payload);
+    if (withData != null) {
+      return withData(pipes);
     }
     return orElse();
   }
@@ -297,43 +271,41 @@ class _$_LoadInProgress implements _LoadInProgress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) withValues,
+    required TResult Function(_WithData value) withData,
   }) {
-    return withValues(this);
+    return withData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? withValues,
+    TResult? Function(_WithData value)? withData,
   }) {
-    return withValues?.call(this);
+    return withData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? withValues,
+    TResult Function(_WithData value)? withData,
     required TResult orElse(),
   }) {
-    if (withValues != null) {
-      return withValues(this);
+    if (withData != null) {
+      return withData(this);
     }
     return orElse();
   }
 }
 
-abstract class _LoadInProgress implements GenerateTextState {
-  const factory _LoadInProgress(
-      {required final Template template,
-      required final Map<String, dynamic> payload}) = _$_LoadInProgress;
+abstract class _WithData implements GenerateTextState {
+  const factory _WithData({required final GenerateTextStateModel pipes}) =
+      _$_WithData;
 
-  Template get template;
-  Map<String, dynamic> get payload;
+  GenerateTextStateModel get pipes;
   @JsonKey(ignore: true)
-  _$$_LoadInProgressCopyWith<_$_LoadInProgress> get copyWith =>
+  _$$_WithDataCopyWith<_$_WithData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

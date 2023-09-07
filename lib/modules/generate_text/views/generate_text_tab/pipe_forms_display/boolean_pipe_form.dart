@@ -31,7 +31,7 @@ class BooleanPipeForm extends StatelessWidget {
   }
 }
 
-class BoleanSwitch extends StatelessWidget {
+class BoleanSwitch extends HookWidget {
   final BooleanPipe pipe;
   final GenerateTextBloc bloc;
   const BoleanSwitch({
