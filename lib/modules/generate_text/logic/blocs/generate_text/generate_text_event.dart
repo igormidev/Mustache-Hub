@@ -6,10 +6,15 @@ class GenerateTextEvent with _$GenerateTextEvent {
     required Template template,
   }) = _SelectTemplate;
 
-  const factory GenerateTextEvent.addPayloadValue({
-    required Pipe pipe,
-    required dynamic value,
-  }) = _AddPayloadValue;
+  const factory GenerateTextEvent.addTextPayloadValue({
+    required TextPipe pipe,
+    required String? value,
+  }) = _AddTextPayloadValue;
+
+  const factory GenerateTextEvent.addBooleanPayloadValue({
+    required BooleanPipe pipe,
+    required bool value,
+  }) = _AddBooleanPayloadValue;
 
   const factory GenerateTextEvent.unSelectTemplate() = _UnSelectTemplate;
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:mustachehub/core/extensions/theme.dart';
 import 'package:mustachehub/modules/became_premium/core/enum/premium_tier.dart';
 import 'package:mustachehub/modules/became_premium/views/components/switch_month_year.dart';
 import 'package:mustachehub/modules/became_premium/views/components/widgets/became_premium_header.dart';

@@ -2,58 +2,81 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/logic/entities/template.dart';
+import 'package:mustachehub/modules/generate_text/core/mixins/get_info_from_template.dart';
 import 'package:mustachehub/modules/generate_text/logic/dtos/generate_text_state.dart';
+import 'package:mustachehub/modules/generate_text/logic/dtos/pipe_dto.dart';
 
 part 'generate_text_state.dart';
 part 'generate_text_event.dart';
 part 'generate_text_bloc.freezed.dart';
 
-class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState> {
+class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState>
+    with GetInfoFromTemplate {
   GenerateTextBloc() : super(const GenerateTextState.initial()) {
     on<_SelectTemplate>(_addTemplate);
-    on<_AddPayloadValue>(_addPayloadValue);
     on<_UnSelectTemplate>(_unSelectTemplate);
+    on<_AddTextPayloadValue>(_addTextPayloadValue);
+    on<_AddBooleanPayloadValue>(_addBooleanPayloadValue);
   }
 
   FutureOr<void> _addTemplate(
     _SelectTemplate event,
     Emitter<GenerateTextState> emit,
   ) {
-    final data = _getPipeInitialPayloads(
-      event.template.texts,
-      event.template.booleans,
-      event.template.models,
+    final prevPipe = state.mapOrNull(withData: (value) => value)?.pipes;
+
+    final pipeDtos = dtosFromTemplate(
+      event.template,
+      prevPipe?.textDtos,
+      prevPipe?.booleanDtos,
     );
+
     emit(GenerateTextState.withData(
       pipes: GenerateTextStateModel(
         template: event.template,
-        payload: data.$1,
-        requiredPipes: data.$2,
+        textDtos: pipeDtos.$1,
+        booleanDtos: pipeDtos.$2,
       ),
     ));
   }
 
-  FutureOr<void> _addPayloadValue(
-    _AddPayloadValue event,
+  FutureOr<void> _addTextPayloadValue(
+    _AddTextPayloadValue event,
     Emitter<GenerateTextState> emit,
   ) {
-    final dataState = state
-        .mapOrNull(
-          withData: (value) => value,
-        )
-        ?.pipes;
-
+    final dataState = state.mapOrNull(withData: (value) => value)?.pipes;
     if (dataState == null) return null;
-    final newMap = {...dataState.payload};
-    newMap[event.pipe.mustacheName] = event.value;
+    final newDtos = [...dataState.textDtos];
+    final index = newDtos.indexWhere((dto) => dto.pipe.id == event.pipe.id);
+    newDtos[index] = newDtos[index].copyWith(payloadValue: event.value);
 
     emit(GenerateTextState.withData(
       pipes: GenerateTextStateModel(
         template: dataState.template,
-        payload: newMap,
-        requiredPipes: dataState.requiredPipes,
+        booleanDtos: dataState.booleanDtos,
+        textDtos: newDtos,
+      ),
+    ));
+  }
+
+  FutureOr<void> _addBooleanPayloadValue(
+    _AddBooleanPayloadValue event,
+    Emitter<GenerateTextState> emit,
+  ) {
+    final dataState = state.mapOrNull(withData: (value) => value)?.pipes;
+    if (dataState == null) return null;
+    final newDtos = [...dataState.booleanDtos];
+    final index = newDtos.indexWhere((dto) => dto.pipe.id == event.pipe.id);
+    newDtos[index] = newDtos[index].copyWith(payloadValue: event.value);
+
+    emit(GenerateTextState.withData(
+      pipes: GenerateTextStateModel(
+        template: dataState.template,
+        booleanDtos: newDtos,
+        textDtos: dataState.textDtos,
       ),
     ));
   }
@@ -65,70 +88,13 @@ class GenerateTextBloc extends Bloc<GenerateTextEvent, GenerateTextState> {
     emit(const GenerateTextState.initial());
   }
 
-  (Map<String, dynamic> payload, List<String> requiredPipesIds)
-      _getPipeInitialPayloads(
-    List<TextPipe> texts,
-    List<BooleanPipe> booleans,
-    List<ModelPipe> models,
-  ) {
-    final Map<String, dynamic> initialPayload = {};
-    final List<String> requiredPipesIds = [];
+  // @override
+  // GenerateTextState? fromJson(Map<String, dynamic> json) {
+  //   return GenerateTextState.fromJson(json);
+  // }
 
-    final data = _getTextInitialPayloads(texts);
-    initialPayload.addAll(data.$1);
-    requiredPipesIds.addAll(data.$2);
-    initialPayload.addAll(_getBoolInitialPayloads(booleans));
-    initialPayload.addAll(_getMapInitialPayloads(models));
-
-    return (initialPayload, requiredPipesIds);
-  }
-
-  Map<String, dynamic> _getMapInitialPayloads(
-    List<ModelPipe> pipes,
-  ) {
-    final Map<String, dynamic> payload = {};
-    final List<String> requiredPipesIds = [];
-
-    for (final ModelPipe modelPipe in pipes) {
-      switch (modelPipe) {
-        case TextPipe():
-          final data = _getTextInitialPayloads(modelPipe.textPipes);
-          payload.addAll(data.$1);
-          requiredPipesIds.addAll(data.$2);
-        case BooleanPipe():
-          payload.addAll(_getBoolInitialPayloads(modelPipe.booleanPipes));
-        case ModelPipe():
-          payload.addAll(_getMapInitialPayloads(modelPipe.modelPipes));
-      }
-    }
-
-    return payload;
-  }
-
-  (Map<String, dynamic> payload, List<String> requiredPipesIds)
-      _getTextInitialPayloads(
-    List<TextPipe> pipes,
-  ) {
-    final Map<String, dynamic> payload = {};
-    final List<String> requiredPipesIds = [];
-    for (final textPipe in pipes) {
-      payload.addAll({textPipe.mustacheName: null});
-      if (textPipe.isRequired) {
-        requiredPipesIds.add(textPipe.mustacheName);
-      }
-    }
-
-    return (payload, requiredPipesIds);
-  }
-
-  Map<String, dynamic> _getBoolInitialPayloads(
-    List<BooleanPipe> pipes,
-  ) {
-    final Map<String, dynamic> payload = {};
-    for (final boolPipe in pipes) {
-      payload.addAll({boolPipe.mustacheName: false});
-    }
-
-    return payload;
-  }
+  // @override
+  // Map<String, dynamic>? toJson(GenerateTextState state) {
+  //   return state.toJson();
+  // }
 }

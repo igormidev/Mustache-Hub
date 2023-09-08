@@ -7,4 +7,7 @@ class GenerateTextState with _$GenerateTextState {
   const factory GenerateTextState.withData({
     required GenerateTextStateModel pipes,
   }) = _WithData;
+
+  // factory GenerateTextState.fromJson(Map<String, dynamic> json) =>
+  //     _$GenerateTextStateFromJson(json);
 }

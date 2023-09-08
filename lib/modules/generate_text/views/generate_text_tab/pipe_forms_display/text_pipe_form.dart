@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustachehub/core/extensions/list_extensions.dart';
@@ -8,11 +6,11 @@ import 'package:mustachehub/core/mixins/validators_mixins.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
-import 'package:mustachehub/modules/home/views/home/home_main.dart';
+import 'package:mustachehub/modules/generate_text/logic/dtos/pipe_dto.dart';
 import 'package:mustachehub/shared/custom_header.dart';
 
 class TextPipeForm extends StatelessWidget {
-  final List<TextPipe> pipes;
+  final List<TextPipeDto> pipes;
   const TextPipeForm({
     super.key,
     required this.pipes,
@@ -35,7 +33,7 @@ class TextPipeForm extends StatelessWidget {
               children: pipesCluster.map((pipe) {
                 return Expanded(
                   child: TextPipeTextfield(
-                    pipe: pipe,
+                    pipeDto: pipe,
                     bloc: bloc,
                   ),
                 );
@@ -50,28 +48,30 @@ class TextPipeForm extends StatelessWidget {
 
 class TextPipeTextfield extends HookWidget with ValidatorsMixins {
   final GenerateTextBloc bloc;
-  final TextPipe pipe;
+  final TextPipeDto pipeDto;
   const TextPipeTextfield({
     super.key,
-    required this.pipe,
+    required this.pipeDto,
     required this.bloc,
   });
 
   @override
   Widget build(BuildContext context) {
     final debouncer = useDebouncer(milliseconds: 1200);
+
     return TextFormField(
+      initialValue: pipeDto.payloadValue,
       decoration: InputDecoration(
-        labelText: pipe.name,
-        hintText: pipe.description,
+        labelText: pipeDto.pipe.name,
+        hintText: pipeDto.pipe.description,
         suffixIcon: Tooltip(
-          message: pipe.description,
+          message: pipeDto.pipe.description,
           child: const Icon(Icons.info),
         ),
       ),
       autovalidateMode: AutovalidateMode.always,
       validator: (String? value) {
-        if (pipe.isRequired) {
+        if (pipeDto.pipe.isRequired) {
           return isNotEmpty(value);
         }
 
@@ -80,8 +80,8 @@ class TextPipeTextfield extends HookWidget with ValidatorsMixins {
       onChanged: (value) {
         debouncer.resetDebounce(() {
           final text = value.isEmpty == true ? null : value;
-          bloc.add(GenerateTextEvent.addPayloadValue(
-            pipe: pipe,
+          bloc.add(GenerateTextEvent.addTextPayloadValue(
+            pipe: pipeDto.pipe,
             value: text,
           ));
         });

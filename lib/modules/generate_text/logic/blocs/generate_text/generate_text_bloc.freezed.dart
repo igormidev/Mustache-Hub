@@ -314,21 +314,25 @@ mixin _$GenerateTextEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Template template) selectTemplate,
-    required TResult Function(Pipe pipe, dynamic value) addPayloadValue,
+    required TResult Function(TextPipe pipe, String? value) addTextPayloadValue,
+    required TResult Function(BooleanPipe pipe, bool value)
+        addBooleanPayloadValue,
     required TResult Function() unSelectTemplate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Template template)? selectTemplate,
-    TResult? Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult? Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult? Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult? Function()? unSelectTemplate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Template template)? selectTemplate,
-    TResult Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult Function()? unSelectTemplate,
     required TResult orElse(),
   }) =>
@@ -336,21 +340,25 @@ mixin _$GenerateTextEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SelectTemplate value) selectTemplate,
-    required TResult Function(_AddPayloadValue value) addPayloadValue,
+    required TResult Function(_AddTextPayloadValue value) addTextPayloadValue,
+    required TResult Function(_AddBooleanPayloadValue value)
+        addBooleanPayloadValue,
     required TResult Function(_UnSelectTemplate value) unSelectTemplate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SelectTemplate value)? selectTemplate,
-    TResult? Function(_AddPayloadValue value)? addPayloadValue,
+    TResult? Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult? Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult? Function(_UnSelectTemplate value)? unSelectTemplate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SelectTemplate value)? selectTemplate,
-    TResult Function(_AddPayloadValue value)? addPayloadValue,
+    TResult Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult Function(_UnSelectTemplate value)? unSelectTemplate,
     required TResult orElse(),
   }) =>
@@ -441,7 +449,9 @@ class _$_SelectTemplate implements _SelectTemplate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Template template) selectTemplate,
-    required TResult Function(Pipe pipe, dynamic value) addPayloadValue,
+    required TResult Function(TextPipe pipe, String? value) addTextPayloadValue,
+    required TResult Function(BooleanPipe pipe, bool value)
+        addBooleanPayloadValue,
     required TResult Function() unSelectTemplate,
   }) {
     return selectTemplate(template);
@@ -451,7 +461,8 @@ class _$_SelectTemplate implements _SelectTemplate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Template template)? selectTemplate,
-    TResult? Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult? Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult? Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult? Function()? unSelectTemplate,
   }) {
     return selectTemplate?.call(template);
@@ -461,7 +472,8 @@ class _$_SelectTemplate implements _SelectTemplate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Template template)? selectTemplate,
-    TResult Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult Function()? unSelectTemplate,
     required TResult orElse(),
   }) {
@@ -475,7 +487,9 @@ class _$_SelectTemplate implements _SelectTemplate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SelectTemplate value) selectTemplate,
-    required TResult Function(_AddPayloadValue value) addPayloadValue,
+    required TResult Function(_AddTextPayloadValue value) addTextPayloadValue,
+    required TResult Function(_AddBooleanPayloadValue value)
+        addBooleanPayloadValue,
     required TResult Function(_UnSelectTemplate value) unSelectTemplate,
   }) {
     return selectTemplate(this);
@@ -485,7 +499,8 @@ class _$_SelectTemplate implements _SelectTemplate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SelectTemplate value)? selectTemplate,
-    TResult? Function(_AddPayloadValue value)? addPayloadValue,
+    TResult? Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult? Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult? Function(_UnSelectTemplate value)? unSelectTemplate,
   }) {
     return selectTemplate?.call(this);
@@ -495,7 +510,8 @@ class _$_SelectTemplate implements _SelectTemplate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SelectTemplate value)? selectTemplate,
-    TResult Function(_AddPayloadValue value)? addPayloadValue,
+    TResult Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult Function(_UnSelectTemplate value)? unSelectTemplate,
     required TResult orElse(),
   }) {
@@ -517,20 +533,20 @@ abstract class _SelectTemplate implements GenerateTextEvent {
 }
 
 /// @nodoc
-abstract class _$$_AddPayloadValueCopyWith<$Res> {
-  factory _$$_AddPayloadValueCopyWith(
-          _$_AddPayloadValue value, $Res Function(_$_AddPayloadValue) then) =
-      __$$_AddPayloadValueCopyWithImpl<$Res>;
+abstract class _$$_AddTextPayloadValueCopyWith<$Res> {
+  factory _$$_AddTextPayloadValueCopyWith(_$_AddTextPayloadValue value,
+          $Res Function(_$_AddTextPayloadValue) then) =
+      __$$_AddTextPayloadValueCopyWithImpl<$Res>;
   @useResult
-  $Res call({Pipe pipe, dynamic value});
+  $Res call({TextPipe pipe, String? value});
 }
 
 /// @nodoc
-class __$$_AddPayloadValueCopyWithImpl<$Res>
-    extends _$GenerateTextEventCopyWithImpl<$Res, _$_AddPayloadValue>
-    implements _$$_AddPayloadValueCopyWith<$Res> {
-  __$$_AddPayloadValueCopyWithImpl(
-      _$_AddPayloadValue _value, $Res Function(_$_AddPayloadValue) _then)
+class __$$_AddTextPayloadValueCopyWithImpl<$Res>
+    extends _$GenerateTextEventCopyWithImpl<$Res, _$_AddTextPayloadValue>
+    implements _$$_AddTextPayloadValueCopyWith<$Res> {
+  __$$_AddTextPayloadValueCopyWithImpl(_$_AddTextPayloadValue _value,
+      $Res Function(_$_AddTextPayloadValue) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -539,83 +555,87 @@ class __$$_AddPayloadValueCopyWithImpl<$Res>
     Object? pipe = null,
     Object? value = freezed,
   }) {
-    return _then(_$_AddPayloadValue(
+    return _then(_$_AddTextPayloadValue(
       pipe: null == pipe
           ? _value.pipe
           : pipe // ignore: cast_nullable_to_non_nullable
-              as Pipe,
+              as TextPipe,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AddPayloadValue implements _AddPayloadValue {
-  const _$_AddPayloadValue({required this.pipe, required this.value});
+class _$_AddTextPayloadValue implements _AddTextPayloadValue {
+  const _$_AddTextPayloadValue({required this.pipe, required this.value});
 
   @override
-  final Pipe pipe;
+  final TextPipe pipe;
   @override
-  final dynamic value;
+  final String? value;
 
   @override
   String toString() {
-    return 'GenerateTextEvent.addPayloadValue(pipe: $pipe, value: $value)';
+    return 'GenerateTextEvent.addTextPayloadValue(pipe: $pipe, value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddPayloadValue &&
+            other is _$_AddTextPayloadValue &&
             (identical(other.pipe, pipe) || other.pipe == pipe) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, pipe, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, pipe, value);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddPayloadValueCopyWith<_$_AddPayloadValue> get copyWith =>
-      __$$_AddPayloadValueCopyWithImpl<_$_AddPayloadValue>(this, _$identity);
+  _$$_AddTextPayloadValueCopyWith<_$_AddTextPayloadValue> get copyWith =>
+      __$$_AddTextPayloadValueCopyWithImpl<_$_AddTextPayloadValue>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Template template) selectTemplate,
-    required TResult Function(Pipe pipe, dynamic value) addPayloadValue,
+    required TResult Function(TextPipe pipe, String? value) addTextPayloadValue,
+    required TResult Function(BooleanPipe pipe, bool value)
+        addBooleanPayloadValue,
     required TResult Function() unSelectTemplate,
   }) {
-    return addPayloadValue(pipe, value);
+    return addTextPayloadValue(pipe, value);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Template template)? selectTemplate,
-    TResult? Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult? Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult? Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult? Function()? unSelectTemplate,
   }) {
-    return addPayloadValue?.call(pipe, value);
+    return addTextPayloadValue?.call(pipe, value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Template template)? selectTemplate,
-    TResult Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult Function()? unSelectTemplate,
     required TResult orElse(),
   }) {
-    if (addPayloadValue != null) {
-      return addPayloadValue(pipe, value);
+    if (addTextPayloadValue != null) {
+      return addTextPayloadValue(pipe, value);
     }
     return orElse();
   }
@@ -624,46 +644,209 @@ class _$_AddPayloadValue implements _AddPayloadValue {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SelectTemplate value) selectTemplate,
-    required TResult Function(_AddPayloadValue value) addPayloadValue,
+    required TResult Function(_AddTextPayloadValue value) addTextPayloadValue,
+    required TResult Function(_AddBooleanPayloadValue value)
+        addBooleanPayloadValue,
     required TResult Function(_UnSelectTemplate value) unSelectTemplate,
   }) {
-    return addPayloadValue(this);
+    return addTextPayloadValue(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SelectTemplate value)? selectTemplate,
-    TResult? Function(_AddPayloadValue value)? addPayloadValue,
+    TResult? Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult? Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult? Function(_UnSelectTemplate value)? unSelectTemplate,
   }) {
-    return addPayloadValue?.call(this);
+    return addTextPayloadValue?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SelectTemplate value)? selectTemplate,
-    TResult Function(_AddPayloadValue value)? addPayloadValue,
+    TResult Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult Function(_UnSelectTemplate value)? unSelectTemplate,
     required TResult orElse(),
   }) {
-    if (addPayloadValue != null) {
-      return addPayloadValue(this);
+    if (addTextPayloadValue != null) {
+      return addTextPayloadValue(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddPayloadValue implements GenerateTextEvent {
-  const factory _AddPayloadValue(
-      {required final Pipe pipe,
-      required final dynamic value}) = _$_AddPayloadValue;
+abstract class _AddTextPayloadValue implements GenerateTextEvent {
+  const factory _AddTextPayloadValue(
+      {required final TextPipe pipe,
+      required final String? value}) = _$_AddTextPayloadValue;
 
-  Pipe get pipe;
-  dynamic get value;
+  TextPipe get pipe;
+  String? get value;
   @JsonKey(ignore: true)
-  _$$_AddPayloadValueCopyWith<_$_AddPayloadValue> get copyWith =>
+  _$$_AddTextPayloadValueCopyWith<_$_AddTextPayloadValue> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddBooleanPayloadValueCopyWith<$Res> {
+  factory _$$_AddBooleanPayloadValueCopyWith(_$_AddBooleanPayloadValue value,
+          $Res Function(_$_AddBooleanPayloadValue) then) =
+      __$$_AddBooleanPayloadValueCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BooleanPipe pipe, bool value});
+}
+
+/// @nodoc
+class __$$_AddBooleanPayloadValueCopyWithImpl<$Res>
+    extends _$GenerateTextEventCopyWithImpl<$Res, _$_AddBooleanPayloadValue>
+    implements _$$_AddBooleanPayloadValueCopyWith<$Res> {
+  __$$_AddBooleanPayloadValueCopyWithImpl(_$_AddBooleanPayloadValue _value,
+      $Res Function(_$_AddBooleanPayloadValue) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pipe = null,
+    Object? value = null,
+  }) {
+    return _then(_$_AddBooleanPayloadValue(
+      pipe: null == pipe
+          ? _value.pipe
+          : pipe // ignore: cast_nullable_to_non_nullable
+              as BooleanPipe,
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddBooleanPayloadValue implements _AddBooleanPayloadValue {
+  const _$_AddBooleanPayloadValue({required this.pipe, required this.value});
+
+  @override
+  final BooleanPipe pipe;
+  @override
+  final bool value;
+
+  @override
+  String toString() {
+    return 'GenerateTextEvent.addBooleanPayloadValue(pipe: $pipe, value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddBooleanPayloadValue &&
+            (identical(other.pipe, pipe) || other.pipe == pipe) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pipe, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddBooleanPayloadValueCopyWith<_$_AddBooleanPayloadValue> get copyWith =>
+      __$$_AddBooleanPayloadValueCopyWithImpl<_$_AddBooleanPayloadValue>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Template template) selectTemplate,
+    required TResult Function(TextPipe pipe, String? value) addTextPayloadValue,
+    required TResult Function(BooleanPipe pipe, bool value)
+        addBooleanPayloadValue,
+    required TResult Function() unSelectTemplate,
+  }) {
+    return addBooleanPayloadValue(pipe, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Template template)? selectTemplate,
+    TResult? Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult? Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
+    TResult? Function()? unSelectTemplate,
+  }) {
+    return addBooleanPayloadValue?.call(pipe, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Template template)? selectTemplate,
+    TResult Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
+    TResult Function()? unSelectTemplate,
+    required TResult orElse(),
+  }) {
+    if (addBooleanPayloadValue != null) {
+      return addBooleanPayloadValue(pipe, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SelectTemplate value) selectTemplate,
+    required TResult Function(_AddTextPayloadValue value) addTextPayloadValue,
+    required TResult Function(_AddBooleanPayloadValue value)
+        addBooleanPayloadValue,
+    required TResult Function(_UnSelectTemplate value) unSelectTemplate,
+  }) {
+    return addBooleanPayloadValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SelectTemplate value)? selectTemplate,
+    TResult? Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult? Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
+    TResult? Function(_UnSelectTemplate value)? unSelectTemplate,
+  }) {
+    return addBooleanPayloadValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SelectTemplate value)? selectTemplate,
+    TResult Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
+    TResult Function(_UnSelectTemplate value)? unSelectTemplate,
+    required TResult orElse(),
+  }) {
+    if (addBooleanPayloadValue != null) {
+      return addBooleanPayloadValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddBooleanPayloadValue implements GenerateTextEvent {
+  const factory _AddBooleanPayloadValue(
+      {required final BooleanPipe pipe,
+      required final bool value}) = _$_AddBooleanPayloadValue;
+
+  BooleanPipe get pipe;
+  bool get value;
+  @JsonKey(ignore: true)
+  _$$_AddBooleanPayloadValueCopyWith<_$_AddBooleanPayloadValue> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -706,7 +889,9 @@ class _$_UnSelectTemplate implements _UnSelectTemplate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Template template) selectTemplate,
-    required TResult Function(Pipe pipe, dynamic value) addPayloadValue,
+    required TResult Function(TextPipe pipe, String? value) addTextPayloadValue,
+    required TResult Function(BooleanPipe pipe, bool value)
+        addBooleanPayloadValue,
     required TResult Function() unSelectTemplate,
   }) {
     return unSelectTemplate();
@@ -716,7 +901,8 @@ class _$_UnSelectTemplate implements _UnSelectTemplate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Template template)? selectTemplate,
-    TResult? Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult? Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult? Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult? Function()? unSelectTemplate,
   }) {
     return unSelectTemplate?.call();
@@ -726,7 +912,8 @@ class _$_UnSelectTemplate implements _UnSelectTemplate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Template template)? selectTemplate,
-    TResult Function(Pipe pipe, dynamic value)? addPayloadValue,
+    TResult Function(TextPipe pipe, String? value)? addTextPayloadValue,
+    TResult Function(BooleanPipe pipe, bool value)? addBooleanPayloadValue,
     TResult Function()? unSelectTemplate,
     required TResult orElse(),
   }) {
@@ -740,7 +927,9 @@ class _$_UnSelectTemplate implements _UnSelectTemplate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SelectTemplate value) selectTemplate,
-    required TResult Function(_AddPayloadValue value) addPayloadValue,
+    required TResult Function(_AddTextPayloadValue value) addTextPayloadValue,
+    required TResult Function(_AddBooleanPayloadValue value)
+        addBooleanPayloadValue,
     required TResult Function(_UnSelectTemplate value) unSelectTemplate,
   }) {
     return unSelectTemplate(this);
@@ -750,7 +939,8 @@ class _$_UnSelectTemplate implements _UnSelectTemplate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SelectTemplate value)? selectTemplate,
-    TResult? Function(_AddPayloadValue value)? addPayloadValue,
+    TResult? Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult? Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult? Function(_UnSelectTemplate value)? unSelectTemplate,
   }) {
     return unSelectTemplate?.call(this);
@@ -760,7 +950,8 @@ class _$_UnSelectTemplate implements _UnSelectTemplate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SelectTemplate value)? selectTemplate,
-    TResult Function(_AddPayloadValue value)? addPayloadValue,
+    TResult Function(_AddTextPayloadValue value)? addTextPayloadValue,
+    TResult Function(_AddBooleanPayloadValue value)? addBooleanPayloadValue,
     TResult Function(_UnSelectTemplate value)? unSelectTemplate,
     required TResult orElse(),
   }) {

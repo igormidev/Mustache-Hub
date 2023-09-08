@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
+import 'package:mustachehub/core/extensions/pipe_extension.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/modules/generate_text/core/mixins/get_info_from_template.dart';
 import 'package:mustachehub/modules/generate_text/core/mixins/mustache_text_mixin.dart';
 import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
 
-class TextDisplaySection extends HookWidget with MustacheTextMixin {
+class TextDisplaySection extends HookWidget
+    with MustacheTextMixin, GetInfoFromTemplate {
   final GlobalKey<FormState> formKey;
   const TextDisplaySection({
     super.key,
@@ -19,16 +22,24 @@ class TextDisplaySection extends HookWidget with MustacheTextMixin {
 
     return BlocConsumer<GenerateTextBloc, GenerateTextState>(
       listener: (context, state) {
-        final template = state.mapOrNull(withData: (value) => value)?.pipes;
-        if (template == null) {
+        final textState = state.mapOrNull(withData: (value) => value)?.pipes;
+        if (textState == null) {
           if (mustacheText.value != null) mustacheText.value = null;
           return;
         }
 
         if (formKey.currentState?.validate() == true) {
+          final payload = getPayloadFromDtos(
+            texts: textState.template.texts,
+            booleans: textState.template.booleans,
+            models: textState.template.models,
+            textDtos: textState.textDtos,
+            booleanDtos: textState.booleanDtos,
+          );
+
           final generatedText = getMustacheText(
-            template.template.content,
-            template.payload,
+            textState.template.content,
+            payload,
           );
 
           if (generatedText != null) {
