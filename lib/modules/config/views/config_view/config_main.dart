@@ -19,6 +19,7 @@ class ConfigMain extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
+          const SizedBox(height: 16),
           InkWell(
             onTap: () {
               bloc.add(ThemeEvent.changeBrightness(
@@ -49,12 +50,12 @@ class ConfigMain extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const Divider(height: 20),
           Text(
             'Tema do aplicativo:',
             style: context.texts.titleLarge,
           ),
-          SizedBox(height: context.height * 0.015),
+          const SizedBox(height: 8),
           Wrap(
             spacing: 10,
             runSpacing: 10,
@@ -100,7 +101,7 @@ class ConfigMain extends StatelessWidget {
               );
             }).toList(),
           ),
-          const SizedBox(height: 20),
+          const Divider(height: 20),
           const StoreHomeMain()
         ],
       ),

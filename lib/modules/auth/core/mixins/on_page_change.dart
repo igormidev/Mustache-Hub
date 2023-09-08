@@ -44,14 +44,6 @@ mixin PageModuleNavigator {
 
       case EDrawerNavigationPossibilities.settings:
         return context.replaceAll('/config');
-
-      case EDrawerNavigationPossibilities.logOut:
-        showLoadingDialog(context);
-        await Future.delayed(const Duration(milliseconds: 500));
-        await FirebaseAuth.instance.signOut();
-        hideCurrentDialog();
-        if (context.mounted) context.replaceAll('/config');
-        return;
     }
     log(page.toString());
     return;

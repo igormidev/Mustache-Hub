@@ -50,12 +50,6 @@ enum EDrawerNavigationPossibilities {
     Icons.star_rounded,
     'Became premium',
     'Premium',
-  ),
-  logOut(
-    Icons.logout_outlined,
-    Icons.logout,
-    'Log out',
-    'Log out',
   );
 
   final IconData selectedIcon;

@@ -76,11 +76,6 @@ class _DashboardDrawer extends StatelessWidget with PageModuleNavigator {
                     ...EDrawerNavigationPossibilities.values.map((
                       EDrawerNavigationPossibilities navOption,
                     ) {
-                      if (navOption == EDrawerNavigationPossibilities.logOut) {
-                        if (userState.isLoggedIn == false) {
-                          return SizedBox.fromSize();
-                        }
-                      }
                       if (navOption ==
                           EDrawerNavigationPossibilities.becamePremium) {
                         if (userState.isLoggedIn == false) {

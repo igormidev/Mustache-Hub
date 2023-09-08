@@ -4,6 +4,7 @@ import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/logic/entities/template.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/content_string/content_string_bloc.dart';
 import 'package:mustachehub/modules/create_template/logic/blocs/variables/variables_bloc.dart';
+import 'package:mustachehub/modules/create_template/views/create_template/components/bottom_sheets/template_save_form_bottom_sheet.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/pipe_creator_section.dart';
 import 'package:mustachehub/modules/create_template/views/create_template/components/sections/text_content_section.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -41,14 +42,18 @@ class CreateTemplateMain extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 useSafeArea: false,
-                constraints: const BoxConstraints.expand(),
+                isScrollControlled: true,
+                constraints: const BoxConstraints(maxWidth: double.maxFinite),
                 builder: (context) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 16,
+                  return FractionallySizedBox(
+                    heightFactor: 0.8,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                        vertical: 16,
+                      ),
+                      child: GenerateTextTab(),
                     ),
-                    child: GenerateTextTab(),
                   );
                 },
               );
@@ -59,7 +64,25 @@ class CreateTemplateMain extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                useSafeArea: false,
+                isScrollControlled: true,
+                constraints: const BoxConstraints(maxWidth: double.maxFinite),
+                builder: (context) {
+                  return FractionallySizedBox(
+                    heightFactor: 0.8,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(26),
+                      ),
+                      child: TemplateSaveFormBottomSheet(),
+                    ),
+                  );
+                },
+              );
+            },
             tooltip: 'Save template',
             icon: const Icon(
               Icons.save_rounded,
