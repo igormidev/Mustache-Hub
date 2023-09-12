@@ -91,3 +91,13 @@ class MyApp extends StatelessWidget {
     });
   }
 }
+
+
+
+
+// Auth
+// Home
+// Dashboard
+// Templates - Collection, Generate text and Create template
+// Hub
+// Config
