@@ -6,6 +6,7 @@ import 'package:collection_conductor/src/data/adapters/collection/user_collectio
 import 'package:collection_conductor/src/domain/entities/collection/hub_collection.dart';
 import 'package:collection_conductor/src/domain/entities/collection/user_collection.dart';
 import 'package:collection_conductor/src/domain/repositories/i_collection_repository.dart';
+import 'package:collection_conductor/src/domain/repositories/i_user_info_repository.dart';
 import 'package:collection_conductor/src/external/core/isar_service.dart';
 import 'package:collection_conductor/src/external/core/storage_failure.dart';
 import 'package:result_dart/result_dart.dart';
@@ -15,12 +16,14 @@ class ImplCollectionRepository implements ICollectionRepository {
   final FirebaseFirestore firestore;
   final HubCollectionAdapter hubCollectionAdapter;
   final UserCollectionAdapter userCollectionAdapter;
+  final IUserInfoRepository userInfoRepository;
 
   const ImplCollectionRepository({
     required this.storageService,
     required this.firestore,
     required this.hubCollectionAdapter,
     required this.userCollectionAdapter,
+    required this.userInfoRepository,
   });
 
   @override
@@ -72,6 +75,7 @@ class ImplCollectionRepository implements ICollectionRepository {
     required String userId,
     required UserCollection collection,
   }) async {
+    await userInfoRepository.notifyCollectionChange(userId: userId);
     final userCollRef = firestore.collection('usercollection').doc(userId);
 
     await userCollRef.set(
@@ -91,11 +95,11 @@ class ImplCollectionRepository implements ICollectionRepository {
 
   @override
   AsyncAnswer<void> storeUserCollection({
-    required String userId,
     required String updateId,
     required UserCollection collection,
   }) {
     return storageService.storeUserCollection(
+      updateId: updateId,
       data: collection,
     );
   }

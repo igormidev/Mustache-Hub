@@ -48,7 +48,7 @@
 //     String key,
 //     List value,
 //     Map<K2, V2> Function(dynamic key, dynamic value) convert,
-//   ) { 
+//   ) {
 //     final Map<K2, V2> response = {};
 
 //     for (final element in value) {
@@ -65,3 +65,28 @@
 //     MapEntry<K2, V2> Function(dynamic key, dynamic value) convert,
 //   ) {}
 // }
+
+extension MapExtension on Map {
+  Map replaceValue(
+    Map refMap,
+    Object? Function(dynamic key, dynamic value) replaceValueFunc,
+  ) {
+    final response = {};
+    for (final entry in refMap.entries) {
+      if (entry.value is List) {
+      } else if (entry.value is Map) {
+      } else {
+        final replacement = replaceValueFunc(entry.key, entry.value);
+        if (replacement != null) {
+          refMap.addAll({entry.key: response});
+        } else {
+          response.addAll({
+            entry.key: entry.value,
+          });
+        }
+      }
+    }
+
+    return response;
+  }
+}

@@ -22,7 +22,6 @@ abstract class ICollectionRepository {
     required String updateId,
   });
   AsyncAnswer<void> storeUserCollection({
-    required String userId,
     required String updateId,
     required UserCollection collection,
   });

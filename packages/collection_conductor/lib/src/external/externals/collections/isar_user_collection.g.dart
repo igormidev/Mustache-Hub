@@ -29,6 +29,11 @@ const IsarUserCollectionMainSchema = CollectionSchema(
       name: r'itens',
       type: IsarType.objectList,
       target: r'IsarMustachePackageInfo',
+    ),
+    r'updateId': PropertySchema(
+      id: 2,
+      name: r'updateId',
+      type: IsarType.string,
     )
   },
   estimateSize: _isarUserCollectionMainEstimateSize,
@@ -72,6 +77,7 @@ int _isarUserCollectionMainEstimateSize(
           value, offsets, allOffsets);
     }
   }
+  bytesCount += 3 + object.updateId.length * 3;
   return bytesCount;
 }
 
@@ -93,6 +99,7 @@ void _isarUserCollectionMainSerialize(
     IsarMustachePackageInfoSchema.serialize,
     object.itens,
   );
+  writer.writeString(offsets[2], object.updateId);
 }
 
 IsarUserCollectionMain _isarUserCollectionMainDeserialize(
@@ -117,6 +124,7 @@ IsarUserCollectionMain _isarUserCollectionMainDeserialize(
         IsarMustachePackageInfo(),
       ) ??
       [];
+  object.updateId = reader.readString(offsets[2]);
   return object;
 }
 
@@ -143,6 +151,8 @@ P _isarUserCollectionMainDeserializeProp<P>(
             IsarMustachePackageInfo(),
           ) ??
           []) as P;
+    case 2:
+      return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -478,6 +488,144 @@ extension IsarUserCollectionMainQueryFilter on QueryBuilder<
       );
     });
   }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'updateId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'updateId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'updateId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'updateId',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'updateId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'updateId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+          QAfterFilterCondition>
+      updateIdContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'updateId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+          QAfterFilterCondition>
+      updateIdMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'updateId',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'updateId',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain,
+      QAfterFilterCondition> updateIdIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'updateId',
+        value: '',
+      ));
+    });
+  }
 }
 
 extension IsarUserCollectionMainQueryObject on QueryBuilder<
@@ -502,7 +650,21 @@ extension IsarUserCollectionMainQueryLinks on QueryBuilder<
     IsarUserCollectionMain, IsarUserCollectionMain, QFilterCondition> {}
 
 extension IsarUserCollectionMainQuerySortBy
-    on QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QSortBy> {}
+    on QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QSortBy> {
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QAfterSortBy>
+      sortByUpdateId() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'updateId', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QAfterSortBy>
+      sortByUpdateIdDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'updateId', Sort.desc);
+    });
+  }
+}
 
 extension IsarUserCollectionMainQuerySortThenBy on QueryBuilder<
     IsarUserCollectionMain, IsarUserCollectionMain, QSortThenBy> {
@@ -519,10 +681,31 @@ extension IsarUserCollectionMainQuerySortThenBy on QueryBuilder<
       return query.addSortBy(r'id', Sort.desc);
     });
   }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QAfterSortBy>
+      thenByUpdateId() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'updateId', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QAfterSortBy>
+      thenByUpdateIdDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'updateId', Sort.desc);
+    });
+  }
 }
 
-extension IsarUserCollectionMainQueryWhereDistinct on QueryBuilder<
-    IsarUserCollectionMain, IsarUserCollectionMain, QDistinct> {}
+extension IsarUserCollectionMainQueryWhereDistinct
+    on QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QDistinct> {
+  QueryBuilder<IsarUserCollectionMain, IsarUserCollectionMain, QDistinct>
+      distinctByUpdateId({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'updateId', caseSensitive: caseSensitive);
+    });
+  }
+}
 
 extension IsarUserCollectionMainQueryProperty on QueryBuilder<
     IsarUserCollectionMain, IsarUserCollectionMain, QQueryProperty> {
@@ -543,6 +726,13 @@ extension IsarUserCollectionMainQueryProperty on QueryBuilder<
       QQueryOperations> itensProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'itens');
+    });
+  }
+
+  QueryBuilder<IsarUserCollectionMain, String, QQueryOperations>
+      updateIdProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'updateId');
     });
   }
 }

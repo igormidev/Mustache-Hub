@@ -2,9 +2,9 @@ import 'package:collection_conductor/src/core/utils/type_defs.dart';
 import 'package:collection_conductor/src/domain/entities/collection/hub_collection.dart';
 import 'package:collection_conductor/src/domain/repositories/i_collection_repository.dart';
 
-class SaveUserCollectionUsecase {
+class SaveHubCollectionUsecase {
   final ICollectionRepository collectionRepository;
-  const SaveUserCollectionUsecase({
+  const SaveHubCollectionUsecase({
     required this.collectionRepository,
   });
 

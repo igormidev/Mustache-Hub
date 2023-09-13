@@ -1,5 +1,7 @@
 import 'package:collection_conductor/src/core/utils/default_class.dart';
 import 'package:collection_conductor/src/core/utils/type_defs.dart';
+import 'package:collection_conductor/src/domain/entities/collection/hub_collection.dart';
+import 'package:collection_conductor/src/domain/entities/collection/user_collection.dart';
 import 'package:collection_conductor/src/domain/entities/template/template.dart';
 
 abstract class IPackagesRepository {
@@ -23,7 +25,11 @@ abstract class IPackagesRepository {
   });
 
   AsyncAnswer<VoidSucess> createTemplateInHub({
+    required String userId,
+    required String packageId,
     required Template template,
+    required UserCollection newUserCollection,
+    required HubCollection newHubCollection,
   });
 
   AsyncAnswer<VoidSucess> addTemplate({

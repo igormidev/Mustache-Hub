@@ -81,3 +81,11 @@ class NoObjectInStorage extends StorageFailure {
 
   final String? address;
 }
+
+class InvalidCache extends StorageFailure {
+  const InvalidCache({
+    required this.address,
+  }) : super(errorId: 'invalidCache');
+
+  final String? address;
+}

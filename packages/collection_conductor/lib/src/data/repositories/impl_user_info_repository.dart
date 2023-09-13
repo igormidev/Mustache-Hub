@@ -6,6 +6,7 @@ import 'package:collection_conductor/src/domain/entities/user_related/user_stats
 import 'package:collection_conductor/src/domain/repositories/i_user_info_repository.dart';
 import 'package:collection_conductor/src/external/core/storage_failure.dart';
 import 'package:result_dart/result_dart.dart';
+import 'package:uuid/uuid.dart';
 
 class ImplUserInfoRepository implements IUserInfoRepository {
   final UserStatsAdapter userStatsAdapter;
@@ -38,6 +39,16 @@ class ImplUserInfoRepository implements IUserInfoRepository {
     final statsRef = firestore.collection('stats').doc(userId);
     final payload = userStatsAdapter.toMap(userStats);
     await statsRef.set(payload);
+
+    return const VoidSucess().toSuccess();
+  }
+
+  @override
+  AsyncAnswer<VoidSucess> notifyCollectionChange({
+    required String userId,
+  }) async {
+    final statsRef = firestore.collection('stats').doc(userId);
+    await statsRef.set({'lastCollectionUpdateId': const Uuid().v4()});
 
     return const VoidSucess().toSuccess();
   }

@@ -25,7 +25,6 @@ class GetUserCollectionUsecase {
         );
         return apiResponse.onSuccess((collection) async {
           await collectionRepository.storeUserCollection(
-            userId: userId,
             collection: collection,
             updateId: updateId,
           );

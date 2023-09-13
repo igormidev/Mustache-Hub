@@ -11,4 +11,8 @@ abstract class IUserInfoRepository {
     required String userId,
     required UserStats userStats,
   });
+
+  AsyncAnswer<VoidSucess> notifyCollectionChange({
+    required String userId,
+  });
 }

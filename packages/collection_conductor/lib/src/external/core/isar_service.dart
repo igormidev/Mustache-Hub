@@ -80,6 +80,12 @@ class IsarService {
       ).toFailure();
     }
 
+    if (userColl.updateId != updateId) {
+      const InvalidCache(
+        address: 'isarUserCollection',
+      ).toFailure();
+    }
+
     return UserCollection(
       folders: collectionAdapter.collectionFromIsarList(userColl.folders),
       itens: collectionAdapter.packageFromIsarList(userColl.itens),
@@ -87,6 +93,7 @@ class IsarService {
   }
 
   AsyncAnswer<VoidSucess> storeUserCollection({
+    required String updateId,
     required UserCollection data,
   }) async {
     return await isar.writeTxn(() async {
@@ -101,6 +108,7 @@ class IsarService {
         id: userColl.id,
         itens: collectionAdapter.packageToIsarList(data.itens),
         folders: collectionAdapter.collectionToIsarList(data.folders),
+        updateId: updateId,
       );
 
       userCollection.id = userColl.id;

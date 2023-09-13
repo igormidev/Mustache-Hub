@@ -9,12 +9,14 @@ class IsarUserCollectionMain {
   Id id = Isar.autoIncrement;
   late List<IsarMustachePackageInfo> itens;
   late List<IsarUserCollection> folders;
+  late String updateId;
 
   IsarUserCollectionMain();
   IsarUserCollectionMain.build({
     required this.id,
     required this.itens,
     required this.folders,
+    required this.updateId,
   });
 }
 
