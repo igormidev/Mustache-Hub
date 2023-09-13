@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
-import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
 import 'package:mustachehub/modules/generate_text/logic/dtos/pipe_dto.dart';
 import 'package:mustachehub/shared/custom_header.dart';

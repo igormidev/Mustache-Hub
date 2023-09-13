@@ -4,7 +4,6 @@ import 'package:mustachehub/core/extensions/list_extensions.dart';
 import 'package:mustachehub/core/hooks/debouncer_delay_hook.dart';
 import 'package:mustachehub/core/mixins/validators_mixins.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
-import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/modules/generate_text/logic/blocs/generate_text/generate_text_bloc.dart';
 import 'package:mustachehub/modules/generate_text/logic/dtos/pipe_dto.dart';
 import 'package:mustachehub/shared/custom_header.dart';

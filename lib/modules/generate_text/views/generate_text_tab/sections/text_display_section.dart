@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
-import 'package:mustachehub/core/extensions/pipe_extension.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/modules/generate_text/core/mixins/get_info_from_template.dart';
 import 'package:mustachehub/modules/generate_text/core/mixins/mustache_text_mixin.dart';

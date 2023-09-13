@@ -5,7 +5,7 @@ import 'package:collection_conductor/src/external/externals/templates/isar_pipes
 import 'package:collection_conductor/src/external/externals/templates/isar_pipes/isar_text_pipe.dart';
 import 'package:collection_conductor/src/external/externals/templates/isar_template.dart';
 
-class UserPackageAdapter {
+class IsarUserPackageAdapter {
   IsarTemplate templateToIsar(String packageId, Template data) {
     return IsarTemplate.build(
       content: data.content,

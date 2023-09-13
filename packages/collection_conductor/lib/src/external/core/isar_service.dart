@@ -13,8 +13,8 @@ import 'package:result_dart/result_dart.dart';
 
 class IsarService {
   late final Isar isar;
-  final UserPackageAdapter packageAdapter;
-  final UserCollectionAdapter collectionAdapter;
+  final IsarUserPackageAdapter packageAdapter;
+  final IsarUserCollectionAdapter collectionAdapter;
 
   IsarService({
     required this.packageAdapter,
@@ -45,7 +45,7 @@ class IsarService {
         .findFirst();
 
     if (isarTemplate == null) {
-      return NoObjectInCache(
+      return const NoObjectInStorage(
         address: 'isarTemplates',
       ).toFailure();
     }
@@ -66,7 +66,7 @@ class IsarService {
       await isar.isarTemplates.put(isarTemplate);
     });
 
-    return VoidSucess().toSuccess();
+    return const VoidSucess().toSuccess();
   }
 
   AsyncAnswer<UserCollection> restoreUserCollection({
@@ -75,7 +75,7 @@ class IsarService {
     final userColl = await isar.isarUserCollectionMains.where().findFirst();
 
     if (userColl == null) {
-      return NoObjectInCache(
+      return const NoObjectInStorage(
         address: 'isarUserCollection',
       ).toFailure();
     }
@@ -92,7 +92,7 @@ class IsarService {
     return await isar.writeTxn(() async {
       final userColl = await isar.isarUserCollectionMains.where().findFirst();
       if (userColl == null) {
-        return NoObjectInCache(
+        return const NoObjectInStorage(
           address: 'isarUserCollectionMain',
         ).toFailure();
       }
@@ -107,7 +107,7 @@ class IsarService {
 
       await isar.isarUserCollectionMains.put(userCollection);
 
-      return VoidSucess().toSuccess();
+      return const VoidSucess().toSuccess();
     });
   }
 }

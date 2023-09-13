@@ -8,7 +8,7 @@ class AddMustacheTemplateUsecase {
     required this.packageRepo,
   });
 
-  AsyncAnswer<void> asd({
+  AsyncAnswer<void> call({
     required String packageId,
     required Template template,
   }) async {

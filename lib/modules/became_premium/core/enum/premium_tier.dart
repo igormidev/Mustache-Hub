@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 
 enum PremiumTier {
-  free('Free'),
-  starter('Starter'),
-  unlimited('Unlimited'),
-  pro('Pro');
+  free,
+  starter,
+  unlimited,
+  pro;
 
-  final String name;
-  const PremiumTier(this.name);
+  const PremiumTier();
 }
 
 extension PremiumTierExtension on PremiumTier {
+  String get name {
+    return switch (this) {
+      PremiumTier.free => 'Free',
+      PremiumTier.starter => 'Starter',
+      PremiumTier.unlimited => 'Unlimited',
+      PremiumTier.pro => 'Pro',
+    };
+  }
+
   double get yearPrice {
     return switch (this) {
       PremiumTier.free => 0.0,

@@ -15,8 +15,10 @@ analyzer:
     - '**.g.dart'
     - '**.gr.dart'
     - '**/generated_plugin_registrant.dart'
-    - 'packages/mustache/lib/src/parser.dart' 
-    - 'packages/**' 
+    # - 'packages/mustache/lib/src/parser.dart' 
+    - 'packages/mustache/**' 
+    - 'packages/mason/**' 
+    # - 'packages/**' 
     
 linter:
   # The lint rules applied to this project can be customized in the

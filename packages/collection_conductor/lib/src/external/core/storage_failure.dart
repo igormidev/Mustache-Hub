@@ -1,7 +1,6 @@
 import 'package:collection_conductor/src/domain/exceptions/custom_exception.dart';
-import 'package:flutter/foundation.dart' show immutable;
 
-@immutable
+/// TODO(igor): Implement more specific errors
 abstract class StorageFailure extends CustomException {
   const StorageFailure({
     required super.errorId,
@@ -75,8 +74,8 @@ class StorageFailureDeletingValue extends StorageFailure
   final String? address;
 }
 
-class NoObjectInCache extends StorageFailure {
-  const NoObjectInCache({
+class NoObjectInStorage extends StorageFailure {
+  const NoObjectInStorage({
     required this.address,
   }) : super(errorId: 'noObjectInCache');
 

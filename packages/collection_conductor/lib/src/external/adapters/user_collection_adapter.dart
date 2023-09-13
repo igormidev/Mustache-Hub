@@ -3,7 +3,7 @@ import 'package:collection_conductor/src/external/externals/collections/isar_use
 import 'package:collection_conductor/src/domain/entities/package/mustache_package_info.dart';
 import 'package:collection_conductor/src/domain/entities/collection/user_collection.dart';
 
-class UserCollectionAdapter {
+class IsarUserCollectionAdapter {
   List<IsarUserCollection> collectionToIsarList(
     List<UserCollection> collection,
   ) {

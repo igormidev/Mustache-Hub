@@ -7,7 +7,6 @@ import 'package:mustachehub/logic/entities/pipe.dart';
 import 'package:mustachehub/logic/entities/template.dart';
 import 'package:mustachehub/modules/generate_text/core/mixins/get_info_from_template.dart';
 import 'package:mustachehub/modules/generate_text/logic/dtos/generate_text_state.dart';
-import 'package:mustachehub/modules/generate_text/logic/dtos/pipe_dto.dart';
 
 part 'generate_text_state.dart';
 part 'generate_text_event.dart';

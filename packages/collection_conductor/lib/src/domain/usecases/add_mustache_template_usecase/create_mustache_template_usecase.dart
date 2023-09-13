@@ -11,27 +11,10 @@ class CreateMustacheTemplateUsecase {
   });
 
   AsyncAnswer<void> call({
-    required CreateMustacheParam param,
+    required Template template,
   }) {
-    return packageRepo.updateTemplateFromHub(
-      name: param.name,
-      description: param.description,
-      isPrivate: param.isPrivate,
-      template: param.template,
+    return packageRepo.createTemplateInHub(
+      template: template,
     );
   }
-}
-
-class CreateMustacheParam {
-  final String name;
-  final String description;
-  final bool isPrivate;
-  final Template template;
-
-  const CreateMustacheParam({
-    required this.name,
-    required this.description,
-    required this.isPrivate,
-    required this.template,
-  });
 }

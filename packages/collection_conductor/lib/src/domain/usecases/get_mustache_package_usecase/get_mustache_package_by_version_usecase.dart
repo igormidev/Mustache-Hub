@@ -14,23 +14,24 @@ class GetMustachePackageByVersionUsecase {
     required double version,
   }) async {
     final cacheResponse = await packagesRepo.restoreTemplate(
-      id,
-      version,
+      packageId: id,
+      version: version,
     );
 
     return await cacheResponse.fold(
       (success) {
-        return Success(VoidSucess());
+        return const Success(VoidSucess());
       },
       (_) async {
         final hubResponse = await packagesRepo.getTemplateFromHub(
-          id,
-          version,
+          packageId: id,
+          version: version,
         );
 
         return hubResponse.onSuccess(
           (data) async {
             await packagesRepo.storeTemplateData(
+              packageId: id,
               data: data,
             );
           },

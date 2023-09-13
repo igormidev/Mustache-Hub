@@ -1,11 +1,8 @@
 import 'dart:developer';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/logic/blocs/user/user_bloc.dart';
 import 'package:mustachehub/modules/auth/core/enums/e_drawer_navigation_possibilities.dart';
-import 'package:mustachehub/shared/dialogs_api/implementations/hide_dialog.dart';
-import 'package:mustachehub/shared/dialogs_api/implementations/loading_dialog.dart';
 
 mixin PageModuleNavigator {
   Future<void> navigateToDashboardPage(BuildContext context, int index) async {
