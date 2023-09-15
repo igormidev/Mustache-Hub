@@ -1,4 +1,3 @@
-import 'package:collection_conductor/src/core/utils/default_class.dart';
 import 'package:collection_conductor/src/core/utils/type_defs.dart';
 import 'package:collection_conductor/src/domain/entities/template/template.dart';
 import 'package:collection_conductor/src/domain/repositories/i_packages_repository.dart';
