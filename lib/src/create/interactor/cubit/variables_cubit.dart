@@ -1,8 +1,10 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:developer';
+
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:mustachehub/src/create/interactor/state/variables_state.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
 
-class VariablesCubit extends Cubit<VariablesState> {
+class VariablesCubit extends HydratedCubit<VariablesState> {
   VariablesCubit()
       : super(const VariablesState(
           textPipes: [],
@@ -38,5 +40,21 @@ class VariablesCubit extends Cubit<VariablesState> {
       booleanPipes: state.booleanPipes,
       modelPipes: modelPipes,
     ));
+  }
+
+  @override
+  VariablesState? fromJson(Map<String, dynamic> json) {
+    try {
+      final jsonmap = VariablesState.fromMap(json);
+      return jsonmap;
+    } catch (e, s) {
+      log(e.toString(), stackTrace: s);
+    }
+    return null;
+  }
+
+  @override
+  Map<String, dynamic>? toJson(VariablesState state) {
+    return state.toMap();
   }
 }

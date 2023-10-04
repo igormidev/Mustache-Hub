@@ -1,9 +1,13 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mustachehub/core/constants/lotties.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/src/design_system/default_widgets/custom_header.dart';
+import 'package:mustachehub/src/design_system/snackbars/custom_snackbars.dart';
 import 'package:mustachehub/src/generate/interactor/cubits/content_cubit.dart';
 import 'package:mustachehub/src/generate/interactor/cubits/payload_cubit.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/expected_payload.dart';
@@ -115,7 +119,39 @@ class _FinalWidget extends StatelessWidget {
                   CustomActionHeader(
                     tooltip: 'Copy all output to clipboard',
                     iconData: Icons.copy,
-                    onPressed: () {},
+                    onPressed: () async {
+                      try {
+                        final outputCubit = context.get<ContentCubit>();
+                        final content = outputCubit.state.content;
+                        if (content == null) {
+                          CustomSnackbars.showWarning(
+                            context,
+                            title: 'No output text to be copied',
+                            description: 'Please generate a output first so '
+                                'there will be something to be copied',
+                          );
+                          return;
+                        }
+
+                        await Clipboard.setData(
+                          ClipboardData(text: content),
+                        );
+                        CustomSnackbars.showSuccess(
+                          context,
+                          title: 'Output copied',
+                          description: 'The output text is in clipboard. '
+                              'Now you can paste it where you want.',
+                          duration: const Duration(seconds: 2),
+                        );
+                      } catch (_) {
+                        CustomSnackbars.showError(
+                          context,
+                          title: 'Something went wrong!',
+                          description: 'An error occurred while copying '
+                              'the text to the clipboard. Check that the app has all necessary permissions.',
+                        );
+                      }
+                    },
                   ),
                 ],
               ),
