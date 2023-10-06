@@ -104,20 +104,22 @@ class _$FieldsTextSizeStateCopyWithImpl<$Res, $Val extends FieldsTextSizeState>
 }
 
 /// @nodoc
-abstract class _$$_NormalCopyWith<$Res>
+abstract class _$$NormalImplCopyWith<$Res>
     implements $FieldsTextSizeStateCopyWith<$Res> {
-  factory _$$_NormalCopyWith(_$_Normal value, $Res Function(_$_Normal) then) =
-      __$$_NormalCopyWithImpl<$Res>;
+  factory _$$NormalImplCopyWith(
+          _$NormalImpl value, $Res Function(_$NormalImpl) then) =
+      __$$NormalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({double regexIdenfifierTextSize, double testStringTextSize});
 }
 
 /// @nodoc
-class __$$_NormalCopyWithImpl<$Res>
-    extends _$FieldsTextSizeStateCopyWithImpl<$Res, _$_Normal>
-    implements _$$_NormalCopyWith<$Res> {
-  __$$_NormalCopyWithImpl(_$_Normal _value, $Res Function(_$_Normal) _then)
+class __$$NormalImplCopyWithImpl<$Res>
+    extends _$FieldsTextSizeStateCopyWithImpl<$Res, _$NormalImpl>
+    implements _$$NormalImplCopyWith<$Res> {
+  __$$NormalImplCopyWithImpl(
+      _$NormalImpl _value, $Res Function(_$NormalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +128,7 @@ class __$$_NormalCopyWithImpl<$Res>
     Object? regexIdenfifierTextSize = null,
     Object? testStringTextSize = null,
   }) {
-    return _then(_$_Normal(
+    return _then(_$NormalImpl(
       regexIdenfifierTextSize: null == regexIdenfifierTextSize
           ? _value.regexIdenfifierTextSize
           : regexIdenfifierTextSize // ignore: cast_nullable_to_non_nullable
@@ -141,13 +143,13 @@ class __$$_NormalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Normal implements _Normal {
-  const _$_Normal(
+class _$NormalImpl implements _Normal {
+  const _$NormalImpl(
       {required this.regexIdenfifierTextSize,
       required this.testStringTextSize});
 
-  factory _$_Normal.fromJson(Map<String, dynamic> json) =>
-      _$$_NormalFromJson(json);
+  factory _$NormalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NormalImplFromJson(json);
 
   @override
   final double regexIdenfifierTextSize;
@@ -163,7 +165,7 @@ class _$_Normal implements _Normal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Normal &&
+            other is _$NormalImpl &&
             (identical(
                     other.regexIdenfifierTextSize, regexIdenfifierTextSize) ||
                 other.regexIdenfifierTextSize == regexIdenfifierTextSize) &&
@@ -179,8 +181,8 @@ class _$_Normal implements _Normal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NormalCopyWith<_$_Normal> get copyWith =>
-      __$$_NormalCopyWithImpl<_$_Normal>(this, _$identity);
+  _$$NormalImplCopyWith<_$NormalImpl> get copyWith =>
+      __$$NormalImplCopyWithImpl<_$NormalImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -245,7 +247,7 @@ class _$_Normal implements _Normal {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NormalToJson(
+    return _$$NormalImplToJson(
       this,
     );
   }
@@ -254,9 +256,9 @@ class _$_Normal implements _Normal {
 abstract class _Normal implements FieldsTextSizeState {
   const factory _Normal(
       {required final double regexIdenfifierTextSize,
-      required final double testStringTextSize}) = _$_Normal;
+      required final double testStringTextSize}) = _$NormalImpl;
 
-  factory _Normal.fromJson(Map<String, dynamic> json) = _$_Normal.fromJson;
+  factory _Normal.fromJson(Map<String, dynamic> json) = _$NormalImpl.fromJson;
 
   @override
   double get regexIdenfifierTextSize;
@@ -264,6 +266,6 @@ abstract class _Normal implements FieldsTextSizeState {
   double get testStringTextSize;
   @override
   @JsonKey(ignore: true)
-  _$$_NormalCopyWith<_$_Normal> get copyWith =>
+  _$$NormalImplCopyWith<_$NormalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

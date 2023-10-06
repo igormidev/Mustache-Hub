@@ -6,17 +6,19 @@ part of 'content_string_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$Normal _$$NormalFromJson(Map<String, dynamic> json) => _$Normal(
+_$NormalImpl _$$NormalImplFromJson(Map<String, dynamic> json) => _$NormalImpl(
       currentText: json['currentText'] as String,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NormalToJson(_$Normal instance) => <String, dynamic>{
+Map<String, dynamic> _$$NormalImplToJson(_$NormalImpl instance) =>
+    <String, dynamic>{
       'currentText': instance.currentText,
       'runtimeType': instance.$type,
     };
 
-_$WithToken _$$WithTokenFromJson(Map<String, dynamic> json) => _$WithToken(
+_$WithTokenImpl _$$WithTokenImplFromJson(Map<String, dynamic> json) =>
+    _$WithTokenImpl(
       currentText: json['currentText'] as String,
       tokensInIt: (json['tokensInIt'] as List<dynamic>)
           .map((e) => Token.fromJson(e as String))
@@ -24,7 +26,7 @@ _$WithToken _$$WithTokenFromJson(Map<String, dynamic> json) => _$WithToken(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$WithTokenToJson(_$WithToken instance) =>
+Map<String, dynamic> _$$WithTokenImplToJson(_$WithTokenImpl instance) =>
     <String, dynamic>{
       'currentText': instance.currentText,
       'tokensInIt': instance.tokensInIt,

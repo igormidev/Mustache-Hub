@@ -93,22 +93,22 @@ class _$FormStatsStateCopyWithImpl<$Res, $Val extends FormStatsState>
 }
 
 /// @nodoc
-abstract class _$$_FormStatsStateCopyWith<$Res>
+abstract class _$$FormStatsStateImplCopyWith<$Res>
     implements $FormStatsStateCopyWith<$Res> {
-  factory _$$_FormStatsStateCopyWith(
-          _$_FormStatsState value, $Res Function(_$_FormStatsState) then) =
-      __$$_FormStatsStateCopyWithImpl<$Res>;
+  factory _$$FormStatsStateImplCopyWith(_$FormStatsStateImpl value,
+          $Res Function(_$FormStatsStateImpl) then) =
+      __$$FormStatsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? textGridSize});
 }
 
 /// @nodoc
-class __$$_FormStatsStateCopyWithImpl<$Res>
-    extends _$FormStatsStateCopyWithImpl<$Res, _$_FormStatsState>
-    implements _$$_FormStatsStateCopyWith<$Res> {
-  __$$_FormStatsStateCopyWithImpl(
-      _$_FormStatsState _value, $Res Function(_$_FormStatsState) _then)
+class __$$FormStatsStateImplCopyWithImpl<$Res>
+    extends _$FormStatsStateCopyWithImpl<$Res, _$FormStatsStateImpl>
+    implements _$$FormStatsStateImplCopyWith<$Res> {
+  __$$FormStatsStateImplCopyWithImpl(
+      _$FormStatsStateImpl _value, $Res Function(_$FormStatsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$_FormStatsStateCopyWithImpl<$Res>
   $Res call({
     Object? textGridSize = freezed,
   }) {
-    return _then(_$_FormStatsState(
+    return _then(_$FormStatsStateImpl(
       textGridSize: freezed == textGridSize
           ? _value.textGridSize
           : textGridSize // ignore: cast_nullable_to_non_nullable
@@ -127,11 +127,11 @@ class __$$_FormStatsStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FormStatsState implements _FormStatsState {
-  _$_FormStatsState({required this.textGridSize});
+class _$FormStatsStateImpl implements _FormStatsState {
+  _$FormStatsStateImpl({required this.textGridSize});
 
-  factory _$_FormStatsState.fromJson(Map<String, dynamic> json) =>
-      _$$_FormStatsStateFromJson(json);
+  factory _$FormStatsStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FormStatsStateImplFromJson(json);
 
   @override
   final int? textGridSize;
@@ -145,7 +145,7 @@ class _$_FormStatsState implements _FormStatsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FormStatsState &&
+            other is _$FormStatsStateImpl &&
             (identical(other.textGridSize, textGridSize) ||
                 other.textGridSize == textGridSize));
   }
@@ -157,8 +157,9 @@ class _$_FormStatsState implements _FormStatsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FormStatsStateCopyWith<_$_FormStatsState> get copyWith =>
-      __$$_FormStatsStateCopyWithImpl<_$_FormStatsState>(this, _$identity);
+  _$$FormStatsStateImplCopyWith<_$FormStatsStateImpl> get copyWith =>
+      __$$FormStatsStateImplCopyWithImpl<_$FormStatsStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -218,7 +219,7 @@ class _$_FormStatsState implements _FormStatsState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FormStatsStateToJson(
+    return _$$FormStatsStateImplToJson(
       this,
     );
   }
@@ -226,15 +227,15 @@ class _$_FormStatsState implements _FormStatsState {
 
 abstract class _FormStatsState implements FormStatsState {
   factory _FormStatsState({required final int? textGridSize}) =
-      _$_FormStatsState;
+      _$FormStatsStateImpl;
 
   factory _FormStatsState.fromJson(Map<String, dynamic> json) =
-      _$_FormStatsState.fromJson;
+      _$FormStatsStateImpl.fromJson;
 
   @override
   int? get textGridSize;
   @override
   @JsonKey(ignore: true)
-  _$$_FormStatsStateCopyWith<_$_FormStatsState> get copyWith =>
+  _$$FormStatsStateImplCopyWith<_$FormStatsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

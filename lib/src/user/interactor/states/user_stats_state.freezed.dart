@@ -87,25 +87,25 @@ class _$UserStatsStateCopyWithImpl<$Res, $Val extends UserStatsState>
 }
 
 /// @nodoc
-abstract class _$$UserStatsLoadingCopyWith<$Res> {
-  factory _$$UserStatsLoadingCopyWith(
-          _$UserStatsLoading value, $Res Function(_$UserStatsLoading) then) =
-      __$$UserStatsLoadingCopyWithImpl<$Res>;
+abstract class _$$UserStatsLoadingImplCopyWith<$Res> {
+  factory _$$UserStatsLoadingImplCopyWith(_$UserStatsLoadingImpl value,
+          $Res Function(_$UserStatsLoadingImpl) then) =
+      __$$UserStatsLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserStatsLoadingCopyWithImpl<$Res>
-    extends _$UserStatsStateCopyWithImpl<$Res, _$UserStatsLoading>
-    implements _$$UserStatsLoadingCopyWith<$Res> {
-  __$$UserStatsLoadingCopyWithImpl(
-      _$UserStatsLoading _value, $Res Function(_$UserStatsLoading) _then)
+class __$$UserStatsLoadingImplCopyWithImpl<$Res>
+    extends _$UserStatsStateCopyWithImpl<$Res, _$UserStatsLoadingImpl>
+    implements _$$UserStatsLoadingImplCopyWith<$Res> {
+  __$$UserStatsLoadingImplCopyWithImpl(_$UserStatsLoadingImpl _value,
+      $Res Function(_$UserStatsLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UserStatsLoading implements UserStatsLoading {
-  _$UserStatsLoading();
+class _$UserStatsLoadingImpl implements UserStatsLoading {
+  _$UserStatsLoadingImpl();
 
   @override
   String toString() {
@@ -115,7 +115,7 @@ class _$UserStatsLoading implements UserStatsLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserStatsLoading);
+        (other.runtimeType == runtimeType && other is _$UserStatsLoadingImpl);
   }
 
   @override
@@ -197,29 +197,29 @@ class _$UserStatsLoading implements UserStatsLoading {
 }
 
 abstract class UserStatsLoading implements UserStatsState {
-  factory UserStatsLoading() = _$UserStatsLoading;
+  factory UserStatsLoading() = _$UserStatsLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$WithNoDataCopyWith<$Res> {
-  factory _$$WithNoDataCopyWith(
-          _$WithNoData value, $Res Function(_$WithNoData) then) =
-      __$$WithNoDataCopyWithImpl<$Res>;
+abstract class _$$WithNoDataImplCopyWith<$Res> {
+  factory _$$WithNoDataImplCopyWith(
+          _$WithNoDataImpl value, $Res Function(_$WithNoDataImpl) then) =
+      __$$WithNoDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WithNoDataCopyWithImpl<$Res>
-    extends _$UserStatsStateCopyWithImpl<$Res, _$WithNoData>
-    implements _$$WithNoDataCopyWith<$Res> {
-  __$$WithNoDataCopyWithImpl(
-      _$WithNoData _value, $Res Function(_$WithNoData) _then)
+class __$$WithNoDataImplCopyWithImpl<$Res>
+    extends _$UserStatsStateCopyWithImpl<$Res, _$WithNoDataImpl>
+    implements _$$WithNoDataImplCopyWith<$Res> {
+  __$$WithNoDataImplCopyWithImpl(
+      _$WithNoDataImpl _value, $Res Function(_$WithNoDataImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WithNoData implements WithNoData {
-  _$WithNoData();
+class _$WithNoDataImpl implements WithNoData {
+  _$WithNoDataImpl();
 
   @override
   String toString() {
@@ -229,7 +229,7 @@ class _$WithNoData implements WithNoData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WithNoData);
+        (other.runtimeType == runtimeType && other is _$WithNoDataImpl);
   }
 
   @override
@@ -311,24 +311,24 @@ class _$WithNoData implements WithNoData {
 }
 
 abstract class WithNoData implements UserStatsState {
-  factory WithNoData() = _$WithNoData;
+  factory WithNoData() = _$WithNoDataImpl;
 }
 
 /// @nodoc
-abstract class _$$UserStatsWithErrorCopyWith<$Res> {
-  factory _$$UserStatsWithErrorCopyWith(_$UserStatsWithError value,
-          $Res Function(_$UserStatsWithError) then) =
-      __$$UserStatsWithErrorCopyWithImpl<$Res>;
+abstract class _$$UserStatsWithErrorImplCopyWith<$Res> {
+  factory _$$UserStatsWithErrorImplCopyWith(_$UserStatsWithErrorImpl value,
+          $Res Function(_$UserStatsWithErrorImpl) then) =
+      __$$UserStatsWithErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$UserStatsWithErrorCopyWithImpl<$Res>
-    extends _$UserStatsStateCopyWithImpl<$Res, _$UserStatsWithError>
-    implements _$$UserStatsWithErrorCopyWith<$Res> {
-  __$$UserStatsWithErrorCopyWithImpl(
-      _$UserStatsWithError _value, $Res Function(_$UserStatsWithError) _then)
+class __$$UserStatsWithErrorImplCopyWithImpl<$Res>
+    extends _$UserStatsStateCopyWithImpl<$Res, _$UserStatsWithErrorImpl>
+    implements _$$UserStatsWithErrorImplCopyWith<$Res> {
+  __$$UserStatsWithErrorImplCopyWithImpl(_$UserStatsWithErrorImpl _value,
+      $Res Function(_$UserStatsWithErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -337,7 +337,7 @@ class __$$UserStatsWithErrorCopyWithImpl<$Res>
     Object? error = null,
     Object? stackTrace = null,
   }) {
-    return _then(_$UserStatsWithError(
+    return _then(_$UserStatsWithErrorImpl(
       error: null == error ? _value.error : error,
       stackTrace: null == stackTrace
           ? _value.stackTrace
@@ -349,8 +349,8 @@ class __$$UserStatsWithErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserStatsWithError implements UserStatsWithError {
-  _$UserStatsWithError({required this.error, required this.stackTrace});
+class _$UserStatsWithErrorImpl implements UserStatsWithError {
+  _$UserStatsWithErrorImpl({required this.error, required this.stackTrace});
 
   @override
   final Object error;
@@ -366,7 +366,7 @@ class _$UserStatsWithError implements UserStatsWithError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserStatsWithError &&
+            other is _$UserStatsWithErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.stackTrace, stackTrace) ||
                 other.stackTrace == stackTrace));
@@ -379,8 +379,8 @@ class _$UserStatsWithError implements UserStatsWithError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserStatsWithErrorCopyWith<_$UserStatsWithError> get copyWith =>
-      __$$UserStatsWithErrorCopyWithImpl<_$UserStatsWithError>(
+  _$$UserStatsWithErrorImplCopyWith<_$UserStatsWithErrorImpl> get copyWith =>
+      __$$UserStatsWithErrorImplCopyWithImpl<_$UserStatsWithErrorImpl>(
           this, _$identity);
 
   @override
@@ -461,30 +461,30 @@ class _$UserStatsWithError implements UserStatsWithError {
 abstract class UserStatsWithError implements UserStatsState {
   factory UserStatsWithError(
       {required final Object error,
-      required final StackTrace stackTrace}) = _$UserStatsWithError;
+      required final StackTrace stackTrace}) = _$UserStatsWithErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$UserStatsWithErrorCopyWith<_$UserStatsWithError> get copyWith =>
+  _$$UserStatsWithErrorImplCopyWith<_$UserStatsWithErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UserStatsWithDataCopyWith<$Res> {
-  factory _$$UserStatsWithDataCopyWith(
-          _$UserStatsWithData value, $Res Function(_$UserStatsWithData) then) =
-      __$$UserStatsWithDataCopyWithImpl<$Res>;
+abstract class _$$UserStatsWithDataImplCopyWith<$Res> {
+  factory _$$UserStatsWithDataImplCopyWith(_$UserStatsWithDataImpl value,
+          $Res Function(_$UserStatsWithDataImpl) then) =
+      __$$UserStatsWithDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserStats stats});
 }
 
 /// @nodoc
-class __$$UserStatsWithDataCopyWithImpl<$Res>
-    extends _$UserStatsStateCopyWithImpl<$Res, _$UserStatsWithData>
-    implements _$$UserStatsWithDataCopyWith<$Res> {
-  __$$UserStatsWithDataCopyWithImpl(
-      _$UserStatsWithData _value, $Res Function(_$UserStatsWithData) _then)
+class __$$UserStatsWithDataImplCopyWithImpl<$Res>
+    extends _$UserStatsStateCopyWithImpl<$Res, _$UserStatsWithDataImpl>
+    implements _$$UserStatsWithDataImplCopyWith<$Res> {
+  __$$UserStatsWithDataImplCopyWithImpl(_$UserStatsWithDataImpl _value,
+      $Res Function(_$UserStatsWithDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -492,7 +492,7 @@ class __$$UserStatsWithDataCopyWithImpl<$Res>
   $Res call({
     Object? stats = null,
   }) {
-    return _then(_$UserStatsWithData(
+    return _then(_$UserStatsWithDataImpl(
       stats: null == stats
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
@@ -503,8 +503,8 @@ class __$$UserStatsWithDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserStatsWithData implements UserStatsWithData {
-  _$UserStatsWithData({required this.stats});
+class _$UserStatsWithDataImpl implements UserStatsWithData {
+  _$UserStatsWithDataImpl({required this.stats});
 
   @override
   final UserStats stats;
@@ -518,7 +518,7 @@ class _$UserStatsWithData implements UserStatsWithData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserStatsWithData &&
+            other is _$UserStatsWithDataImpl &&
             (identical(other.stats, stats) || other.stats == stats));
   }
 
@@ -528,8 +528,9 @@ class _$UserStatsWithData implements UserStatsWithData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserStatsWithDataCopyWith<_$UserStatsWithData> get copyWith =>
-      __$$UserStatsWithDataCopyWithImpl<_$UserStatsWithData>(this, _$identity);
+  _$$UserStatsWithDataImplCopyWith<_$UserStatsWithDataImpl> get copyWith =>
+      __$$UserStatsWithDataImplCopyWithImpl<_$UserStatsWithDataImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -608,10 +609,10 @@ class _$UserStatsWithData implements UserStatsWithData {
 
 abstract class UserStatsWithData implements UserStatsState {
   factory UserStatsWithData({required final UserStats stats}) =
-      _$UserStatsWithData;
+      _$UserStatsWithDataImpl;
 
   UserStats get stats;
   @JsonKey(ignore: true)
-  _$$UserStatsWithDataCopyWith<_$UserStatsWithData> get copyWith =>
+  _$$UserStatsWithDataImplCopyWith<_$UserStatsWithDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

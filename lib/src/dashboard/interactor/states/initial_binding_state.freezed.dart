@@ -88,20 +88,20 @@ class _$InitialBindingStateCopyWithImpl<$Res, $Val extends InitialBindingState>
 }
 
 /// @nodoc
-abstract class _$$GotFatalErrorCopyWith<$Res> {
-  factory _$$GotFatalErrorCopyWith(
-          _$GotFatalError value, $Res Function(_$GotFatalError) then) =
-      __$$GotFatalErrorCopyWithImpl<$Res>;
+abstract class _$$GotFatalErrorImplCopyWith<$Res> {
+  factory _$$GotFatalErrorImplCopyWith(
+          _$GotFatalErrorImpl value, $Res Function(_$GotFatalErrorImpl) then) =
+      __$$GotFatalErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$GotFatalErrorCopyWithImpl<$Res>
-    extends _$InitialBindingStateCopyWithImpl<$Res, _$GotFatalError>
-    implements _$$GotFatalErrorCopyWith<$Res> {
-  __$$GotFatalErrorCopyWithImpl(
-      _$GotFatalError _value, $Res Function(_$GotFatalError) _then)
+class __$$GotFatalErrorImplCopyWithImpl<$Res>
+    extends _$InitialBindingStateCopyWithImpl<$Res, _$GotFatalErrorImpl>
+    implements _$$GotFatalErrorImplCopyWith<$Res> {
+  __$$GotFatalErrorImplCopyWithImpl(
+      _$GotFatalErrorImpl _value, $Res Function(_$GotFatalErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +110,7 @@ class __$$GotFatalErrorCopyWithImpl<$Res>
     Object? error = null,
     Object? stackTrace = null,
   }) {
-    return _then(_$GotFatalError(
+    return _then(_$GotFatalErrorImpl(
       error: null == error ? _value.error : error,
       stackTrace: null == stackTrace
           ? _value.stackTrace
@@ -122,8 +122,8 @@ class __$$GotFatalErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GotFatalError implements GotFatalError {
-  _$GotFatalError({required this.error, required this.stackTrace});
+class _$GotFatalErrorImpl implements GotFatalError {
+  _$GotFatalErrorImpl({required this.error, required this.stackTrace});
 
   @override
   final Object error;
@@ -139,7 +139,7 @@ class _$GotFatalError implements GotFatalError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GotFatalError &&
+            other is _$GotFatalErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.stackTrace, stackTrace) ||
                 other.stackTrace == stackTrace));
@@ -152,8 +152,8 @@ class _$GotFatalError implements GotFatalError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GotFatalErrorCopyWith<_$GotFatalError> get copyWith =>
-      __$$GotFatalErrorCopyWithImpl<_$GotFatalError>(this, _$identity);
+  _$$GotFatalErrorImplCopyWith<_$GotFatalErrorImpl> get copyWith =>
+      __$$GotFatalErrorImplCopyWithImpl<_$GotFatalErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -234,35 +234,35 @@ class _$GotFatalError implements GotFatalError {
 abstract class GotFatalError implements InitialBindingState {
   factory GotFatalError(
       {required final Object error,
-      required final StackTrace stackTrace}) = _$GotFatalError;
+      required final StackTrace stackTrace}) = _$GotFatalErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$GotFatalErrorCopyWith<_$GotFatalError> get copyWith =>
+  _$$GotFatalErrorImplCopyWith<_$GotFatalErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GettingUserModelCopyWith<$Res> {
-  factory _$$GettingUserModelCopyWith(
-          _$GettingUserModel value, $Res Function(_$GettingUserModel) then) =
-      __$$GettingUserModelCopyWithImpl<$Res>;
+abstract class _$$GettingUserModelImplCopyWith<$Res> {
+  factory _$$GettingUserModelImplCopyWith(_$GettingUserModelImpl value,
+          $Res Function(_$GettingUserModelImpl) then) =
+      __$$GettingUserModelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GettingUserModelCopyWithImpl<$Res>
-    extends _$InitialBindingStateCopyWithImpl<$Res, _$GettingUserModel>
-    implements _$$GettingUserModelCopyWith<$Res> {
-  __$$GettingUserModelCopyWithImpl(
-      _$GettingUserModel _value, $Res Function(_$GettingUserModel) _then)
+class __$$GettingUserModelImplCopyWithImpl<$Res>
+    extends _$InitialBindingStateCopyWithImpl<$Res, _$GettingUserModelImpl>
+    implements _$$GettingUserModelImplCopyWith<$Res> {
+  __$$GettingUserModelImplCopyWithImpl(_$GettingUserModelImpl _value,
+      $Res Function(_$GettingUserModelImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GettingUserModel implements GettingUserModel {
-  _$GettingUserModel();
+class _$GettingUserModelImpl implements GettingUserModel {
+  _$GettingUserModelImpl();
 
   @override
   String toString() {
@@ -272,7 +272,7 @@ class _$GettingUserModel implements GettingUserModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GettingUserModel);
+        (other.runtimeType == runtimeType && other is _$GettingUserModelImpl);
   }
 
   @override
@@ -355,29 +355,29 @@ class _$GettingUserModel implements GettingUserModel {
 }
 
 abstract class GettingUserModel implements InitialBindingState {
-  factory GettingUserModel() = _$GettingUserModel;
+  factory GettingUserModel() = _$GettingUserModelImpl;
 }
 
 /// @nodoc
-abstract class _$$GettingUserStatsCopyWith<$Res> {
-  factory _$$GettingUserStatsCopyWith(
-          _$GettingUserStats value, $Res Function(_$GettingUserStats) then) =
-      __$$GettingUserStatsCopyWithImpl<$Res>;
+abstract class _$$GettingUserStatsImplCopyWith<$Res> {
+  factory _$$GettingUserStatsImplCopyWith(_$GettingUserStatsImpl value,
+          $Res Function(_$GettingUserStatsImpl) then) =
+      __$$GettingUserStatsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GettingUserStatsCopyWithImpl<$Res>
-    extends _$InitialBindingStateCopyWithImpl<$Res, _$GettingUserStats>
-    implements _$$GettingUserStatsCopyWith<$Res> {
-  __$$GettingUserStatsCopyWithImpl(
-      _$GettingUserStats _value, $Res Function(_$GettingUserStats) _then)
+class __$$GettingUserStatsImplCopyWithImpl<$Res>
+    extends _$InitialBindingStateCopyWithImpl<$Res, _$GettingUserStatsImpl>
+    implements _$$GettingUserStatsImplCopyWith<$Res> {
+  __$$GettingUserStatsImplCopyWithImpl(_$GettingUserStatsImpl _value,
+      $Res Function(_$GettingUserStatsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GettingUserStats implements GettingUserStats {
-  _$GettingUserStats();
+class _$GettingUserStatsImpl implements GettingUserStats {
+  _$GettingUserStatsImpl();
 
   @override
   String toString() {
@@ -387,7 +387,7 @@ class _$GettingUserStats implements GettingUserStats {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GettingUserStats);
+        (other.runtimeType == runtimeType && other is _$GettingUserStatsImpl);
   }
 
   @override
@@ -470,29 +470,32 @@ class _$GettingUserStats implements GettingUserStats {
 }
 
 abstract class GettingUserStats implements InitialBindingState {
-  factory GettingUserStats() = _$GettingUserStats;
+  factory GettingUserStats() = _$GettingUserStatsImpl;
 }
 
 /// @nodoc
-abstract class _$$InitialBindingCompleteCopyWith<$Res> {
-  factory _$$InitialBindingCompleteCopyWith(_$InitialBindingComplete value,
-          $Res Function(_$InitialBindingComplete) then) =
-      __$$InitialBindingCompleteCopyWithImpl<$Res>;
+abstract class _$$InitialBindingCompleteImplCopyWith<$Res> {
+  factory _$$InitialBindingCompleteImplCopyWith(
+          _$InitialBindingCompleteImpl value,
+          $Res Function(_$InitialBindingCompleteImpl) then) =
+      __$$InitialBindingCompleteImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialBindingCompleteCopyWithImpl<$Res>
-    extends _$InitialBindingStateCopyWithImpl<$Res, _$InitialBindingComplete>
-    implements _$$InitialBindingCompleteCopyWith<$Res> {
-  __$$InitialBindingCompleteCopyWithImpl(_$InitialBindingComplete _value,
-      $Res Function(_$InitialBindingComplete) _then)
+class __$$InitialBindingCompleteImplCopyWithImpl<$Res>
+    extends _$InitialBindingStateCopyWithImpl<$Res,
+        _$InitialBindingCompleteImpl>
+    implements _$$InitialBindingCompleteImplCopyWith<$Res> {
+  __$$InitialBindingCompleteImplCopyWithImpl(
+      _$InitialBindingCompleteImpl _value,
+      $Res Function(_$InitialBindingCompleteImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialBindingComplete implements InitialBindingComplete {
-  _$InitialBindingComplete();
+class _$InitialBindingCompleteImpl implements InitialBindingComplete {
+  _$InitialBindingCompleteImpl();
 
   @override
   String toString() {
@@ -502,7 +505,8 @@ class _$InitialBindingComplete implements InitialBindingComplete {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialBindingComplete);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialBindingCompleteImpl);
   }
 
   @override
@@ -585,5 +589,5 @@ class _$InitialBindingComplete implements InitialBindingComplete {
 }
 
 abstract class InitialBindingComplete implements InitialBindingState {
-  factory InitialBindingComplete() = _$InitialBindingComplete;
+  factory InitialBindingComplete() = _$InitialBindingCompleteImpl;
 }

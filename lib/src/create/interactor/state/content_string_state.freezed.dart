@@ -109,20 +109,22 @@ class _$ContentStringStateCopyWithImpl<$Res, $Val extends ContentStringState>
 }
 
 /// @nodoc
-abstract class _$$NormalCopyWith<$Res>
+abstract class _$$NormalImplCopyWith<$Res>
     implements $ContentStringStateCopyWith<$Res> {
-  factory _$$NormalCopyWith(_$Normal value, $Res Function(_$Normal) then) =
-      __$$NormalCopyWithImpl<$Res>;
+  factory _$$NormalImplCopyWith(
+          _$NormalImpl value, $Res Function(_$NormalImpl) then) =
+      __$$NormalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String currentText});
 }
 
 /// @nodoc
-class __$$NormalCopyWithImpl<$Res>
-    extends _$ContentStringStateCopyWithImpl<$Res, _$Normal>
-    implements _$$NormalCopyWith<$Res> {
-  __$$NormalCopyWithImpl(_$Normal _value, $Res Function(_$Normal) _then)
+class __$$NormalImplCopyWithImpl<$Res>
+    extends _$ContentStringStateCopyWithImpl<$Res, _$NormalImpl>
+    implements _$$NormalImplCopyWith<$Res> {
+  __$$NormalImplCopyWithImpl(
+      _$NormalImpl _value, $Res Function(_$NormalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +132,7 @@ class __$$NormalCopyWithImpl<$Res>
   $Res call({
     Object? currentText = null,
   }) {
-    return _then(_$Normal(
+    return _then(_$NormalImpl(
       currentText: null == currentText
           ? _value.currentText
           : currentText // ignore: cast_nullable_to_non_nullable
@@ -141,12 +143,12 @@ class __$$NormalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$Normal implements Normal {
-  const _$Normal({required this.currentText, final String? $type})
+class _$NormalImpl implements Normal {
+  const _$NormalImpl({required this.currentText, final String? $type})
       : $type = $type ?? 'normal';
 
-  factory _$Normal.fromJson(Map<String, dynamic> json) =>
-      _$$NormalFromJson(json);
+  factory _$NormalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NormalImplFromJson(json);
 
   @override
   final String currentText;
@@ -163,7 +165,7 @@ class _$Normal implements Normal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Normal &&
+            other is _$NormalImpl &&
             (identical(other.currentText, currentText) ||
                 other.currentText == currentText));
   }
@@ -175,8 +177,8 @@ class _$Normal implements Normal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NormalCopyWith<_$Normal> get copyWith =>
-      __$$NormalCopyWithImpl<_$Normal>(this, _$identity);
+  _$$NormalImplCopyWith<_$NormalImpl> get copyWith =>
+      __$$NormalImplCopyWithImpl<_$NormalImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -243,42 +245,42 @@ class _$Normal implements Normal {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NormalToJson(
+    return _$$NormalImplToJson(
       this,
     );
   }
 }
 
 abstract class Normal implements ContentStringState {
-  const factory Normal({required final String currentText}) = _$Normal;
+  const factory Normal({required final String currentText}) = _$NormalImpl;
 
-  factory Normal.fromJson(Map<String, dynamic> json) = _$Normal.fromJson;
+  factory Normal.fromJson(Map<String, dynamic> json) = _$NormalImpl.fromJson;
 
   @override
   String get currentText;
   @override
   @JsonKey(ignore: true)
-  _$$NormalCopyWith<_$Normal> get copyWith =>
+  _$$NormalImplCopyWith<_$NormalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WithTokenCopyWith<$Res>
+abstract class _$$WithTokenImplCopyWith<$Res>
     implements $ContentStringStateCopyWith<$Res> {
-  factory _$$WithTokenCopyWith(
-          _$WithToken value, $Res Function(_$WithToken) then) =
-      __$$WithTokenCopyWithImpl<$Res>;
+  factory _$$WithTokenImplCopyWith(
+          _$WithTokenImpl value, $Res Function(_$WithTokenImpl) then) =
+      __$$WithTokenImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String currentText, List<Token> tokensInIt});
 }
 
 /// @nodoc
-class __$$WithTokenCopyWithImpl<$Res>
-    extends _$ContentStringStateCopyWithImpl<$Res, _$WithToken>
-    implements _$$WithTokenCopyWith<$Res> {
-  __$$WithTokenCopyWithImpl(
-      _$WithToken _value, $Res Function(_$WithToken) _then)
+class __$$WithTokenImplCopyWithImpl<$Res>
+    extends _$ContentStringStateCopyWithImpl<$Res, _$WithTokenImpl>
+    implements _$$WithTokenImplCopyWith<$Res> {
+  __$$WithTokenImplCopyWithImpl(
+      _$WithTokenImpl _value, $Res Function(_$WithTokenImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -287,7 +289,7 @@ class __$$WithTokenCopyWithImpl<$Res>
     Object? currentText = null,
     Object? tokensInIt = null,
   }) {
-    return _then(_$WithToken(
+    return _then(_$WithTokenImpl(
       currentText: null == currentText
           ? _value.currentText
           : currentText // ignore: cast_nullable_to_non_nullable
@@ -302,16 +304,16 @@ class __$$WithTokenCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$WithToken implements WithToken {
-  const _$WithToken(
+class _$WithTokenImpl implements WithToken {
+  const _$WithTokenImpl(
       {required this.currentText,
       required final List<Token> tokensInIt,
       final String? $type})
       : _tokensInIt = tokensInIt,
         $type = $type ?? 'withToken';
 
-  factory _$WithToken.fromJson(Map<String, dynamic> json) =>
-      _$$WithTokenFromJson(json);
+  factory _$WithTokenImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WithTokenImplFromJson(json);
 
   @override
   final String currentText;
@@ -335,7 +337,7 @@ class _$WithToken implements WithToken {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WithToken &&
+            other is _$WithTokenImpl &&
             (identical(other.currentText, currentText) ||
                 other.currentText == currentText) &&
             const DeepCollectionEquality()
@@ -350,8 +352,8 @@ class _$WithToken implements WithToken {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WithTokenCopyWith<_$WithToken> get copyWith =>
-      __$$WithTokenCopyWithImpl<_$WithToken>(this, _$identity);
+  _$$WithTokenImplCopyWith<_$WithTokenImpl> get copyWith =>
+      __$$WithTokenImplCopyWithImpl<_$WithTokenImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -418,7 +420,7 @@ class _$WithToken implements WithToken {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$WithTokenToJson(
+    return _$$WithTokenImplToJson(
       this,
     );
   }
@@ -427,15 +429,16 @@ class _$WithToken implements WithToken {
 abstract class WithToken implements ContentStringState {
   const factory WithToken(
       {required final String currentText,
-      required final List<Token> tokensInIt}) = _$WithToken;
+      required final List<Token> tokensInIt}) = _$WithTokenImpl;
 
-  factory WithToken.fromJson(Map<String, dynamic> json) = _$WithToken.fromJson;
+  factory WithToken.fromJson(Map<String, dynamic> json) =
+      _$WithTokenImpl.fromJson;
 
   @override
   String get currentText;
   List<Token> get tokensInIt;
   @override
   @JsonKey(ignore: true)
-  _$$WithTokenCopyWith<_$WithToken> get copyWith =>
+  _$$WithTokenImplCopyWith<_$WithTokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

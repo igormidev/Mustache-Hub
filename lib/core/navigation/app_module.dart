@@ -18,6 +18,7 @@ import 'package:mustachehub/src/auth/ui/pages/account_created_page.dart';
 import 'package:mustachehub/src/auth/ui/pages/login_page.dart';
 import 'package:mustachehub/src/auth/ui/pages/signin_page.dart';
 import 'package:mustachehub/src/became_premium/ui/views/became_premium_view.dart';
+import 'package:mustachehub/src/collection/ui/views/collection.dart';
 import 'package:mustachehub/src/create/data/repositories/impl_package_form_repository.dart';
 import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/create_tab_cubit.dart';
@@ -92,7 +93,7 @@ class AppModule extends Module {
             drawer: context.whenSizeOrNull(
               compactSize: const DashboardDrawer(),
             ),
-            backgroundColor: Colors.blue[200],
+            body: const MyHomePage(),
           ),
         ),
         ModuleRoute('/generate', module: GenerateModule()),

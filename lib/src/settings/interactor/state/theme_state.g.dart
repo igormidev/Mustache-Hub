@@ -6,12 +6,13 @@ part of 'theme_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Normal _$$_NormalFromJson(Map<String, dynamic> json) => _$_Normal(
+_$NormalImpl _$$NormalImplFromJson(Map<String, dynamic> json) => _$NormalImpl(
       colorValue: json['colorValue'] as int,
       brightness: $enumDecode(_$BrightnessEnumMap, json['brightness']),
     );
 
-Map<String, dynamic> _$$_NormalToJson(_$_Normal instance) => <String, dynamic>{
+Map<String, dynamic> _$$NormalImplToJson(_$NormalImpl instance) =>
+    <String, dynamic>{
       'colorValue': instance.colorValue,
       'brightness': _$BrightnessEnumMap[instance.brightness]!,
     };

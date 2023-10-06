@@ -87,25 +87,27 @@ class _$PackageFormStateCopyWithImpl<$Res, $Val extends PackageFormState>
 }
 
 /// @nodoc
-abstract class _$$_PackageFormStateNormalCopyWith<$Res> {
-  factory _$$_PackageFormStateNormalCopyWith(_$_PackageFormStateNormal value,
-          $Res Function(_$_PackageFormStateNormal) then) =
-      __$$_PackageFormStateNormalCopyWithImpl<$Res>;
+abstract class _$$PackageFormStateNormalImplCopyWith<$Res> {
+  factory _$$PackageFormStateNormalImplCopyWith(
+          _$PackageFormStateNormalImpl value,
+          $Res Function(_$PackageFormStateNormalImpl) then) =
+      __$$PackageFormStateNormalImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PackageFormStateNormalCopyWithImpl<$Res>
-    extends _$PackageFormStateCopyWithImpl<$Res, _$_PackageFormStateNormal>
-    implements _$$_PackageFormStateNormalCopyWith<$Res> {
-  __$$_PackageFormStateNormalCopyWithImpl(_$_PackageFormStateNormal _value,
-      $Res Function(_$_PackageFormStateNormal) _then)
+class __$$PackageFormStateNormalImplCopyWithImpl<$Res>
+    extends _$PackageFormStateCopyWithImpl<$Res, _$PackageFormStateNormalImpl>
+    implements _$$PackageFormStateNormalImplCopyWith<$Res> {
+  __$$PackageFormStateNormalImplCopyWithImpl(
+      _$PackageFormStateNormalImpl _value,
+      $Res Function(_$PackageFormStateNormalImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PackageFormStateNormal implements _PackageFormStateNormal {
-  _$_PackageFormStateNormal();
+class _$PackageFormStateNormalImpl implements _PackageFormStateNormal {
+  _$PackageFormStateNormalImpl();
 
   @override
   String toString() {
@@ -116,7 +118,7 @@ class _$_PackageFormStateNormal implements _PackageFormStateNormal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PackageFormStateNormal);
+            other is _$PackageFormStateNormalImpl);
   }
 
   @override
@@ -198,29 +200,31 @@ class _$_PackageFormStateNormal implements _PackageFormStateNormal {
 }
 
 abstract class _PackageFormStateNormal implements PackageFormState {
-  factory _PackageFormStateNormal() = _$_PackageFormStateNormal;
+  factory _PackageFormStateNormal() = _$PackageFormStateNormalImpl;
 }
 
 /// @nodoc
-abstract class _$$_PackageFormStateLoadingCopyWith<$Res> {
-  factory _$$_PackageFormStateLoadingCopyWith(_$_PackageFormStateLoading value,
-          $Res Function(_$_PackageFormStateLoading) then) =
-      __$$_PackageFormStateLoadingCopyWithImpl<$Res>;
+abstract class _$$PackageFormStateLoadingImplCopyWith<$Res> {
+  factory _$$PackageFormStateLoadingImplCopyWith(
+          _$PackageFormStateLoadingImpl value,
+          $Res Function(_$PackageFormStateLoadingImpl) then) =
+      __$$PackageFormStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PackageFormStateLoadingCopyWithImpl<$Res>
-    extends _$PackageFormStateCopyWithImpl<$Res, _$_PackageFormStateLoading>
-    implements _$$_PackageFormStateLoadingCopyWith<$Res> {
-  __$$_PackageFormStateLoadingCopyWithImpl(_$_PackageFormStateLoading _value,
-      $Res Function(_$_PackageFormStateLoading) _then)
+class __$$PackageFormStateLoadingImplCopyWithImpl<$Res>
+    extends _$PackageFormStateCopyWithImpl<$Res, _$PackageFormStateLoadingImpl>
+    implements _$$PackageFormStateLoadingImplCopyWith<$Res> {
+  __$$PackageFormStateLoadingImplCopyWithImpl(
+      _$PackageFormStateLoadingImpl _value,
+      $Res Function(_$PackageFormStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PackageFormStateLoading implements _PackageFormStateLoading {
-  _$_PackageFormStateLoading();
+class _$PackageFormStateLoadingImpl implements _PackageFormStateLoading {
+  _$PackageFormStateLoadingImpl();
 
   @override
   String toString() {
@@ -231,7 +235,7 @@ class _$_PackageFormStateLoading implements _PackageFormStateLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PackageFormStateLoading);
+            other is _$PackageFormStateLoadingImpl);
   }
 
   @override
@@ -313,29 +317,31 @@ class _$_PackageFormStateLoading implements _PackageFormStateLoading {
 }
 
 abstract class _PackageFormStateLoading implements PackageFormState {
-  factory _PackageFormStateLoading() = _$_PackageFormStateLoading;
+  factory _PackageFormStateLoading() = _$PackageFormStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_PackageFormStateFailureCopyWith<$Res> {
-  factory _$$_PackageFormStateFailureCopyWith(_$_PackageFormStateFailure value,
-          $Res Function(_$_PackageFormStateFailure) then) =
-      __$$_PackageFormStateFailureCopyWithImpl<$Res>;
+abstract class _$$PackageFormStateFailureImplCopyWith<$Res> {
+  factory _$$PackageFormStateFailureImplCopyWith(
+          _$PackageFormStateFailureImpl value,
+          $Res Function(_$PackageFormStateFailureImpl) then) =
+      __$$PackageFormStateFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PackageFormStateFailureCopyWithImpl<$Res>
-    extends _$PackageFormStateCopyWithImpl<$Res, _$_PackageFormStateFailure>
-    implements _$$_PackageFormStateFailureCopyWith<$Res> {
-  __$$_PackageFormStateFailureCopyWithImpl(_$_PackageFormStateFailure _value,
-      $Res Function(_$_PackageFormStateFailure) _then)
+class __$$PackageFormStateFailureImplCopyWithImpl<$Res>
+    extends _$PackageFormStateCopyWithImpl<$Res, _$PackageFormStateFailureImpl>
+    implements _$$PackageFormStateFailureImplCopyWith<$Res> {
+  __$$PackageFormStateFailureImplCopyWithImpl(
+      _$PackageFormStateFailureImpl _value,
+      $Res Function(_$PackageFormStateFailureImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PackageFormStateFailure implements _PackageFormStateFailure {
-  _$_PackageFormStateFailure();
+class _$PackageFormStateFailureImpl implements _PackageFormStateFailure {
+  _$PackageFormStateFailureImpl();
 
   @override
   String toString() {
@@ -346,7 +352,7 @@ class _$_PackageFormStateFailure implements _PackageFormStateFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PackageFormStateFailure);
+            other is _$PackageFormStateFailureImpl);
   }
 
   @override
@@ -428,29 +434,31 @@ class _$_PackageFormStateFailure implements _PackageFormStateFailure {
 }
 
 abstract class _PackageFormStateFailure implements PackageFormState {
-  factory _PackageFormStateFailure() = _$_PackageFormStateFailure;
+  factory _PackageFormStateFailure() = _$PackageFormStateFailureImpl;
 }
 
 /// @nodoc
-abstract class _$$_PackageFormStateSucessCopyWith<$Res> {
-  factory _$$_PackageFormStateSucessCopyWith(_$_PackageFormStateSucess value,
-          $Res Function(_$_PackageFormStateSucess) then) =
-      __$$_PackageFormStateSucessCopyWithImpl<$Res>;
+abstract class _$$PackageFormStateSucessImplCopyWith<$Res> {
+  factory _$$PackageFormStateSucessImplCopyWith(
+          _$PackageFormStateSucessImpl value,
+          $Res Function(_$PackageFormStateSucessImpl) then) =
+      __$$PackageFormStateSucessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PackageFormStateSucessCopyWithImpl<$Res>
-    extends _$PackageFormStateCopyWithImpl<$Res, _$_PackageFormStateSucess>
-    implements _$$_PackageFormStateSucessCopyWith<$Res> {
-  __$$_PackageFormStateSucessCopyWithImpl(_$_PackageFormStateSucess _value,
-      $Res Function(_$_PackageFormStateSucess) _then)
+class __$$PackageFormStateSucessImplCopyWithImpl<$Res>
+    extends _$PackageFormStateCopyWithImpl<$Res, _$PackageFormStateSucessImpl>
+    implements _$$PackageFormStateSucessImplCopyWith<$Res> {
+  __$$PackageFormStateSucessImplCopyWithImpl(
+      _$PackageFormStateSucessImpl _value,
+      $Res Function(_$PackageFormStateSucessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PackageFormStateSucess implements _PackageFormStateSucess {
-  _$_PackageFormStateSucess();
+class _$PackageFormStateSucessImpl implements _PackageFormStateSucess {
+  _$PackageFormStateSucessImpl();
 
   @override
   String toString() {
@@ -461,7 +469,7 @@ class _$_PackageFormStateSucess implements _PackageFormStateSucess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PackageFormStateSucess);
+            other is _$PackageFormStateSucessImpl);
   }
 
   @override
@@ -543,5 +551,5 @@ class _$_PackageFormStateSucess implements _PackageFormStateSucess {
 }
 
 abstract class _PackageFormStateSucess implements PackageFormState {
-  factory _PackageFormStateSucess() = _$_PackageFormStateSucess;
+  factory _PackageFormStateSucess() = _$PackageFormStateSucessImpl;
 }

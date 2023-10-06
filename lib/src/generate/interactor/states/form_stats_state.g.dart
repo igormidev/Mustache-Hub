@@ -6,12 +6,13 @@ part of 'form_stats_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FormStatsState _$$_FormStatsStateFromJson(Map<String, dynamic> json) =>
-    _$_FormStatsState(
+_$FormStatsStateImpl _$$FormStatsStateImplFromJson(Map<String, dynamic> json) =>
+    _$FormStatsStateImpl(
       textGridSize: json['textGridSize'] as int?,
     );
 
-Map<String, dynamic> _$$_FormStatsStateToJson(_$_FormStatsState instance) =>
+Map<String, dynamic> _$$FormStatsStateImplToJson(
+        _$FormStatsStateImpl instance) =>
     <String, dynamic>{
       'textGridSize': instance.textGridSize,
     };

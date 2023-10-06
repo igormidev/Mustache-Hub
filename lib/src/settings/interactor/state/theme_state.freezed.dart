@@ -99,19 +99,22 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
 }
 
 /// @nodoc
-abstract class _$$_NormalCopyWith<$Res> implements $ThemeStateCopyWith<$Res> {
-  factory _$$_NormalCopyWith(_$_Normal value, $Res Function(_$_Normal) then) =
-      __$$_NormalCopyWithImpl<$Res>;
+abstract class _$$NormalImplCopyWith<$Res>
+    implements $ThemeStateCopyWith<$Res> {
+  factory _$$NormalImplCopyWith(
+          _$NormalImpl value, $Res Function(_$NormalImpl) then) =
+      __$$NormalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int colorValue, Brightness brightness});
 }
 
 /// @nodoc
-class __$$_NormalCopyWithImpl<$Res>
-    extends _$ThemeStateCopyWithImpl<$Res, _$_Normal>
-    implements _$$_NormalCopyWith<$Res> {
-  __$$_NormalCopyWithImpl(_$_Normal _value, $Res Function(_$_Normal) _then)
+class __$$NormalImplCopyWithImpl<$Res>
+    extends _$ThemeStateCopyWithImpl<$Res, _$NormalImpl>
+    implements _$$NormalImplCopyWith<$Res> {
+  __$$NormalImplCopyWithImpl(
+      _$NormalImpl _value, $Res Function(_$NormalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +123,7 @@ class __$$_NormalCopyWithImpl<$Res>
     Object? colorValue = null,
     Object? brightness = null,
   }) {
-    return _then(_$_Normal(
+    return _then(_$NormalImpl(
       colorValue: null == colorValue
           ? _value.colorValue
           : colorValue // ignore: cast_nullable_to_non_nullable
@@ -135,11 +138,11 @@ class __$$_NormalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Normal implements _Normal {
-  const _$_Normal({required this.colorValue, required this.brightness});
+class _$NormalImpl implements _Normal {
+  const _$NormalImpl({required this.colorValue, required this.brightness});
 
-  factory _$_Normal.fromJson(Map<String, dynamic> json) =>
-      _$$_NormalFromJson(json);
+  factory _$NormalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NormalImplFromJson(json);
 
   @override
   final int colorValue;
@@ -155,7 +158,7 @@ class _$_Normal implements _Normal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Normal &&
+            other is _$NormalImpl &&
             (identical(other.colorValue, colorValue) ||
                 other.colorValue == colorValue) &&
             (identical(other.brightness, brightness) ||
@@ -169,8 +172,8 @@ class _$_Normal implements _Normal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NormalCopyWith<_$_Normal> get copyWith =>
-      __$$_NormalCopyWithImpl<_$_Normal>(this, _$identity);
+  _$$NormalImplCopyWith<_$NormalImpl> get copyWith =>
+      __$$NormalImplCopyWithImpl<_$NormalImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -230,7 +233,7 @@ class _$_Normal implements _Normal {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NormalToJson(
+    return _$$NormalImplToJson(
       this,
     );
   }
@@ -239,9 +242,9 @@ class _$_Normal implements _Normal {
 abstract class _Normal implements ThemeState {
   const factory _Normal(
       {required final int colorValue,
-      required final Brightness brightness}) = _$_Normal;
+      required final Brightness brightness}) = _$NormalImpl;
 
-  factory _Normal.fromJson(Map<String, dynamic> json) = _$_Normal.fromJson;
+  factory _Normal.fromJson(Map<String, dynamic> json) = _$NormalImpl.fromJson;
 
   @override
   int get colorValue;
@@ -249,6 +252,6 @@ abstract class _Normal implements ThemeState {
   Brightness get brightness;
   @override
   @JsonKey(ignore: true)
-  _$$_NormalCopyWith<_$_Normal> get copyWith =>
+  _$$NormalImplCopyWith<_$NormalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

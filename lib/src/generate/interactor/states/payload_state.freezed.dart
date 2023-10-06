@@ -88,22 +88,22 @@ class _$PayloadStateCopyWithImpl<$Res, $Val extends PayloadState>
 }
 
 /// @nodoc
-abstract class _$$WithRequiredFieldsPendencyCopyWith<$Res> {
-  factory _$$WithRequiredFieldsPendencyCopyWith(
-          _$WithRequiredFieldsPendency value,
-          $Res Function(_$WithRequiredFieldsPendency) then) =
-      __$$WithRequiredFieldsPendencyCopyWithImpl<$Res>;
+abstract class _$$WithRequiredFieldsPendencyImplCopyWith<$Res> {
+  factory _$$WithRequiredFieldsPendencyImplCopyWith(
+          _$WithRequiredFieldsPendencyImpl value,
+          $Res Function(_$WithRequiredFieldsPendencyImpl) then) =
+      __$$WithRequiredFieldsPendencyImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ExpectedPayloadDto expectedPayloadDto});
 }
 
 /// @nodoc
-class __$$WithRequiredFieldsPendencyCopyWithImpl<$Res>
-    extends _$PayloadStateCopyWithImpl<$Res, _$WithRequiredFieldsPendency>
-    implements _$$WithRequiredFieldsPendencyCopyWith<$Res> {
-  __$$WithRequiredFieldsPendencyCopyWithImpl(
-      _$WithRequiredFieldsPendency _value,
-      $Res Function(_$WithRequiredFieldsPendency) _then)
+class __$$WithRequiredFieldsPendencyImplCopyWithImpl<$Res>
+    extends _$PayloadStateCopyWithImpl<$Res, _$WithRequiredFieldsPendencyImpl>
+    implements _$$WithRequiredFieldsPendencyImplCopyWith<$Res> {
+  __$$WithRequiredFieldsPendencyImplCopyWithImpl(
+      _$WithRequiredFieldsPendencyImpl _value,
+      $Res Function(_$WithRequiredFieldsPendencyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$WithRequiredFieldsPendencyCopyWithImpl<$Res>
   $Res call({
     Object? expectedPayloadDto = null,
   }) {
-    return _then(_$WithRequiredFieldsPendency(
+    return _then(_$WithRequiredFieldsPendencyImpl(
       expectedPayloadDto: null == expectedPayloadDto
           ? _value.expectedPayloadDto
           : expectedPayloadDto // ignore: cast_nullable_to_non_nullable
@@ -122,8 +122,8 @@ class __$$WithRequiredFieldsPendencyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WithRequiredFieldsPendency implements WithRequiredFieldsPendency {
-  _$WithRequiredFieldsPendency({required this.expectedPayloadDto});
+class _$WithRequiredFieldsPendencyImpl implements WithRequiredFieldsPendency {
+  _$WithRequiredFieldsPendencyImpl({required this.expectedPayloadDto});
 
   @override
   final ExpectedPayloadDto expectedPayloadDto;
@@ -137,7 +137,7 @@ class _$WithRequiredFieldsPendency implements WithRequiredFieldsPendency {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WithRequiredFieldsPendency &&
+            other is _$WithRequiredFieldsPendencyImpl &&
             (identical(other.expectedPayloadDto, expectedPayloadDto) ||
                 other.expectedPayloadDto == expectedPayloadDto));
   }
@@ -148,9 +148,9 @@ class _$WithRequiredFieldsPendency implements WithRequiredFieldsPendency {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WithRequiredFieldsPendencyCopyWith<_$WithRequiredFieldsPendency>
-      get copyWith => __$$WithRequiredFieldsPendencyCopyWithImpl<
-          _$WithRequiredFieldsPendency>(this, _$identity);
+  _$$WithRequiredFieldsPendencyImplCopyWith<_$WithRequiredFieldsPendencyImpl>
+      get copyWith => __$$WithRequiredFieldsPendencyImplCopyWithImpl<
+          _$WithRequiredFieldsPendencyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -231,29 +231,29 @@ class _$WithRequiredFieldsPendency implements WithRequiredFieldsPendency {
 abstract class WithRequiredFieldsPendency implements PayloadState {
   factory WithRequiredFieldsPendency(
           {required final ExpectedPayloadDto expectedPayloadDto}) =
-      _$WithRequiredFieldsPendency;
+      _$WithRequiredFieldsPendencyImpl;
 
   ExpectedPayloadDto get expectedPayloadDto;
   @JsonKey(ignore: true)
-  _$$WithRequiredFieldsPendencyCopyWith<_$WithRequiredFieldsPendency>
+  _$$WithRequiredFieldsPendencyImplCopyWith<_$WithRequiredFieldsPendencyImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WithValidPayloadCopyWith<$Res> {
-  factory _$$WithValidPayloadCopyWith(
-          _$WithValidPayload value, $Res Function(_$WithValidPayload) then) =
-      __$$WithValidPayloadCopyWithImpl<$Res>;
+abstract class _$$WithValidPayloadImplCopyWith<$Res> {
+  factory _$$WithValidPayloadImplCopyWith(_$WithValidPayloadImpl value,
+          $Res Function(_$WithValidPayloadImpl) then) =
+      __$$WithValidPayloadImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ExpectedPayloadDto expectedPayloadDto});
 }
 
 /// @nodoc
-class __$$WithValidPayloadCopyWithImpl<$Res>
-    extends _$PayloadStateCopyWithImpl<$Res, _$WithValidPayload>
-    implements _$$WithValidPayloadCopyWith<$Res> {
-  __$$WithValidPayloadCopyWithImpl(
-      _$WithValidPayload _value, $Res Function(_$WithValidPayload) _then)
+class __$$WithValidPayloadImplCopyWithImpl<$Res>
+    extends _$PayloadStateCopyWithImpl<$Res, _$WithValidPayloadImpl>
+    implements _$$WithValidPayloadImplCopyWith<$Res> {
+  __$$WithValidPayloadImplCopyWithImpl(_$WithValidPayloadImpl _value,
+      $Res Function(_$WithValidPayloadImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -261,7 +261,7 @@ class __$$WithValidPayloadCopyWithImpl<$Res>
   $Res call({
     Object? expectedPayloadDto = null,
   }) {
-    return _then(_$WithValidPayload(
+    return _then(_$WithValidPayloadImpl(
       expectedPayloadDto: null == expectedPayloadDto
           ? _value.expectedPayloadDto
           : expectedPayloadDto // ignore: cast_nullable_to_non_nullable
@@ -272,8 +272,8 @@ class __$$WithValidPayloadCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WithValidPayload implements WithValidPayload {
-  _$WithValidPayload({required this.expectedPayloadDto});
+class _$WithValidPayloadImpl implements WithValidPayload {
+  _$WithValidPayloadImpl({required this.expectedPayloadDto});
 
   @override
   final ExpectedPayloadDto expectedPayloadDto;
@@ -287,7 +287,7 @@ class _$WithValidPayload implements WithValidPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WithValidPayload &&
+            other is _$WithValidPayloadImpl &&
             (identical(other.expectedPayloadDto, expectedPayloadDto) ||
                 other.expectedPayloadDto == expectedPayloadDto));
   }
@@ -298,8 +298,9 @@ class _$WithValidPayload implements WithValidPayload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WithValidPayloadCopyWith<_$WithValidPayload> get copyWith =>
-      __$$WithValidPayloadCopyWithImpl<_$WithValidPayload>(this, _$identity);
+  _$$WithValidPayloadImplCopyWith<_$WithValidPayloadImpl> get copyWith =>
+      __$$WithValidPayloadImplCopyWithImpl<_$WithValidPayloadImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -380,34 +381,34 @@ class _$WithValidPayload implements WithValidPayload {
 abstract class WithValidPayload implements PayloadState {
   factory WithValidPayload(
           {required final ExpectedPayloadDto expectedPayloadDto}) =
-      _$WithValidPayload;
+      _$WithValidPayloadImpl;
 
   ExpectedPayloadDto get expectedPayloadDto;
   @JsonKey(ignore: true)
-  _$$WithValidPayloadCopyWith<_$WithValidPayload> get copyWith =>
+  _$$WithValidPayloadImplCopyWith<_$WithValidPayloadImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InitialPayloadStateCopyWith<$Res> {
-  factory _$$InitialPayloadStateCopyWith(_$InitialPayloadState value,
-          $Res Function(_$InitialPayloadState) then) =
-      __$$InitialPayloadStateCopyWithImpl<$Res>;
+abstract class _$$InitialPayloadStateImplCopyWith<$Res> {
+  factory _$$InitialPayloadStateImplCopyWith(_$InitialPayloadStateImpl value,
+          $Res Function(_$InitialPayloadStateImpl) then) =
+      __$$InitialPayloadStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialPayloadStateCopyWithImpl<$Res>
-    extends _$PayloadStateCopyWithImpl<$Res, _$InitialPayloadState>
-    implements _$$InitialPayloadStateCopyWith<$Res> {
-  __$$InitialPayloadStateCopyWithImpl(
-      _$InitialPayloadState _value, $Res Function(_$InitialPayloadState) _then)
+class __$$InitialPayloadStateImplCopyWithImpl<$Res>
+    extends _$PayloadStateCopyWithImpl<$Res, _$InitialPayloadStateImpl>
+    implements _$$InitialPayloadStateImplCopyWith<$Res> {
+  __$$InitialPayloadStateImplCopyWithImpl(_$InitialPayloadStateImpl _value,
+      $Res Function(_$InitialPayloadStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialPayloadState implements InitialPayloadState {
-  _$InitialPayloadState();
+class _$InitialPayloadStateImpl implements InitialPayloadState {
+  _$InitialPayloadStateImpl();
 
   @override
   String toString() {
@@ -417,7 +418,8 @@ class _$InitialPayloadState implements InitialPayloadState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialPayloadState);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialPayloadStateImpl);
   }
 
   @override
@@ -500,5 +502,5 @@ class _$InitialPayloadState implements InitialPayloadState {
 }
 
 abstract class InitialPayloadState implements PayloadState {
-  factory InitialPayloadState() = _$InitialPayloadState;
+  factory InitialPayloadState() = _$InitialPayloadStateImpl;
 }

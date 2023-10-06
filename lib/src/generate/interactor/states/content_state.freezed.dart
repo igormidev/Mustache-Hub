@@ -88,25 +88,25 @@ class _$ContentStateCopyWithImpl<$Res, $Val extends ContentState>
 }
 
 /// @nodoc
-abstract class _$$_ContentStateCopyWith<$Res> {
-  factory _$$_ContentStateCopyWith(
-          _$_ContentState value, $Res Function(_$_ContentState) then) =
-      __$$_ContentStateCopyWithImpl<$Res>;
+abstract class _$$ContentStateImplCopyWith<$Res> {
+  factory _$$ContentStateImplCopyWith(
+          _$ContentStateImpl value, $Res Function(_$ContentStateImpl) then) =
+      __$$ContentStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ContentStateCopyWithImpl<$Res>
-    extends _$ContentStateCopyWithImpl<$Res, _$_ContentState>
-    implements _$$_ContentStateCopyWith<$Res> {
-  __$$_ContentStateCopyWithImpl(
-      _$_ContentState _value, $Res Function(_$_ContentState) _then)
+class __$$ContentStateImplCopyWithImpl<$Res>
+    extends _$ContentStateCopyWithImpl<$Res, _$ContentStateImpl>
+    implements _$$ContentStateImplCopyWith<$Res> {
+  __$$ContentStateImplCopyWithImpl(
+      _$ContentStateImpl _value, $Res Function(_$ContentStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ContentState implements _ContentState {
-  _$_ContentState();
+class _$ContentStateImpl implements _ContentState {
+  _$ContentStateImpl();
 
   @override
   String toString() {
@@ -116,7 +116,7 @@ class _$_ContentState implements _ContentState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ContentState);
+        (other.runtimeType == runtimeType && other is _$ContentStateImpl);
   }
 
   @override
@@ -199,24 +199,24 @@ class _$_ContentState implements _ContentState {
 }
 
 abstract class _ContentState implements ContentState {
-  factory _ContentState() = _$_ContentState;
+  factory _ContentState() = _$ContentStateImpl;
 }
 
 /// @nodoc
-abstract class _$$_WithGeneratedTextCopyWith<$Res> {
-  factory _$$_WithGeneratedTextCopyWith(_$_WithGeneratedText value,
-          $Res Function(_$_WithGeneratedText) then) =
-      __$$_WithGeneratedTextCopyWithImpl<$Res>;
+abstract class _$$WithGeneratedTextImplCopyWith<$Res> {
+  factory _$$WithGeneratedTextImplCopyWith(_$WithGeneratedTextImpl value,
+          $Res Function(_$WithGeneratedTextImpl) then) =
+      __$$WithGeneratedTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String content});
 }
 
 /// @nodoc
-class __$$_WithGeneratedTextCopyWithImpl<$Res>
-    extends _$ContentStateCopyWithImpl<$Res, _$_WithGeneratedText>
-    implements _$$_WithGeneratedTextCopyWith<$Res> {
-  __$$_WithGeneratedTextCopyWithImpl(
-      _$_WithGeneratedText _value, $Res Function(_$_WithGeneratedText) _then)
+class __$$WithGeneratedTextImplCopyWithImpl<$Res>
+    extends _$ContentStateCopyWithImpl<$Res, _$WithGeneratedTextImpl>
+    implements _$$WithGeneratedTextImplCopyWith<$Res> {
+  __$$WithGeneratedTextImplCopyWithImpl(_$WithGeneratedTextImpl _value,
+      $Res Function(_$WithGeneratedTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -224,7 +224,7 @@ class __$$_WithGeneratedTextCopyWithImpl<$Res>
   $Res call({
     Object? content = null,
   }) {
-    return _then(_$_WithGeneratedText(
+    return _then(_$WithGeneratedTextImpl(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -235,8 +235,8 @@ class __$$_WithGeneratedTextCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WithGeneratedText implements _WithGeneratedText {
-  _$_WithGeneratedText({required this.content});
+class _$WithGeneratedTextImpl implements _WithGeneratedText {
+  _$WithGeneratedTextImpl({required this.content});
 
   @override
   final String content;
@@ -250,7 +250,7 @@ class _$_WithGeneratedText implements _WithGeneratedText {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WithGeneratedText &&
+            other is _$WithGeneratedTextImpl &&
             (identical(other.content, content) || other.content == content));
   }
 
@@ -260,8 +260,8 @@ class _$_WithGeneratedText implements _WithGeneratedText {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WithGeneratedTextCopyWith<_$_WithGeneratedText> get copyWith =>
-      __$$_WithGeneratedTextCopyWithImpl<_$_WithGeneratedText>(
+  _$$WithGeneratedTextImplCopyWith<_$WithGeneratedTextImpl> get copyWith =>
+      __$$WithGeneratedTextImplCopyWithImpl<_$WithGeneratedTextImpl>(
           this, _$identity);
 
   @override
@@ -342,29 +342,29 @@ class _$_WithGeneratedText implements _WithGeneratedText {
 
 abstract class _WithGeneratedText implements ContentState {
   factory _WithGeneratedText({required final String content}) =
-      _$_WithGeneratedText;
+      _$WithGeneratedTextImpl;
 
   String get content;
   @JsonKey(ignore: true)
-  _$$_WithGeneratedTextCopyWith<_$_WithGeneratedText> get copyWith =>
+  _$$WithGeneratedTextImplCopyWith<_$WithGeneratedTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WithContentTextCopyWith<$Res> {
-  factory _$$_WithContentTextCopyWith(
-          _$_WithContentText value, $Res Function(_$_WithContentText) then) =
-      __$$_WithContentTextCopyWithImpl<$Res>;
+abstract class _$$WithContentTextImplCopyWith<$Res> {
+  factory _$$WithContentTextImplCopyWith(_$WithContentTextImpl value,
+          $Res Function(_$WithContentTextImpl) then) =
+      __$$WithContentTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String content});
 }
 
 /// @nodoc
-class __$$_WithContentTextCopyWithImpl<$Res>
-    extends _$ContentStateCopyWithImpl<$Res, _$_WithContentText>
-    implements _$$_WithContentTextCopyWith<$Res> {
-  __$$_WithContentTextCopyWithImpl(
-      _$_WithContentText _value, $Res Function(_$_WithContentText) _then)
+class __$$WithContentTextImplCopyWithImpl<$Res>
+    extends _$ContentStateCopyWithImpl<$Res, _$WithContentTextImpl>
+    implements _$$WithContentTextImplCopyWith<$Res> {
+  __$$WithContentTextImplCopyWithImpl(
+      _$WithContentTextImpl _value, $Res Function(_$WithContentTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -372,7 +372,7 @@ class __$$_WithContentTextCopyWithImpl<$Res>
   $Res call({
     Object? content = null,
   }) {
-    return _then(_$_WithContentText(
+    return _then(_$WithContentTextImpl(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -383,8 +383,8 @@ class __$$_WithContentTextCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WithContentText implements _WithContentText {
-  _$_WithContentText({required this.content});
+class _$WithContentTextImpl implements _WithContentText {
+  _$WithContentTextImpl({required this.content});
 
   @override
   final String content;
@@ -398,7 +398,7 @@ class _$_WithContentText implements _WithContentText {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WithContentText &&
+            other is _$WithContentTextImpl &&
             (identical(other.content, content) || other.content == content));
   }
 
@@ -408,8 +408,9 @@ class _$_WithContentText implements _WithContentText {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WithContentTextCopyWith<_$_WithContentText> get copyWith =>
-      __$$_WithContentTextCopyWithImpl<_$_WithContentText>(this, _$identity);
+  _$$WithContentTextImplCopyWith<_$WithContentTextImpl> get copyWith =>
+      __$$WithContentTextImplCopyWithImpl<_$WithContentTextImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -489,34 +490,35 @@ class _$_WithContentText implements _WithContentText {
 
 abstract class _WithContentText implements ContentState {
   factory _WithContentText({required final String content}) =
-      _$_WithContentText;
+      _$WithContentTextImpl;
 
   String get content;
   @JsonKey(ignore: true)
-  _$$_WithContentTextCopyWith<_$_WithContentText> get copyWith =>
+  _$$WithContentTextImplCopyWith<_$WithContentTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FailureGeneratingTextCopyWith<$Res> {
-  factory _$$_FailureGeneratingTextCopyWith(_$_FailureGeneratingText value,
-          $Res Function(_$_FailureGeneratingText) then) =
-      __$$_FailureGeneratingTextCopyWithImpl<$Res>;
+abstract class _$$FailureGeneratingTextImplCopyWith<$Res> {
+  factory _$$FailureGeneratingTextImplCopyWith(
+          _$FailureGeneratingTextImpl value,
+          $Res Function(_$FailureGeneratingTextImpl) then) =
+      __$$FailureGeneratingTextImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FailureGeneratingTextCopyWithImpl<$Res>
-    extends _$ContentStateCopyWithImpl<$Res, _$_FailureGeneratingText>
-    implements _$$_FailureGeneratingTextCopyWith<$Res> {
-  __$$_FailureGeneratingTextCopyWithImpl(_$_FailureGeneratingText _value,
-      $Res Function(_$_FailureGeneratingText) _then)
+class __$$FailureGeneratingTextImplCopyWithImpl<$Res>
+    extends _$ContentStateCopyWithImpl<$Res, _$FailureGeneratingTextImpl>
+    implements _$$FailureGeneratingTextImplCopyWith<$Res> {
+  __$$FailureGeneratingTextImplCopyWithImpl(_$FailureGeneratingTextImpl _value,
+      $Res Function(_$FailureGeneratingTextImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FailureGeneratingText implements _FailureGeneratingText {
-  _$_FailureGeneratingText();
+class _$FailureGeneratingTextImpl implements _FailureGeneratingText {
+  _$FailureGeneratingTextImpl();
 
   @override
   String toString() {
@@ -526,7 +528,8 @@ class _$_FailureGeneratingText implements _FailureGeneratingText {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FailureGeneratingText);
+        (other.runtimeType == runtimeType &&
+            other is _$FailureGeneratingTextImpl);
   }
 
   @override
@@ -609,5 +612,5 @@ class _$_FailureGeneratingText implements _FailureGeneratingText {
 }
 
 abstract class _FailureGeneratingText implements ContentState {
-  factory _FailureGeneratingText() = _$_FailureGeneratingText;
+  factory _FailureGeneratingText() = _$FailureGeneratingTextImpl;
 }

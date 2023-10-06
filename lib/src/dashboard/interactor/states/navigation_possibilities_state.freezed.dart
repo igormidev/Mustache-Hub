@@ -101,21 +101,22 @@ class _$NavigationPossibilitiesStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$LoggedInCopyWith<$Res>
+abstract class _$$LoggedInImplCopyWith<$Res>
     implements $NavigationPossibilitiesStateCopyWith<$Res> {
-  factory _$$LoggedInCopyWith(
-          _$LoggedIn value, $Res Function(_$LoggedIn) then) =
-      __$$LoggedInCopyWithImpl<$Res>;
+  factory _$$LoggedInImplCopyWith(
+          _$LoggedInImpl value, $Res Function(_$LoggedInImpl) then) =
+      __$$LoggedInImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ENavigationPossibilities> possibilities});
 }
 
 /// @nodoc
-class __$$LoggedInCopyWithImpl<$Res>
-    extends _$NavigationPossibilitiesStateCopyWithImpl<$Res, _$LoggedIn>
-    implements _$$LoggedInCopyWith<$Res> {
-  __$$LoggedInCopyWithImpl(_$LoggedIn _value, $Res Function(_$LoggedIn) _then)
+class __$$LoggedInImplCopyWithImpl<$Res>
+    extends _$NavigationPossibilitiesStateCopyWithImpl<$Res, _$LoggedInImpl>
+    implements _$$LoggedInImplCopyWith<$Res> {
+  __$$LoggedInImplCopyWithImpl(
+      _$LoggedInImpl _value, $Res Function(_$LoggedInImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +124,7 @@ class __$$LoggedInCopyWithImpl<$Res>
   $Res call({
     Object? possibilities = null,
   }) {
-    return _then(_$LoggedIn(
+    return _then(_$LoggedInImpl(
       null == possibilities
           ? _value._possibilities
           : possibilities // ignore: cast_nullable_to_non_nullable
@@ -134,8 +135,8 @@ class __$$LoggedInCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoggedIn implements LoggedIn {
-  _$LoggedIn(
+class _$LoggedInImpl implements LoggedIn {
+  _$LoggedInImpl(
       [final List<ENavigationPossibilities> possibilities = const [
         ENavigationPossibilities.collection,
         ENavigationPossibilities.find,
@@ -165,7 +166,7 @@ class _$LoggedIn implements LoggedIn {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoggedIn &&
+            other is _$LoggedInImpl &&
             const DeepCollectionEquality()
                 .equals(other._possibilities, _possibilities));
   }
@@ -177,8 +178,8 @@ class _$LoggedIn implements LoggedIn {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoggedInCopyWith<_$LoggedIn> get copyWith =>
-      __$$LoggedInCopyWithImpl<_$LoggedIn>(this, _$identity);
+  _$$LoggedInImplCopyWith<_$LoggedInImpl> get copyWith =>
+      __$$LoggedInImplCopyWithImpl<_$LoggedInImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -247,33 +248,33 @@ class _$LoggedIn implements LoggedIn {
 
 abstract class LoggedIn implements NavigationPossibilitiesState {
   factory LoggedIn([final List<ENavigationPossibilities> possibilities]) =
-      _$LoggedIn;
+      _$LoggedInImpl;
 
   @override
   List<ENavigationPossibilities> get possibilities;
   @override
   @JsonKey(ignore: true)
-  _$$LoggedInCopyWith<_$LoggedIn> get copyWith =>
+  _$$LoggedInImplCopyWith<_$LoggedInImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoggedOutCopyWith<$Res>
+abstract class _$$LoggedOutImplCopyWith<$Res>
     implements $NavigationPossibilitiesStateCopyWith<$Res> {
-  factory _$$LoggedOutCopyWith(
-          _$LoggedOut value, $Res Function(_$LoggedOut) then) =
-      __$$LoggedOutCopyWithImpl<$Res>;
+  factory _$$LoggedOutImplCopyWith(
+          _$LoggedOutImpl value, $Res Function(_$LoggedOutImpl) then) =
+      __$$LoggedOutImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ENavigationPossibilities> possibilities});
 }
 
 /// @nodoc
-class __$$LoggedOutCopyWithImpl<$Res>
-    extends _$NavigationPossibilitiesStateCopyWithImpl<$Res, _$LoggedOut>
-    implements _$$LoggedOutCopyWith<$Res> {
-  __$$LoggedOutCopyWithImpl(
-      _$LoggedOut _value, $Res Function(_$LoggedOut) _then)
+class __$$LoggedOutImplCopyWithImpl<$Res>
+    extends _$NavigationPossibilitiesStateCopyWithImpl<$Res, _$LoggedOutImpl>
+    implements _$$LoggedOutImplCopyWith<$Res> {
+  __$$LoggedOutImplCopyWithImpl(
+      _$LoggedOutImpl _value, $Res Function(_$LoggedOutImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -281,7 +282,7 @@ class __$$LoggedOutCopyWithImpl<$Res>
   $Res call({
     Object? possibilities = null,
   }) {
-    return _then(_$LoggedOut(
+    return _then(_$LoggedOutImpl(
       null == possibilities
           ? _value._possibilities
           : possibilities // ignore: cast_nullable_to_non_nullable
@@ -292,8 +293,8 @@ class __$$LoggedOutCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoggedOut implements LoggedOut {
-  _$LoggedOut(
+class _$LoggedOutImpl implements LoggedOut {
+  _$LoggedOutImpl(
       [final List<ENavigationPossibilities> possibilities = const [
         ENavigationPossibilities.collection,
         ENavigationPossibilities.find,
@@ -322,7 +323,7 @@ class _$LoggedOut implements LoggedOut {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoggedOut &&
+            other is _$LoggedOutImpl &&
             const DeepCollectionEquality()
                 .equals(other._possibilities, _possibilities));
   }
@@ -334,8 +335,8 @@ class _$LoggedOut implements LoggedOut {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoggedOutCopyWith<_$LoggedOut> get copyWith =>
-      __$$LoggedOutCopyWithImpl<_$LoggedOut>(this, _$identity);
+  _$$LoggedOutImplCopyWith<_$LoggedOutImpl> get copyWith =>
+      __$$LoggedOutImplCopyWithImpl<_$LoggedOutImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -404,12 +405,12 @@ class _$LoggedOut implements LoggedOut {
 
 abstract class LoggedOut implements NavigationPossibilitiesState {
   factory LoggedOut([final List<ENavigationPossibilities> possibilities]) =
-      _$LoggedOut;
+      _$LoggedOutImpl;
 
   @override
   List<ENavigationPossibilities> get possibilities;
   @override
   @JsonKey(ignore: true)
-  _$$LoggedOutCopyWith<_$LoggedOut> get copyWith =>
+  _$$LoggedOutImplCopyWith<_$LoggedOutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

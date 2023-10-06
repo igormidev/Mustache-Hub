@@ -87,25 +87,28 @@ class _$CurrentPackageStateCopyWithImpl<$Res, $Val extends CurrentPackageState>
 }
 
 /// @nodoc
-abstract class _$$CurrentPackageStateNoneCopyWith<$Res> {
-  factory _$$CurrentPackageStateNoneCopyWith(_$CurrentPackageStateNone value,
-          $Res Function(_$CurrentPackageStateNone) then) =
-      __$$CurrentPackageStateNoneCopyWithImpl<$Res>;
+abstract class _$$CurrentPackageStateNoneImplCopyWith<$Res> {
+  factory _$$CurrentPackageStateNoneImplCopyWith(
+          _$CurrentPackageStateNoneImpl value,
+          $Res Function(_$CurrentPackageStateNoneImpl) then) =
+      __$$CurrentPackageStateNoneImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CurrentPackageStateNoneCopyWithImpl<$Res>
-    extends _$CurrentPackageStateCopyWithImpl<$Res, _$CurrentPackageStateNone>
-    implements _$$CurrentPackageStateNoneCopyWith<$Res> {
-  __$$CurrentPackageStateNoneCopyWithImpl(_$CurrentPackageStateNone _value,
-      $Res Function(_$CurrentPackageStateNone) _then)
+class __$$CurrentPackageStateNoneImplCopyWithImpl<$Res>
+    extends _$CurrentPackageStateCopyWithImpl<$Res,
+        _$CurrentPackageStateNoneImpl>
+    implements _$$CurrentPackageStateNoneImplCopyWith<$Res> {
+  __$$CurrentPackageStateNoneImplCopyWithImpl(
+      _$CurrentPackageStateNoneImpl _value,
+      $Res Function(_$CurrentPackageStateNoneImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CurrentPackageStateNone implements CurrentPackageStateNone {
-  _$CurrentPackageStateNone();
+class _$CurrentPackageStateNoneImpl implements CurrentPackageStateNone {
+  _$CurrentPackageStateNoneImpl();
 
   @override
   String toString() {
@@ -116,7 +119,7 @@ class _$CurrentPackageStateNone implements CurrentPackageStateNone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CurrentPackageStateNone);
+            other is _$CurrentPackageStateNoneImpl);
   }
 
   @override
@@ -198,32 +201,32 @@ class _$CurrentPackageStateNone implements CurrentPackageStateNone {
 }
 
 abstract class CurrentPackageStateNone implements CurrentPackageState {
-  factory CurrentPackageStateNone() = _$CurrentPackageStateNone;
+  factory CurrentPackageStateNone() = _$CurrentPackageStateNoneImpl;
 }
 
 /// @nodoc
-abstract class _$$CurrentPackageStateLoadingCopyWith<$Res> {
-  factory _$$CurrentPackageStateLoadingCopyWith(
-          _$CurrentPackageStateLoading value,
-          $Res Function(_$CurrentPackageStateLoading) then) =
-      __$$CurrentPackageStateLoadingCopyWithImpl<$Res>;
+abstract class _$$CurrentPackageStateLoadingImplCopyWith<$Res> {
+  factory _$$CurrentPackageStateLoadingImplCopyWith(
+          _$CurrentPackageStateLoadingImpl value,
+          $Res Function(_$CurrentPackageStateLoadingImpl) then) =
+      __$$CurrentPackageStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CurrentPackageStateLoadingCopyWithImpl<$Res>
+class __$$CurrentPackageStateLoadingImplCopyWithImpl<$Res>
     extends _$CurrentPackageStateCopyWithImpl<$Res,
-        _$CurrentPackageStateLoading>
-    implements _$$CurrentPackageStateLoadingCopyWith<$Res> {
-  __$$CurrentPackageStateLoadingCopyWithImpl(
-      _$CurrentPackageStateLoading _value,
-      $Res Function(_$CurrentPackageStateLoading) _then)
+        _$CurrentPackageStateLoadingImpl>
+    implements _$$CurrentPackageStateLoadingImplCopyWith<$Res> {
+  __$$CurrentPackageStateLoadingImplCopyWithImpl(
+      _$CurrentPackageStateLoadingImpl _value,
+      $Res Function(_$CurrentPackageStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CurrentPackageStateLoading implements CurrentPackageStateLoading {
-  _$CurrentPackageStateLoading();
+class _$CurrentPackageStateLoadingImpl implements CurrentPackageStateLoading {
+  _$CurrentPackageStateLoadingImpl();
 
   @override
   String toString() {
@@ -234,7 +237,7 @@ class _$CurrentPackageStateLoading implements CurrentPackageStateLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CurrentPackageStateLoading);
+            other is _$CurrentPackageStateLoadingImpl);
   }
 
   @override
@@ -316,32 +319,33 @@ class _$CurrentPackageStateLoading implements CurrentPackageStateLoading {
 }
 
 abstract class CurrentPackageStateLoading implements CurrentPackageState {
-  factory CurrentPackageStateLoading() = _$CurrentPackageStateLoading;
+  factory CurrentPackageStateLoading() = _$CurrentPackageStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$CurrentPackageStateWithErrorCopyWith<$Res> {
-  factory _$$CurrentPackageStateWithErrorCopyWith(
-          _$CurrentPackageStateWithError value,
-          $Res Function(_$CurrentPackageStateWithError) then) =
-      __$$CurrentPackageStateWithErrorCopyWithImpl<$Res>;
+abstract class _$$CurrentPackageStateWithErrorImplCopyWith<$Res> {
+  factory _$$CurrentPackageStateWithErrorImplCopyWith(
+          _$CurrentPackageStateWithErrorImpl value,
+          $Res Function(_$CurrentPackageStateWithErrorImpl) then) =
+      __$$CurrentPackageStateWithErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CurrentPackageStateWithErrorCopyWithImpl<$Res>
+class __$$CurrentPackageStateWithErrorImplCopyWithImpl<$Res>
     extends _$CurrentPackageStateCopyWithImpl<$Res,
-        _$CurrentPackageStateWithError>
-    implements _$$CurrentPackageStateWithErrorCopyWith<$Res> {
-  __$$CurrentPackageStateWithErrorCopyWithImpl(
-      _$CurrentPackageStateWithError _value,
-      $Res Function(_$CurrentPackageStateWithError) _then)
+        _$CurrentPackageStateWithErrorImpl>
+    implements _$$CurrentPackageStateWithErrorImplCopyWith<$Res> {
+  __$$CurrentPackageStateWithErrorImplCopyWithImpl(
+      _$CurrentPackageStateWithErrorImpl _value,
+      $Res Function(_$CurrentPackageStateWithErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CurrentPackageStateWithError implements CurrentPackageStateWithError {
-  _$CurrentPackageStateWithError();
+class _$CurrentPackageStateWithErrorImpl
+    implements CurrentPackageStateWithError {
+  _$CurrentPackageStateWithErrorImpl();
 
   @override
   String toString() {
@@ -352,7 +356,7 @@ class _$CurrentPackageStateWithError implements CurrentPackageStateWithError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CurrentPackageStateWithError);
+            other is _$CurrentPackageStateWithErrorImpl);
   }
 
   @override
@@ -434,27 +438,27 @@ class _$CurrentPackageStateWithError implements CurrentPackageStateWithError {
 }
 
 abstract class CurrentPackageStateWithError implements CurrentPackageState {
-  factory CurrentPackageStateWithError() = _$CurrentPackageStateWithError;
+  factory CurrentPackageStateWithError() = _$CurrentPackageStateWithErrorImpl;
 }
 
 /// @nodoc
-abstract class _$$CurrentPackageStateWithDataCopyWith<$Res> {
-  factory _$$CurrentPackageStateWithDataCopyWith(
-          _$CurrentPackageStateWithData value,
-          $Res Function(_$CurrentPackageStateWithData) then) =
-      __$$CurrentPackageStateWithDataCopyWithImpl<$Res>;
+abstract class _$$CurrentPackageStateWithDataImplCopyWith<$Res> {
+  factory _$$CurrentPackageStateWithDataImplCopyWith(
+          _$CurrentPackageStateWithDataImpl value,
+          $Res Function(_$CurrentPackageStateWithDataImpl) then) =
+      __$$CurrentPackageStateWithDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PackageInfo info, Template template});
 }
 
 /// @nodoc
-class __$$CurrentPackageStateWithDataCopyWithImpl<$Res>
+class __$$CurrentPackageStateWithDataImplCopyWithImpl<$Res>
     extends _$CurrentPackageStateCopyWithImpl<$Res,
-        _$CurrentPackageStateWithData>
-    implements _$$CurrentPackageStateWithDataCopyWith<$Res> {
-  __$$CurrentPackageStateWithDataCopyWithImpl(
-      _$CurrentPackageStateWithData _value,
-      $Res Function(_$CurrentPackageStateWithData) _then)
+        _$CurrentPackageStateWithDataImpl>
+    implements _$$CurrentPackageStateWithDataImplCopyWith<$Res> {
+  __$$CurrentPackageStateWithDataImplCopyWithImpl(
+      _$CurrentPackageStateWithDataImpl _value,
+      $Res Function(_$CurrentPackageStateWithDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -463,7 +467,7 @@ class __$$CurrentPackageStateWithDataCopyWithImpl<$Res>
     Object? info = null,
     Object? template = null,
   }) {
-    return _then(_$CurrentPackageStateWithData(
+    return _then(_$CurrentPackageStateWithDataImpl(
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
@@ -478,8 +482,9 @@ class __$$CurrentPackageStateWithDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CurrentPackageStateWithData implements CurrentPackageStateWithData {
-  _$CurrentPackageStateWithData({required this.info, required this.template});
+class _$CurrentPackageStateWithDataImpl implements CurrentPackageStateWithData {
+  _$CurrentPackageStateWithDataImpl(
+      {required this.info, required this.template});
 
   @override
   final PackageInfo info;
@@ -495,7 +500,7 @@ class _$CurrentPackageStateWithData implements CurrentPackageStateWithData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CurrentPackageStateWithData &&
+            other is _$CurrentPackageStateWithDataImpl &&
             (identical(other.info, info) || other.info == info) &&
             (identical(other.template, template) ||
                 other.template == template));
@@ -507,9 +512,9 @@ class _$CurrentPackageStateWithData implements CurrentPackageStateWithData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CurrentPackageStateWithDataCopyWith<_$CurrentPackageStateWithData>
-      get copyWith => __$$CurrentPackageStateWithDataCopyWithImpl<
-          _$CurrentPackageStateWithData>(this, _$identity);
+  _$$CurrentPackageStateWithDataImplCopyWith<_$CurrentPackageStateWithDataImpl>
+      get copyWith => __$$CurrentPackageStateWithDataImplCopyWithImpl<
+          _$CurrentPackageStateWithDataImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -589,11 +594,11 @@ class _$CurrentPackageStateWithData implements CurrentPackageStateWithData {
 abstract class CurrentPackageStateWithData implements CurrentPackageState {
   factory CurrentPackageStateWithData(
       {required final PackageInfo info,
-      required final Template template}) = _$CurrentPackageStateWithData;
+      required final Template template}) = _$CurrentPackageStateWithDataImpl;
 
   PackageInfo get info;
   Template get template;
   @JsonKey(ignore: true)
-  _$$CurrentPackageStateWithDataCopyWith<_$CurrentPackageStateWithData>
+  _$$CurrentPackageStateWithDataImplCopyWith<_$CurrentPackageStateWithDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

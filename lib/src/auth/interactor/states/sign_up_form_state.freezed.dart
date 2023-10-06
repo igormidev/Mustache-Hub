@@ -87,24 +87,25 @@ class _$SignUpFormStateCopyWithImpl<$Res, $Val extends SignUpFormState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$SignUpFormStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$SignUpFormStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  _$_Initial();
+class _$InitialImpl implements _Initial {
+  _$InitialImpl();
 
   @override
   String toString() {
@@ -114,7 +115,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -196,29 +197,31 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements SignUpFormState {
-  factory _Initial() = _$_Initial;
+  factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$SignUpFormStateLoadingCopyWith<$Res> {
-  factory _$$SignUpFormStateLoadingCopyWith(_$SignUpFormStateLoading value,
-          $Res Function(_$SignUpFormStateLoading) then) =
-      __$$SignUpFormStateLoadingCopyWithImpl<$Res>;
+abstract class _$$SignUpFormStateLoadingImplCopyWith<$Res> {
+  factory _$$SignUpFormStateLoadingImplCopyWith(
+          _$SignUpFormStateLoadingImpl value,
+          $Res Function(_$SignUpFormStateLoadingImpl) then) =
+      __$$SignUpFormStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignUpFormStateLoadingCopyWithImpl<$Res>
-    extends _$SignUpFormStateCopyWithImpl<$Res, _$SignUpFormStateLoading>
-    implements _$$SignUpFormStateLoadingCopyWith<$Res> {
-  __$$SignUpFormStateLoadingCopyWithImpl(_$SignUpFormStateLoading _value,
-      $Res Function(_$SignUpFormStateLoading) _then)
+class __$$SignUpFormStateLoadingImplCopyWithImpl<$Res>
+    extends _$SignUpFormStateCopyWithImpl<$Res, _$SignUpFormStateLoadingImpl>
+    implements _$$SignUpFormStateLoadingImplCopyWith<$Res> {
+  __$$SignUpFormStateLoadingImplCopyWithImpl(
+      _$SignUpFormStateLoadingImpl _value,
+      $Res Function(_$SignUpFormStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$SignUpFormStateLoading implements SignUpFormStateLoading {
-  _$SignUpFormStateLoading();
+class _$SignUpFormStateLoadingImpl implements SignUpFormStateLoading {
+  _$SignUpFormStateLoadingImpl();
 
   @override
   String toString() {
@@ -228,7 +231,8 @@ class _$SignUpFormStateLoading implements SignUpFormStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignUpFormStateLoading);
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpFormStateLoadingImpl);
   }
 
   @override
@@ -310,24 +314,24 @@ class _$SignUpFormStateLoading implements SignUpFormStateLoading {
 }
 
 abstract class SignUpFormStateLoading implements SignUpFormState {
-  factory SignUpFormStateLoading() = _$SignUpFormStateLoading;
+  factory SignUpFormStateLoading() = _$SignUpFormStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$SignUpFormStateErrorCopyWith<$Res> {
-  factory _$$SignUpFormStateErrorCopyWith(_$SignUpFormStateError value,
-          $Res Function(_$SignUpFormStateError) then) =
-      __$$SignUpFormStateErrorCopyWithImpl<$Res>;
+abstract class _$$SignUpFormStateErrorImplCopyWith<$Res> {
+  factory _$$SignUpFormStateErrorImplCopyWith(_$SignUpFormStateErrorImpl value,
+          $Res Function(_$SignUpFormStateErrorImpl) then) =
+      __$$SignUpFormStateErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CredentialAuthException error});
 }
 
 /// @nodoc
-class __$$SignUpFormStateErrorCopyWithImpl<$Res>
-    extends _$SignUpFormStateCopyWithImpl<$Res, _$SignUpFormStateError>
-    implements _$$SignUpFormStateErrorCopyWith<$Res> {
-  __$$SignUpFormStateErrorCopyWithImpl(_$SignUpFormStateError _value,
-      $Res Function(_$SignUpFormStateError) _then)
+class __$$SignUpFormStateErrorImplCopyWithImpl<$Res>
+    extends _$SignUpFormStateCopyWithImpl<$Res, _$SignUpFormStateErrorImpl>
+    implements _$$SignUpFormStateErrorImplCopyWith<$Res> {
+  __$$SignUpFormStateErrorImplCopyWithImpl(_$SignUpFormStateErrorImpl _value,
+      $Res Function(_$SignUpFormStateErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -335,7 +339,7 @@ class __$$SignUpFormStateErrorCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$SignUpFormStateError(
+    return _then(_$SignUpFormStateErrorImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -346,8 +350,8 @@ class __$$SignUpFormStateErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpFormStateError implements SignUpFormStateError {
-  _$SignUpFormStateError({required this.error});
+class _$SignUpFormStateErrorImpl implements SignUpFormStateError {
+  _$SignUpFormStateErrorImpl({required this.error});
 
 // TODO(igor): Stop using this way of dealing with error
   @override
@@ -362,7 +366,7 @@ class _$SignUpFormStateError implements SignUpFormStateError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SignUpFormStateError &&
+            other is _$SignUpFormStateErrorImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -372,9 +376,10 @@ class _$SignUpFormStateError implements SignUpFormStateError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SignUpFormStateErrorCopyWith<_$SignUpFormStateError> get copyWith =>
-      __$$SignUpFormStateErrorCopyWithImpl<_$SignUpFormStateError>(
-          this, _$identity);
+  _$$SignUpFormStateErrorImplCopyWith<_$SignUpFormStateErrorImpl>
+      get copyWith =>
+          __$$SignUpFormStateErrorImplCopyWithImpl<_$SignUpFormStateErrorImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -453,34 +458,35 @@ class _$SignUpFormStateError implements SignUpFormStateError {
 
 abstract class SignUpFormStateError implements SignUpFormState {
   factory SignUpFormStateError({required final CredentialAuthException error}) =
-      _$SignUpFormStateError;
+      _$SignUpFormStateErrorImpl;
 
 // TODO(igor): Stop using this way of dealing with error
   CredentialAuthException get error;
   @JsonKey(ignore: true)
-  _$$SignUpFormStateErrorCopyWith<_$SignUpFormStateError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SignUpFormStateErrorImplCopyWith<_$SignUpFormStateErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$SignUpFormStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$SignUpFormStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  _$_Success();
+class _$SuccessImpl implements _Success {
+  _$SuccessImpl();
 
   @override
   String toString() {
@@ -490,7 +496,7 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType && other is _$SuccessImpl);
   }
 
   @override
@@ -572,5 +578,5 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements SignUpFormState {
-  factory _Success() = _$_Success;
+  factory _Success() = _$SuccessImpl;
 }

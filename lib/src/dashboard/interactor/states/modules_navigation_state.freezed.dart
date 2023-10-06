@@ -59,20 +59,22 @@ class _$ModulesNavigationStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DefaultCopyWith<$Res>
+abstract class _$$DefaultImplCopyWith<$Res>
     implements $ModulesNavigationStateCopyWith<$Res> {
-  factory _$$DefaultCopyWith(_$Default value, $Res Function(_$Default) then) =
-      __$$DefaultCopyWithImpl<$Res>;
+  factory _$$DefaultImplCopyWith(
+          _$DefaultImpl value, $Res Function(_$DefaultImpl) then) =
+      __$$DefaultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ENavigationPossibilities selectedPossibility});
 }
 
 /// @nodoc
-class __$$DefaultCopyWithImpl<$Res>
-    extends _$ModulesNavigationStateCopyWithImpl<$Res, _$Default>
-    implements _$$DefaultCopyWith<$Res> {
-  __$$DefaultCopyWithImpl(_$Default _value, $Res Function(_$Default) _then)
+class __$$DefaultImplCopyWithImpl<$Res>
+    extends _$ModulesNavigationStateCopyWithImpl<$Res, _$DefaultImpl>
+    implements _$$DefaultImplCopyWith<$Res> {
+  __$$DefaultImplCopyWithImpl(
+      _$DefaultImpl _value, $Res Function(_$DefaultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +82,7 @@ class __$$DefaultCopyWithImpl<$Res>
   $Res call({
     Object? selectedPossibility = null,
   }) {
-    return _then(_$Default(
+    return _then(_$DefaultImpl(
       selectedPossibility: null == selectedPossibility
           ? _value.selectedPossibility
           : selectedPossibility // ignore: cast_nullable_to_non_nullable
@@ -91,8 +93,8 @@ class __$$DefaultCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Default implements Default {
-  _$Default({required this.selectedPossibility});
+class _$DefaultImpl implements Default {
+  _$DefaultImpl({required this.selectedPossibility});
 
   @override
   final ENavigationPossibilities selectedPossibility;
@@ -106,7 +108,7 @@ class _$Default implements Default {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Default &&
+            other is _$DefaultImpl &&
             (identical(other.selectedPossibility, selectedPossibility) ||
                 other.selectedPossibility == selectedPossibility));
   }
@@ -117,19 +119,19 @@ class _$Default implements Default {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DefaultCopyWith<_$Default> get copyWith =>
-      __$$DefaultCopyWithImpl<_$Default>(this, _$identity);
+  _$$DefaultImplCopyWith<_$DefaultImpl> get copyWith =>
+      __$$DefaultImplCopyWithImpl<_$DefaultImpl>(this, _$identity);
 }
 
 abstract class Default implements ModulesNavigationState {
   factory Default(
           {required final ENavigationPossibilities selectedPossibility}) =
-      _$Default;
+      _$DefaultImpl;
 
   @override
   ENavigationPossibilities get selectedPossibility;
   @override
   @JsonKey(ignore: true)
-  _$$DefaultCopyWith<_$Default> get copyWith =>
+  _$$DefaultImplCopyWith<_$DefaultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

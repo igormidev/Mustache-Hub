@@ -105,25 +105,25 @@ class _$ImageSelectorStateCopyWithImpl<$Res, $Val extends ImageSelectorState>
 }
 
 /// @nodoc
-abstract class _$$_WithoutImageCopyWith<$Res> {
-  factory _$$_WithoutImageCopyWith(
-          _$_WithoutImage value, $Res Function(_$_WithoutImage) then) =
-      __$$_WithoutImageCopyWithImpl<$Res>;
+abstract class _$$WithoutImageImplCopyWith<$Res> {
+  factory _$$WithoutImageImplCopyWith(
+          _$WithoutImageImpl value, $Res Function(_$WithoutImageImpl) then) =
+      __$$WithoutImageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WithoutImageCopyWithImpl<$Res>
-    extends _$ImageSelectorStateCopyWithImpl<$Res, _$_WithoutImage>
-    implements _$$_WithoutImageCopyWith<$Res> {
-  __$$_WithoutImageCopyWithImpl(
-      _$_WithoutImage _value, $Res Function(_$_WithoutImage) _then)
+class __$$WithoutImageImplCopyWithImpl<$Res>
+    extends _$ImageSelectorStateCopyWithImpl<$Res, _$WithoutImageImpl>
+    implements _$$WithoutImageImplCopyWith<$Res> {
+  __$$WithoutImageImplCopyWithImpl(
+      _$WithoutImageImpl _value, $Res Function(_$WithoutImageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WithoutImage implements _WithoutImage {
-  _$_WithoutImage();
+class _$WithoutImageImpl implements _WithoutImage {
+  _$WithoutImageImpl();
 
   @override
   String toString() {
@@ -133,7 +133,7 @@ class _$_WithoutImage implements _WithoutImage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WithoutImage);
+        (other.runtimeType == runtimeType && other is _$WithoutImageImpl);
   }
 
   @override
@@ -233,24 +233,24 @@ class _$_WithoutImage implements _WithoutImage {
 }
 
 abstract class _WithoutImage implements ImageSelectorState {
-  factory _WithoutImage() = _$_WithoutImage;
+  factory _WithoutImage() = _$WithoutImageImpl;
 }
 
 /// @nodoc
-abstract class _$$_WithImageCopyWith<$Res> {
-  factory _$$_WithImageCopyWith(
-          _$_WithImage value, $Res Function(_$_WithImage) then) =
-      __$$_WithImageCopyWithImpl<$Res>;
+abstract class _$$WithImageImplCopyWith<$Res> {
+  factory _$$WithImageImplCopyWith(
+          _$WithImageImpl value, $Res Function(_$WithImageImpl) then) =
+      __$$WithImageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uint8List image, ImageType imageType});
 }
 
 /// @nodoc
-class __$$_WithImageCopyWithImpl<$Res>
-    extends _$ImageSelectorStateCopyWithImpl<$Res, _$_WithImage>
-    implements _$$_WithImageCopyWith<$Res> {
-  __$$_WithImageCopyWithImpl(
-      _$_WithImage _value, $Res Function(_$_WithImage) _then)
+class __$$WithImageImplCopyWithImpl<$Res>
+    extends _$ImageSelectorStateCopyWithImpl<$Res, _$WithImageImpl>
+    implements _$$WithImageImplCopyWith<$Res> {
+  __$$WithImageImplCopyWithImpl(
+      _$WithImageImpl _value, $Res Function(_$WithImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -259,7 +259,7 @@ class __$$_WithImageCopyWithImpl<$Res>
     Object? image = null,
     Object? imageType = null,
   }) {
-    return _then(_$_WithImage(
+    return _then(_$WithImageImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -274,8 +274,8 @@ class __$$_WithImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WithImage implements _WithImage {
-  _$_WithImage({required this.image, required this.imageType});
+class _$WithImageImpl implements _WithImage {
+  _$WithImageImpl({required this.image, required this.imageType});
 
   @override
   final Uint8List image;
@@ -291,7 +291,7 @@ class _$_WithImage implements _WithImage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WithImage &&
+            other is _$WithImageImpl &&
             const DeepCollectionEquality().equals(other.image, image) &&
             (identical(other.imageType, imageType) ||
                 other.imageType == imageType));
@@ -304,8 +304,8 @@ class _$_WithImage implements _WithImage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WithImageCopyWith<_$_WithImage> get copyWith =>
-      __$$_WithImageCopyWithImpl<_$_WithImage>(this, _$identity);
+  _$$WithImageImplCopyWith<_$WithImageImpl> get copyWith =>
+      __$$WithImageImplCopyWithImpl<_$WithImageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -403,31 +403,33 @@ class _$_WithImage implements _WithImage {
 abstract class _WithImage implements ImageSelectorState {
   factory _WithImage(
       {required final Uint8List image,
-      required final ImageType imageType}) = _$_WithImage;
+      required final ImageType imageType}) = _$WithImageImpl;
 
   Uint8List get image;
   ImageType get imageType;
   @JsonKey(ignore: true)
-  _$$_WithImageCopyWith<_$_WithImage> get copyWith =>
+  _$$WithImageImplCopyWith<_$WithImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ImageSelectorStateLoadingCopyWith<$Res> {
-  factory _$$ImageSelectorStateLoadingCopyWith(
-          _$ImageSelectorStateLoading value,
-          $Res Function(_$ImageSelectorStateLoading) then) =
-      __$$ImageSelectorStateLoadingCopyWithImpl<$Res>;
+abstract class _$$ImageSelectorStateLoadingImplCopyWith<$Res> {
+  factory _$$ImageSelectorStateLoadingImplCopyWith(
+          _$ImageSelectorStateLoadingImpl value,
+          $Res Function(_$ImageSelectorStateLoadingImpl) then) =
+      __$$ImageSelectorStateLoadingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uint8List image, ImageType imageType});
 }
 
 /// @nodoc
-class __$$ImageSelectorStateLoadingCopyWithImpl<$Res>
-    extends _$ImageSelectorStateCopyWithImpl<$Res, _$ImageSelectorStateLoading>
-    implements _$$ImageSelectorStateLoadingCopyWith<$Res> {
-  __$$ImageSelectorStateLoadingCopyWithImpl(_$ImageSelectorStateLoading _value,
-      $Res Function(_$ImageSelectorStateLoading) _then)
+class __$$ImageSelectorStateLoadingImplCopyWithImpl<$Res>
+    extends _$ImageSelectorStateCopyWithImpl<$Res,
+        _$ImageSelectorStateLoadingImpl>
+    implements _$$ImageSelectorStateLoadingImplCopyWith<$Res> {
+  __$$ImageSelectorStateLoadingImplCopyWithImpl(
+      _$ImageSelectorStateLoadingImpl _value,
+      $Res Function(_$ImageSelectorStateLoadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -436,7 +438,7 @@ class __$$ImageSelectorStateLoadingCopyWithImpl<$Res>
     Object? image = null,
     Object? imageType = null,
   }) {
-    return _then(_$ImageSelectorStateLoading(
+    return _then(_$ImageSelectorStateLoadingImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -451,8 +453,9 @@ class __$$ImageSelectorStateLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ImageSelectorStateLoading implements ImageSelectorStateLoading {
-  _$ImageSelectorStateLoading({required this.image, required this.imageType});
+class _$ImageSelectorStateLoadingImpl implements ImageSelectorStateLoading {
+  _$ImageSelectorStateLoadingImpl(
+      {required this.image, required this.imageType});
 
   @override
   final Uint8List image;
@@ -468,7 +471,7 @@ class _$ImageSelectorStateLoading implements ImageSelectorStateLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImageSelectorStateLoading &&
+            other is _$ImageSelectorStateLoadingImpl &&
             const DeepCollectionEquality().equals(other.image, image) &&
             (identical(other.imageType, imageType) ||
                 other.imageType == imageType));
@@ -481,9 +484,9 @@ class _$ImageSelectorStateLoading implements ImageSelectorStateLoading {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImageSelectorStateLoadingCopyWith<_$ImageSelectorStateLoading>
-      get copyWith => __$$ImageSelectorStateLoadingCopyWithImpl<
-          _$ImageSelectorStateLoading>(this, _$identity);
+  _$$ImageSelectorStateLoadingImplCopyWith<_$ImageSelectorStateLoadingImpl>
+      get copyWith => __$$ImageSelectorStateLoadingImplCopyWithImpl<
+          _$ImageSelectorStateLoadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -581,21 +584,21 @@ class _$ImageSelectorStateLoading implements ImageSelectorStateLoading {
 abstract class ImageSelectorStateLoading implements ImageSelectorState {
   factory ImageSelectorStateLoading(
       {required final Uint8List image,
-      required final ImageType imageType}) = _$ImageSelectorStateLoading;
+      required final ImageType imageType}) = _$ImageSelectorStateLoadingImpl;
 
   Uint8List get image;
   ImageType get imageType;
   @JsonKey(ignore: true)
-  _$$ImageSelectorStateLoadingCopyWith<_$ImageSelectorStateLoading>
+  _$$ImageSelectorStateLoadingImplCopyWith<_$ImageSelectorStateLoadingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ImageSelectorStateFailureCopyWith<$Res> {
-  factory _$$ImageSelectorStateFailureCopyWith(
-          _$ImageSelectorStateFailure value,
-          $Res Function(_$ImageSelectorStateFailure) then) =
-      __$$ImageSelectorStateFailureCopyWithImpl<$Res>;
+abstract class _$$ImageSelectorStateFailureImplCopyWith<$Res> {
+  factory _$$ImageSelectorStateFailureImplCopyWith(
+          _$ImageSelectorStateFailureImpl value,
+          $Res Function(_$ImageSelectorStateFailureImpl) then) =
+      __$$ImageSelectorStateFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String name,
@@ -605,11 +608,13 @@ abstract class _$$ImageSelectorStateFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ImageSelectorStateFailureCopyWithImpl<$Res>
-    extends _$ImageSelectorStateCopyWithImpl<$Res, _$ImageSelectorStateFailure>
-    implements _$$ImageSelectorStateFailureCopyWith<$Res> {
-  __$$ImageSelectorStateFailureCopyWithImpl(_$ImageSelectorStateFailure _value,
-      $Res Function(_$ImageSelectorStateFailure) _then)
+class __$$ImageSelectorStateFailureImplCopyWithImpl<$Res>
+    extends _$ImageSelectorStateCopyWithImpl<$Res,
+        _$ImageSelectorStateFailureImpl>
+    implements _$$ImageSelectorStateFailureImplCopyWith<$Res> {
+  __$$ImageSelectorStateFailureImplCopyWithImpl(
+      _$ImageSelectorStateFailureImpl _value,
+      $Res Function(_$ImageSelectorStateFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -620,7 +625,7 @@ class __$$ImageSelectorStateFailureCopyWithImpl<$Res>
     Object? imageType = freezed,
     Object? image = freezed,
   }) {
-    return _then(_$ImageSelectorStateFailure(
+    return _then(_$ImageSelectorStateFailureImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -643,8 +648,8 @@ class __$$ImageSelectorStateFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ImageSelectorStateFailure implements ImageSelectorStateFailure {
-  _$ImageSelectorStateFailure(
+class _$ImageSelectorStateFailureImpl implements ImageSelectorStateFailure {
+  _$ImageSelectorStateFailureImpl(
       {required this.name,
       required this.description,
       required this.imageType,
@@ -668,7 +673,7 @@ class _$ImageSelectorStateFailure implements ImageSelectorStateFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImageSelectorStateFailure &&
+            other is _$ImageSelectorStateFailureImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -684,9 +689,9 @@ class _$ImageSelectorStateFailure implements ImageSelectorStateFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImageSelectorStateFailureCopyWith<_$ImageSelectorStateFailure>
-      get copyWith => __$$ImageSelectorStateFailureCopyWithImpl<
-          _$ImageSelectorStateFailure>(this, _$identity);
+  _$$ImageSelectorStateFailureImplCopyWith<_$ImageSelectorStateFailureImpl>
+      get copyWith => __$$ImageSelectorStateFailureImplCopyWithImpl<
+          _$ImageSelectorStateFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -786,34 +791,35 @@ abstract class ImageSelectorStateFailure implements ImageSelectorState {
       {required final String name,
       required final String description,
       required final ImageType? imageType,
-      required final Uint8List? image}) = _$ImageSelectorStateFailure;
+      required final Uint8List? image}) = _$ImageSelectorStateFailureImpl;
 
   String get name;
   String get description;
   ImageType? get imageType;
   Uint8List? get image;
   @JsonKey(ignore: true)
-  _$$ImageSelectorStateFailureCopyWith<_$ImageSelectorStateFailure>
+  _$$ImageSelectorStateFailureImplCopyWith<_$ImageSelectorStateFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ImageSelectorUploadSuccessCopyWith<$Res> {
-  factory _$$ImageSelectorUploadSuccessCopyWith(
-          _$ImageSelectorUploadSuccess value,
-          $Res Function(_$ImageSelectorUploadSuccess) then) =
-      __$$ImageSelectorUploadSuccessCopyWithImpl<$Res>;
+abstract class _$$ImageSelectorUploadSuccessImplCopyWith<$Res> {
+  factory _$$ImageSelectorUploadSuccessImplCopyWith(
+          _$ImageSelectorUploadSuccessImpl value,
+          $Res Function(_$ImageSelectorUploadSuccessImpl) then) =
+      __$$ImageSelectorUploadSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uint8List image, ImageType imageType});
 }
 
 /// @nodoc
-class __$$ImageSelectorUploadSuccessCopyWithImpl<$Res>
-    extends _$ImageSelectorStateCopyWithImpl<$Res, _$ImageSelectorUploadSuccess>
-    implements _$$ImageSelectorUploadSuccessCopyWith<$Res> {
-  __$$ImageSelectorUploadSuccessCopyWithImpl(
-      _$ImageSelectorUploadSuccess _value,
-      $Res Function(_$ImageSelectorUploadSuccess) _then)
+class __$$ImageSelectorUploadSuccessImplCopyWithImpl<$Res>
+    extends _$ImageSelectorStateCopyWithImpl<$Res,
+        _$ImageSelectorUploadSuccessImpl>
+    implements _$$ImageSelectorUploadSuccessImplCopyWith<$Res> {
+  __$$ImageSelectorUploadSuccessImplCopyWithImpl(
+      _$ImageSelectorUploadSuccessImpl _value,
+      $Res Function(_$ImageSelectorUploadSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -822,7 +828,7 @@ class __$$ImageSelectorUploadSuccessCopyWithImpl<$Res>
     Object? image = null,
     Object? imageType = null,
   }) {
-    return _then(_$ImageSelectorUploadSuccess(
+    return _then(_$ImageSelectorUploadSuccessImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -837,8 +843,9 @@ class __$$ImageSelectorUploadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ImageSelectorUploadSuccess implements ImageSelectorUploadSuccess {
-  _$ImageSelectorUploadSuccess({required this.image, required this.imageType});
+class _$ImageSelectorUploadSuccessImpl implements ImageSelectorUploadSuccess {
+  _$ImageSelectorUploadSuccessImpl(
+      {required this.image, required this.imageType});
 
   @override
   final Uint8List image;
@@ -854,7 +861,7 @@ class _$ImageSelectorUploadSuccess implements ImageSelectorUploadSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImageSelectorUploadSuccess &&
+            other is _$ImageSelectorUploadSuccessImpl &&
             const DeepCollectionEquality().equals(other.image, image) &&
             (identical(other.imageType, imageType) ||
                 other.imageType == imageType));
@@ -867,9 +874,9 @@ class _$ImageSelectorUploadSuccess implements ImageSelectorUploadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImageSelectorUploadSuccessCopyWith<_$ImageSelectorUploadSuccess>
-      get copyWith => __$$ImageSelectorUploadSuccessCopyWithImpl<
-          _$ImageSelectorUploadSuccess>(this, _$identity);
+  _$$ImageSelectorUploadSuccessImplCopyWith<_$ImageSelectorUploadSuccessImpl>
+      get copyWith => __$$ImageSelectorUploadSuccessImplCopyWithImpl<
+          _$ImageSelectorUploadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -967,11 +974,11 @@ class _$ImageSelectorUploadSuccess implements ImageSelectorUploadSuccess {
 abstract class ImageSelectorUploadSuccess implements ImageSelectorState {
   factory ImageSelectorUploadSuccess(
       {required final Uint8List image,
-      required final ImageType imageType}) = _$ImageSelectorUploadSuccess;
+      required final ImageType imageType}) = _$ImageSelectorUploadSuccessImpl;
 
   Uint8List get image;
   ImageType get imageType;
   @JsonKey(ignore: true)
-  _$$ImageSelectorUploadSuccessCopyWith<_$ImageSelectorUploadSuccess>
+  _$$ImageSelectorUploadSuccessImplCopyWith<_$ImageSelectorUploadSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -88,25 +88,25 @@ class _$TemplateWindowStateCopyWithImpl<$Res, $Val extends TemplateWindowState>
 }
 
 /// @nodoc
-abstract class _$$OnlyBlackScreenCopyWith<$Res> {
-  factory _$$OnlyBlackScreenCopyWith(
-          _$OnlyBlackScreen value, $Res Function(_$OnlyBlackScreen) then) =
-      __$$OnlyBlackScreenCopyWithImpl<$Res>;
+abstract class _$$OnlyBlackScreenImplCopyWith<$Res> {
+  factory _$$OnlyBlackScreenImplCopyWith(_$OnlyBlackScreenImpl value,
+          $Res Function(_$OnlyBlackScreenImpl) then) =
+      __$$OnlyBlackScreenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OnlyBlackScreenCopyWithImpl<$Res>
-    extends _$TemplateWindowStateCopyWithImpl<$Res, _$OnlyBlackScreen>
-    implements _$$OnlyBlackScreenCopyWith<$Res> {
-  __$$OnlyBlackScreenCopyWithImpl(
-      _$OnlyBlackScreen _value, $Res Function(_$OnlyBlackScreen) _then)
+class __$$OnlyBlackScreenImplCopyWithImpl<$Res>
+    extends _$TemplateWindowStateCopyWithImpl<$Res, _$OnlyBlackScreenImpl>
+    implements _$$OnlyBlackScreenImplCopyWith<$Res> {
+  __$$OnlyBlackScreenImplCopyWithImpl(
+      _$OnlyBlackScreenImpl _value, $Res Function(_$OnlyBlackScreenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$OnlyBlackScreen implements OnlyBlackScreen {
-  _$OnlyBlackScreen();
+class _$OnlyBlackScreenImpl implements OnlyBlackScreen {
+  _$OnlyBlackScreenImpl();
 
   @override
   String toString() {
@@ -116,7 +116,7 @@ class _$OnlyBlackScreen implements OnlyBlackScreen {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OnlyBlackScreen);
+        (other.runtimeType == runtimeType && other is _$OnlyBlackScreenImpl);
   }
 
   @override
@@ -199,27 +199,27 @@ class _$OnlyBlackScreen implements OnlyBlackScreen {
 }
 
 abstract class OnlyBlackScreen implements TemplateWindowState {
-  factory OnlyBlackScreen() = _$OnlyBlackScreen;
+  factory OnlyBlackScreen() = _$OnlyBlackScreenImpl;
 }
 
 /// @nodoc
-abstract class _$$TemplateWindowStateWithTemplateCopyWith<$Res> {
-  factory _$$TemplateWindowStateWithTemplateCopyWith(
-          _$TemplateWindowStateWithTemplate value,
-          $Res Function(_$TemplateWindowStateWithTemplate) then) =
-      __$$TemplateWindowStateWithTemplateCopyWithImpl<$Res>;
+abstract class _$$TemplateWindowStateWithTemplateImplCopyWith<$Res> {
+  factory _$$TemplateWindowStateWithTemplateImplCopyWith(
+          _$TemplateWindowStateWithTemplateImpl value,
+          $Res Function(_$TemplateWindowStateWithTemplateImpl) then) =
+      __$$TemplateWindowStateWithTemplateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<TemplateWindowInfo> windowInfo});
 }
 
 /// @nodoc
-class __$$TemplateWindowStateWithTemplateCopyWithImpl<$Res>
+class __$$TemplateWindowStateWithTemplateImplCopyWithImpl<$Res>
     extends _$TemplateWindowStateCopyWithImpl<$Res,
-        _$TemplateWindowStateWithTemplate>
-    implements _$$TemplateWindowStateWithTemplateCopyWith<$Res> {
-  __$$TemplateWindowStateWithTemplateCopyWithImpl(
-      _$TemplateWindowStateWithTemplate _value,
-      $Res Function(_$TemplateWindowStateWithTemplate) _then)
+        _$TemplateWindowStateWithTemplateImpl>
+    implements _$$TemplateWindowStateWithTemplateImplCopyWith<$Res> {
+  __$$TemplateWindowStateWithTemplateImplCopyWithImpl(
+      _$TemplateWindowStateWithTemplateImpl _value,
+      $Res Function(_$TemplateWindowStateWithTemplateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -227,7 +227,7 @@ class __$$TemplateWindowStateWithTemplateCopyWithImpl<$Res>
   $Res call({
     Object? windowInfo = null,
   }) {
-    return _then(_$TemplateWindowStateWithTemplate(
+    return _then(_$TemplateWindowStateWithTemplateImpl(
       windowInfo: null == windowInfo
           ? _value._windowInfo
           : windowInfo // ignore: cast_nullable_to_non_nullable
@@ -238,9 +238,9 @@ class __$$TemplateWindowStateWithTemplateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TemplateWindowStateWithTemplate
+class _$TemplateWindowStateWithTemplateImpl
     implements TemplateWindowStateWithTemplate {
-  _$TemplateWindowStateWithTemplate(
+  _$TemplateWindowStateWithTemplateImpl(
       {required final List<TemplateWindowInfo> windowInfo})
       : _windowInfo = windowInfo;
 
@@ -261,7 +261,7 @@ class _$TemplateWindowStateWithTemplate
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TemplateWindowStateWithTemplate &&
+            other is _$TemplateWindowStateWithTemplateImpl &&
             const DeepCollectionEquality()
                 .equals(other._windowInfo, _windowInfo));
   }
@@ -273,9 +273,10 @@ class _$TemplateWindowStateWithTemplate
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TemplateWindowStateWithTemplateCopyWith<_$TemplateWindowStateWithTemplate>
-      get copyWith => __$$TemplateWindowStateWithTemplateCopyWithImpl<
-          _$TemplateWindowStateWithTemplate>(this, _$identity);
+  _$$TemplateWindowStateWithTemplateImplCopyWith<
+          _$TemplateWindowStateWithTemplateImpl>
+      get copyWith => __$$TemplateWindowStateWithTemplateImplCopyWithImpl<
+          _$TemplateWindowStateWithTemplateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,32 +357,33 @@ class _$TemplateWindowStateWithTemplate
 abstract class TemplateWindowStateWithTemplate implements TemplateWindowState {
   factory TemplateWindowStateWithTemplate(
           {required final List<TemplateWindowInfo> windowInfo}) =
-      _$TemplateWindowStateWithTemplate;
+      _$TemplateWindowStateWithTemplateImpl;
 
   List<TemplateWindowInfo> get windowInfo;
   @JsonKey(ignore: true)
-  _$$TemplateWindowStateWithTemplateCopyWith<_$TemplateWindowStateWithTemplate>
+  _$$TemplateWindowStateWithTemplateImplCopyWith<
+          _$TemplateWindowStateWithTemplateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WithTemplateAndNewBlackScreenCopyWith<$Res> {
-  factory _$$WithTemplateAndNewBlackScreenCopyWith(
-          _$WithTemplateAndNewBlackScreen value,
-          $Res Function(_$WithTemplateAndNewBlackScreen) then) =
-      __$$WithTemplateAndNewBlackScreenCopyWithImpl<$Res>;
+abstract class _$$WithTemplateAndNewBlackScreenImplCopyWith<$Res> {
+  factory _$$WithTemplateAndNewBlackScreenImplCopyWith(
+          _$WithTemplateAndNewBlackScreenImpl value,
+          $Res Function(_$WithTemplateAndNewBlackScreenImpl) then) =
+      __$$WithTemplateAndNewBlackScreenImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<TemplateWindowInfo> windowInfo});
 }
 
 /// @nodoc
-class __$$WithTemplateAndNewBlackScreenCopyWithImpl<$Res>
+class __$$WithTemplateAndNewBlackScreenImplCopyWithImpl<$Res>
     extends _$TemplateWindowStateCopyWithImpl<$Res,
-        _$WithTemplateAndNewBlackScreen>
-    implements _$$WithTemplateAndNewBlackScreenCopyWith<$Res> {
-  __$$WithTemplateAndNewBlackScreenCopyWithImpl(
-      _$WithTemplateAndNewBlackScreen _value,
-      $Res Function(_$WithTemplateAndNewBlackScreen) _then)
+        _$WithTemplateAndNewBlackScreenImpl>
+    implements _$$WithTemplateAndNewBlackScreenImplCopyWith<$Res> {
+  __$$WithTemplateAndNewBlackScreenImplCopyWithImpl(
+      _$WithTemplateAndNewBlackScreenImpl _value,
+      $Res Function(_$WithTemplateAndNewBlackScreenImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -389,7 +391,7 @@ class __$$WithTemplateAndNewBlackScreenCopyWithImpl<$Res>
   $Res call({
     Object? windowInfo = null,
   }) {
-    return _then(_$WithTemplateAndNewBlackScreen(
+    return _then(_$WithTemplateAndNewBlackScreenImpl(
       windowInfo: null == windowInfo
           ? _value._windowInfo
           : windowInfo // ignore: cast_nullable_to_non_nullable
@@ -400,8 +402,9 @@ class __$$WithTemplateAndNewBlackScreenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WithTemplateAndNewBlackScreen implements WithTemplateAndNewBlackScreen {
-  _$WithTemplateAndNewBlackScreen(
+class _$WithTemplateAndNewBlackScreenImpl
+    implements WithTemplateAndNewBlackScreen {
+  _$WithTemplateAndNewBlackScreenImpl(
       {required final List<TemplateWindowInfo> windowInfo})
       : _windowInfo = windowInfo;
 
@@ -422,7 +425,7 @@ class _$WithTemplateAndNewBlackScreen implements WithTemplateAndNewBlackScreen {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WithTemplateAndNewBlackScreen &&
+            other is _$WithTemplateAndNewBlackScreenImpl &&
             const DeepCollectionEquality()
                 .equals(other._windowInfo, _windowInfo));
   }
@@ -434,9 +437,10 @@ class _$WithTemplateAndNewBlackScreen implements WithTemplateAndNewBlackScreen {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WithTemplateAndNewBlackScreenCopyWith<_$WithTemplateAndNewBlackScreen>
-      get copyWith => __$$WithTemplateAndNewBlackScreenCopyWithImpl<
-          _$WithTemplateAndNewBlackScreen>(this, _$identity);
+  _$$WithTemplateAndNewBlackScreenImplCopyWith<
+          _$WithTemplateAndNewBlackScreenImpl>
+      get copyWith => __$$WithTemplateAndNewBlackScreenImplCopyWithImpl<
+          _$WithTemplateAndNewBlackScreenImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -517,10 +521,11 @@ class _$WithTemplateAndNewBlackScreen implements WithTemplateAndNewBlackScreen {
 abstract class WithTemplateAndNewBlackScreen implements TemplateWindowState {
   factory WithTemplateAndNewBlackScreen(
           {required final List<TemplateWindowInfo> windowInfo}) =
-      _$WithTemplateAndNewBlackScreen;
+      _$WithTemplateAndNewBlackScreenImpl;
 
   List<TemplateWindowInfo> get windowInfo;
   @JsonKey(ignore: true)
-  _$$WithTemplateAndNewBlackScreenCopyWith<_$WithTemplateAndNewBlackScreen>
+  _$$WithTemplateAndNewBlackScreenImplCopyWith<
+          _$WithTemplateAndNewBlackScreenImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

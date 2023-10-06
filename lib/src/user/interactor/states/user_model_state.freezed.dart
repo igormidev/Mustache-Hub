@@ -87,24 +87,25 @@ class _$UserModelStateCopyWithImpl<$Res, $Val extends UserModelState>
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$UserModelStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$UserModelStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -114,7 +115,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -196,22 +197,24 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements UserModelState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$UserModelStateCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$UserModelStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +223,7 @@ class __$$ErrorCopyWithImpl<$Res>
     Object? error = null,
     Object? stackTrace = null,
   }) {
-    return _then(_$Error(
+    return _then(_$ErrorImpl(
       error: null == error ? _value.error : error,
       stackTrace: null == stackTrace
           ? _value.stackTrace
@@ -232,8 +235,8 @@ class __$$ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error({required this.error, required this.stackTrace});
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl({required this.error, required this.stackTrace});
 
   @override
   final Object error;
@@ -249,7 +252,7 @@ class _$Error implements Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Error &&
+            other is _$ErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.stackTrace, stackTrace) ||
                 other.stackTrace == stackTrace));
@@ -262,8 +265,8 @@ class _$Error implements Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorCopyWith<_$Error> get copyWith =>
-      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -343,34 +346,35 @@ class _$Error implements Error {
 abstract class Error implements UserModelState {
   const factory Error(
       {required final Object error,
-      required final StackTrace stackTrace}) = _$Error;
+      required final StackTrace stackTrace}) = _$ErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_NoneUserCopyWith<$Res> {
-  factory _$$_NoneUserCopyWith(
-          _$_NoneUser value, $Res Function(_$_NoneUser) then) =
-      __$$_NoneUserCopyWithImpl<$Res>;
+abstract class _$$NoneUserImplCopyWith<$Res> {
+  factory _$$NoneUserImplCopyWith(
+          _$NoneUserImpl value, $Res Function(_$NoneUserImpl) then) =
+      __$$NoneUserImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NoneUserCopyWithImpl<$Res>
-    extends _$UserModelStateCopyWithImpl<$Res, _$_NoneUser>
-    implements _$$_NoneUserCopyWith<$Res> {
-  __$$_NoneUserCopyWithImpl(
-      _$_NoneUser _value, $Res Function(_$_NoneUser) _then)
+class __$$NoneUserImplCopyWithImpl<$Res>
+    extends _$UserModelStateCopyWithImpl<$Res, _$NoneUserImpl>
+    implements _$$NoneUserImplCopyWith<$Res> {
+  __$$NoneUserImplCopyWithImpl(
+      _$NoneUserImpl _value, $Res Function(_$NoneUserImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NoneUser implements _NoneUser {
-  const _$_NoneUser();
+class _$NoneUserImpl implements _NoneUser {
+  const _$NoneUserImpl();
 
   @override
   String toString() {
@@ -380,7 +384,7 @@ class _$_NoneUser implements _NoneUser {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NoneUser);
+        (other.runtimeType == runtimeType && other is _$NoneUserImpl);
   }
 
   @override
@@ -462,23 +466,24 @@ class _$_NoneUser implements _NoneUser {
 }
 
 abstract class _NoneUser implements UserModelState {
-  const factory _NoneUser() = _$_NoneUser;
+  const factory _NoneUser() = _$NoneUserImpl;
 }
 
 /// @nodoc
-abstract class _$$_LogedInCopyWith<$Res> {
-  factory _$$_LogedInCopyWith(
-          _$_LogedIn value, $Res Function(_$_LogedIn) then) =
-      __$$_LogedInCopyWithImpl<$Res>;
+abstract class _$$LogedInImplCopyWith<$Res> {
+  factory _$$LogedInImplCopyWith(
+          _$LogedInImpl value, $Res Function(_$LogedInImpl) then) =
+      __$$LogedInImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserModel user});
 }
 
 /// @nodoc
-class __$$_LogedInCopyWithImpl<$Res>
-    extends _$UserModelStateCopyWithImpl<$Res, _$_LogedIn>
-    implements _$$_LogedInCopyWith<$Res> {
-  __$$_LogedInCopyWithImpl(_$_LogedIn _value, $Res Function(_$_LogedIn) _then)
+class __$$LogedInImplCopyWithImpl<$Res>
+    extends _$UserModelStateCopyWithImpl<$Res, _$LogedInImpl>
+    implements _$$LogedInImplCopyWith<$Res> {
+  __$$LogedInImplCopyWithImpl(
+      _$LogedInImpl _value, $Res Function(_$LogedInImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -486,7 +491,7 @@ class __$$_LogedInCopyWithImpl<$Res>
   $Res call({
     Object? user = null,
   }) {
-    return _then(_$_LogedIn(
+    return _then(_$LogedInImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -497,8 +502,8 @@ class __$$_LogedInCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LogedIn implements _LogedIn {
-  const _$_LogedIn({required this.user});
+class _$LogedInImpl implements _LogedIn {
+  const _$LogedInImpl({required this.user});
 
   @override
   final UserModel user;
@@ -512,7 +517,7 @@ class _$_LogedIn implements _LogedIn {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LogedIn &&
+            other is _$LogedInImpl &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -522,8 +527,8 @@ class _$_LogedIn implements _LogedIn {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LogedInCopyWith<_$_LogedIn> get copyWith =>
-      __$$_LogedInCopyWithImpl<_$_LogedIn>(this, _$identity);
+  _$$LogedInImplCopyWith<_$LogedInImpl> get copyWith =>
+      __$$LogedInImplCopyWithImpl<_$LogedInImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -601,10 +606,10 @@ class _$_LogedIn implements _LogedIn {
 }
 
 abstract class _LogedIn implements UserModelState {
-  const factory _LogedIn({required final UserModel user}) = _$_LogedIn;
+  const factory _LogedIn({required final UserModel user}) = _$LogedInImpl;
 
   UserModel get user;
   @JsonKey(ignore: true)
-  _$$_LogedInCopyWith<_$_LogedIn> get copyWith =>
+  _$$LogedInImplCopyWith<_$LogedInImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

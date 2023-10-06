@@ -107,7 +107,7 @@ class VariablesController extends TextEditingController {
     }
 
     _tokens?.forEach((final Token token) {
-      if (_isIdentifierToken(token)) {
+      if (isIdentifierToken(token)) {
         isLastDelimitter = token.type == TokenType.closeDelimiter;
         updateCurrIdentifierState(token);
         cluster.add(token.value);
@@ -144,14 +144,14 @@ class VariablesController extends TextEditingController {
     return spans;
   }
 
-  bool _isIdentifierToken(Token token) {
-    return token.type == TokenType.openDelimiter ||
-        token.type == TokenType.closeDelimiter ||
-        token.type == TokenType.identifier ||
-        token.type == TokenType.sigil;
-  }
-
   bool _isCacheStillValid() {
     return _cacheSpan.isNotEmpty;
   }
+}
+
+bool isIdentifierToken(Token token) {
+  return token.type == TokenType.openDelimiter ||
+      token.type == TokenType.closeDelimiter ||
+      token.type == TokenType.identifier ||
+      token.type == TokenType.sigil;
 }
