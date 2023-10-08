@@ -26,7 +26,7 @@ void main() {
     // print(exempleText.substring(203, 204));
     // print(exempleText.substring(204, 205));
 
-    cubit.getSuggestionsFromCurrentCursorIndex(
+    cubit.setSuggestionsFromCurrentCursorIndex(
       cursorIndex: cursorIndex,
       tokens: tokens,
       textPipes: [

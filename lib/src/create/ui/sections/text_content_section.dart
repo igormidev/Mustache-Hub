@@ -6,6 +6,7 @@ import 'package:mustachehub/core/hooks/debouncer_delay_hook.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/fields_text_size_cubit.dart';
+import 'package:mustachehub/src/create/interactor/cubit/sugestion_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
 import 'package:mustachehub/src/create/interactor/input_formaters/add_mustache_delimmiter_input_formater.dart';
 import 'package:mustachehub/src/create/interactor/state/fields_text_size_state.dart';
@@ -22,17 +23,18 @@ class TextContentSection extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final sizeBloc = context.get<FieldsTextSizeCubit>();
-    final contentBloc = context.get<ContentStringCubit>();
-    final decouncer = useDebouncer(milliseconds: 2000);
+    final contentCubit = context.get<ContentStringCubit>();
+    final decouncer = useDebouncer(milliseconds: 1000);
+    final sugestionCubit = context.get<SugestionCubit>();
 
     final VariablesController controller = VariablesController(
-      text: contentBloc.state.currentText,
+      text: contentCubit.state.currentText,
     );
-    final varBloc = context.get<VariablesCubit>();
-    final vars = _getExpectedVariablesFromState(varBloc.state);
+    final varCubit = context.get<VariablesCubit>();
+    final vars = _getExpectedVariablesFromState(varCubit.state);
 
     controller.updateExpectedVariables(vars);
-    final tokens = contentBloc.state.mapOrNull(
+    final tokens = contentCubit.state.mapOrNull(
       withToken: (v) => v.tokensInIt,
     );
 
@@ -42,7 +44,7 @@ class TextContentSection extends HookWidget {
     }, const []);
 
     return BlocListener<VariablesCubit, VariablesState>(
-      bloc: varBloc,
+      bloc: varCubit,
       listener: (context, state) {
         final vars = _getExpectedVariablesFromState(state);
         controller.updateExpectedVariables(vars);
@@ -78,27 +80,28 @@ class TextContentSection extends HookWidget {
                     ),
                     textAlignVertical: TextAlignVertical.top,
                     inputFormatters: [
-                      AddMustacheDelimmiterInputFormatter(),
+                      AddMustacheDelimmiterInputFormatter(
+                        sugestionCubit: sugestionCubit,
+                        varCubit: varCubit,
+                      ),
                     ],
                     onChanged: (final text) {
-                      final parser = Parser(text, null, '{{ }}');
-                      try {
-                        final tokens = parser.getTokens();
-                        controller.updateTokens(tokens);
-                        decouncer.resetDebounce(() {
-                          contentBloc.registerTextWithTokens(
+                      decouncer.resetDebounce(() {
+                        try {
+                          final parser = Parser(text, null, '{{ }}');
+                          final tokens = parser.getTokens();
+                          controller.updateTokens(tokens);
+                          contentCubit.registerTextWithTokens(
                             newText: text,
                             tokens: tokens,
                           );
-                        });
-                      } catch (_, __) {
-                        controller.updateTokens(null);
-                        decouncer.resetDebounce(() {
-                          contentBloc.registerNormalText(
+                        } catch (_, __) {
+                          controller.updateTokens(null);
+                          contentCubit.registerNormalText(
                             newText: text,
                           );
-                        });
-                      }
+                        }
+                      });
                     },
                   );
                 },

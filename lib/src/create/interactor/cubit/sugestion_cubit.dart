@@ -18,7 +18,7 @@ class SugestionCubit extends Cubit<SugestionState> {
         _tokenIdentifierTextDisplayAdapter = tokenIdentifierTextDisplayAdapter,
         super(SugestionState.initial());
 
-  void getSuggestionsFromCurrentCursorIndex({
+  void setSuggestionsFromCurrentCursorIndex({
     required int cursorIndex,
     required List<Token> tokens,
     required final List<TextPipe> textPipes,
