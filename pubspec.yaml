@@ -25,6 +25,7 @@ dependencies:
   hydrated_bloc: ^9.1.2
   flutter_animate: ^4.2.0+1
   dotted_border: 2.0.0+3
+  faker: ^2.1.0
   uuid:
   result_dart:
   hive: ^2.2.3

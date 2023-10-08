@@ -20,10 +20,12 @@ import 'package:mustachehub/src/auth/ui/pages/signin_page.dart';
 import 'package:mustachehub/src/became_premium/ui/views/became_premium_view.dart';
 import 'package:mustachehub/src/collection/ui/views/collection.dart';
 import 'package:mustachehub/src/create/data/repositories/impl_package_form_repository.dart';
+import 'package:mustachehub/src/create/interactor/adapters/token_identifier_flatmap_adapter.dart';
 import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/create_tab_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/fields_text_size_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/package_form_cubit.dart';
+import 'package:mustachehub/src/create/interactor/cubit/sugestion_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
 import 'package:mustachehub/src/create/interactor/repositories/i_package_form_repository.dart';
 import 'package:mustachehub/src/create/ui/views/create_template_view.dart';
@@ -148,6 +150,8 @@ class CreateModule extends Module {
   void binds(Injector i) {
     i
       ..addSingleton<DtoAdapter>(DtoAdapter.new)
+      ..addSingleton<TokenIdentifierFlatMapAdapter>(
+          TokenIdentifierFlatMapAdapter.new)
       ..addSingleton<ILocalSource>(ImplLocalSource.new)
       ..addSingleton<IPackageFormRepository>(ImplPackageFormRepository.new)
 
@@ -157,6 +161,7 @@ class CreateModule extends Module {
       ..addSingleton<PackageFormCubit>(PackageFormCubit.new)
       ..addSingleton<FieldsTextSizeCubit>(FieldsTextSizeCubit.new)
       ..addSingleton<VariablesCubit>(VariablesCubit.new)
+      ..addSingleton<SugestionCubit>(SugestionCubit.new)
 
       // Generate blocs
       ..addSingleton<PayloadCubit>(PayloadCubit.new)
