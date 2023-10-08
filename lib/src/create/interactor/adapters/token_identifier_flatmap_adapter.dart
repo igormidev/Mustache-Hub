@@ -44,7 +44,10 @@ class TokenIdentifierFlatMapAdapter {
     response.addAll(Map.fromEntries(booleans));
 
     for (final model in modelPipe.modelPipes) {
-      response.addAll(_flatModelPipe(model));
+      response.addAll({
+        // model.mustacheName: TokenIdentifier.model(name: model.mustacheName),
+        ..._flatModelPipe(model),
+      });
     }
 
     return response;

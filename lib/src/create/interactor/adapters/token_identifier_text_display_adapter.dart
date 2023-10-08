@@ -1,15 +1,45 @@
 import 'package:mustachehub/core/extensions/list_extensions.dart';
-import 'package:mustachehub/src/create/interactor/entities/token_identifier.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
 
 class TokenIdentifierTextDisplayAdapter {
   /// # Example
   ///
-  ///  📦 Current variables options</br>
-  ///  ┣ 📂 core</br>
-  ///  ┃ ┣ 📂 error</br>
-  ///  ┃ ┃ ┣ 📄 Name</br>
-  ///  ┃ ┃ ┗ 🔗 Is male</br>
+  ///<pre>
+  /// 📦 Current variables options
+  /// ┣━━━📄 Text 0-1
+  /// ┣━━━📄 Text 0-2
+  /// ┣━━━🔗 Boolean 1-1
+  /// ┣━━━🔗 Boolean 1-2
+  /// ┗━┳━📂 Model 1-1
+  ///   ┣━━━📄 Text 1-1
+  ///   ┣━━━📄 Text 1-2
+  ///   ┣━━━🔗 Boolean 1-1
+  ///   ┣━━━🔗 Boolean 1-2
+  ///   ┣━┳━📂 Model 2-1
+  ///   ┃ ┣━━━📄 Text 2-1
+  ///   ┃ ┣━━━🔗 Boolean 2-1
+  ///   ┃ ┣━━━🔗 Boolean 2-2
+  ///   ┃ ┗━┳━📂 Model 3-1
+  ///   ┃   ┣━━━📄 Text 3-1
+  ///   ┃   ┣━━━🔗 Boolean 3-1
+  ///   ┃   ┣━━━🔗 Boolean 3-2
+  ///   ┃   ┣━━━🔗 Boolean 3-3
+  ///   ┃   ┣━┳━📂 Model 4-1
+  ///   ┃   ┃ ┣━━━📄 Text 4-1
+  ///   ┃   ┃ ┗━━━📄 Text 4-2
+  ///   ┃   ┣━┳━📂 Model 4-2
+  ///   ┃   ┃ ┣━━━🔗 Boolean 4-1
+  ///   ┃   ┃ ┗━━━🔗 Boolean 4-2
+  ///   ┃   ┗━┳━📂 Model 4-3
+  ///   ┃     ┣━━━📂 Model 5-1
+  ///   ┃     ┗━┳━📂 Model 5-2
+  ///   ┃       ┗━━━🔗 Boolean 5-1
+  ///   ┣━━━📂 Model 2-2
+  ///   ┗━┳━📂 Model 2-3
+  ///     ┣━━━📄 Text 1-1
+  ///     ┣━━━📄 Text 1-2
+  ///     ┗━━━🔗 Boolean 2-1
+  /// </pre>
   String toDisplayText({
     required final List<TextPipe> textPipes,
     required final List<BooleanPipe> booleanPipes,
@@ -17,8 +47,8 @@ class TokenIdentifierTextDisplayAdapter {
     List<String>? targetIdentifiersName,
   }) {
     String response = '📦 Current variables options';
-    response += showModelDisplayText(
-      innerPaddingCount: 0,
+    response += _displayTextFromModel(
+      innerPaddingCount: [],
       targetIdentifiers: targetIdentifiersName,
       prefix: '',
       pipe: ModelPipe(
@@ -33,14 +63,25 @@ class TokenIdentifierTextDisplayAdapter {
     return response;
   }
 
-  String showModelDisplayText({
+  String _displayTextFromModel({
     required String prefix,
-    required int innerPaddingCount,
+    required List<String> innerPaddingCount,
     required ModelPipe pipe,
     List<String>? targetIdentifiers,
   }) {
-    String response =
-        '${''.padLeft(innerPaddingCount - 1, '  ')}$prefix${pipe.mustacheName}\n';
+    String headerPadding = '';
+    innerPaddingCount.forEachMapper((value, isFirst, isLast, index) {
+      if (isLast == false) {
+        headerPadding += value;
+      }
+    });
+
+    String response = '$headerPadding$prefix${pipe.mustacheName}\n';
+
+    String padding = '';
+    for (final value in innerPaddingCount) {
+      padding += value;
+    }
 
     pipe.textPipes.forEachMapper((value, isFirst, isLast, index) {
       final String preffix;
@@ -51,7 +92,7 @@ class TokenIdentifierTextDisplayAdapter {
         preffix = '┣━━━📄 ';
       }
 
-      String padding = ''.padLeft(innerPaddingCount, '  ');
+      // String padding = ''.padLeft(innerPaddingCount.length, '  ');
 
       if (targetIdentifiers?.contains(value.mustacheName) ?? true) {
         response += '$padding$preffix${value.mustacheName}\n';
@@ -66,7 +107,7 @@ class TokenIdentifierTextDisplayAdapter {
       } else {
         preffix = '┣━━━🔗 ';
       }
-      String padding = ''.padLeft(innerPaddingCount, '  ');
+      // String padding = ''.padLeft(innerPaddingCount.length, '  ');
 
       if (targetIdentifiers?.contains(value.mustacheName) ?? true) {
         response += '$padding$preffix${value.mustacheName}\n';
@@ -75,10 +116,14 @@ class TokenIdentifierTextDisplayAdapter {
 
     pipe.modelPipes.forEachMapper((value, isFirst, isLast, index) {
       final String preffix;
+      final String newPaddingValue;
 
       if (isLast) {
+        newPaddingValue = '  ';
         preffix = '┗━┳━📂 ';
       } else {
+        newPaddingValue = '┃ ';
+
         if (value.textPipes.isEmpty &&
             value.booleanPipes.isEmpty &&
             value.modelPipes.isEmpty) {
@@ -87,10 +132,11 @@ class TokenIdentifierTextDisplayAdapter {
           preffix = '┣━┳━📂 ';
         }
       }
+
       if (targetIdentifiers?.contains(value.mustacheName) ?? true) {
-        response += showModelDisplayText(
+        response += _displayTextFromModel(
           prefix: preffix,
-          innerPaddingCount: innerPaddingCount + 1,
+          innerPaddingCount: [...innerPaddingCount, newPaddingValue],
           pipe: value,
           targetIdentifiers: targetIdentifiers,
         );

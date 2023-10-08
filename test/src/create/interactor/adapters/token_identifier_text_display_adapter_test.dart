@@ -6,22 +6,99 @@ void main() {
   final tokenIdentifierTextDisplayAdapter = TokenIdentifierTextDisplayAdapter();
 
   test(
-    'token identifier text display adapter ...',
+    'Should show all texts, booleans and models text with no target identifiers',
     () async {
-      // final response = tokenIdentifierTextDisplayAdapter.showModelDisplayText(
-      //   innerPaddingCount: 1,
-      //   pipe: modelMock,
-      //   targetIdentifiers: [],
-      // );
-      // print(response);
-
       final text = tokenIdentifierTextDisplayAdapter.toDisplayText(
         textPipes: textsMock,
         booleanPipes: booleansMock,
         modelPipes: [modelMock],
         targetIdentifiersName: null,
       );
-      print(text);
+      expect(text, '''📦 Current variables options
+┣━━━📄 Text 0-1
+┣━━━📄 Text 0-2
+┣━━━🔗 Boolean 1-1
+┣━━━🔗 Boolean 1-2
+┗━┳━📂 Model 1-1
+  ┣━━━📄 Text 1-1
+  ┣━━━📄 Text 1-2
+  ┣━━━🔗 Boolean 1-1
+  ┣━━━🔗 Boolean 1-2
+  ┣━┳━📂 Model 2-1
+  ┃ ┣━━━📄 Text 2-1
+  ┃ ┣━━━🔗 Boolean 2-1
+  ┃ ┣━━━🔗 Boolean 2-2
+  ┃ ┗━┳━📂 Model 3-1
+  ┃   ┣━━━📄 Text 3-1
+  ┃   ┣━━━🔗 Boolean 3-1
+  ┃   ┣━━━🔗 Boolean 3-2
+  ┃   ┣━━━🔗 Boolean 3-3
+  ┃   ┣━┳━📂 Model 4-1
+  ┃   ┃ ┣━━━📄 Text 4-1
+  ┃   ┃ ┗━━━📄 Text 4-2
+  ┃   ┣━┳━📂 Model 4-2
+  ┃   ┃ ┣━━━🔗 Boolean 4-1
+  ┃   ┃ ┗━━━🔗 Boolean 4-2
+  ┃   ┗━┳━📂 Model 4-3
+  ┃     ┣━━━📂 Model 5-1
+  ┃     ┗━┳━📂 Model 5-2
+  ┃       ┗━━━🔗 Boolean 5-1
+  ┣━━━📂 Model 2-2
+  ┗━┳━📂 Model 2-3
+    ┣━━━📄 Text 1-1
+    ┣━━━📄 Text 1-2
+    ┗━━━🔗 Boolean 2-1
+''');
+    },
+  );
+
+  test(
+    'Should show all texts, booleans and models text '
+    'with that are contained in target identifiers',
+    () async {
+      final text = tokenIdentifierTextDisplayAdapter.toDisplayText(
+        textPipes: textsMock,
+        booleanPipes: booleansMock,
+        modelPipes: [modelMock],
+        targetIdentifiersName: [
+          ...textsMock.map((e) => e.mustacheName),
+          ...booleansMock.map((e) => e.mustacheName),
+          'Model 1-1',
+          'Text 1-1',
+          'Text 1-2',
+          'Boolean 1-1',
+          'Boolean 1-2',
+          'Model 2-1',
+          'Text 2-1',
+          'Boolean 2-1',
+          'Boolean 2-2',
+          'Model 3-1',
+          'Text 3-1',
+          'Boolean 3-1',
+          'Boolean 3-2',
+          'Boolean 3-3',
+        ],
+      );
+      expect(text, '''📦 Current variables options
+┣━━━📄 Text 0-1
+┣━━━📄 Text 0-2
+┣━━━🔗 Boolean 1-1
+┣━━━🔗 Boolean 1-2
+┗━┳━📂 Model 1-1
+  ┣━━━📄 Text 1-1
+  ┣━━━📄 Text 1-2
+  ┣━━━🔗 Boolean 1-1
+  ┣━━━🔗 Boolean 1-2
+  ┣━┳━📂 Model 2-1
+  ┃ ┣━━━📄 Text 2-1
+  ┃ ┣━━━🔗 Boolean 2-1
+  ┃ ┣━━━🔗 Boolean 2-2
+  ┃ ┗━┳━📂 Model 3-1
+  ┃   ┣━━━📄 Text 3-1
+  ┃   ┣━━━🔗 Boolean 3-1
+  ┃   ┣━━━🔗 Boolean 3-2
+  ┃   ┣━━━🔗 Boolean 3-3
+''');
     },
   );
 }
@@ -325,4 +402,75 @@ final modelMock = ModelPipe(
     ┣━📄 Model 2-2
     ┣━📄 Model 2-2
     ┗━🔗 Model 2-2
+
+
+📦 Current variables options
+┣━━━📄 Text 0-1
+┣━━━📄 Text 0-2
+┣━━━🔗 Boolean 1-1
+┣━━━🔗 Boolean 1-2
+┗━┳━📂 Model 1-1
+  ┣━━━📄 Text 1-1
+  ┣━━━📄 Text 1-2
+  ┣━━━🔗 Boolean 1-1
+  ┣━━━🔗 Boolean 1-2
+  ┣━┳━📂 Model 2-1
+  ┃ ┣━━━📄 Text 2-1
+  ┃ ┣━━━🔗 Boolean 2-1
+  ┃ ┣━━━🔗 Boolean 2-2
+  ┃ ┗━┳━📂 Model 3-1
+  ┃   ┣━━━📄 Text 3-1
+  ┃   ┣━━━🔗 Boolean 3-1
+  ┃   ┣━━━🔗 Boolean 3-2
+  ┃   ┣━━━🔗 Boolean 3-3
+  ┃   ┣━┳━📂 Model 4-1
+  ┃   ┃ ┣━━━📄 Text 4-1
+  ┃   ┃ ┗━━━📄 Text 4-2
+  ┃   ┣━┳━📂 Model 4-2
+  ┃   ┃ ┣━━━🔗 Boolean 4-1
+  ┃   ┃ ┗━━━🔗 Boolean 4-2
+  ┃   ┗━┳━📂 Model 4-3
+  ┃     ┣━━━📂 Model 5-1
+  ┃     ┗━┳━📂 Model 5-2
+  ┃       ┗━━━🔗 Boolean 5-1
+  ┣━━━📂 Model 2-2
+  ┗━┳━📂 Model 2-3
+    ┣━━━📄 Text 1-1
+    ┣━━━📄 Text 1-2
+    ┗━━━🔗 Boolean 2-1
+
+📦 Current variables options
+┣━━━📄 Text 0-1
+┣━━━📄 Text 0-2
+┣━━━🔗 Boolean 1-1
+┣━━━🔗 Boolean 1-2
+┗━┳━📂 Model 1-1
+  ┣━━━📄 Text 1-1
+  ┣━━━📄 Text 1-2
+  ┣━━━🔗 Boolean 1-1
+  ┣━━━🔗 Boolean 1-2
+  ┣━┳━📂 Model 2-1
+    ┣━━━📄 Text 2-1
+    ┣━━━🔗 Boolean 2-1
+    ┣━━━🔗 Boolean 2-2
+    ┗━┳━📂 Model 3-1
+      ┣━━━📄 Text 3-1
+      ┣━━━🔗 Boolean 3-1
+      ┣━━━🔗 Boolean 3-2
+      ┣━━━🔗 Boolean 3-3
+      ┣━┳━📂 Model 4-1
+        ┣━━━📄 Text 4-1
+        ┗━━━📄 Text 4-2
+      ┣━┳━📂 Model 4-2
+        ┣━━━🔗 Boolean 4-1
+        ┗━━━🔗 Boolean 4-2
+      ┗━┳━📂 Model 4-3
+        ┣━━━📂 Model 5-1
+        ┗━┳━📂 Model 5-2
+          ┗━━━🔗 Boolean 5-1
+  ┣━━━📂 Model 2-2
+  ┗━┳━📂 Model 2-3
+    ┣━━━📄 Text 1-1
+    ┣━━━📄 Text 1-2
+    ┗━━━🔗 Boolean 2-1
 */

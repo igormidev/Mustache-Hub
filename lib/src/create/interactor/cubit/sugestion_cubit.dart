@@ -1,16 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mustache_template/mustache_template.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_flatmap_adapter.dart';
+import 'package:mustachehub/src/create/interactor/adapters/token_identifier_text_display_adapter.dart';
 import 'package:mustachehub/src/create/interactor/entities/token_identifier.dart';
 import 'package:mustachehub/src/create/interactor/state/sugestion_state.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
 
 class SugestionCubit extends Cubit<SugestionState> {
-  final TokenIdentifierFlatMapAdapter tokenIdentifierAdapter;
-  SugestionCubit({required this.tokenIdentifierAdapter})
-      : super(SugestionState.initial());
+  final TokenIdentifierFlatMapAdapter _tokenIdentifierFlatMapAdapter;
+  final TokenIdentifierTextDisplayAdapter _tokenIdentifierTextDisplayAdapter;
 
-  void set({
+  SugestionCubit({
+    required TokenIdentifierFlatMapAdapter tokenIdentifierFlatMapAdapter,
+    required TokenIdentifierTextDisplayAdapter
+        tokenIdentifierTextDisplayAdapter,
+  })  : _tokenIdentifierFlatMapAdapter = tokenIdentifierFlatMapAdapter,
+        _tokenIdentifierTextDisplayAdapter = tokenIdentifierTextDisplayAdapter,
+        super(SugestionState.initial());
+
+  void getSuggestionsFromCurrentCursorIndex({
     required int cursorIndex,
     required List<Token> tokens,
     required final List<TextPipe> textPipes,
@@ -21,20 +29,20 @@ class SugestionCubit extends Cubit<SugestionState> {
 
     final validTokens = tokens.where(isIdentifierOrSirgil);
 
-    final allVariables = tokenIdentifierAdapter.toFlatMap(
+    final allVariables = _tokenIdentifierFlatMapAdapter.toFlatMap(
       textPipes: textPipes,
       booleanPipes: booleanPipes,
       modelPipes: modelPipes,
     );
 
     for (final pipe in textPipes) {
-      identifiers.add(TokenIdentifier.text(name: pipe.name));
+      identifiers.add(TokenIdentifier.text(name: pipe.mustacheName));
     }
     for (final pipe in booleanPipes) {
-      identifiers.add(TokenIdentifier.boolean(name: pipe.name));
+      identifiers.add(TokenIdentifier.boolean(name: pipe.mustacheName));
     }
     for (final pipe in modelPipes) {
-      final modelTokenIdentifier = allVariables[pipe.name];
+      final modelTokenIdentifier = allVariables[pipe.mustacheName];
       if (modelTokenIdentifier != null) {
         identifiers.add(modelTokenIdentifier);
       }
@@ -87,8 +95,19 @@ class SugestionCubit extends Cubit<SugestionState> {
       }
     });
 
+    final availibleVariablesString =
+        _tokenIdentifierTextDisplayAdapter.toDisplayText(
+      textPipes: textPipes,
+      booleanPipes: booleanPipes,
+      modelPipes: modelPipes,
+      targetIdentifiersName: identifiers.map((e) => e.name).toList(),
+    );
+    print(availibleVariablesString);
+    print('------------------');
+    print(identifiers);
+
     emit(SugestionState.withSugestion(
-      availibleVariablesString: '',
+      availibleVariablesString: availibleVariablesString,
       tokenIdentifiers: identifiers,
     ));
   }
@@ -98,22 +117,3 @@ class SugestionCubit extends Cubit<SugestionState> {
 
 bool isIdentifierOrSirgil(Token e) =>
     e.type == TokenType.identifier || e.type == TokenType.sigil;
-
-String getVarText({
-  required final List<TextPipe> textPipes,
-  required final List<BooleanPipe> booleanPipes,
-  required final List<ModelPipe> modelPipes,
-  required List<TokenIdentifier> currentIdentifiers,
-}) {
-  String text = '''''';
-  for (final pipe in textPipes) {
-    text += '📄 ${pipe.name}\n';
-  }
-  for (final pipe in booleanPipes) {
-    text += '🔗 ${pipe.name}\n';
-  }
-
-  for (final identifier in currentIdentifiers) {}
-
-  return text;
-}

@@ -21,6 +21,7 @@ import 'package:mustachehub/src/became_premium/ui/views/became_premium_view.dart
 import 'package:mustachehub/src/collection/ui/views/collection.dart';
 import 'package:mustachehub/src/create/data/repositories/impl_package_form_repository.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_flatmap_adapter.dart';
+import 'package:mustachehub/src/create/interactor/adapters/token_identifier_text_display_adapter.dart';
 import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/create_tab_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/fields_text_size_cubit.dart';
@@ -152,6 +153,8 @@ class CreateModule extends Module {
       ..addSingleton<DtoAdapter>(DtoAdapter.new)
       ..addSingleton<TokenIdentifierFlatMapAdapter>(
           TokenIdentifierFlatMapAdapter.new)
+      ..addSingleton<TokenIdentifierTextDisplayAdapter>(
+          TokenIdentifierTextDisplayAdapter.new)
       ..addSingleton<ILocalSource>(ImplLocalSource.new)
       ..addSingleton<IPackageFormRepository>(ImplPackageFormRepository.new)
 
