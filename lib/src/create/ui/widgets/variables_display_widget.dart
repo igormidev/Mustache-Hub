@@ -12,65 +12,62 @@ class VariablesDisplayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = context.scheme;
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: BlocBuilder<VariablesCubit, VariablesState>(
-        bloc: context.get<VariablesCubit>(),
-        builder: (context, state) {
-          return Wrap(
-            alignment: WrapAlignment.start,
-            runAlignment: WrapAlignment.start,
-            spacing: 8,
-            runSpacing: 4,
-            children: [
-              ...state.textPipes.map((textPipe) {
-                return _VariableChip.fromPipe(
-                  textPipe,
-                  color: s.primaryContainer,
-                );
-              }).toList(),
-              ...state.booleanPipes.map((boleanPipe) {
-                return _VariableChip.fromPipe(
-                  boleanPipe,
-                  color: s.secondaryContainer,
-                );
-              }).toList(),
-              ...state.modelPipes
-                  .map<List<Widget>>((modelPipe) {
-                    final name = modelPipe.mustacheName;
-                    return [
-                      ...modelPipe.textPipes.map((pipe) {
-                        return _VariableChip(
-                          label: '$name ↔ ${pipe.name}',
-                          message: pipe.description,
-                          color: s.primaryContainer,
-                          border: s.onSurface,
-                        );
-                      }).toList(),
-                      ...modelPipe.booleanPipes.map((pipe) {
-                        return _VariableChip(
-                          label: '$name ↔ ${pipe.name}',
-                          message: pipe.description,
-                          color: s.secondaryContainer,
-                          border: s.onSurface,
-                        );
-                      }).toList(),
-                      ...modelPipe.modelPipes.map((pipe) {
-                        return _VariableChip(
-                          label: '$name ↔ ${pipe.name}',
-                          message: pipe.description,
-                          color: s.tertiaryContainer,
-                          border: s.onSurface,
-                        );
-                      }).toList(),
-                    ];
-                  })
-                  .expand((element) => element)
-                  .toList(),
-            ],
-          );
-        },
-      ),
+    return BlocBuilder<VariablesCubit, VariablesState>(
+      bloc: context.get<VariablesCubit>(),
+      builder: (context, state) {
+        return Wrap(
+          alignment: WrapAlignment.start,
+          runAlignment: WrapAlignment.start,
+          spacing: 8,
+          runSpacing: 4,
+          children: [
+            ...state.textPipes.map((textPipe) {
+              return _VariableChip.fromPipe(
+                textPipe,
+                color: s.primaryContainer,
+              );
+            }).toList(),
+            ...state.booleanPipes.map((boleanPipe) {
+              return _VariableChip.fromPipe(
+                boleanPipe,
+                color: s.secondaryContainer,
+              );
+            }).toList(),
+            ...state.modelPipes
+                .map<List<Widget>>((modelPipe) {
+                  final name = modelPipe.mustacheName;
+                  return [
+                    ...modelPipe.textPipes.map((pipe) {
+                      return _VariableChip(
+                        label: '$name ↔ ${pipe.name}',
+                        message: pipe.description,
+                        color: s.primaryContainer,
+                        border: s.onSurface,
+                      );
+                    }).toList(),
+                    ...modelPipe.booleanPipes.map((pipe) {
+                      return _VariableChip(
+                        label: '$name ↔ ${pipe.name}',
+                        message: pipe.description,
+                        color: s.secondaryContainer,
+                        border: s.onSurface,
+                      );
+                    }).toList(),
+                    ...modelPipe.modelPipes.map((pipe) {
+                      return _VariableChip(
+                        label: '$name ↔ ${pipe.name}',
+                        message: pipe.description,
+                        color: s.tertiaryContainer,
+                        border: s.onSurface,
+                      );
+                    }).toList(),
+                  ];
+                })
+                .expand((element) => element)
+                .toList(),
+          ],
+        );
+      },
     );
   }
 }

@@ -13,7 +13,7 @@ import 'package:mustachehub/src/create/interactor/state/fields_text_size_state.d
 import 'package:mustachehub/src/create/interactor/state/variables_state.dart';
 import 'package:mustachehub/src/create/interactor/text_editing_controller/variables_info_highlight_text_editing_controller.dart';
 import 'package:mustachehub/src/create/ui/headers/text_content_header.dart';
-import 'package:mustachehub/src/create/ui/widgets/variables_display_widget.dart';
+import 'package:mustachehub/src/create/ui/widgets/variables_info_display.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
 import 'package:mustache_template/mustache_template.dart';
 
@@ -58,7 +58,7 @@ class TextContentSection extends HookWidget {
               debouncer: decouncer,
             ),
             const SizedBox(height: 8),
-            const VariablesDisplayWidget(),
+            const VariablesInfoDisplay(),
             const SizedBox(height: 8),
             Expanded(
               child: BlocBuilder<FieldsTextSizeCubit, FieldsTextSizeState>(
