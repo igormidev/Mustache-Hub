@@ -139,13 +139,93 @@ final modelMock = ModelPipe(
               description: 'lorem lorem lorem',
             ),
           ],
-          modelPipes: const [],
+          modelPipes: [
+            ModelPipe(
+              name: 'Model 4-1',
+              mustacheName: 'Model 4-1',
+              description: 'lorem lorem lorem',
+              textPipes: [
+                TextPipe(
+                  name: 'Text 4-1',
+                  mustacheName: 'Text 4-1',
+                  description: 'lorem lorem lorem',
+                  isRequired: true,
+                ),
+                TextPipe(
+                  name: 'Text 4-2',
+                  mustacheName: 'Text 4-2',
+                  description: 'lorem lorem lorem',
+                  isRequired: true,
+                ),
+              ],
+              booleanPipes: const [],
+              modelPipes: const [],
+            ),
+            ModelPipe(
+              name: 'Model 4-2',
+              mustacheName: 'Model 4-2',
+              description: 'lorem lorem lorem',
+              textPipes: const [],
+              booleanPipes: [
+                BooleanPipe(
+                  name: 'Boolean 4-1',
+                  mustacheName: 'Boolean 4-1',
+                  description: 'lorem lorem lorem',
+                ),
+                BooleanPipe(
+                  name: 'Boolean 4-2',
+                  mustacheName: 'Boolean 4-2',
+                  description: 'lorem lorem lorem',
+                ),
+              ],
+              modelPipes: const [],
+            ),
+            ModelPipe(
+              name: 'Model 4-3',
+              mustacheName: 'Model 4-3',
+              description: 'lorem lorem lorem',
+              textPipes: const [],
+              booleanPipes: const [],
+              modelPipes: [
+                ModelPipe(
+                  name: 'Model 5-1',
+                  mustacheName: 'Model 5-1',
+                  description: 'lorem lorem lorem',
+                  textPipes: const [],
+                  booleanPipes: const [],
+                  modelPipes: const [],
+                ),
+                ModelPipe(
+                  name: 'Model 5-2',
+                  mustacheName: 'Model 5-2',
+                  description: 'lorem lorem lorem',
+                  textPipes: const [],
+                  booleanPipes: [
+                    BooleanPipe(
+                      name: 'Boolean 5-1',
+                      mustacheName: 'Boolean 5-1',
+                      description: 'lorem lorem lorem',
+                    ),
+                  ],
+                  modelPipes: const [],
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     ),
     ModelPipe(
       name: 'Model 2-2',
       mustacheName: 'Model 2-2',
+      description: 'lorem lorem lorem',
+      textPipes: const [],
+      booleanPipes: const [],
+      modelPipes: const [],
+    ),
+    ModelPipe(
+      name: 'Model 2-3',
+      mustacheName: 'Model 2-3',
       description: 'lorem lorem lorem',
       textPipes: [
         TextPipe(
@@ -173,7 +253,6 @@ final modelMock = ModelPipe(
   ],
 );
 
-
 /*
 ┣━📂 Model 1-1
   ┣━📄 Text 1-1
@@ -196,6 +275,32 @@ final modelMock = ModelPipe(
 */
 
 /*
+
+📦 Current variables options
+┣━📂 
+┣━📄 
+┣━📄 
+┣━🔗 
+┣━🔗 
+┣━📂 Model 1-1
+  ┣━📄 Model 1-1
+  ┣━📄 Model 1-1
+  ┣━🔗 Model 1-1
+  ┣━🔗 Model 1-1
+  ┣━📂 Model 2-1
+    ┣━📄 Model 2-1
+    ┣━🔗 Model 2-1
+    ┣━🔗 Model 2-1
+    ┣━📂 Model 3-1
+      ┣━📄 Model 3-1
+      ┣━🔗 Model 3-1
+      ┣━🔗 Model 3-1
+      ┣━🔗 Model 3-1
+  ┣━📂 Model 2-2
+    ┣━📄 Model 2-2
+    ┣━📄 Model 2-2
+    ┣━🔗 Model 2-2
+
 📦 Current variables options
 ┣━📂 
 ┣━📄 
