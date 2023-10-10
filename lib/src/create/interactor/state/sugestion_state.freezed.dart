@@ -16,49 +16,68 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SugestionState {
+  String get availibleVariablesString => throw _privateConstructorUsedError;
+  Map<String, TokenIdentifier> get flatMap =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)
+        withOnlyFlatMapCache,
+    required TResult Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)
+        withSugestionAndFlatMapCache,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)?
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)?
+        withOnlyFlatMapCache,
+    TResult? Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)?
+        withSugestionAndFlatMapCache,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)?
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)?
+        withOnlyFlatMapCache,
+    TResult Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)?
+        withSugestionAndFlatMapCache,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SugestionStateInitial value) initial,
-    required TResult Function(WithSugestion value) withSugestion,
+    required TResult Function(WithOnlyFlatMapCache value) withOnlyFlatMapCache,
+    required TResult Function(WithSugestion value) withSugestionAndFlatMapCache,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SugestionStateInitial value)? initial,
-    TResult? Function(WithSugestion value)? withSugestion,
+    TResult? Function(WithOnlyFlatMapCache value)? withOnlyFlatMapCache,
+    TResult? Function(WithSugestion value)? withSugestionAndFlatMapCache,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SugestionStateInitial value)? initial,
-    TResult Function(WithSugestion value)? withSugestion,
+    TResult Function(WithOnlyFlatMapCache value)? withOnlyFlatMapCache,
+    TResult Function(WithSugestion value)? withSugestionAndFlatMapCache,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SugestionStateCopyWith<SugestionState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -67,6 +86,9 @@ abstract class $SugestionStateCopyWith<$Res> {
   factory $SugestionStateCopyWith(
           SugestionState value, $Res Function(SugestionState) then) =
       _$SugestionStateCopyWithImpl<$Res, SugestionState>;
+  @useResult
+  $Res call(
+      {String availibleVariablesString, Map<String, TokenIdentifier> flatMap});
 }
 
 /// @nodoc
@@ -78,78 +100,156 @@ class _$SugestionStateCopyWithImpl<$Res, $Val extends SugestionState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? availibleVariablesString = null,
+    Object? flatMap = null,
+  }) {
+    return _then(_value.copyWith(
+      availibleVariablesString: null == availibleVariablesString
+          ? _value.availibleVariablesString
+          : availibleVariablesString // ignore: cast_nullable_to_non_nullable
+              as String,
+      flatMap: null == flatMap
+          ? _value.flatMap
+          : flatMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, TokenIdentifier>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$SugestionStateInitialImplCopyWith<$Res> {
-  factory _$$SugestionStateInitialImplCopyWith(
-          _$SugestionStateInitialImpl value,
-          $Res Function(_$SugestionStateInitialImpl) then) =
-      __$$SugestionStateInitialImplCopyWithImpl<$Res>;
+abstract class _$$WithOnlyFlatMapCacheImplCopyWith<$Res>
+    implements $SugestionStateCopyWith<$Res> {
+  factory _$$WithOnlyFlatMapCacheImplCopyWith(_$WithOnlyFlatMapCacheImpl value,
+          $Res Function(_$WithOnlyFlatMapCacheImpl) then) =
+      __$$WithOnlyFlatMapCacheImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String availibleVariablesString, Map<String, TokenIdentifier> flatMap});
 }
 
 /// @nodoc
-class __$$SugestionStateInitialImplCopyWithImpl<$Res>
-    extends _$SugestionStateCopyWithImpl<$Res, _$SugestionStateInitialImpl>
-    implements _$$SugestionStateInitialImplCopyWith<$Res> {
-  __$$SugestionStateInitialImplCopyWithImpl(_$SugestionStateInitialImpl _value,
-      $Res Function(_$SugestionStateInitialImpl) _then)
+class __$$WithOnlyFlatMapCacheImplCopyWithImpl<$Res>
+    extends _$SugestionStateCopyWithImpl<$Res, _$WithOnlyFlatMapCacheImpl>
+    implements _$$WithOnlyFlatMapCacheImplCopyWith<$Res> {
+  __$$WithOnlyFlatMapCacheImplCopyWithImpl(_$WithOnlyFlatMapCacheImpl _value,
+      $Res Function(_$WithOnlyFlatMapCacheImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? availibleVariablesString = null,
+    Object? flatMap = null,
+  }) {
+    return _then(_$WithOnlyFlatMapCacheImpl(
+      availibleVariablesString: null == availibleVariablesString
+          ? _value.availibleVariablesString
+          : availibleVariablesString // ignore: cast_nullable_to_non_nullable
+              as String,
+      flatMap: null == flatMap
+          ? _value._flatMap
+          : flatMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, TokenIdentifier>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$SugestionStateInitialImpl implements SugestionStateInitial {
-  _$SugestionStateInitialImpl();
+class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
+  _$WithOnlyFlatMapCacheImpl(
+      {required this.availibleVariablesString,
+      required final Map<String, TokenIdentifier> flatMap})
+      : _flatMap = flatMap;
+
+  @override
+  final String availibleVariablesString;
+  final Map<String, TokenIdentifier> _flatMap;
+  @override
+  Map<String, TokenIdentifier> get flatMap {
+    if (_flatMap is EqualUnmodifiableMapView) return _flatMap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_flatMap);
+  }
 
   @override
   String toString() {
-    return 'SugestionState.initial()';
+    return 'SugestionState.withOnlyFlatMapCache(availibleVariablesString: $availibleVariablesString, flatMap: $flatMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SugestionStateInitialImpl);
+            other is _$WithOnlyFlatMapCacheImpl &&
+            (identical(
+                    other.availibleVariablesString, availibleVariablesString) ||
+                other.availibleVariablesString == availibleVariablesString) &&
+            const DeepCollectionEquality().equals(other._flatMap, _flatMap));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, availibleVariablesString,
+      const DeepCollectionEquality().hash(_flatMap));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WithOnlyFlatMapCacheImplCopyWith<_$WithOnlyFlatMapCacheImpl>
+      get copyWith =>
+          __$$WithOnlyFlatMapCacheImplCopyWithImpl<_$WithOnlyFlatMapCacheImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)
+        withOnlyFlatMapCache,
+    required TResult Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)
+        withSugestionAndFlatMapCache,
   }) {
-    return initial();
+    return withOnlyFlatMapCache(availibleVariablesString, flatMap);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)?
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)?
+        withOnlyFlatMapCache,
+    TResult? Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)?
+        withSugestionAndFlatMapCache,
   }) {
-    return initial?.call();
+    return withOnlyFlatMapCache?.call(availibleVariablesString, flatMap);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)?
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)?
+        withOnlyFlatMapCache,
+    TResult Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)?
+        withSugestionAndFlatMapCache,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (withOnlyFlatMapCache != null) {
+      return withOnlyFlatMapCache(availibleVariablesString, flatMap);
     }
     return orElse();
   }
@@ -157,48 +257,63 @@ class _$SugestionStateInitialImpl implements SugestionStateInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SugestionStateInitial value) initial,
-    required TResult Function(WithSugestion value) withSugestion,
+    required TResult Function(WithOnlyFlatMapCache value) withOnlyFlatMapCache,
+    required TResult Function(WithSugestion value) withSugestionAndFlatMapCache,
   }) {
-    return initial(this);
+    return withOnlyFlatMapCache(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SugestionStateInitial value)? initial,
-    TResult? Function(WithSugestion value)? withSugestion,
+    TResult? Function(WithOnlyFlatMapCache value)? withOnlyFlatMapCache,
+    TResult? Function(WithSugestion value)? withSugestionAndFlatMapCache,
   }) {
-    return initial?.call(this);
+    return withOnlyFlatMapCache?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SugestionStateInitial value)? initial,
-    TResult Function(WithSugestion value)? withSugestion,
+    TResult Function(WithOnlyFlatMapCache value)? withOnlyFlatMapCache,
+    TResult Function(WithSugestion value)? withSugestionAndFlatMapCache,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (withOnlyFlatMapCache != null) {
+      return withOnlyFlatMapCache(this);
     }
     return orElse();
   }
 }
 
-abstract class SugestionStateInitial implements SugestionState {
-  factory SugestionStateInitial() = _$SugestionStateInitialImpl;
+abstract class WithOnlyFlatMapCache implements SugestionState {
+  factory WithOnlyFlatMapCache(
+          {required final String availibleVariablesString,
+          required final Map<String, TokenIdentifier> flatMap}) =
+      _$WithOnlyFlatMapCacheImpl;
+
+  @override
+  String get availibleVariablesString;
+  @override
+  Map<String, TokenIdentifier> get flatMap;
+  @override
+  @JsonKey(ignore: true)
+  _$$WithOnlyFlatMapCacheImplCopyWith<_$WithOnlyFlatMapCacheImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WithSugestionImplCopyWith<$Res> {
+abstract class _$$WithSugestionImplCopyWith<$Res>
+    implements $SugestionStateCopyWith<$Res> {
   factory _$$WithSugestionImplCopyWith(
           _$WithSugestionImpl value, $Res Function(_$WithSugestionImpl) then) =
       __$$WithSugestionImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
-      {String availibleVariablesString,
-      List<TokenIdentifier> tokenIdentifiers});
+      {Map<String, TokenIdentifier> flatMap,
+      String availibleVariablesString,
+      Set<TokenIdentifier> tokenIdentifiers});
 }
 
 /// @nodoc
@@ -212,10 +327,15 @@ class __$$WithSugestionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? flatMap = null,
     Object? availibleVariablesString = null,
     Object? tokenIdentifiers = null,
   }) {
     return _then(_$WithSugestionImpl(
+      flatMap: null == flatMap
+          ? _value._flatMap
+          : flatMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, TokenIdentifier>,
       availibleVariablesString: null == availibleVariablesString
           ? _value.availibleVariablesString
           : availibleVariablesString // ignore: cast_nullable_to_non_nullable
@@ -223,7 +343,7 @@ class __$$WithSugestionImplCopyWithImpl<$Res>
       tokenIdentifiers: null == tokenIdentifiers
           ? _value._tokenIdentifiers
           : tokenIdentifiers // ignore: cast_nullable_to_non_nullable
-              as List<TokenIdentifier>,
+              as Set<TokenIdentifier>,
     ));
   }
 }
@@ -232,24 +352,33 @@ class __$$WithSugestionImplCopyWithImpl<$Res>
 
 class _$WithSugestionImpl implements WithSugestion {
   _$WithSugestionImpl(
-      {required this.availibleVariablesString,
-      required final List<TokenIdentifier> tokenIdentifiers})
-      : _tokenIdentifiers = tokenIdentifiers;
+      {required final Map<String, TokenIdentifier> flatMap,
+      required this.availibleVariablesString,
+      required final Set<TokenIdentifier> tokenIdentifiers})
+      : _flatMap = flatMap,
+        _tokenIdentifiers = tokenIdentifiers;
+
+  final Map<String, TokenIdentifier> _flatMap;
+  @override
+  Map<String, TokenIdentifier> get flatMap {
+    if (_flatMap is EqualUnmodifiableMapView) return _flatMap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_flatMap);
+  }
 
   @override
   final String availibleVariablesString;
-  final List<TokenIdentifier> _tokenIdentifiers;
+  final Set<TokenIdentifier> _tokenIdentifiers;
   @override
-  List<TokenIdentifier> get tokenIdentifiers {
-    if (_tokenIdentifiers is EqualUnmodifiableListView)
-      return _tokenIdentifiers;
+  Set<TokenIdentifier> get tokenIdentifiers {
+    if (_tokenIdentifiers is EqualUnmodifiableSetView) return _tokenIdentifiers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tokenIdentifiers);
+    return EqualUnmodifiableSetView(_tokenIdentifiers);
   }
 
   @override
   String toString() {
-    return 'SugestionState.withSugestion(availibleVariablesString: $availibleVariablesString, tokenIdentifiers: $tokenIdentifiers)';
+    return 'SugestionState.withSugestionAndFlatMapCache(flatMap: $flatMap, availibleVariablesString: $availibleVariablesString, tokenIdentifiers: $tokenIdentifiers)';
   }
 
   @override
@@ -257,6 +386,7 @@ class _$WithSugestionImpl implements WithSugestion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WithSugestionImpl &&
+            const DeepCollectionEquality().equals(other._flatMap, _flatMap) &&
             (identical(
                     other.availibleVariablesString, availibleVariablesString) ||
                 other.availibleVariablesString == availibleVariablesString) &&
@@ -265,7 +395,10 @@ class _$WithSugestionImpl implements WithSugestion {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, availibleVariablesString,
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_flatMap),
+      availibleVariablesString,
       const DeepCollectionEquality().hash(_tokenIdentifiers));
 
   @JsonKey(ignore: true)
@@ -277,36 +410,51 @@ class _$WithSugestionImpl implements WithSugestion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)
+        withOnlyFlatMapCache,
+    required TResult Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)
+        withSugestionAndFlatMapCache,
   }) {
-    return withSugestion(availibleVariablesString, tokenIdentifiers);
+    return withSugestionAndFlatMapCache(
+        flatMap, availibleVariablesString, tokenIdentifiers);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)?
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)?
+        withOnlyFlatMapCache,
+    TResult? Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)?
+        withSugestionAndFlatMapCache,
   }) {
-    return withSugestion?.call(availibleVariablesString, tokenIdentifiers);
+    return withSugestionAndFlatMapCache?.call(
+        flatMap, availibleVariablesString, tokenIdentifiers);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String availibleVariablesString,
-            List<TokenIdentifier> tokenIdentifiers)?
-        withSugestion,
+            Map<String, TokenIdentifier> flatMap)?
+        withOnlyFlatMapCache,
+    TResult Function(
+            Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString,
+            Set<TokenIdentifier> tokenIdentifiers)?
+        withSugestionAndFlatMapCache,
     required TResult orElse(),
   }) {
-    if (withSugestion != null) {
-      return withSugestion(availibleVariablesString, tokenIdentifiers);
+    if (withSugestionAndFlatMapCache != null) {
+      return withSugestionAndFlatMapCache(
+          flatMap, availibleVariablesString, tokenIdentifiers);
     }
     return orElse();
   }
@@ -314,30 +462,30 @@ class _$WithSugestionImpl implements WithSugestion {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SugestionStateInitial value) initial,
-    required TResult Function(WithSugestion value) withSugestion,
+    required TResult Function(WithOnlyFlatMapCache value) withOnlyFlatMapCache,
+    required TResult Function(WithSugestion value) withSugestionAndFlatMapCache,
   }) {
-    return withSugestion(this);
+    return withSugestionAndFlatMapCache(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SugestionStateInitial value)? initial,
-    TResult? Function(WithSugestion value)? withSugestion,
+    TResult? Function(WithOnlyFlatMapCache value)? withOnlyFlatMapCache,
+    TResult? Function(WithSugestion value)? withSugestionAndFlatMapCache,
   }) {
-    return withSugestion?.call(this);
+    return withSugestionAndFlatMapCache?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SugestionStateInitial value)? initial,
-    TResult Function(WithSugestion value)? withSugestion,
+    TResult Function(WithOnlyFlatMapCache value)? withOnlyFlatMapCache,
+    TResult Function(WithSugestion value)? withSugestionAndFlatMapCache,
     required TResult orElse(),
   }) {
-    if (withSugestion != null) {
-      return withSugestion(this);
+    if (withSugestionAndFlatMapCache != null) {
+      return withSugestionAndFlatMapCache(this);
     }
     return orElse();
   }
@@ -345,12 +493,17 @@ class _$WithSugestionImpl implements WithSugestion {
 
 abstract class WithSugestion implements SugestionState {
   factory WithSugestion(
-          {required final String availibleVariablesString,
-          required final List<TokenIdentifier> tokenIdentifiers}) =
+          {required final Map<String, TokenIdentifier> flatMap,
+          required final String availibleVariablesString,
+          required final Set<TokenIdentifier> tokenIdentifiers}) =
       _$WithSugestionImpl;
 
+  @override
+  Map<String, TokenIdentifier> get flatMap;
+  @override
   String get availibleVariablesString;
-  List<TokenIdentifier> get tokenIdentifiers;
+  Set<TokenIdentifier> get tokenIdentifiers;
+  @override
   @JsonKey(ignore: true)
   _$$WithSugestionImplCopyWith<_$WithSugestionImpl> get copyWith =>
       throw _privateConstructorUsedError;

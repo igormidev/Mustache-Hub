@@ -5,10 +5,14 @@ part 'sugestion_state.freezed.dart';
 
 @freezed
 abstract class SugestionState with _$SugestionState {
-  factory SugestionState.initial() = SugestionStateInitial;
-
-  factory SugestionState.withSugestion({
+  factory SugestionState.withOnlyFlatMapCache({
     required String availibleVariablesString,
-    required List<TokenIdentifier> tokenIdentifiers,
+    required Map<String, TokenIdentifier> flatMap,
+  }) = WithOnlyFlatMapCache;
+
+  factory SugestionState.withSugestionAndFlatMapCache({
+    required Map<String, TokenIdentifier> flatMap,
+    required String availibleVariablesString,
+    required Set<TokenIdentifier> tokenIdentifiers,
   }) = WithSugestion;
 }

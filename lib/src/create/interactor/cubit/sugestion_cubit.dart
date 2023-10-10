@@ -16,7 +16,40 @@ class SugestionCubit extends Cubit<SugestionState> {
         tokenIdentifierTextDisplayAdapter,
   })  : _tokenIdentifierFlatMapAdapter = tokenIdentifierFlatMapAdapter,
         _tokenIdentifierTextDisplayAdapter = tokenIdentifierTextDisplayAdapter,
-        super(SugestionState.initial());
+        super(SugestionState.withOnlyFlatMapCache(
+            flatMap: {}, availibleVariablesString: ''));
+
+  void setFlatMap({
+    required final List<TextPipe> textPipes,
+    required final List<BooleanPipe> booleanPipes,
+    required final List<ModelPipe> modelPipes,
+  }) {
+    // Todo(igor): put isolated in another thread
+
+    final allVariables = _tokenIdentifierFlatMapAdapter.toFlatMap(
+      textPipes: textPipes,
+      booleanPipes: booleanPipes,
+      modelPipes: modelPipes,
+    );
+
+    // Todo(igor): put isolated in another thread
+    final availibleVariablesString =
+        _tokenIdentifierTextDisplayAdapter.toDisplayText(
+      textPipes: textPipes,
+      booleanPipes: booleanPipes,
+      modelPipes: modelPipes,
+      targetIdentifiersName: [
+        ...textPipes.map((e) => e.mustacheName),
+        ...booleanPipes.map((e) => e.mustacheName),
+        ...modelPipes.map((e) => e.mustacheName),
+      ],
+    );
+
+    emit(SugestionState.withOnlyFlatMapCache(
+      flatMap: allVariables,
+      availibleVariablesString: availibleVariablesString,
+    ));
+  }
 
   void setSuggestionsFromCurrentCursorIndex({
     required int cursorIndex,
@@ -25,15 +58,12 @@ class SugestionCubit extends Cubit<SugestionState> {
     required final List<BooleanPipe> booleanPipes,
     required final List<ModelPipe> modelPipes,
   }) {
-    final List<TokenIdentifier> identifiers = [];
+    // Todo(igor): put isolated in another thread
+    final Set<TokenIdentifier> identifiers = {};
 
     final validTokens = tokens.where(isIdentifierOrSirgil);
 
-    final allVariables = _tokenIdentifierFlatMapAdapter.toFlatMap(
-      textPipes: textPipes,
-      booleanPipes: booleanPipes,
-      modelPipes: modelPipes,
-    );
+    final Map<String, TokenIdentifier> flatMap = state.flatMap;
 
     for (final pipe in textPipes) {
       identifiers.add(TokenIdentifier.text(name: pipe.mustacheName));
@@ -42,7 +72,7 @@ class SugestionCubit extends Cubit<SugestionState> {
       identifiers.add(TokenIdentifier.boolean(name: pipe.mustacheName));
     }
     for (final pipe in modelPipes) {
-      final modelTokenIdentifier = allVariables[pipe.mustacheName];
+      final modelTokenIdentifier = flatMap[pipe.mustacheName];
       if (modelTokenIdentifier != null) {
         identifiers.add(modelTokenIdentifier);
       }
@@ -59,7 +89,7 @@ class SugestionCubit extends Cubit<SugestionState> {
         break;
       }
 
-      final TokenIdentifier? identifier = allVariables[token.value];
+      final TokenIdentifier? identifier = flatMap[token.value];
       if (identifier == null) {
         lastToken = token;
         continue;
@@ -101,25 +131,27 @@ class SugestionCubit extends Cubit<SugestionState> {
       lastToken = token;
     }
 
-    modelOcrrBeforeCursor.forEach((key, value) {
-      if (value > 0) {
+    for (final entry in modelOcrrBeforeCursor.entries) {
+      final key = entry.key;
+
+      if (entry.value > 0) {
         identifiers.add(key);
         for (final textName in key.textsNames) {
-          final identifier = allVariables[textName];
+          final identifier = flatMap[textName];
           identifiers.add(identifier!);
         }
 
         for (final booleanName in key.booleanNames) {
-          final identifier = allVariables[booleanName];
+          final identifier = flatMap[booleanName];
           identifiers.add(identifier!);
         }
 
         for (final subModelName in key.subModelsNames) {
-          final identifier = allVariables[subModelName];
+          final identifier = flatMap[subModelName];
           identifiers.add(identifier!);
         }
       }
-    });
+    }
 
     final availibleVariablesString =
         _tokenIdentifierTextDisplayAdapter.toDisplayText(
@@ -128,17 +160,13 @@ class SugestionCubit extends Cubit<SugestionState> {
       modelPipes: modelPipes,
       targetIdentifiersName: identifiers.map((e) => e.name).toList(),
     );
-    print(availibleVariablesString);
-    print('------------------');
-    print(identifiers);
 
-    emit(SugestionState.withSugestion(
+    emit(SugestionState.withSugestionAndFlatMapCache(
+      flatMap: flatMap,
       availibleVariablesString: availibleVariablesString,
       tokenIdentifiers: identifiers,
     ));
   }
-
-  void hideSugestion() => emit(SugestionState.initial());
 }
 
 bool isIdentifierOrSirgil(Token e) =>
