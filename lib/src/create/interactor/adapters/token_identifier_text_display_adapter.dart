@@ -120,16 +120,37 @@ class TokenIdentifierTextDisplayAdapter {
 
       if (isLast) {
         newPaddingValue = '  ';
-        preffix = '┗━┳━📂 ';
       } else {
         newPaddingValue = '┃ ';
+      }
+      final isAnyTextContainedInTargetIdentifiers =
+          value.textPipes.isNotEmpty &&
+              value.textPipes.any((textPipe) =>
+                  targetIdentifiers?.contains(textPipe.mustacheName) != false);
 
-        if (value.textPipes.isEmpty &&
-            value.booleanPipes.isEmpty &&
-            value.modelPipes.isEmpty) {
-          preffix = '┣━━━📂 ';
+      final isAnyBooleanContainedInTargetIdentifiers = value
+              .booleanPipes.isNotEmpty &&
+          value.booleanPipes.any((booleanPipe) =>
+              targetIdentifiers?.contains(booleanPipe.mustacheName) != false);
+
+      final isAnyModelContainedInTargetIdentifiers =
+          value.modelPipes.isNotEmpty &&
+              value.modelPipes.any((modelPipe) =>
+                  targetIdentifiers?.contains(modelPipe.mustacheName) != false);
+
+      if (isAnyTextContainedInTargetIdentifiers ||
+          isAnyBooleanContainedInTargetIdentifiers ||
+          isAnyModelContainedInTargetIdentifiers) {
+        if (isLast) {
+          preffix = '┗━┳━📂 ';
         } else {
           preffix = '┣━┳━📂 ';
+        }
+      } else {
+        if (isLast) {
+          preffix = '┗━━━📂 ';
+        } else {
+          preffix = '┣━━━📂 ';
         }
       }
 

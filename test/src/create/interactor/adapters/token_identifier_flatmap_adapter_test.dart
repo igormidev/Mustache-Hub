@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 void main() {
   final tokenAdapter = TokenIdentifierFlatMapAdapter();
   test('Should return the expected model', () async {
-    mockBool();
+    // mockBool();
     final response = tokenAdapter.toFlatMap(
       textPipes: mockText,
       booleanPipes: mockBooleans,
@@ -134,6 +134,40 @@ final expectedModels = {
   'fusce': TokenIdentifier.boolean(name: 'fusce'),
   'dignissim': TokenIdentifier.boolean(name: 'dignissim'),
   'ut': TokenIdentifier.boolean(name: 'ut'),
+
+  // Models name
+  'iaculis': TokenIdentifier.model(
+    name: 'iaculis',
+    textsNames: [
+      'nascetur',
+      'montes',
+      'sociis',
+    ],
+    booleanNames: [
+      'turpis',
+      'iasdasdd',
+      'mollis',
+    ],
+    subModelsNames: [
+      'yahudma',
+    ],
+  ),
+  'yahudma': TokenIdentifier.model(
+    name: 'yahudma',
+    textsNames: [
+      'amet',
+      'habitant',
+      'pellentesque',
+      'diam',
+    ],
+    booleanNames: [
+      'pulvinar',
+      'fusce',
+      'dignissim',
+      'ut',
+    ],
+    subModelsNames: [],
+  ),
 };
 
 final mockModels = [
@@ -187,7 +221,7 @@ final mockModels = [
     ],
     modelPipes: [
       ModelPipe(
-        name: 'ikadus',
+        name: 'yahudma',
         description: '',
         mustacheName: 'yahudma',
         textPipes: [

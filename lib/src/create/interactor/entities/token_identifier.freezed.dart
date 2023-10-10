@@ -21,11 +21,8 @@ mixin _$TokenIdentifier {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) text,
     required TResult Function(String name) boolean,
-    required TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)
+    required TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)
         model,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,11 +30,8 @@ mixin _$TokenIdentifier {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? text,
     TResult? Function(String name)? boolean,
-    TResult? Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult? Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,11 +39,8 @@ mixin _$TokenIdentifier {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? text,
     TResult Function(String name)? boolean,
-    TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
     required TResult orElse(),
   }) =>
@@ -184,11 +175,8 @@ class _$TextTokenIdentifierImpl implements TextTokenIdentifier {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) text,
     required TResult Function(String name) boolean,
-    required TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)
+    required TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)
         model,
   }) {
     return text(name);
@@ -199,11 +187,8 @@ class _$TextTokenIdentifierImpl implements TextTokenIdentifier {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? text,
     TResult? Function(String name)? boolean,
-    TResult? Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult? Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
   }) {
     return text?.call(name);
@@ -214,11 +199,8 @@ class _$TextTokenIdentifierImpl implements TextTokenIdentifier {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? text,
     TResult Function(String name)? boolean,
-    TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
     required TResult orElse(),
   }) {
@@ -346,11 +328,8 @@ class _$BooleanTokenIdentifierImpl implements BooleanTokenIdentifier {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) text,
     required TResult Function(String name) boolean,
-    required TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)
+    required TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)
         model,
   }) {
     return boolean(name);
@@ -361,11 +340,8 @@ class _$BooleanTokenIdentifierImpl implements BooleanTokenIdentifier {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? text,
     TResult? Function(String name)? boolean,
-    TResult? Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult? Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
   }) {
     return boolean?.call(name);
@@ -376,11 +352,8 @@ class _$BooleanTokenIdentifierImpl implements BooleanTokenIdentifier {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? text,
     TResult Function(String name)? boolean,
-    TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
     required TResult orElse(),
   }) {
@@ -447,9 +420,9 @@ abstract class _$$ModelTokenIdentifierImplCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
-      List<TextTokenIdentifier> texts,
-      List<BooleanTokenIdentifier> boolean,
-      List<ModelTokenIdentifier> subModels});
+      List<String> textsNames,
+      List<String> booleanNames,
+      List<String> subModelsNames});
 }
 
 /// @nodoc
@@ -464,27 +437,27 @@ class __$$ModelTokenIdentifierImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? texts = null,
-    Object? boolean = null,
-    Object? subModels = null,
+    Object? textsNames = null,
+    Object? booleanNames = null,
+    Object? subModelsNames = null,
   }) {
     return _then(_$ModelTokenIdentifierImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      texts: null == texts
-          ? _value._texts
-          : texts // ignore: cast_nullable_to_non_nullable
-              as List<TextTokenIdentifier>,
-      boolean: null == boolean
-          ? _value._boolean
-          : boolean // ignore: cast_nullable_to_non_nullable
-              as List<BooleanTokenIdentifier>,
-      subModels: null == subModels
-          ? _value._subModels
-          : subModels // ignore: cast_nullable_to_non_nullable
-              as List<ModelTokenIdentifier>,
+      textsNames: null == textsNames
+          ? _value._textsNames
+          : textsNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      booleanNames: null == booleanNames
+          ? _value._booleanNames
+          : booleanNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      subModelsNames: null == subModelsNames
+          ? _value._subModelsNames
+          : subModelsNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -494,42 +467,42 @@ class __$$ModelTokenIdentifierImplCopyWithImpl<$Res>
 class _$ModelTokenIdentifierImpl implements ModelTokenIdentifier {
   _$ModelTokenIdentifierImpl(
       {required this.name,
-      required final List<TextTokenIdentifier> texts,
-      required final List<BooleanTokenIdentifier> boolean,
-      required final List<ModelTokenIdentifier> subModels})
-      : _texts = texts,
-        _boolean = boolean,
-        _subModels = subModels;
+      required final List<String> textsNames,
+      required final List<String> booleanNames,
+      required final List<String> subModelsNames})
+      : _textsNames = textsNames,
+        _booleanNames = booleanNames,
+        _subModelsNames = subModelsNames;
 
   @override
   final String name;
-  final List<TextTokenIdentifier> _texts;
+  final List<String> _textsNames;
   @override
-  List<TextTokenIdentifier> get texts {
-    if (_texts is EqualUnmodifiableListView) return _texts;
+  List<String> get textsNames {
+    if (_textsNames is EqualUnmodifiableListView) return _textsNames;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_texts);
+    return EqualUnmodifiableListView(_textsNames);
   }
 
-  final List<BooleanTokenIdentifier> _boolean;
+  final List<String> _booleanNames;
   @override
-  List<BooleanTokenIdentifier> get boolean {
-    if (_boolean is EqualUnmodifiableListView) return _boolean;
+  List<String> get booleanNames {
+    if (_booleanNames is EqualUnmodifiableListView) return _booleanNames;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_boolean);
+    return EqualUnmodifiableListView(_booleanNames);
   }
 
-  final List<ModelTokenIdentifier> _subModels;
+  final List<String> _subModelsNames;
   @override
-  List<ModelTokenIdentifier> get subModels {
-    if (_subModels is EqualUnmodifiableListView) return _subModels;
+  List<String> get subModelsNames {
+    if (_subModelsNames is EqualUnmodifiableListView) return _subModelsNames;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subModels);
+    return EqualUnmodifiableListView(_subModelsNames);
   }
 
   @override
   String toString() {
-    return 'TokenIdentifier.model(name: $name, texts: $texts, boolean: $boolean, subModels: $subModels)';
+    return 'TokenIdentifier.model(name: $name, textsNames: $textsNames, booleanNames: $booleanNames, subModelsNames: $subModelsNames)';
   }
 
   @override
@@ -538,19 +511,21 @@ class _$ModelTokenIdentifierImpl implements ModelTokenIdentifier {
         (other.runtimeType == runtimeType &&
             other is _$ModelTokenIdentifierImpl &&
             (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality().equals(other._texts, _texts) &&
-            const DeepCollectionEquality().equals(other._boolean, _boolean) &&
             const DeepCollectionEquality()
-                .equals(other._subModels, _subModels));
+                .equals(other._textsNames, _textsNames) &&
+            const DeepCollectionEquality()
+                .equals(other._booleanNames, _booleanNames) &&
+            const DeepCollectionEquality()
+                .equals(other._subModelsNames, _subModelsNames));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       name,
-      const DeepCollectionEquality().hash(_texts),
-      const DeepCollectionEquality().hash(_boolean),
-      const DeepCollectionEquality().hash(_subModels));
+      const DeepCollectionEquality().hash(_textsNames),
+      const DeepCollectionEquality().hash(_booleanNames),
+      const DeepCollectionEquality().hash(_subModelsNames));
 
   @JsonKey(ignore: true)
   @override
@@ -565,14 +540,11 @@ class _$ModelTokenIdentifierImpl implements ModelTokenIdentifier {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) text,
     required TResult Function(String name) boolean,
-    required TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)
+    required TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)
         model,
   }) {
-    return model(name, texts, this.boolean, subModels);
+    return model(name, textsNames, booleanNames, subModelsNames);
   }
 
   @override
@@ -580,14 +552,11 @@ class _$ModelTokenIdentifierImpl implements ModelTokenIdentifier {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? text,
     TResult? Function(String name)? boolean,
-    TResult? Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult? Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
   }) {
-    return model?.call(name, texts, this.boolean, subModels);
+    return model?.call(name, textsNames, booleanNames, subModelsNames);
   }
 
   @override
@@ -595,16 +564,13 @@ class _$ModelTokenIdentifierImpl implements ModelTokenIdentifier {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? text,
     TResult Function(String name)? boolean,
-    TResult Function(
-            String name,
-            List<TextTokenIdentifier> texts,
-            List<BooleanTokenIdentifier> boolean,
-            List<ModelTokenIdentifier> subModels)?
+    TResult Function(String name, List<String> textsNames,
+            List<String> booleanNames, List<String> subModelsNames)?
         model,
     required TResult orElse(),
   }) {
     if (model != null) {
-      return model(name, texts, this.boolean, subModels);
+      return model(name, textsNames, booleanNames, subModelsNames);
     }
     return orElse();
   }
@@ -646,17 +612,16 @@ class _$ModelTokenIdentifierImpl implements ModelTokenIdentifier {
 
 abstract class ModelTokenIdentifier implements TokenIdentifier {
   factory ModelTokenIdentifier(
-          {required final String name,
-          required final List<TextTokenIdentifier> texts,
-          required final List<BooleanTokenIdentifier> boolean,
-          required final List<ModelTokenIdentifier> subModels}) =
-      _$ModelTokenIdentifierImpl;
+      {required final String name,
+      required final List<String> textsNames,
+      required final List<String> booleanNames,
+      required final List<String> subModelsNames}) = _$ModelTokenIdentifierImpl;
 
   @override
   String get name;
-  List<TextTokenIdentifier> get texts;
-  List<BooleanTokenIdentifier> get boolean;
-  List<ModelTokenIdentifier> get subModels;
+  List<String> get textsNames;
+  List<String> get booleanNames;
+  List<String> get subModelsNames;
   @override
   @JsonKey(ignore: true)
   _$$ModelTokenIdentifierImplCopyWith<_$ModelTokenIdentifierImpl>

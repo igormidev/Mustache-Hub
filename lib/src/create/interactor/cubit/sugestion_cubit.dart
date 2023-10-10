@@ -54,18 +54,33 @@ class SugestionCubit extends Cubit<SugestionState> {
     for (final token in validTokens) {
       // We don't want to see tokens that
       // are before the cursor of the user
-      if (token.start >= cursorIndex) break;
+      if (token.start >= cursorIndex) {
+        lastToken = token;
+        break;
+      }
 
-      final TokenIdentifier? identifier = allVariables[token.start];
-      if (identifier == null) continue;
-      if (identifier is! ModelTokenIdentifier) continue;
+      final TokenIdentifier? identifier = allVariables[token.value];
+      if (identifier == null) {
+        lastToken = token;
+        continue;
+      }
+      if (identifier is! ModelTokenIdentifier) {
+        lastToken = token;
+        continue;
+      }
 
-      if (lastToken == null) continue;
+      if (lastToken == null) {
+        lastToken = token;
+        continue;
+      }
 
       final identifierOccourences = modelOcrrBeforeCursor[identifier] ?? 0;
 
       final isLastTokenSigil = lastToken.type == TokenType.sigil;
-      if (isLastTokenSigil == false) continue;
+      if (isLastTokenSigil == false) {
+        lastToken = token;
+        continue;
+      }
 
       final isLastTokenOpenSigil =
           lastToken.value == '^' || lastToken.value == '#';
@@ -89,9 +104,20 @@ class SugestionCubit extends Cubit<SugestionState> {
     modelOcrrBeforeCursor.forEach((key, value) {
       if (value > 0) {
         identifiers.add(key);
-        identifiers.addAll(key.texts);
-        identifiers.addAll(key.boolean);
-        identifiers.addAll(key.subModels);
+        for (final textName in key.textsNames) {
+          final identifier = allVariables[textName];
+          identifiers.add(identifier!);
+        }
+
+        for (final booleanName in key.booleanNames) {
+          final identifier = allVariables[booleanName];
+          identifiers.add(identifier!);
+        }
+
+        for (final subModelName in key.subModelsNames) {
+          final identifier = allVariables[subModelName];
+          identifiers.add(identifier!);
+        }
       }
     });
 

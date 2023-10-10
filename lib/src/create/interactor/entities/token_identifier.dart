@@ -14,8 +14,8 @@ abstract class TokenIdentifier with _$TokenIdentifier {
 
   factory TokenIdentifier.model({
     required String name,
-    required List<TextTokenIdentifier> texts,
-    required List<BooleanTokenIdentifier> boolean,
-    required List<ModelTokenIdentifier> subModels,
+    required List<String> textsNames,
+    required List<String> booleanNames,
+    required List<String> subModelsNames,
   }) = ModelTokenIdentifier;
 }
