@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mustachehub/core/extensions/extensions_screen_breakpoint.dart';
+import 'package:mustachehub/core/navigation/custom_bottom_sheet.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
@@ -24,6 +25,7 @@ class CreateTemplateView extends StatelessWidget {
   Widget build(BuildContext context) {
     final payloadCubit = context.get<PayloadCubit>();
     final contentCubit = context.get<ContentStringCubit>();
+    final variablesCubit = context.get<VariablesCubit>();
     return SetSuggestionWrapper(
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -37,7 +39,21 @@ class CreateTemplateView extends StatelessWidget {
               actions: [
                 if (willShowTestButton)
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showCustomBottomSheet(
+                        context: context,
+                        horizontalPadding: 20,
+                        verticalPadding: 10,
+                        child: TextOutputGeneratorScaffold(
+                          content: contentCubit.state.currentText,
+                          generatorData: ExpectedPayload(
+                            textPipes: variablesCubit.state.textPipes,
+                            booleanPipes: variablesCubit.state.booleanPipes,
+                            modelPipes: variablesCubit.state.modelPipes,
+                          ),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.science_rounded),
                   ),
                 const IconSaveTemplate(),
@@ -76,7 +92,7 @@ class CreateTemplateView extends StatelessWidget {
                       const Expanded(child: TextContentSection()),
                       const VerticalDivider(width: 20),
                       BlocConsumer<VariablesCubit, VariablesState>(
-                        bloc: context.get<VariablesCubit>(),
+                        bloc: variablesCubit,
                         listener: (context, state) {
                           payloadCubit.updateContent(
                             content: contentCubit.state.currentText,
@@ -91,7 +107,7 @@ class CreateTemplateView extends StatelessWidget {
                         builder: (context, variablesState) {
                           return BlocConsumer<ContentStringCubit,
                               ContentStringState>(
-                            bloc: context.get<ContentStringCubit>(),
+                            bloc: contentCubit,
                             listener: (context, state) {
                               payloadCubit.updateContent(
                                 content: state.currentText,

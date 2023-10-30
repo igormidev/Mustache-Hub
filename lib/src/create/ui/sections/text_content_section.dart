@@ -1,15 +1,19 @@
+import 'package:cursor_autocomplete_options/cursor_autocomplete_options.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
-import 'package:mustachehub/core/hooks/debouncer_delay_hook.dart';
+import 'package:mustachehub/core/helpers/debouncer.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/core/navigation/navigation_service.dart';
 import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/fields_text_size_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/sugestion_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
+import 'package:mustachehub/src/create/interactor/entities/token_identifier.dart';
 import 'package:mustachehub/src/create/interactor/input_formaters/add_mustache_delimmiter_input_formater.dart';
 import 'package:mustachehub/src/create/interactor/state/fields_text_size_state.dart';
+import 'package:mustachehub/src/create/interactor/state/sugestion_state.dart';
 import 'package:mustachehub/src/create/interactor/state/variables_state.dart';
 import 'package:mustachehub/src/create/interactor/text_editing_controller/variables_info_highlight_text_editing_controller.dart';
 import 'package:mustachehub/src/create/ui/headers/text_content_header.dart';
@@ -17,38 +21,99 @@ import 'package:mustachehub/src/create/ui/widgets/variables_info_display.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
 import 'package:mustache_template/mustache_template.dart';
 
-class TextContentSection extends HookWidget {
+class TextContentSection extends StatefulWidget {
   const TextContentSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final sizeBloc = context.get<FieldsTextSizeCubit>();
-    final contentCubit = context.get<ContentStringCubit>();
-    final decouncer = useDebouncer(milliseconds: 1000);
-    final sugestionCubit = context.get<SugestionCubit>();
+  State<TextContentSection> createState() => _TextContentSectionState();
+}
 
-    final VariablesController controller = VariablesController(
+class _TextContentSectionState extends State<TextContentSection> {
+  final FocusNode textfieldFocusNode = FocusNode();
+  late final VariablesController controller;
+  final TextEditingController textEditingController = TextEditingController();
+  late final OptionsController<TokenIdentifier> optionsController;
+  final Debouncer decouncer = Debouncer(timerDuration: 800.ms);
+
+  @override
+  void initState() {
+    super.initState();
+
+    final contentCubit = context.get<ContentStringCubit>();
+    controller = VariablesController(
       text: contentCubit.state.currentText,
     );
+
     final varCubit = context.get<VariablesCubit>();
     final vars = _getExpectedVariablesFromState(varCubit.state);
-
     controller.updateExpectedVariables(vars);
+
     final tokens = contentCubit.state.mapOrNull(
       withToken: (v) => v.tokensInIt,
     );
 
     controller.updateTokens(tokens);
-    useEffect(() {
-      return () => controller.dispose();
-    }, const []);
 
-    return BlocListener<VariablesCubit, VariablesState>(
-      bloc: varCubit,
-      listener: (context, state) {
-        final vars = _getExpectedVariablesFromState(state);
-        controller.updateExpectedVariables(vars);
+    optionsController = OptionsController<TokenIdentifier>(
+      textfieldFocusNode: textfieldFocusNode,
+      textEditingController: textEditingController,
+      context: context,
+      optionAsString: (option) => option.name,
+      overlay: Overlay.of(NavigatorService.deshboardContext),
+      onSelectInsertInCursor: (option) {
+        return InsertInCursorPayload(
+          cursorIndexChangeQuantity: option.map(
+            text: (value) => 2,
+            boolean: (value) => -3 - value.name.length,
+            model: (value) => -3 - value.name.length,
+          ),
+          text: option.map(
+            text: (value) {
+              return value.name;
+            },
+            boolean: (value) {
+              return '#${value.name}}}{{\\${value.name}';
+            },
+            model: (value) {
+              return '#${value.name}}}{{\\${value.name}';
+            },
+          ),
+        );
       },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+    optionsController.dispose();
+    decouncer.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final sizeBloc = context.get<FieldsTextSizeCubit>();
+    final contentCubit = context.get<ContentStringCubit>();
+    final varCubit = context.get<VariablesCubit>();
+    final sugestionCubit = context.get<SugestionCubit>();
+
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<VariablesCubit, VariablesState>(
+          bloc: context.get<VariablesCubit>(),
+          listener: (context, state) {
+            final vars = _getExpectedVariablesFromState(state);
+            controller.updateExpectedVariables(vars);
+          },
+        ),
+        BlocListener<SugestionCubit, SugestionState>(
+          bloc: sugestionCubit,
+          listener: (context, state) {
+            // optionsController.updateOptions(options);
+          },
+        ),
+      ],
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Column(
@@ -64,11 +129,15 @@ class TextContentSection extends HookWidget {
               child: BlocBuilder<FieldsTextSizeCubit, FieldsTextSizeState>(
                 bloc: sizeBloc,
                 builder: (context, varState) {
+                  optionsController.updateContext(context);
                   return TextFormField(
-                    controller: controller,
-                    expands: true,
-                    maxLines: null,
+                    focusNode: textfieldFocusNode,
+                    controller: textEditingController,
+                    // expands: true,
+                    // scrollController: ,
+                    maxLines: 10,
                     style: context.texts.bodyLarge?.copyWith(
+                      height: 1,
                       fontSize: varState.testStringTextSize,
                     ),
                     decoration: InputDecoration(
@@ -83,9 +152,10 @@ class TextContentSection extends HookWidget {
                       AddMustacheDelimmiterInputFormatter(
                         sugestionCubit: sugestionCubit,
                         varCubit: varCubit,
+                        optionsController: optionsController,
                       ),
                     ],
-                    onChanged: (final text) {
+                    onChanged: (final String text) {
                       decouncer.resetDebounce(() {
                         try {
                           final parser = Parser(text, null, '{{ }}');

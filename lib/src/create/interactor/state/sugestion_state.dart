@@ -6,8 +6,8 @@ part 'sugestion_state.freezed.dart';
 @freezed
 abstract class SugestionState with _$SugestionState {
   factory SugestionState.withOnlyFlatMapCache({
-    required String availibleVariablesString,
     required Map<String, TokenIdentifier> flatMap,
+    required String availibleVariablesString,
   }) = WithOnlyFlatMapCache;
 
   factory SugestionState.withSugestionAndFlatMapCache({

@@ -25,6 +25,7 @@ class VariablesCreationSection extends StatelessWidget {
                 subtitleSubtitle:
                     'A text variable that the user will need to fill in.',
               ),
+              const SliverToBoxAdapter(child: SizedBox(height: 4)),
               TextVariablesCreationWidget(
                 formKey: formKey,
                 initialList: state.textPipes,
@@ -38,6 +39,7 @@ class VariablesCreationSection extends StatelessWidget {
                   child: Divider(),
                 ),
               ),
+              const SliverToBoxAdapter(child: SizedBox(height: 4)),
               const PipeCreationHeader(
                 headerTitle: 'Boolean variables (True or false)',
                 subtitleSubtitle:

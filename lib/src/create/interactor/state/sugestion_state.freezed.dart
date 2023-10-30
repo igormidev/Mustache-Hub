@@ -16,13 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SugestionState {
-  String get availibleVariablesString => throw _privateConstructorUsedError;
   Map<String, TokenIdentifier> get flatMap =>
       throw _privateConstructorUsedError;
+  String get availibleVariablesString => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)
+    required TResult Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)
         withOnlyFlatMapCache,
     required TResult Function(
             Map<String, TokenIdentifier> flatMap,
@@ -33,8 +33,8 @@ mixin _$SugestionState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)?
+    TResult? Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)?
         withOnlyFlatMapCache,
     TResult? Function(
             Map<String, TokenIdentifier> flatMap,
@@ -45,8 +45,8 @@ mixin _$SugestionState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)?
+    TResult Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)?
         withOnlyFlatMapCache,
     TResult Function(
             Map<String, TokenIdentifier> flatMap,
@@ -88,7 +88,7 @@ abstract class $SugestionStateCopyWith<$Res> {
       _$SugestionStateCopyWithImpl<$Res, SugestionState>;
   @useResult
   $Res call(
-      {String availibleVariablesString, Map<String, TokenIdentifier> flatMap});
+      {Map<String, TokenIdentifier> flatMap, String availibleVariablesString});
 }
 
 /// @nodoc
@@ -104,18 +104,18 @@ class _$SugestionStateCopyWithImpl<$Res, $Val extends SugestionState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? availibleVariablesString = null,
     Object? flatMap = null,
+    Object? availibleVariablesString = null,
   }) {
     return _then(_value.copyWith(
-      availibleVariablesString: null == availibleVariablesString
-          ? _value.availibleVariablesString
-          : availibleVariablesString // ignore: cast_nullable_to_non_nullable
-              as String,
       flatMap: null == flatMap
           ? _value.flatMap
           : flatMap // ignore: cast_nullable_to_non_nullable
               as Map<String, TokenIdentifier>,
+      availibleVariablesString: null == availibleVariablesString
+          ? _value.availibleVariablesString
+          : availibleVariablesString // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -129,7 +129,7 @@ abstract class _$$WithOnlyFlatMapCacheImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String availibleVariablesString, Map<String, TokenIdentifier> flatMap});
+      {Map<String, TokenIdentifier> flatMap, String availibleVariablesString});
 }
 
 /// @nodoc
@@ -143,18 +143,18 @@ class __$$WithOnlyFlatMapCacheImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? availibleVariablesString = null,
     Object? flatMap = null,
+    Object? availibleVariablesString = null,
   }) {
     return _then(_$WithOnlyFlatMapCacheImpl(
-      availibleVariablesString: null == availibleVariablesString
-          ? _value.availibleVariablesString
-          : availibleVariablesString // ignore: cast_nullable_to_non_nullable
-              as String,
       flatMap: null == flatMap
           ? _value._flatMap
           : flatMap // ignore: cast_nullable_to_non_nullable
               as Map<String, TokenIdentifier>,
+      availibleVariablesString: null == availibleVariablesString
+          ? _value.availibleVariablesString
+          : availibleVariablesString // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -163,12 +163,10 @@ class __$$WithOnlyFlatMapCacheImplCopyWithImpl<$Res>
 
 class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
   _$WithOnlyFlatMapCacheImpl(
-      {required this.availibleVariablesString,
-      required final Map<String, TokenIdentifier> flatMap})
+      {required final Map<String, TokenIdentifier> flatMap,
+      required this.availibleVariablesString})
       : _flatMap = flatMap;
 
-  @override
-  final String availibleVariablesString;
   final Map<String, TokenIdentifier> _flatMap;
   @override
   Map<String, TokenIdentifier> get flatMap {
@@ -178,8 +176,11 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
   }
 
   @override
+  final String availibleVariablesString;
+
+  @override
   String toString() {
-    return 'SugestionState.withOnlyFlatMapCache(availibleVariablesString: $availibleVariablesString, flatMap: $flatMap)';
+    return 'SugestionState.withOnlyFlatMapCache(flatMap: $flatMap, availibleVariablesString: $availibleVariablesString)';
   }
 
   @override
@@ -187,15 +188,15 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WithOnlyFlatMapCacheImpl &&
+            const DeepCollectionEquality().equals(other._flatMap, _flatMap) &&
             (identical(
                     other.availibleVariablesString, availibleVariablesString) ||
-                other.availibleVariablesString == availibleVariablesString) &&
-            const DeepCollectionEquality().equals(other._flatMap, _flatMap));
+                other.availibleVariablesString == availibleVariablesString));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, availibleVariablesString,
-      const DeepCollectionEquality().hash(_flatMap));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_flatMap), availibleVariablesString);
 
   @JsonKey(ignore: true)
   @override
@@ -208,8 +209,8 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)
+    required TResult Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)
         withOnlyFlatMapCache,
     required TResult Function(
             Map<String, TokenIdentifier> flatMap,
@@ -217,14 +218,14 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
             Set<TokenIdentifier> tokenIdentifiers)
         withSugestionAndFlatMapCache,
   }) {
-    return withOnlyFlatMapCache(availibleVariablesString, flatMap);
+    return withOnlyFlatMapCache(flatMap, availibleVariablesString);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)?
+    TResult? Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)?
         withOnlyFlatMapCache,
     TResult? Function(
             Map<String, TokenIdentifier> flatMap,
@@ -232,14 +233,14 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
             Set<TokenIdentifier> tokenIdentifiers)?
         withSugestionAndFlatMapCache,
   }) {
-    return withOnlyFlatMapCache?.call(availibleVariablesString, flatMap);
+    return withOnlyFlatMapCache?.call(flatMap, availibleVariablesString);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)?
+    TResult Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)?
         withOnlyFlatMapCache,
     TResult Function(
             Map<String, TokenIdentifier> flatMap,
@@ -249,7 +250,7 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
     required TResult orElse(),
   }) {
     if (withOnlyFlatMapCache != null) {
-      return withOnlyFlatMapCache(availibleVariablesString, flatMap);
+      return withOnlyFlatMapCache(flatMap, availibleVariablesString);
     }
     return orElse();
   }
@@ -288,14 +289,14 @@ class _$WithOnlyFlatMapCacheImpl implements WithOnlyFlatMapCache {
 
 abstract class WithOnlyFlatMapCache implements SugestionState {
   factory WithOnlyFlatMapCache(
-          {required final String availibleVariablesString,
-          required final Map<String, TokenIdentifier> flatMap}) =
+          {required final Map<String, TokenIdentifier> flatMap,
+          required final String availibleVariablesString}) =
       _$WithOnlyFlatMapCacheImpl;
 
   @override
-  String get availibleVariablesString;
-  @override
   Map<String, TokenIdentifier> get flatMap;
+  @override
+  String get availibleVariablesString;
   @override
   @JsonKey(ignore: true)
   _$$WithOnlyFlatMapCacheImplCopyWith<_$WithOnlyFlatMapCacheImpl>
@@ -410,8 +411,8 @@ class _$WithSugestionImpl implements WithSugestion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)
+    required TResult Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)
         withOnlyFlatMapCache,
     required TResult Function(
             Map<String, TokenIdentifier> flatMap,
@@ -426,8 +427,8 @@ class _$WithSugestionImpl implements WithSugestion {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)?
+    TResult? Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)?
         withOnlyFlatMapCache,
     TResult? Function(
             Map<String, TokenIdentifier> flatMap,
@@ -442,8 +443,8 @@ class _$WithSugestionImpl implements WithSugestion {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String availibleVariablesString,
-            Map<String, TokenIdentifier> flatMap)?
+    TResult Function(Map<String, TokenIdentifier> flatMap,
+            String availibleVariablesString)?
         withOnlyFlatMapCache,
     TResult Function(
             Map<String, TokenIdentifier> flatMap,

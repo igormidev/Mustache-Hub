@@ -51,13 +51,13 @@ class SugestionCubit extends Cubit<SugestionState> {
     ));
   }
 
-  void setSuggestionsFromCurrentCursorIndex({
+  Future<void> setSuggestionsFromCurrentCursorIndex({
     required int cursorIndex,
     required List<Token> tokens,
     required final List<TextPipe> textPipes,
     required final List<BooleanPipe> booleanPipes,
     required final List<ModelPipe> modelPipes,
-  }) {
+  }) async {
     // Todo(igor): put isolated in another thread
     final Set<TokenIdentifier> identifiers = {};
 

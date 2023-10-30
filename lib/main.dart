@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mustachehub/core/navigation/app_module.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/core/navigation/navigation_service.dart';
 import 'package:mustachehub/firebase_options.dart';
 import 'package:mustachehub/src/design_system/theme/extensions/button/large_extension.dart';
 import 'package:mustachehub/src/settings/interactor/cubit/theme_cubit.dart';
@@ -40,6 +41,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Modular.setNavigatorKey(NavigatorService.navigatorKey);
+
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -88,6 +91,11 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
+            textSelectionTheme: kIsWeb
+                ? const TextSelectionThemeData(
+                    selectionHandleColor: Colors.transparent,
+                  )
+                : null,
           ),
           routerConfig: Modular.routerConfig,
         );

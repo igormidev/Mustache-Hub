@@ -1,3 +1,4 @@
+import 'package:cursor_autocomplete_options/cursor_autocomplete_options.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mustache_template/mustache_template.dart';
@@ -7,7 +8,9 @@ import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
 class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
   final SugestionCubit sugestionCubit;
   final VariablesCubit varCubit;
+  final OptionsController optionsController;
   AddMustacheDelimmiterInputFormatter({
+    required this.optionsController,
     required this.sugestionCubit,
     required this.varCubit,
   });
@@ -59,7 +62,8 @@ class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
   }
 
   @visibleForTesting
-  void setSuggestionFromCurrentCursor(String newText, int cursorIndex) {
+  Future<void> setSuggestionFromCurrentCursor(
+      String newText, int cursorIndex) async {
     final parser = Parser(newText, null, '{{ }}');
     final tokens = parser.getTokens();
 
@@ -71,12 +75,28 @@ class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
       return;
     }
 
-    sugestionCubit.setSuggestionsFromCurrentCursorIndex(
+    await sugestionCubit.setSuggestionsFromCurrentCursorIndex(
       cursorIndex: cursorIndex,
       tokens: tokens,
       textPipes: varState.textPipes,
       booleanPipes: varState.booleanPipes,
       modelPipes: varState.modelPipes,
+    );
+
+    final state = sugestionCubit.state;
+
+    state.whenOrNull(
+      withSugestionAndFlatMapCache: (
+        flatMap,
+        availibleVariablesString,
+        tokenIdentifiers,
+      ) {
+        if (tokenIdentifiers.isNotEmpty) {
+          optionsController.showOptionsMenu(
+            tokenIdentifiers.map((e) => e).toList(),
+          );
+        }
+      },
     );
   }
 }

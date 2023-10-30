@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mustachehub/core/extensions/extensions_screen_breakpoint.dart';
 import 'package:mustachehub/core/navigation/navigation_extension.dart';
+import 'package:mustachehub/core/navigation/navigation_service.dart';
 import 'package:mustachehub/src/dashboard/interactor/cubits/initial_binding_cubit.dart';
 import 'package:mustachehub/src/dashboard/interactor/cubits/modules_navigation_cubit.dart';
 import 'package:mustachehub/src/dashboard/interactor/cubits/navigation_possibilities_cubit.dart';
@@ -26,6 +27,7 @@ class DashboardMain extends HookWidget {
   Widget build(BuildContext context) {
     final userCubit = context.get<UserCubit>();
     useEffect(() {
+      NavigatorService.deshboardContext = context;
       userCubit.getUser();
       return null;
     }, const []);

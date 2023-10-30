@@ -94,7 +94,10 @@ class BaseVariableCreatorCard<T extends Pipe> extends HookWidget {
                 return editPipeBuilder(pipe, listUpdate, onDeleteItem);
               }
 
-              return pipeBuilder(pipe, onEditSelec);
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3),
+                child: pipeBuilder(pipe, onEditSelec),
+              );
             },
           );
         }

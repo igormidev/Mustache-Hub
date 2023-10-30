@@ -1,9 +1,12 @@
+import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
 import 'package:mustachehub/core/mixins/validators_mixins.dart';
+import 'package:mustachehub/core/navigation/custom_bottom_sheet.dart';
 import 'package:mustachehub/src/create/interactor/cubit/package_form_cubit.dart';
+import 'package:mustachehub/src/design_system/default_widgets/custom_dropdown.dart';
 import 'package:mustachehub/src/design_system/default_widgets/custom_header.dart';
 import 'package:mustachehub/src/design_system/dialogs_api/implementations/show_need_to_log_in_dialog.dart';
 import 'package:mustachehub/src/generate/interactor/entities/package_info.dart';
@@ -18,23 +21,8 @@ class IconSaveTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        showModalBottomSheet(
-          context: context,
-          useSafeArea: false,
-          isScrollControlled: true,
-          constraints: const BoxConstraints(maxWidth: double.maxFinite),
-          builder: (context) {
-            return FractionallySizedBox(
-              heightFactor: 0.8,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(26),
-                ),
-                child: _TemplateSaveFormBottomSheet(),
-              ),
-            );
-          },
-        );
+        showCustomBottomSheet(
+            context: context, child: _TemplateSaveFormBottomSheet());
       },
       tooltip: 'Save template',
       icon: const Icon(
@@ -148,6 +136,8 @@ class _TemplateSaveFormBottomSheet extends HookWidget with ValidatorsMixins {
                 return Text(item.name);
               },
             ),
+            const SizedBox(height: 16),
+            const VersionSelectionSection(),
             const SizedBox(height: 32),
           ],
         ),
@@ -161,79 +151,107 @@ enum PublishType {
   public;
 }
 
-class ListTileDropdown<T> extends StatelessWidget {
-  final Widget Function(T item) itemBuilder;
-  final void Function(T?)? onChanged;
-  final List<T> items;
-  final Widget? hint;
-  final T? initialValue;
+class VersionSelectionSection extends HookWidget {
+  const VersionSelectionSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final majorVersion = useState(1);
+    final minorVersion = useState(0);
+    final patchVersion = useState(0);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            const SizedBox(width: 8),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Package version',
+                  style: context.texts.labelLarge,
+                ),
+                Text(
+                  'Current version: ${majorVersion.value}.${minorVersion.value}.${patchVersion.value}',
+                  style: context.texts.labelMedium?.copyWith(
+                    color: context.scheme.outline,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            CounterVersion(
+              title: 'Major version',
+              initialValue: 1,
+              version: majorVersion,
+            ),
+            const SizedBox(width: 8),
+            CounterVersion(
+              title: 'Minor version',
+              initialValue: 1,
+              version: minorVersion,
+            ),
+            const SizedBox(width: 8),
+            CounterVersion(
+              title: 'Patch version',
+              initialValue: 1,
+              version: patchVersion,
+            ),
+            const SizedBox(width: 8),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CounterVersion extends StatelessWidget {
   final String title;
-  final String? tooltip;
-  const ListTileDropdown({
+  final int initialValue;
+  final ValueNotifier<int> version;
+  const CounterVersion({
     super.key,
     required this.title,
-    required this.items,
-    required this.itemBuilder,
-    this.tooltip,
-    this.hint,
-    this.initialValue,
-    required this.onChanged,
+    required this.initialValue,
+    required this.version,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: context.scheme.primaryContainer,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        children: [
-          if (tooltip != null && (tooltip?.isNotEmpty ?? false)) ...{
-            Tooltip(
-              message: tooltip,
-              child: const Icon(Icons.help),
-            ),
-            const SizedBox(width: 8),
-          },
-          Text(
-            title,
-            style: context.texts.labelLarge,
-          ),
-          const Spacer(),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            decoration: BoxDecoration(
-              color: context.scheme.inversePrimary,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: HookBuilder(builder: (context) {
-              final selectedValue = useState<T?>(initialValue);
-              return DropdownButton<T?>(
-                hint: hint,
-                alignment: Alignment.centerRight,
-                padding: EdgeInsets.zero,
-                isDense: true,
-                borderRadius: BorderRadius.circular(20),
-                // isExpanded: false,
-                underline: SizedBox.fromSize(),
-                items: items.map((item) {
-                  return DropdownMenuItem<T>(
-                    value: item,
-                    alignment: Alignment.center,
-                    child: itemBuilder(item),
-                  );
-                }).toList(),
-                value: selectedValue.value,
-                onChanged: (value) {
-                  selectedValue.value = value;
+    return Column(
+      children: [
+        Text(title),
+        const SizedBox(height: 2),
+        Card(
+          color: Theme.of(context).colorScheme.tertiaryContainer,
+          // color: context.scheme.inversePrimary,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(width: 4),
+              IconButton(
+                onPressed: () {
+                  if (version.value > 0) {
+                    version.value--;
+                  }
                 },
-              );
-            }),
+                icon: const Icon(Icons.remove_rounded),
+              ),
+              AnimatedFlipCounter(
+                duration: const Duration(milliseconds: 500),
+                value: version.value, // pass in a value like 2014
+              ),
+              IconButton(
+                onPressed: () => version.value++,
+                icon: const Icon(Icons.add_rounded),
+              ),
+              const SizedBox(width: 4),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
