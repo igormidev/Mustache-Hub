@@ -59,16 +59,17 @@ class ImplPackageFormRepository implements IPackageFormRepository {
     required Template template,
   }) async {
     try {
+      final updateTemplate = template.copyWith(templateId: histRef.id);
       await _firestore.runTransaction((Transaction transaction) async {
-        transaction //
+        transaction
             .set(packRef, packageInfo.toMap())
-            .set(histRef, template.toMap());
+            .set(histRef, updateTemplate.toMap());
       });
       try {
         await _local.addMapToRoute(
           baseRoute: 'packages/${packRef.id}/history',
-          address: template.versionName,
-          map: template.toMap(),
+          address: updateTemplate.versionName,
+          map: updateTemplate.toMap(),
         );
       } catch (_) {
         return PackageFormState.sucess();

@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB2bXhEmyvjF0aPH7hHghPWIXlekdprTHE',
-    appId: '1:122554410729:web:91c3c3a271b9bb116eb278',
-    messagingSenderId: '122554410729',
-    projectId: 'mustache-hub',
-    authDomain: 'mustache-hub.firebaseapp.com',
-    storageBucket: 'mustache-hub.appspot.com',
-    measurementId: 'G-KHFT65F2T4',
+    apiKey: 'AIzaSyAaWu-l6Lsv77qgMt-LmyRzokbpzGr1QEU',
+    appId: '1:667846746873:web:3fb06a43ef8d4a70acf828',
+    messagingSenderId: '667846746873',
+    projectId: 'mustache-hub---prod',
+    authDomain: 'mustache-hub---prod.firebaseapp.com',
+    storageBucket: 'mustache-hub---prod.appspot.com',
+    measurementId: 'G-E55QTKS460',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDHh0o69f8anhLyxkNJS0hxEIgDk6WIi7E',
-    appId: '1:122554410729:android:fccd009232a73b006eb278',
-    messagingSenderId: '122554410729',
-    projectId: 'mustache-hub',
-    storageBucket: 'mustache-hub.appspot.com',
+    apiKey: 'AIzaSyAi16vDNebhnckeXddhCoppVLgrxkBeNp0',
+    appId: '1:667846746873:android:069a7e70ea09a63facf828',
+    messagingSenderId: '667846746873',
+    projectId: 'mustache-hub---prod',
+    storageBucket: 'mustache-hub---prod.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDqKuLJi5LxhsnzeCOyreOF2gZQ13t2j3c',
-    appId: '1:122554410729:ios:90da4c8ded31a0606eb278',
-    messagingSenderId: '122554410729',
-    projectId: 'mustache-hub',
-    storageBucket: 'mustache-hub.appspot.com',
+    apiKey: 'AIzaSyCcqikagrAqZPoaEAS_B-lWqPC8cvtMmF0',
+    appId: '1:667846746873:ios:b54448d6c054ec30acf828',
+    messagingSenderId: '667846746873',
+    projectId: 'mustache-hub---prod',
+    storageBucket: 'mustache-hub---prod.appspot.com',
     iosBundleId: 'io.mustachehub.mustachehub',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDqKuLJi5LxhsnzeCOyreOF2gZQ13t2j3c',
-    appId: '1:122554410729:ios:bf2f82e2160fe9de6eb278',
-    messagingSenderId: '122554410729',
-    projectId: 'mustache-hub',
-    storageBucket: 'mustache-hub.appspot.com',
+    apiKey: 'AIzaSyCcqikagrAqZPoaEAS_B-lWqPC8cvtMmF0',
+    appId: '1:667846746873:ios:883a92b55b61c78bacf828',
+    messagingSenderId: '667846746873',
+    projectId: 'mustache-hub---prod',
+    storageBucket: 'mustache-hub---prod.appspot.com',
     iosBundleId: 'io.mustachehub.mustachehub.RunnerTests',
   );
 }

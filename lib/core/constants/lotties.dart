@@ -5,4 +5,5 @@ class Lotties {
   static const String success = '$_base/success.json';
   static const String congratulations = '$_base/congratulations.json';
   static const String picture = '$_base/picture.json';
+  static const String mustacheLoading = '$_base/mustache_loading.json';
 }

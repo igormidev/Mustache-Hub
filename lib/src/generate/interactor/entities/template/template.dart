@@ -64,4 +64,22 @@ class Template extends Equatable {
 
   factory Template.fromJson(String source) =>
       Template.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  Template copyWith({
+    String? templateId,
+    String? name,
+    String? description,
+    String? versionName,
+    String? content,
+    ExpectedPayload? expectedPayload,
+  }) {
+    return Template(
+      templateId: templateId ?? this.templateId,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      versionName: versionName ?? this.versionName,
+      content: content ?? this.content,
+      expectedPayload: expectedPayload ?? this.expectedPayload,
+    );
+  }
 }

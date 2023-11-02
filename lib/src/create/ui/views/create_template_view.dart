@@ -12,6 +12,7 @@ import 'package:mustachehub/src/create/ui/pages/create_template_page.dart';
 import 'package:mustachehub/src/create/ui/sections/text_content_section.dart';
 import 'package:mustachehub/src/create/ui/sections/variables_creation_section.dart';
 import 'package:mustachehub/src/create/ui/widgets/create_template_bottom_navigation_bar.dart';
+import 'package:mustachehub/src/create/ui/wrappers/save_package_error_listener.dart';
 import 'package:mustachehub/src/create/ui/wrappers/set_suggestion_wrapper.dart';
 import 'package:mustachehub/src/dashboard/ui/widgets/dashboard_drawer.dart';
 import 'package:mustachehub/src/generate/interactor/cubits/payload_cubit.dart';
@@ -26,125 +27,127 @@ class CreateTemplateView extends StatelessWidget {
     final payloadCubit = context.get<PayloadCubit>();
     final contentCubit = context.get<ContentStringCubit>();
     final variablesCubit = context.get<VariablesCubit>();
-    return SetSuggestionWrapper(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final width = constraints.maxWidth;
-          final willShowTestButton = 750 < width && width <= 1300;
+    return SavePackageErrorListener(
+      child: SetSuggestionWrapper(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final width = constraints.maxWidth;
+            final willShowTestButton = 750 < width && width <= 1300;
 
-          return Scaffold(
-            appBar: AppBar(
-              centerTitle: true,
-              title: const Text('Create mustache template'),
-              actions: [
-                if (willShowTestButton)
-                  IconButton(
-                    onPressed: () {
-                      showCustomBottomSheet(
-                        context: context,
-                        horizontalPadding: 20,
-                        verticalPadding: 10,
-                        child: TextOutputGeneratorScaffold(
-                          content: contentCubit.state.currentText,
-                          generatorData: ExpectedPayload(
-                            textPipes: variablesCubit.state.textPipes,
-                            booleanPipes: variablesCubit.state.booleanPipes,
-                            modelPipes: variablesCubit.state.modelPipes,
-                          ),
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.science_rounded),
-                  ),
-                const IconSaveTemplate(),
-              ],
-            ),
-            drawer: context.whenSizeOrNull(
-              compactSize: const DashboardDrawer(),
-            ),
-            body: Builder(
-              builder: (context) {
-                if (width <= 750) {
-                  return const CreateTemplatePage();
-                } else if (750 < width && width <= 1300) {
-                  return Row(
-                    children: [
-                      Expanded(child: VariablesCreationSection()),
-                      const VerticalDivider(width: 20),
-                      const Expanded(child: TextContentSection()),
-                    ],
-                  );
-                } else if (1300 < width && width <= 1850) {
-                  return Row(
-                    children: [
-                      Expanded(child: VariablesCreationSection()),
-                      const VerticalDivider(width: 20),
-                      const Expanded(child: TextContentSection()),
-                      const VerticalDivider(width: 20),
-                      Expanded(child: Container(color: Colors.green[200])),
-                    ],
-                  );
-                } else {
-                  return Row(
-                    children: [
-                      Expanded(child: VariablesCreationSection()),
-                      const VerticalDivider(width: 20),
-                      const Expanded(child: TextContentSection()),
-                      const VerticalDivider(width: 20),
-                      BlocConsumer<VariablesCubit, VariablesState>(
-                        bloc: variablesCubit,
-                        listener: (context, state) {
-                          payloadCubit.updateContent(
+            return Scaffold(
+              appBar: AppBar(
+                centerTitle: true,
+                title: const Text('Create mustache template'),
+                actions: [
+                  if (willShowTestButton)
+                    IconButton(
+                      onPressed: () {
+                        showCustomBottomSheet(
+                          context: context,
+                          horizontalPadding: 20,
+                          verticalPadding: 10,
+                          child: TextOutputGeneratorScaffold(
                             content: contentCubit.state.currentText,
-                            expectedPayload: ExpectedPayload(
-                              textPipes: state.textPipes,
-                              booleanPipes: state.booleanPipes,
-                              modelPipes: state.modelPipes,
+                            generatorData: ExpectedPayload(
+                              textPipes: variablesCubit.state.textPipes,
+                              booleanPipes: variablesCubit.state.booleanPipes,
+                              modelPipes: variablesCubit.state.modelPipes,
                             ),
-                            expectedPayloadDto: null,
-                          );
-                        },
-                        builder: (context, variablesState) {
-                          return BlocConsumer<ContentStringCubit,
-                              ContentStringState>(
-                            bloc: contentCubit,
-                            listener: (context, state) {
-                              payloadCubit.updateContent(
-                                content: state.currentText,
-                                expectedPayload: ExpectedPayload(
-                                  textPipes: variablesState.textPipes,
-                                  booleanPipes: variablesState.booleanPipes,
-                                  modelPipes: variablesState.modelPipes,
-                                ),
-                                expectedPayloadDto: null,
-                              );
-                            },
-                            builder: (context, contentState) {
-                              return Expanded(
-                                flex: 2,
-                                child: TextOutputGeneratorScaffold(
-                                  content: contentState.currentText,
-                                  generatorData: ExpectedPayload(
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.science_rounded),
+                    ),
+                  const IconSaveTemplate(),
+                ],
+              ),
+              drawer: context.whenSizeOrNull(
+                compactSize: const DashboardDrawer(),
+              ),
+              body: Builder(
+                builder: (context) {
+                  if (width <= 750) {
+                    return const CreateTemplatePage();
+                  } else if (750 < width && width <= 1300) {
+                    return Row(
+                      children: [
+                        Expanded(child: VariablesCreationSection()),
+                        const VerticalDivider(width: 20),
+                        const Expanded(child: TextContentSection()),
+                      ],
+                    );
+                  } else if (1300 < width && width <= 1850) {
+                    return Row(
+                      children: [
+                        Expanded(child: VariablesCreationSection()),
+                        const VerticalDivider(width: 20),
+                        const Expanded(child: TextContentSection()),
+                        const VerticalDivider(width: 20),
+                        Expanded(child: Container(color: Colors.green[200])),
+                      ],
+                    );
+                  } else {
+                    return Row(
+                      children: [
+                        Expanded(child: VariablesCreationSection()),
+                        const VerticalDivider(width: 20),
+                        const Expanded(child: TextContentSection()),
+                        const VerticalDivider(width: 20),
+                        BlocConsumer<VariablesCubit, VariablesState>(
+                          bloc: variablesCubit,
+                          listener: (context, state) {
+                            payloadCubit.updateContent(
+                              content: contentCubit.state.currentText,
+                              expectedPayload: ExpectedPayload(
+                                textPipes: state.textPipes,
+                                booleanPipes: state.booleanPipes,
+                                modelPipes: state.modelPipes,
+                              ),
+                              expectedPayloadDto: null,
+                            );
+                          },
+                          builder: (context, variablesState) {
+                            return BlocConsumer<ContentStringCubit,
+                                ContentStringState>(
+                              bloc: contentCubit,
+                              listener: (context, state) {
+                                payloadCubit.updateContent(
+                                  content: state.currentText,
+                                  expectedPayload: ExpectedPayload(
                                     textPipes: variablesState.textPipes,
                                     booleanPipes: variablesState.booleanPipes,
                                     modelPipes: variablesState.modelPipes,
                                   ),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  );
-                }
-              },
-            ),
-            bottomNavigationBar: width <= 750
-                ? const CreateTemplateBottomNavigationBar()
-                : SizedBox.fromSize(),
-          );
-        },
+                                  expectedPayloadDto: null,
+                                );
+                              },
+                              builder: (context, contentState) {
+                                return Expanded(
+                                  flex: 2,
+                                  child: TextOutputGeneratorScaffold(
+                                    content: contentState.currentText,
+                                    generatorData: ExpectedPayload(
+                                      textPipes: variablesState.textPipes,
+                                      booleanPipes: variablesState.booleanPipes,
+                                      modelPipes: variablesState.modelPipes,
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    );
+                  }
+                },
+              ),
+              bottomNavigationBar: width <= 750
+                  ? const CreateTemplateBottomNavigationBar()
+                  : SizedBox.fromSize(),
+            );
+          },
+        ),
       ),
     );
   }

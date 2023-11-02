@@ -41,63 +41,63 @@ class DashboardDrawer extends StatelessWidget {
                 .indexOf(modulesNavState.selectedPossibility);
 
             return InitialBindCubit(
-                bloc: context.get(),
-                builder: (
-                  BuildContext context,
-                  InitialBindingState state,
-                ) {
-                  return OpacityWidget(
-                    state: state,
-                    child: SizedBox(
-                      width: 225,
-                      child: NavigationDrawer(
-                        selectedIndex: selectedIndex,
-                        onDestinationSelected: (index) {
-                          final ENavigationPossibilities selectedTab =
-                              navPossibilitiesState.possibilities[index];
+              bloc: context.get(),
+              builder: (
+                BuildContext context,
+                InitialBindingState state,
+              ) {
+                return OpacityWidget(
+                  state: state,
+                  child: SizedBox(
+                    width: 225,
+                    child: NavigationDrawer(
+                      selectedIndex: selectedIndex,
+                      onDestinationSelected: (index) {
+                        final ENavigationPossibilities selectedTab =
+                            navPossibilitiesState.possibilities[index];
 
-                          context
-                              .get<ModulesNavigationCubit>()
-                              .selectNavigation(selectedTab);
-                        },
-                        children: [
-                          const SizedBox(height: 20),
-                          InkWell(
-                            onTap: () {
-                              final hasUser = context.user != null;
-                              if (hasUser) {
-                                Scaffold.of(context).closeDrawer();
-                                context
-                                    .get<ModulesNavigationCubit>()
-                                    .selectNavigation(
-                                        ENavigationPossibilities.account);
-                              } else {
-                                context
-                                    .get<ModulesNavigationCubit>()
-                                    .selectNavigation(
-                                        ENavigationPossibilities.login);
-                              }
-                            },
-                            child: const UserDisplayCircleAvatar(
-                              width: 160,
-                              height: 160,
-                            ),
+                        context
+                            .get<ModulesNavigationCubit>()
+                            .selectNavigation(selectedTab);
+                      },
+                      children: [
+                        const SizedBox(height: 20),
+                        InkWell(
+                          onTap: () {
+                            final hasUser = context.user != null;
+                            if (hasUser) {
+                              Scaffold.of(context).closeDrawer();
+                              context
+                                  .get<ModulesNavigationCubit>()
+                                  .selectNavigation(
+                                      ENavigationPossibilities.account);
+                            } else {
+                              context
+                                  .get<ModulesNavigationCubit>()
+                                  .selectNavigation(
+                                      ENavigationPossibilities.login);
+                            }
+                          },
+                          child: const UserDisplayCircleAvatar(
+                            width: 160,
+                            height: 160,
                           ),
-                          const SizedBox(height: 20),
-                          ...navPossibilitiesState.possibilities
-                              .map((navOption) {
-                            return NavigationDrawerDestination(
-                              icon: Icon(navOption.unselectedIcon),
-                              selectedIcon: Icon(navOption.selectedIcon),
-                              label: Text(navOption.fullName()),
-                            );
-                          }).toList(),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 20),
+                        ...navPossibilitiesState.possibilities.map((navOption) {
+                          return NavigationDrawerDestination(
+                            icon: Icon(navOption.unselectedIcon),
+                            selectedIcon: Icon(navOption.selectedIcon),
+                            label: Text(navOption.fullName()),
+                          );
+                        }).toList(),
+                        const SizedBox(height: 20),
+                      ],
                     ),
-                  );
-                });
+                  ),
+                );
+              },
+            );
           },
         );
       },

@@ -24,42 +24,45 @@ class BooleanPipeForm extends StatelessWidget {
     final bloc = context.get<PayloadCubit>();
 
     return BlocBuilder<PayloadCubit, PayloadState>(
-        bloc: context.get<PayloadCubit>(),
-        buildWhen: (prev, curr) {
-          final prevDtos = prev.expectedPayloadDto?.booleanDtos;
-          final currDtos = curr.expectedPayloadDto?.booleanDtos;
-          if (prevDtos == null || currDtos == null) return true;
-          return listEquals(prevDtos, currDtos) == false;
-        },
-        builder: (context, state) {
-          final pipes =
-              state.expectedPayloadDto?.booleanDtos ?? <BooleanPipeDto>[];
+      bloc: context.get<PayloadCubit>(),
+      buildWhen: (prev, curr) {
+        final prevDtos = prev.expectedPayloadDto?.booleanDtos;
+        final currDtos = curr.expectedPayloadDto?.booleanDtos;
+        if (prevDtos == null || currDtos == null) return true;
+        return listEquals(prevDtos, currDtos) == false;
+      },
+      builder: (context, state) {
+        final pipes =
+            state.expectedPayloadDto?.booleanDtos ?? <BooleanPipeDto>[];
 
-          if (pipes.isEmpty) return SizedBox.fromSize();
+        if (pipes.isEmpty) return SizedBox.fromSize();
 
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CustomHeader(headerTitle: 'Boolean variables'),
-              Wrap(
-                children: pipes.map((pipe) {
-                  return BoleanSwitch(
-                    pipeDto: pipe,
-                    onChangedCallback: (value) async {
-                      return await bloc.addBooleanPayloadValue(
-                        content: content,
-                        expectedPayload: expectedPayload,
-                        pipe: pipe.pipe,
-                        value: value,
-                      );
-                    },
-                  );
-                }).toList(),
-              ),
-            ],
-          );
-        });
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CustomHeader(headerTitle: 'Boolean variables'),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              children: pipes.map((BooleanPipeDto pipe) {
+                return BoleanSwitch(
+                  pipeDto: pipe,
+                  onChangedCallback: (value) async {
+                    return await bloc.addBooleanPayloadValue(
+                      content: content,
+                      expectedPayload: expectedPayload,
+                      pipe: pipe.pipe,
+                      value: value,
+                    );
+                  },
+                );
+              }).toList(),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 
@@ -76,39 +79,46 @@ class BoleanSwitch extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final state = useState(pipeDto.payloadValue);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Tooltip(
-          message: pipeDto.pipe.description,
-          child: Icon(
-            Icons.info,
-            color: context.scheme.secondary,
-          ),
-        ),
-        const SizedBox(width: 4),
-        InkWell(
-          onTap: () {
-            final choosedValue = !state.value;
-            state.value = choosedValue;
-            onChangedCallback(choosedValue);
-          },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(pipeDto.pipe.name),
-              const SizedBox(width: 4),
-              IgnorePointer(
-                child: Checkbox(
-                  activeColor: context.scheme.primary,
-                  value: state.value,
-                  onChanged: (_) {},
-                ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: ColoredBox(
+        color: context.scheme.secondaryContainer,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(width: 8),
+            Tooltip(
+              message: pipeDto.pipe.description,
+              child: Icon(
+                Icons.info,
+                color: context.scheme.secondary,
               ),
-            ],
-          ),
+            ),
+            const SizedBox(width: 4),
+            InkWell(
+              onTap: () {
+                final choosedValue = !state.value;
+                state.value = choosedValue;
+                onChangedCallback(choosedValue);
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(pipeDto.pipe.name),
+                  const SizedBox(width: 4),
+                  IgnorePointer(
+                    child: Checkbox(
+                      activeColor: context.scheme.primary,
+                      value: state.value,
+                      onChanged: (_) {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

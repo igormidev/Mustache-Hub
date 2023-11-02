@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mustachehub/core/extensions/extensions_screen_breakpoint.dart';
 import 'package:mustachehub/core/helpers/local_source.dart';
+import 'package:mustachehub/core/navigation/navigation_extension.dart';
 import 'package:mustachehub/core/navigation/navigator.dart';
 import 'package:mustachehub/src/account/data/repositories/image_repository_impl.dart';
 import 'package:mustachehub/src/account/interactor/cubit/image_selector_cubit.dart';
@@ -26,10 +27,13 @@ import 'package:mustachehub/src/create/interactor/cubit/content_string_cubit.dar
 import 'package:mustachehub/src/create/interactor/cubit/create_tab_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/fields_text_size_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/package_form_cubit.dart';
+import 'package:mustachehub/src/create/interactor/cubit/package_meta_data_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/sugestion_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
+import 'package:mustachehub/src/create/interactor/cubit/version_cubit.dart';
 import 'package:mustachehub/src/create/interactor/repositories/i_package_form_repository.dart';
 import 'package:mustachehub/src/create/ui/views/create_template_view.dart';
+import 'package:mustachehub/src/dashboard/interactor/cubits/global_loading_cubit.dart';
 import 'package:mustachehub/src/dashboard/interactor/cubits/initial_binding_cubit.dart';
 import 'package:mustachehub/src/dashboard/interactor/cubits/modules_navigation_cubit.dart';
 import 'package:mustachehub/src/dashboard/interactor/cubits/navigation_possibilities_cubit.dart';
@@ -66,6 +70,7 @@ class AppModule extends Module {
       ..addSingleton<UserStatsCubit>(UserStatsCubit.new)
       ..addSingleton<MyNavigator>(MyNavigator.new)
       ..addSingleton<ThemeCubit>(ThemeCubit.new)
+      ..addSingleton<GlobalLoadingCubit>(GlobalLoadingCubit.new)
       ..addSingleton<UserCubit>(UserCubit.new);
   }
 
@@ -96,7 +101,7 @@ class AppModule extends Module {
             drawer: context.whenSizeOrNull(
               compactSize: const DashboardDrawer(),
             ),
-            body: const MyHomePage(),
+            body: const MyTreeView(),
           ),
         ),
         ModuleRoute('/generate', module: GenerateModule()),
@@ -164,6 +169,8 @@ class CreateModule extends Module {
       ..addSingleton<PackageFormCubit>(PackageFormCubit.new)
       ..addSingleton<FieldsTextSizeCubit>(FieldsTextSizeCubit.new)
       ..addSingleton<VariablesCubit>(VariablesCubit.new)
+      ..addSingleton<VersionCubit>(VersionCubit.new)
+      ..addSingleton<PackageMetaDataCubit>(PackageMetaDataCubit.new)
       ..addSingleton<SugestionCubit>(SugestionCubit.new)
 
       // Generate blocs
@@ -177,7 +184,19 @@ class CreateModule extends Module {
     r.add(
       ChildRoute(
         '/template',
-        child: (context) => const CreateTemplateView(),
+        child: (context) {
+          final id = r.args.queryParams['id'];
+          final version = r.args.queryParams['version'];
+
+          final metaCubit = context.get<PackageMetaDataCubit>();
+          if (id != null && version != null) {
+            metaCubit.setPackageId(id, version);
+          } else {
+            metaCubit.setPackageIdToNew();
+          }
+
+          return const CreateTemplateView();
+        },
       ),
     );
   }

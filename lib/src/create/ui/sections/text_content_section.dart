@@ -17,7 +17,6 @@ import 'package:mustachehub/src/create/interactor/state/sugestion_state.dart';
 import 'package:mustachehub/src/create/interactor/state/variables_state.dart';
 import 'package:mustachehub/src/create/interactor/text_editing_controller/variables_info_highlight_text_editing_controller.dart';
 import 'package:mustachehub/src/create/ui/headers/text_content_header.dart';
-import 'package:mustachehub/src/create/ui/widgets/variables_info_display.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
 import 'package:mustache_template/mustache_template.dart';
 
@@ -69,13 +68,22 @@ class _TextContentSectionState extends State<TextContentSection> {
           ),
           text: option.map(
             text: (value) {
+              Future.delayed(const Duration(milliseconds: 800), () {
+                _notifyContentCubit(contentCubit, textEditingController.text);
+              });
               return value.name;
             },
             boolean: (value) {
-              return '#${value.name}}}{{\\${value.name}';
+              Future.delayed(const Duration(milliseconds: 800), () {
+                _notifyContentCubit(contentCubit, textEditingController.text);
+              });
+              return '#${value.name}}}{{/${value.name}';
             },
             model: (value) {
-              return '#${value.name}}}{{\\${value.name}';
+              Future.delayed(const Duration(milliseconds: 800), () {
+                _notifyContentCubit(contentCubit, textEditingController.text);
+              });
+              return '#${value.name}}}{{/${value.name}';
             },
           ),
         );
@@ -123,8 +131,6 @@ class _TextContentSectionState extends State<TextContentSection> {
               debouncer: decouncer,
             ),
             const SizedBox(height: 8),
-            const VariablesInfoDisplay(),
-            const SizedBox(height: 8),
             Expanded(
               child: BlocBuilder<FieldsTextSizeCubit, FieldsTextSizeState>(
                 bloc: sizeBloc,
@@ -157,20 +163,7 @@ class _TextContentSectionState extends State<TextContentSection> {
                     ],
                     onChanged: (final String text) {
                       decouncer.resetDebounce(() {
-                        try {
-                          final parser = Parser(text, null, '{{ }}');
-                          final tokens = parser.getTokens();
-                          controller.updateTokens(tokens);
-                          contentCubit.registerTextWithTokens(
-                            newText: text,
-                            tokens: tokens,
-                          );
-                        } catch (_, __) {
-                          controller.updateTokens(null);
-                          contentCubit.registerNormalText(
-                            newText: text,
-                          );
-                        }
+                        _notifyContentCubit(contentCubit, text);
                       });
                     },
                   );
@@ -181,6 +174,23 @@ class _TextContentSectionState extends State<TextContentSection> {
         ),
       ),
     );
+  }
+
+  void _notifyContentCubit(ContentStringCubit contentCubit, String text) {
+    try {
+      final parser = Parser(text, null, '{{ }}');
+      final tokens = parser.getTokens();
+      controller.updateTokens(tokens);
+      contentCubit.registerTextWithTokens(
+        newText: text,
+        tokens: tokens,
+      );
+    } catch (_, __) {
+      controller.updateTokens(null);
+      contentCubit.registerNormalText(
+        newText: text,
+      );
+    }
   }
 
   List<String> _getExpectedVariablesFromState(VariablesState state) {

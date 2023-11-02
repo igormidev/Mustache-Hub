@@ -83,53 +83,54 @@ class TextPipeForm extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             BlocBuilder<FormStatsCubit, FormStatsState>(
-                bloc: context.get<FormStatsCubit>(),
-                builder: (context, state) {
-                  return LayoutBuilder(
-                    builder: (context, constraints) {
-                      int groupSplit;
-                      if (state.textGridSize != null) {
-                        groupSplit = state.textGridSize!;
+              bloc: context.get<FormStatsCubit>(),
+              builder: (context, state) {
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    int groupSplit;
+                    if (state.textGridSize != null) {
+                      groupSplit = state.textGridSize!;
+                    } else {
+                      if (constraints.maxWidth <= 600) {
+                        groupSplit = 1;
                       } else {
-                        if (constraints.maxWidth <= 600) {
-                          groupSplit = 1;
-                        } else {
-                          groupSplit = 2;
-                        }
+                        groupSplit = 2;
                       }
+                    }
 
-                      return Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ...pipes
-                              .splitIntoGroups(groupSplit)
-                              .map((pipesCluster) {
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Row(
-                                children: pipesCluster.map((pipe) {
-                                  return Expanded(
-                                    child: TextPipeTextfield(
-                                      pipeDto: pipe,
-                                      onChangedCallback: (text) async {
-                                        return await bloc.addTextPayloadValue(
-                                          content: content,
-                                          generatorData: expectedPayload,
-                                          pipe: pipe.pipe,
-                                          value: text,
-                                        );
-                                      },
-                                    ),
-                                  );
-                                }).toList(),
-                              ),
-                            );
-                          }),
-                        ],
-                      );
-                    },
-                  );
-                }),
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ...pipes
+                            .splitIntoGroups(groupSplit)
+                            .map((List<TextPipeDto> pipesCluster) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Row(
+                              children: pipesCluster.map((pipe) {
+                                return Expanded(
+                                  child: TextPipeTextfield(
+                                    pipeDto: pipe,
+                                    onChangedCallback: (text) async {
+                                      return await bloc.addTextPayloadValue(
+                                        content: content,
+                                        generatorData: expectedPayload,
+                                        pipe: pipe.pipe,
+                                        value: text,
+                                      );
+                                    },
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          );
+                        }),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
           ],
         );
       },
