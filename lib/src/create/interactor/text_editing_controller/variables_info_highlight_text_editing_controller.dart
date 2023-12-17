@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mustachex/mustachex.dart';
 import 'package:mustachehub/core/extensions/context_extensions.dart';
-import 'package:mustache_template/mustache_template.dart';
 
 class VariablesController extends TextEditingController {
   VariablesController({super.text});

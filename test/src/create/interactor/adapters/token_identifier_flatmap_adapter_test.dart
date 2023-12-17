@@ -1,9 +1,7 @@
-import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_flatmap_adapter.dart';
 import 'package:mustachehub/src/create/interactor/entities/token_identifier.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
-import 'package:uuid/uuid.dart';
 
 void main() {
   final tokenAdapter = TokenIdentifierFlatMapAdapter();
@@ -22,19 +20,6 @@ void main() {
     });
 
     // tokenAdapter.flatModelPipe();
-  });
-}
-
-void mockBool() {
-  final Faker faker = Faker();
-  List.generate(10, (_) {
-    final text = '''BooleanPipe(
-  name: "${faker.lorem.word()}",
-  description: "${faker.lorem.sentence()}",
-  mustacheName: "${faker.lorem.word()}",
-  pipeId: "${const Uuid().v4()}",
-),''';
-    print(text);
   });
 }
 

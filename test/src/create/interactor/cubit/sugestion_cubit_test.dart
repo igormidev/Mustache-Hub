@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mustache_template/mustache_template.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_flatmap_adapter.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_text_display_adapter.dart';
 import 'package:mustachehub/src/create/interactor/cubit/sugestion_cubit.dart';
 import 'package:mustachehub/src/create/interactor/entities/token_identifier.dart';
 import 'package:mustachehub/src/create/interactor/state/sugestion_state.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
+import 'package:mustachex/mustachex.dart';
 
 void main() {
   late SugestionCubit cubit;

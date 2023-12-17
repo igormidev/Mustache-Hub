@@ -17,7 +17,7 @@
         "**/.metadata": true,
         // "**/analysis_options.yaml": true,
         "**/pubspec.lock": true,
-        "**/.gitignore": true, 
+        // "**/.gitignore": true, 
         "**/*.iml": true, 
         "**/LICENSE": true, 
         "**/CHANGELOG.md": true, 
@@ -25,7 +25,7 @@
         "**/.flutter-plugins-dependencies": true 
     },
     "editor.codeActionsOnSave": {
-        "source.fixAll": true
+        "source.fixAll": "explicit"
     },
     "[dart]": {
         "editor.defaultFormatter": "Dart-Code.dart-code",

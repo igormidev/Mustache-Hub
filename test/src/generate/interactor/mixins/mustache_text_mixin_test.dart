@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mason/mason.dart';
-import 'package:mustache_template/mustache_template.dart';
+
+import 'package:mustachex/mustachex.dart';
 
 void main() {
   const content = r'''{{^isMale}}SIM{{/isMale}}
@@ -8,11 +10,18 @@ ________________________
 ''';
   test('Should go right', () {
     final value = content.render(payload);
-    print(value);
+    if (kDebugMode) {
+      print(value);
+    }
 
     final parser = Parser(content, null, '{{ }}');
+
+    final processor = MustachexProcessor(initialVariables: payload);
+    processor.process(content);
     final tokens = parser.getTokens();
-    print(tokens);
+    if (kDebugMode) {
+      print(tokens);
+    }
   });
 }
 

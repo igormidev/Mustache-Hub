@@ -7,7 +7,7 @@ analyzer:
     - '**.g.dart'
     - '**.gr.dart'
     - '**/generated_plugin_registrant.dart'
-    - 'packages/mustache/**' 
+    - 'packages/mustachex/**' 
     - 'packages/mason/**' 
  
 linter:

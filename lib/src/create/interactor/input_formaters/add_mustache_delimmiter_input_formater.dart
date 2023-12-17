@@ -1,9 +1,9 @@
 import 'package:cursor_autocomplete_options/cursor_autocomplete_options.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mustache_template/mustache_template.dart';
 import 'package:mustachehub/src/create/interactor/cubit/sugestion_cubit.dart';
 import 'package:mustachehub/src/create/interactor/cubit/variables_cubit.dart';
+import 'package:mustachex/mustachex.dart';
 
 class AddMustacheDelimmiterInputFormatter extends TextInputFormatter {
   final SugestionCubit sugestionCubit;

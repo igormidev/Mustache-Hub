@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mustache_template/mustache_template.dart';
+import 'package:mustachex/mustachex.dart';
 
 part 'content_string_state.freezed.dart';
 part 'content_string_state.g.dart';

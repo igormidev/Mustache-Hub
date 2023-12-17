@@ -57,10 +57,10 @@ class AccountImageSelectPage extends StatelessWidget {
       }
     }
 
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (didPop) {
         cubit.resetState();
-        return true;
       },
       child: BlocListener<ImageSelectorCubit, ImageSelectorState>(
         bloc: cubit,

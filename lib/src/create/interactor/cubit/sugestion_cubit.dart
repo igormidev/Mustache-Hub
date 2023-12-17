@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mustache_template/mustache_template.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_flatmap_adapter.dart';
 import 'package:mustachehub/src/create/interactor/adapters/token_identifier_text_display_adapter.dart';
 import 'package:mustachehub/src/create/interactor/entities/token_identifier.dart';
 import 'package:mustachehub/src/create/interactor/state/sugestion_state.dart';
 import 'package:mustachehub/src/generate/interactor/entities/template/pipe.dart';
+import 'package:mustachex/mustache.dart';
 
 class SugestionCubit extends Cubit<SugestionState> {
   final TokenIdentifierFlatMapAdapter _tokenIdentifierFlatMapAdapter;
