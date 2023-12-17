@@ -7,8 +7,8 @@ analyzer:
     - '**.g.dart'
     - '**.gr.dart'
     - '**/generated_plugin_registrant.dart'
-    - 'packages/mustachex/**' 
-    - 'packages/mason/**' 
+    - 'cloned_apis/mustachex/**' 
+    - 'cloned_apis/mason/**' 
  
 linter:
   rules:
